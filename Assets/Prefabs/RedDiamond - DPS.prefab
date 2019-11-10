@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8236922139565013379
+--- !u!1 &8505710557030623285
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,48 +8,49 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8236922139565013383}
-  - component: {fileID: 8236922139565013382}
-  - component: {fileID: 8236922139565013381}
-  - component: {fileID: 8236922139565013380}
-  - component: {fileID: 8236922139565013384}
-  - component: {fileID: 8236922139565013385}
+  - component: {fileID: 8505710557030623281}
+  - component: {fileID: 8505710557030623286}
+  - component: {fileID: 8505710557030623287}
+  - component: {fileID: 8505710557030623284}
+  - component: {fileID: 8505710557030623280}
+  - component: {fileID: 8505710557030623283}
+  - component: {fileID: -2323132707156181116}
   m_Layer: 0
-  m_Name: RedSphere
+  m_Name: RedDiamond - DPS
   m_TagString: Red
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8236922139565013383
+--- !u!4 &8505710557030623281
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8236922139565013379}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.19, y: 3.62, z: -1.1285805}
+  m_GameObject: {fileID: 8505710557030623285}
+  m_LocalRotation: {x: 0, y: 0, z: 0.38268343, w: 0.92387956}
+  m_LocalPosition: {x: -7.34, y: -1.35, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &8236922139565013382
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 45}
+--- !u!33 &8505710557030623286
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8236922139565013379}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &8236922139565013381
+  m_GameObject: {fileID: 8505710557030623285}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &8505710557030623287
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8236922139565013379}
+  m_GameObject: {fileID: 8505710557030623285}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -81,14 +82,14 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!50 &8236922139565013380
+--- !u!50 &8505710557030623284
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8236922139565013379}
+  m_GameObject: {fileID: 8505710557030623285}
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
@@ -102,33 +103,46 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &8236922139565013384
+--- !u!114 &8505710557030623280
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8236922139565013379}
+  m_GameObject: {fileID: 8505710557030623285}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 57527709e01813043a90a32bf61a2a45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
---- !u!114 &8236922139565013385
+  speed: 4
+--- !u!114 &8505710557030623283
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8236922139565013379}
+  m_GameObject: {fileID: 8505710557030623285}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4b0ce10ba1de5194cb07dc56bd422a12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 60
-  attackDamage: 5
+  maxHealth: 75
+  attackDamage: 15
   globalCooldown: 3
-  combatType: Healer
+  role: DPS
   team: Red
+  range: 3
+--- !u!114 &-2323132707156181116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8505710557030623285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9b4c264bb75e7d478fe89866e76bcf8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
