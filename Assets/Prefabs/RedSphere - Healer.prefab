@@ -133,7 +133,7 @@ MonoBehaviour:
   globalCooldown: 3
   role: Healer
   team: Red
-  range: 2
+  range: 1
 --- !u!114 &-7669877901593158777
 MonoBehaviour:
   m_ObjectHideFlags: 0

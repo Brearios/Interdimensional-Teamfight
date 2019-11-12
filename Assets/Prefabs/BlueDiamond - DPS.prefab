@@ -132,7 +132,7 @@ MonoBehaviour:
   globalCooldown: 2
   role: DPS
   team: Blue
-  range: 4
+  range: 1
 --- !u!114 &2434808821140724404
 MonoBehaviour:
   m_ObjectHideFlags: 0

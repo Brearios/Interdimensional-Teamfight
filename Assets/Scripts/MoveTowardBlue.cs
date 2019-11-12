@@ -11,23 +11,30 @@ public class MoveTowardBlue : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float distanceToClosestBlue = Mathf.Infinity;
-        Blue closestBlue = null;
-        Blue[] allBlues = GameObject.FindObjectsOfType<Blue>();
-
-        foreach (Blue currentBlue in allBlues)
+        if (GameManager.Instance.IsRunning == false)
         {
-            float distanceToBlue = (currentBlue.transform.position - transform.position).sqrMagnitude;
-            if (distanceToBlue < distanceToClosestBlue)
-            {
-                distanceToClosestBlue = distanceToBlue;
-                closestBlue = currentBlue;
-            }
+            return;
         }
-
-        // while (Vector3.Distance(closestBlue.transform.position - transform.position) > gameObject.GetComponent.<Actor>.range
+        else
         {
-            transform.position = Vector2.MoveTowards(transform.position, closestBlue.transform.position, speed * Time.deltaTime);
+            float distanceToClosestBlue = Mathf.Infinity;
+            Blue closestBlue = null;
+            Blue[] allBlues = GameObject.FindObjectsOfType<Blue>();
+
+            foreach (Blue currentBlue in allBlues)
+            {
+                float distanceToBlue = (currentBlue.transform.position - transform.position).sqrMagnitude;
+                if (distanceToBlue < distanceToClosestBlue)
+                {
+                    distanceToClosestBlue = distanceToBlue;
+                    closestBlue = currentBlue;
+                }
+            }
+
+            // while (Vector3.Distance(closestBlue.transform.position - transform.position) > gameObject.GetComponent.<Actor>.range
+            {
+                transform.position = Vector2.MoveTowards(transform.position, closestBlue.transform.position, speed * Time.deltaTime);
+            }
         }
     }    
 }
