@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -16,6 +16,8 @@ public class Actor : MonoBehaviour
     public float speed;
     public Team team = Team.Neutral;
     public State currentState = State.Idle;
+
+    public Actor target;
     
 
     // Start is called before the first frame update
@@ -30,11 +32,46 @@ public class Actor : MonoBehaviour
         {
             return;
         }
+
+        if (currentState == State.Idle)
+        {
+            FindNearestEnemy();
+        }
+
+        var targetInRange = false;
+        if (target != null)
+        {
+            // This func should determine if we're in range of our target. Return a boolean
+            // which will control our flow in the rest of the update loop.
+            // targetInRange = CheckTargetRange();
+        }
+
+        if (targetInRange)
+        {
+            if (currentState != State.Attacking)
+            {
+                // This func should set the currentState to attacking and then start the attack timer
+                // StartAttacking();
+            }
+            else
+            {
+                // Update the attack timer, and if the timer is up, perform an attack
+                // UpdateAttackLoop();
+            }
+        }
         else
         {
+            MoveTowardsTarget();
+        }
+
+    }
+
+    void FindNearestEnemy ()
+    {
+        Actor[] allActors = GameObject.FindObjectsOfType<Actor>();
+
             float distanceToClosestActor = Mathf.Infinity;
             Actor closestActor = null;
-            Actor[] allActors = GameObject.FindObjectsOfType<Actor>();
 
             foreach (Actor currentActor in allActors)
             {
@@ -52,10 +89,15 @@ public class Actor : MonoBehaviour
                     }
                 }
 
-                {
-                    transform.position = Vector2.MoveTowards(transform.position, closestActor.transform.position, speed * Time.deltaTime);
-                }
             }
-        }
+
+    }
+
+    void MoveTowardsTarget ()
+    {
+        // It's OK if we set this every frame even if we're already moving.
+        currentState = State.Moving; 
+
+        transform.position = Vector2.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime);
     }
 }
