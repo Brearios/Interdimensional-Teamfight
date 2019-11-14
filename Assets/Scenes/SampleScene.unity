@@ -133,7 +133,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 149724360}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b9b4c264bb75e7d478fe89866e76bcf8, type: 3}
   m_Name: 
@@ -234,7 +234,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 902579511}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 99de0f67e3f41f4498a4b80a873e616d, type: 3}
   m_Name: 
@@ -247,7 +247,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 902579511}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f911e6953ae390a4881e1a3972f0100a, type: 3}
   m_Name: 
@@ -309,7 +309,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1256187524}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b9b4c264bb75e7d478fe89866e76bcf8, type: 3}
   m_Name: 
@@ -419,7 +419,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2061142563}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b9b4c264bb75e7d478fe89866e76bcf8, type: 3}
   m_Name: 
@@ -435,6 +435,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BlueSquare - Tank
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017191182664253497, guid: 0b1ca5aa2d795b044bfea82c09de453e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017191182664253497, guid: 0b1ca5aa2d795b044bfea82c09de453e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 1017191182664253503, guid: 0b1ca5aa2d795b044bfea82c09de453e,
         type: 3}
@@ -501,6 +511,16 @@ PrefabInstance:
       propertyPath: range
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1017191182664253496, guid: 0b1ca5aa2d795b044bfea82c09de453e,
+        type: 3}
+      propertyPath: speed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -1789814589205907696, guid: 0b1ca5aa2d795b044bfea82c09de453e,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1017191182664253498, guid: 0b1ca5aa2d795b044bfea82c09de453e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0b1ca5aa2d795b044bfea82c09de453e, type: 3}
@@ -517,7 +537,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1017191182789670026}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 99de0f67e3f41f4498a4b80a873e616d, type: 3}
   m_Name: 
@@ -534,6 +554,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BlueDiamond - DPS
+      objectReference: {fileID: 0}
+    - target: {fileID: 3670351322250228937, guid: 066e7b27769171f4aa5743a70a0a1c02,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 3670351322250228941, guid: 066e7b27769171f4aa5743a70a0a1c02,
         type: 3}
@@ -600,6 +625,16 @@ PrefabInstance:
       propertyPath: range
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3670351322250228931, guid: 066e7b27769171f4aa5743a70a0a1c02,
+        type: 3}
+      propertyPath: speed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2434808821140724404, guid: 066e7b27769171f4aa5743a70a0a1c02,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3670351322250228940, guid: 066e7b27769171f4aa5743a70a0a1c02, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 066e7b27769171f4aa5743a70a0a1c02, type: 3}
@@ -616,7 +651,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3670351321368373308}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 99de0f67e3f41f4498a4b80a873e616d, type: 3}
   m_Name: 
@@ -633,6 +668,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RedSphere - Healer
+      objectReference: {fileID: 0}
+    - target: {fileID: 6711768639029907517, guid: a71de5fc6e556454b96e741fe877aa67,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6711768639029907517, guid: a71de5fc6e556454b96e741fe877aa67,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 6711768639029907513, guid: a71de5fc6e556454b96e741fe877aa67,
         type: 3}
@@ -694,6 +739,16 @@ PrefabInstance:
       propertyPath: range
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6711768639029907511, guid: a71de5fc6e556454b96e741fe877aa67,
+        type: 3}
+      propertyPath: speed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6711768639029907510, guid: a71de5fc6e556454b96e741fe877aa67,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: -7669877901593158777, guid: a71de5fc6e556454b96e741fe877aa67, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a71de5fc6e556454b96e741fe877aa67, type: 3}
@@ -708,6 +763,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BlueSphere - Healer
+      objectReference: {fileID: 0}
+    - target: {fileID: 6851389719858468833, guid: ca6af157e087e59439b3bd8ed8f0a7dd,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6851389719858468833, guid: ca6af157e087e59439b3bd8ed8f0a7dd,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 6851389719858468842, guid: ca6af157e087e59439b3bd8ed8f0a7dd,
         type: 3}
@@ -774,6 +839,11 @@ PrefabInstance:
       propertyPath: range
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6851389719858468846, guid: ca6af157e087e59439b3bd8ed8f0a7dd,
+        type: 3}
+      propertyPath: speed
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: -9062134806908256162, guid: ca6af157e087e59439b3bd8ed8f0a7dd, type: 3}
     - {fileID: 6851389719858468843, guid: ca6af157e087e59439b3bd8ed8f0a7dd, type: 3}
@@ -790,15 +860,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: RedSquare - Tank
       objectReference: {fileID: 0}
+    - target: {fileID: 8051840002157771950, guid: c42ecc359b9553746bf0a9f625296e46,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8051840002157771950, guid: c42ecc359b9553746bf0a9f625296e46,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 8051840002157771936, guid: c42ecc359b9553746bf0a9f625296e46,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.32
+      value: -4.75
       objectReference: {fileID: 0}
     - target: {fileID: 8051840002157771936, guid: c42ecc359b9553746bf0a9f625296e46,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.63
+      value: -3.57
       objectReference: {fileID: 0}
     - target: {fileID: 8051840002157771936, guid: c42ecc359b9553746bf0a9f625296e46,
         type: 3}
@@ -850,6 +930,16 @@ PrefabInstance:
       propertyPath: range
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8051840002157771951, guid: c42ecc359b9553746bf0a9f625296e46,
+        type: 3}
+      propertyPath: speed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8051840002157771948, guid: c42ecc359b9553746bf0a9f625296e46,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: -4665275748810602782, guid: c42ecc359b9553746bf0a9f625296e46, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c42ecc359b9553746bf0a9f625296e46, type: 3}
@@ -865,15 +955,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: RedDiamond - DPS
       objectReference: {fileID: 0}
+    - target: {fileID: 8505710557030623285, guid: 79badf844dc60e24eb66094fc1fb4daf,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8505710557030623285, guid: 79badf844dc60e24eb66094fc1fb4daf,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 8505710557030623281, guid: 79badf844dc60e24eb66094fc1fb4daf,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.26
+      value: -6.34
       objectReference: {fileID: 0}
     - target: {fileID: 8505710557030623281, guid: 79badf844dc60e24eb66094fc1fb4daf,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.27
+      value: -0.02
       objectReference: {fileID: 0}
     - target: {fileID: 8505710557030623281, guid: 79badf844dc60e24eb66094fc1fb4daf,
         type: 3}
@@ -924,6 +1024,16 @@ PrefabInstance:
         type: 3}
       propertyPath: range
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8505710557030623283, guid: 79badf844dc60e24eb66094fc1fb4daf,
+        type: 3}
+      propertyPath: speed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8505710557030623280, guid: 79badf844dc60e24eb66094fc1fb4daf,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: -2323132707156181116, guid: 79badf844dc60e24eb66094fc1fb4daf, type: 3}
