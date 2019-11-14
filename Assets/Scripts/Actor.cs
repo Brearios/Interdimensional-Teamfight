@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Actor : MonoBehaviour
 {
+    public enum Team { Neutral, Blue, Red }; // Green, Purple, Orange
+    public enum State { Idle, Moving, Attacking };
+    
     public int maxHealth;
     public int attackDamage;
     // Later make this a random amount within a range
@@ -11,17 +14,13 @@ public class Actor : MonoBehaviour
     public string role;
     public float range;
     public float speed;
-    public enum Team { Blue, Red }; // Green, Purple, Orange
-    public enum State { Idle, Moving, Attacking };
+    public Team team = Team.Neutral;
+    public State currentState = State.Idle;
+    
 
     // Start is called before the first frame update
     void Start()
     {
-        Team myTeam;
-
-        State myState;
-
-        myState = State.Idle;
     }
 
     // Update is called once per frame
@@ -39,7 +38,7 @@ public class Actor : MonoBehaviour
 
             foreach (Actor currentActor in allActors)
             {
-                if (currentActor.Team == this.Team) // I can't get these to compare - have tried Actor.Team, this.Team, and other formats
+                if (currentActor.myTeam == myTeam) // I can't get these to compare - have tried Actor.Team, this.Team, and other formats
                 {
                     break;
                 }
