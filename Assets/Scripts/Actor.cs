@@ -38,7 +38,7 @@ public class Actor : MonoBehaviour
 
             foreach (Actor currentActor in allActors)
             {
-                if (currentActor.myTeam == myTeam) // I can't get these to compare - have tried Actor.Team, this.Team, and other formats
+                if (currentActor.team == team) // I can't get these to compare - have tried Actor.Team, this.Team, and other formats
                 {
                     break;
                 }
