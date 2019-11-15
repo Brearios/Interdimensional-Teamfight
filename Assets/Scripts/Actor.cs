@@ -88,7 +88,7 @@ public class Actor : MonoBehaviour
         {
             if (currentActor.team == team) // I can't get these to compare - have tried Actor.Team, this.Team, and other formats
             {
-                break;
+                continue;
             }
             else
             {
