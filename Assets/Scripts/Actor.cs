@@ -6,11 +6,12 @@ public class Actor : MonoBehaviour
 {
     public enum Team { Neutral, Blue, Red }; // Green, Purple, Orange
     public enum State { Idle, Moving, Attacking };
-    
+
     public int maxHealth;
-    public int attackDamage;
-    // Later make this a random amount within a range
+    public int currHealth;
+    public int attackDamage; // Later make this a random amount within a range
     public int globalCooldown;
+    public int globalCooldownCount;
     public string role;
     public float range;
     public float speed;
@@ -18,11 +19,12 @@ public class Actor : MonoBehaviour
     public State currentState = State.Idle;
 
     public Actor target;
-    
+
 
     // Start is called before the first frame update
     void Start()
     {
+        currHealth = maxHealth;
     }
 
     // Update is called once per frame
@@ -30,6 +32,12 @@ public class Actor : MonoBehaviour
     {
         if (GameManager.Instance.IsRunning == false)
         {
+            return;
+        }
+
+        if (currHealth <= 0)
+        {
+            Destroy(gameObject);
             return;
         }
 
@@ -41,6 +49,7 @@ public class Actor : MonoBehaviour
         var targetInRange = false;
         if (target != null)
         {
+            targetInRange = CheckTargetRange();
             // This func should determine if we're in range of our target. Return a boolean
             // which will control our flow in the rest of the update loop.
             // targetInRange = CheckTargetRange();
@@ -50,11 +59,13 @@ public class Actor : MonoBehaviour
         {
             if (currentState != State.Attacking)
             {
+                StartAttacking();
                 // This func should set the currentState to attacking and then start the attack timer
                 // StartAttacking();
             }
             else
             {
+                UpdateAttackLoop();
                 // Update the attack timer, and if the timer is up, perform an attack
                 // UpdateAttackLoop();
             }
@@ -66,38 +77,70 @@ public class Actor : MonoBehaviour
 
     }
 
-    void FindNearestEnemy ()
+    void FindNearestEnemy()
     {
         Actor[] allActors = GameObject.FindObjectsOfType<Actor>();
 
-            float distanceToClosestActor = Mathf.Infinity;
-            Actor closestActor = null;
+        float distanceToClosestActor = Mathf.Infinity;
+        target = null;
 
-            foreach (Actor currentActor in allActors)
+        foreach (Actor currentActor in allActors)
+        {
+            if (currentActor.team == team) // I can't get these to compare - have tried Actor.Team, this.Team, and other formats
             {
-                if (currentActor.team == team) // I can't get these to compare - have tried Actor.Team, this.Team, and other formats
+                break;
+            }
+            else
+            {
+                float distanceToActor = (currentActor.transform.position - transform.position).sqrMagnitude;
+                if (distanceToActor < distanceToClosestActor)
                 {
-                    break;
+                    distanceToClosestActor = distanceToActor;
+                    target = currentActor;
                 }
-                else
-                {
-                    float distanceToActor = (currentActor.transform.position - transform.position).sqrMagnitude;
-                    if (distanceToActor < distanceToClosestActor)
-                    {
-                        distanceToClosestActor = distanceToActor;
-                        closestActor = currentActor;
-                    }
-                }
-
             }
 
+        }
     }
 
-    void MoveTowardsTarget ()
+
+    void MoveTowardsTarget()
     {
         // It's OK if we set this every frame even if we're already moving.
-        currentState = State.Moving; 
+        currentState = State.Moving;
 
         transform.position = Vector2.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime);
     }
+    public bool CheckTargetRange()
+    {
+        if (Vector2.Distance(target.transform.position, transform.position) <= range)
+        { return true; }
+        else
+        { return false; }
+    }
+
+    void StartAttacking()
+    {
+        currentState = State.Attacking;
+        globalCooldownCount = 0;
+
+    }
+
+    void UpdateAttackLoop()
+    {
+        globalCooldownCount += 1;
+        if (globalCooldownCount >= globalCooldown)
+        {
+            PerformAttack();
+            globalCooldownCount -= globalCooldown;
+        }
+    }
+
+    void PerformAttack()
+    {
+        target.currHealth -= attackDamage;
+        if (target.currHealth <= 0)
+            target = null;
+    }
 }
+
