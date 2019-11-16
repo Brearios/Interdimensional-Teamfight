@@ -10,8 +10,8 @@ public class Actor : MonoBehaviour
     public int maxHealth;
     public int currHealth;
     public int attackDamage; // Later make this a random amount within a range
-    public int globalCooldown;
-    public int globalCooldownCount;
+    public float globalCooldown;
+    public float globalCooldownCount;
     public string role;
     public float range;
     public float speed;
@@ -70,9 +70,16 @@ public class Actor : MonoBehaviour
                 // UpdateAttackLoop();
             }
         }
+
         else
         {
-            MoveTowardsTarget();
+            if (target != null)
+            {
+                MoveTowardsTarget();
+            }
+
+            else
+            { currentState = State.Idle; }
         }
 
     }
@@ -113,22 +120,19 @@ public class Actor : MonoBehaviour
     }
     public bool CheckTargetRange()
     {
-        if (Vector2.Distance(target.transform.position, transform.position) <= range)
-        { return true; }
-        else
-        { return false; }
+        return (Vector2.Distance(target.transform.position, transform.position) <= range);
     }
 
     void StartAttacking()
     {
         currentState = State.Attacking;
-        globalCooldownCount = 0;
+        globalCooldownCount = 0f;
 
     }
 
     void UpdateAttackLoop()
     {
-        globalCooldownCount += 1;
+        globalCooldownCount += Time.deltaTime;
         if (globalCooldownCount >= globalCooldown)
         {
             PerformAttack();

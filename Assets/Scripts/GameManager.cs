@@ -29,6 +29,8 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
-        { IsRunning = !IsRunning; } // Toggles the pause Bool when space is pressed
+        {
+            IsRunning = !IsRunning;  // Toggles the pause Bool when space is pressed
+        }
     }
 }
