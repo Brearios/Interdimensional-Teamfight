@@ -142,6 +142,8 @@ public class Actor : MonoBehaviour
 
     void PerformAttack()
     {
+        // Attack with "animation"
+        iTween.PunchRotation(gameObject, new Vector3(0, 0, 35), .4f);
         target.currHealth -= attackDamage;
         if (target.currHealth <= 0)
             target = null;
