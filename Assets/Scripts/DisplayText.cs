@@ -6,12 +6,7 @@ using UnityEngine.UI;
 public class DisplayText : MonoBehaviour
 {
     public static DisplayText Instance;
-    Text text;
-<<<<<<< HEAD
-
-=======
-    
->>>>>>> b900fd467c413560abe60215bc6c62f400f287ba
+    Text text;  
     // Start is called before the first frame update
     void Start()
     {
