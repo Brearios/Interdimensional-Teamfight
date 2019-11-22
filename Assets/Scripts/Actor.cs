@@ -7,8 +7,9 @@ public class Actor : MonoBehaviour
     public enum Team { Neutral, Blue, Red }; // Green, Purple, Orange
     public enum State { Idle, Moving, Attacking };
 
-    public int maxHealth;
-    public int currHealth;
+    public float maxHealth;
+    public float currHealth;
+    public float healthPercent;
     public int attackDamage; // Later make this a random amount within a range
     public float globalCooldown;
     public float globalCooldownCount;
@@ -17,6 +18,8 @@ public class Actor : MonoBehaviour
     public float speed;
     public Team team = Team.Neutral;
     public State currentState = State.Idle;
+    Color currentColor;
+    Color alphaColor;
 
     public Actor target;
 
@@ -24,7 +27,11 @@ public class Actor : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Set Health
         currHealth = maxHealth;
+        // Fetch Material from Renderer
+        currentColor = GetComponent<Renderer>().material.color;
+
     }
 
     // Update is called once per frame
@@ -39,6 +46,11 @@ public class Actor : MonoBehaviour
         {
             Destroy(gameObject);
             return;
+        }
+
+        if (currHealth > 0)
+        {
+            UpdateAlpha();
         }
 
         if (currentState == State.Idle)
@@ -82,6 +94,13 @@ public class Actor : MonoBehaviour
             { currentState = State.Idle; }
         }
 
+    }
+
+    void UpdateAlpha() // Set Opacity based upon Health
+    {
+        healthPercent = (currHealth / maxHealth);
+        alphaColor = new Vector4(currentColor.r, currentColor.g, currentColor.b, healthPercent);
+        GetComponent<Renderer>().material.color = alphaColor;
     }
 
     void FindNearestEnemy()
