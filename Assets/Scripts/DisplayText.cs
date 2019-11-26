@@ -19,6 +19,7 @@ public class DisplayText : MonoBehaviour
         // By setting the entire game object inactive, yes you
         // prevent it's lifecycle from calling. You can enable/disable
         // individual components on a game object like this.
+        
         text.enabled = !GameManager.Instance.IsRunning;
     }
 }

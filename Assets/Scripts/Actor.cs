@@ -7,6 +7,7 @@ public class Actor : MonoBehaviour
     public enum Team { Neutral, Blue, Red }; // Green, Purple, Orange
     public enum State { Idle, Moving, Attacking };
 
+    public string unitName;
     public float maxHealth;
     public float currHealth;
     public float healthPercent;
@@ -112,7 +113,7 @@ public class Actor : MonoBehaviour
 
         foreach (Actor currentActor in allActors)
         {
-            if (currentActor.team == team) // I can't get these to compare - have tried Actor.Team, this.Team, and other formats
+            if (currentActor.team == team) // I can't get these to compare - have tried Actor.Team, this.Team, and other formats (was due to using break, not continue)
             {
                 continue;
             }
