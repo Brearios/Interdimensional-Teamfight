@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -30,12 +30,25 @@ public class WinScreenText : MonoBehaviour
         if (GameManager.Instance.DeclareVictory)
         {
             text.enabled = true;
+            text.color = GetColorForTeam(GameManager.Instance.winningTeam);
         }
         else
         {
             text.enabled = false;
         }
+    }
 
+    Color GetColorForTeam (Actor.Team team)
+    {
+        switch (team)
+        {
+            case Actor.Team.Blue:
+                return Color.blue;
+            case Actor.Team.Red:
+                return Color.red;
+            default:
+                return Color.black;
 
+        }
     }
 }
