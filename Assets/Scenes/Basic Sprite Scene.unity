@@ -734,7 +734,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 160, y: 60}
+  m_SizeDelta: {x: 160, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1851847445
 MonoBehaviour:
@@ -779,7 +779,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Press Space to Pause/Unpause
+  m_Text: Press Space to Pause/Unpause. Enable/Disable health bars with V.
 --- !u!222 &1851847447
 CanvasRenderer:
   m_ObjectHideFlags: 0
