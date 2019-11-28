@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Actor : MonoBehaviour
 {
     public enum Team { Neutral, Blue, Red }; // Green, Purple, Orange
     public enum State { Idle, Moving, Attacking };
+
+    public ScriptableUnit unit;
+    // public ScriptableTeam team;
 
     public string unitName;
     public float maxHealth;
@@ -15,12 +19,15 @@ public class Actor : MonoBehaviour
     public float globalCooldown;
     public float globalCooldownCount;
     public string role;
-    public float range;
-    public float speed;
+    public float atkRange;
+    public float abilityRange;
+    public float moveSpeed;
     public Team team = Team.Neutral;
     public State currentState = State.Idle;
     Color currentColor;
     Color alphaColor;
+    public Image healthBar;
+    public Image healthBG;
 
     public Actor target;
 
@@ -28,11 +35,19 @@ public class Actor : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        unitName = unit.unitName;
+        maxHealth = unit.maxHealth;
+        attackDamage = unit.attackDamage;
+        globalCooldown = unit.globalCooldown;
+        role = unit.role;
+        atkRange = unit.atkRange;
+        abilityRange = unit.abilityRange;
+        moveSpeed = unit.moveSpeed;
+        
         // Set Health
         currHealth = maxHealth;
         // Fetch Material from Renderer
-        currentColor = GetComponent<Renderer>().material.color;
-
+        currentColor = GetComponentInChildren<SpriteRenderer>().color;
     }
 
     // Update is called once per frame
@@ -51,7 +66,8 @@ public class Actor : MonoBehaviour
 
         if (currHealth > 0)
         {
-            UpdateAlpha();
+            HealthBarManagement();
+            // UpdateAlpha();
         }
 
         if (currentState == State.Idle)
@@ -97,11 +113,19 @@ public class Actor : MonoBehaviour
 
     }
 
+    void HealthBarManagement()
+    {
+        healthBar.enabled = GameManager.Instance.DisplayHealth;
+        healthBG.enabled = GameManager.Instance.DisplayHealth;
+        healthPercent = (currHealth / maxHealth);
+        healthBar.fillAmount = healthPercent;
+    }
+
     void UpdateAlpha() // Set Opacity based upon Health
     {
         healthPercent = (currHealth / maxHealth);
         alphaColor = new Vector4(currentColor.r, currentColor.g, currentColor.b, healthPercent);
-        GetComponent<Renderer>().material.color = alphaColor;
+        GetComponentInChildren<SpriteRenderer>().color = alphaColor;
     }
 
     void FindNearestEnemy()
@@ -136,11 +160,11 @@ public class Actor : MonoBehaviour
         // It's OK if we set this every frame even if we're already moving.
         currentState = State.Moving;
 
-        transform.position = Vector2.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, target.transform.position, moveSpeed * Time.deltaTime);
     }
     public bool CheckTargetRange()
     {
-        return (Vector2.Distance(target.transform.position, transform.position) <= range);
+        return (Vector2.Distance(target.transform.position, transform.position) <= atkRange);
     }
 
     void StartAttacking()
@@ -163,7 +187,7 @@ public class Actor : MonoBehaviour
     void PerformAttack()
     {
         // Attack with "animation"
-        iTween.PunchRotation(gameObject, new Vector3(0, 0, 35), .4f);
+        iTween.PunchRotation(gameObject, new Vector3(35, 0, 0), .4f);
         target.currHealth -= attackDamage;
         if (target.currHealth <= 0)
             target = null;

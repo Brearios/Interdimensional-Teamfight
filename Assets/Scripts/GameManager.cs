@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance; // <- reference link to GameManager
     public bool IsRunning = false; // Allows pausing the game
+    public bool DisplayHealth = true; // Shows or hides health bars
     public bool DeclareVictory;
     public Actor.Team winningTeam;
     public Color winningTeamColor;
@@ -35,6 +36,11 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             IsRunning = !IsRunning;  // Toggles the pause Bool when space is pressed
+        }
+
+        if (Input.GetKeyDown(KeyCode.V))
+        {
+            DisplayHealth = !DisplayHealth; // Toggles health bars when V is pressed
         }
 
         IsBattleOver();

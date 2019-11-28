@@ -8,9 +8,12 @@ public class ScriptableUnit : ScriptableObject
     public string unitName;
     public int maxHealth;
     public int attackDamage;
-    // Later make this a random amount within a range
+    // Later make this a random amount within a range, probably min/max fields
     public int globalCooldown;
     public string role;
     public string team;
-    public float range;
+    public float atkRange;
+    public float moveSpeed;
+    public float abilityRange;
+    public string abilityName;
 }

@@ -654,7 +654,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -904,6 +904,12 @@ PrefabInstance:
       propertyPath: maxHealth
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 1017191182664253496, guid: 0b1ca5aa2d795b044bfea82c09de453e,
+        type: 3}
+      propertyPath: unit
+      value: 
+      objectReference: {fileID: 11400000, guid: 232edcf067fd9464cb71f28bd0a58dd9,
+        type: 2}
     - target: {fileID: -1789814589205907696, guid: 0b1ca5aa2d795b044bfea82c09de453e,
         type: 3}
       propertyPath: m_Enabled
@@ -1030,6 +1036,12 @@ PrefabInstance:
       propertyPath: role
       value: RangedDPS
       objectReference: {fileID: 0}
+    - target: {fileID: 3670351322250228931, guid: 066e7b27769171f4aa5743a70a0a1c02,
+        type: 3}
+      propertyPath: unit
+      value: 
+      objectReference: {fileID: 11400000, guid: f6faf2d35a07ac142b54d43bd3a6afbc,
+        type: 2}
     - target: {fileID: 2434808821140724404, guid: 066e7b27769171f4aa5743a70a0a1c02,
         type: 3}
       propertyPath: m_Enabled
@@ -1096,6 +1108,12 @@ PrefabInstance:
       propertyPath: maxHealth
       value: 60
       objectReference: {fileID: 0}
+    - target: {fileID: 6711768639029907511, guid: a71de5fc6e556454b96e741fe877aa67,
+        type: 3}
+      propertyPath: unit
+      value: 
+      objectReference: {fileID: 11400000, guid: c726bd5af39f0474089308f8ff682b54,
+        type: 2}
     - target: {fileID: 6711768639029907513, guid: a71de5fc6e556454b96e741fe877aa67,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1217,6 +1235,12 @@ PrefabInstance:
       propertyPath: maxHealth
       value: 75
       objectReference: {fileID: 0}
+    - target: {fileID: 6851389719858468846, guid: ca6af157e087e59439b3bd8ed8f0a7dd,
+        type: 3}
+      propertyPath: unit
+      value: 
+      objectReference: {fileID: 11400000, guid: c726bd5af39f0474089308f8ff682b54,
+        type: 2}
     - target: {fileID: 6851389719858468842, guid: ca6af157e087e59439b3bd8ed8f0a7dd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1338,6 +1362,12 @@ PrefabInstance:
       propertyPath: maxHealth
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 8051840002157771951, guid: c42ecc359b9553746bf0a9f625296e46,
+        type: 3}
+      propertyPath: unit
+      value: 
+      objectReference: {fileID: 11400000, guid: 232edcf067fd9464cb71f28bd0a58dd9,
+        type: 2}
     - target: {fileID: 8051840002157771936, guid: c42ecc359b9553746bf0a9f625296e46,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1464,6 +1494,12 @@ PrefabInstance:
       propertyPath: attackDamage
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 8505710557030623283, guid: 79badf844dc60e24eb66094fc1fb4daf,
+        type: 3}
+      propertyPath: unit
+      value: 
+      objectReference: {fileID: 11400000, guid: f6faf2d35a07ac142b54d43bd3a6afbc,
+        type: 2}
     - target: {fileID: 8505710557030623281, guid: 79badf844dc60e24eb66094fc1fb4daf,
         type: 3}
       propertyPath: m_LocalPosition.x
