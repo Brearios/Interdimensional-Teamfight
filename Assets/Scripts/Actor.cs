@@ -43,7 +43,7 @@ public class Actor : MonoBehaviour
         atkRange = unit.atkRange;
         abilityRange = unit.abilityRange;
         moveSpeed = unit.moveSpeed;
-        
+
         // Set Health
         currHealth = maxHealth;
         // Fetch Material from Renderer
@@ -53,6 +53,7 @@ public class Actor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        HealthBarManagement();
         if (GameManager.Instance.IsRunning == false)
         {
             return;
@@ -64,11 +65,10 @@ public class Actor : MonoBehaviour
             return;
         }
 
-        if (currHealth > 0)
+        /* if (currHealth > 0)
         {
-            HealthBarManagement();
             // UpdateAlpha();
-        }
+        } */ 
 
         if (currentState == State.Idle)
         {
@@ -187,10 +187,17 @@ public class Actor : MonoBehaviour
     void PerformAttack()
     {
         // Attack with "animation"
-        iTween.PunchRotation(gameObject, new Vector3(35, 0, 0), .4f);
+            if (0 < (target.transform.position.x - transform.position.x))
+        {
+                iTween.RotateFrom(gameObject, new Vector3(0, 0, -20), .4f);
+            }
+            else
+            {
+                iTween.RotateFrom(gameObject, new Vector3(0, 0, 20), .4f);
+            }
         target.currHealth -= attackDamage;
         if (target.currHealth <= 0)
             target = null;
-    }
+    }        
 }
 
