@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Actor : MonoBehaviour
 {
-    public enum Team { Neutral, Blue, Red }; // Green, Purple, Orange
+    public enum Team { Neutral, Blue, Red };
     public enum State { Idle, Moving, Attacking };
 
     public ScriptableUnit unit;
@@ -22,8 +22,9 @@ public class Actor : MonoBehaviour
     public float atkRange;
     public float abilityRange;
     public float moveSpeed;
-    public Team team = Team.Neutral;
     public State currentState = State.Idle;
+    public Team team = Team.Neutral;
+    Color teamColor;
     Color currentColor;
     Color alphaColor;
     public Image healthBar;
@@ -43,6 +44,8 @@ public class Actor : MonoBehaviour
         atkRange = unit.atkRange;
         abilityRange = unit.abilityRange;
         moveSpeed = unit.moveSpeed;
+        // teamName = Team.Neutral;
+        // teamColor = team.color;
 
         // Set Health
         currHealth = maxHealth;
