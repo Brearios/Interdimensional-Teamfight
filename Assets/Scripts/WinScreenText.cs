@@ -38,13 +38,13 @@ public class WinScreenText : MonoBehaviour
         }
     }
 
-    Color GetColorForTeam (Actor.Team team)
+    Color GetColorForTeam (ScriptableTeam.Team team)
     {
         switch (team)
         {
-            case Actor.Team.Blue:
+            case ScriptableTeam.Team.Blue:
                 return Color.blue;
-            case Actor.Team.Red:
+            case ScriptableTeam.Team.Red:
                 return Color.red;
             default:
                 return Color.black;

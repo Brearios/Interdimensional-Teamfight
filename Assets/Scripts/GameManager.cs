@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     public bool IsRunning = false; // Allows pausing the game
     public bool DisplayHealth = true; // Shows or hides health bars
     public bool DeclareVictory;
-    public Actor.Team winningTeam;
+    public ScriptableTeam winningTeam;
     public Color winningTeamColor;
 
     // Start is called before the first frame update
@@ -53,9 +53,9 @@ public class GameManager : MonoBehaviour
         // If none found, WinningTeam = Actor.Team 
 
         Actor[] allActors = GameObject.FindObjectsOfType<Actor>();
-        
+
         // Get Team of Any One Unit
-        Actor.Team winCheckTeam = (allActors[0].team);
+        ScriptableTeam winCheckTeam = allActors[0].team;
 
         // Compare Other Actors to that Team
         foreach (Actor Team in allActors)

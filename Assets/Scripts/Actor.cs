@@ -9,7 +9,7 @@ public class Actor : MonoBehaviour
     public enum State { Idle, Moving, Attacking };
 
     public ScriptableUnit unit;
-    // public ScriptableTeam team;
+    public ScriptableTeam team;
 
     public string unitName;
     public float maxHealth;
@@ -23,8 +23,8 @@ public class Actor : MonoBehaviour
     public float abilityRange;
     public float moveSpeed;
     public State currentState = State.Idle;
-    public Team team = Team.Neutral;
-    Color teamColor;
+    // public Team team = Team.Neutral; - Handled by ScriptableTeam
+    // Color teamColor; - also handled ^
     Color currentColor;
     Color alphaColor;
     public Image healthBar;
