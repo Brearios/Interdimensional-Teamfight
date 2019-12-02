@@ -30,25 +30,11 @@ public class WinScreenText : MonoBehaviour
         if (GameManager.Instance.DeclareVictory)
         {
             text.enabled = true;
-            text.color = GetColorForTeam(GameManager.Instance.winningTeam);
+            text.color = GameManager.Instance.winningTeam.color;
         }
         else
         {
             text.enabled = false;
-        }
-    }
-
-    Color GetColorForTeam (ScriptableTeam.Team team)
-    {
-        switch (team)
-        {
-            case ScriptableTeam.Team.Blue:
-                return Color.blue;
-            case ScriptableTeam.Team.Red:
-                return Color.red;
-            default:
-                return Color.black;
-
         }
     }
 }
