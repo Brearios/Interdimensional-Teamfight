@@ -14,6 +14,4 @@ public class ScriptableUnit : ScriptableObject
     public string team;
     public float atkRange;
     public float moveSpeed;
-    public float abilityRange;
-    public string abilityName;
 }

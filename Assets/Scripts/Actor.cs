@@ -10,6 +10,7 @@ public class Actor : MonoBehaviour
 
     public ScriptableUnit unit;
     public ScriptableTeam team;
+    public ScriptableAbility ability;
 
     public string unitName;
     public float maxHealth;
@@ -27,6 +28,7 @@ public class Actor : MonoBehaviour
     // Color teamColor; - also handled ^
     Color currentColor;
     Color alphaColor;
+    public GameObject body;
     public Image healthBar;
     public Image healthBG;
 
@@ -42,7 +44,7 @@ public class Actor : MonoBehaviour
         globalCooldown = unit.globalCooldown;
         role = unit.role;
         atkRange = unit.atkRange;
-        abilityRange = unit.abilityRange;
+        abilityRange = ability.abilityRange;
         moveSpeed = unit.moveSpeed;
         // teamName = Team.Neutral;
         // teamColor = team.color;
@@ -192,11 +194,11 @@ public class Actor : MonoBehaviour
         // Attack with "animation"
             if (0 < (target.transform.position.x - transform.position.x))
         {
-                iTween.RotateFrom(gameObject, new Vector3(0, 0, -20), .4f);
+                iTween.RotateFrom(body, new Vector3(0, 0, -20), .4f);
             }
             else
             {
-                iTween.RotateFrom(gameObject, new Vector3(0, 0, 20), .4f);
+                iTween.RotateFrom(body, new Vector3(0, 0, 20), .4f);
             }
         target.currHealth -= attackDamage;
         if (target.currHealth <= 0)

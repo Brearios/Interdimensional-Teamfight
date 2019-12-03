@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance; // <- reference link to GameManager
     public bool IsRunning = false; // Allows pausing the game
     public bool DisplayHealth = true; // Shows or hides health bars
+    public float gameSpeed;
     public bool DeclareVictory;
     public ScriptableTeam winningTeam;
     public Color winningTeamColor;
@@ -43,6 +44,8 @@ public class GameManager : MonoBehaviour
             DisplayHealth = !DisplayHealth; // Toggles health bars when V is pressed
         }
 
+        TimeControls();
+
         IsBattleOver();
     }
 
@@ -69,11 +72,39 @@ public class GameManager : MonoBehaviour
                 DeclareVictory = true;
                 winningTeam = winCheckTeam;
             }
-        /* if (DeclareVictory)
+        if (DeclareVictory)
         {
             winningTeamColor = allActors[0].GetComponentInChildren<Color>();
         }
-        */
+        
+
+    }
+    void TimeControls()
+    {
+        gameSpeed = Time.timeScale;
+
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            Time.timeScale += 1.0f;
+        }
+
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            if (Time.timeScale <= 1.0f)
+            {
+                Time.timeScale = 0f;
+            }
+
+            else
+            {
+                Time.timeScale -= 1.0f;
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            Time.timeScale = 1.0f;
+        }
 
     }
 }

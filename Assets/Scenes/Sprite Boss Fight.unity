@@ -297,6 +297,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 50ec59c1cc1783e4fb6314d6f0d9fc40,
         type: 2}
+    - target: {fileID: 2754194657924981659, guid: 0e844113f01d9dd47aa692154fa9c52b,
+        type: 3}
+      propertyPath: ability
+      value: 
+      objectReference: {fileID: 11400000, guid: 2a6c0b27850041846bb4315c43451273,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e844113f01d9dd47aa692154fa9c52b, type: 3}
 --- !u!1 &467154030
@@ -479,6 +485,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsRunning: 0
   DisplayHealth: 1
+  gameSpeed: 0
   DeclareVictory: 0
   winningTeam: {fileID: 0}
   winningTeamColor: {r: 0, g: 0, b: 0, a: 0}
@@ -660,6 +667,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 50ec59c1cc1783e4fb6314d6f0d9fc40,
         type: 2}
+    - target: {fileID: 4392090260729499094, guid: f37f857c370004b4db2a2ccfd7a977cf,
+        type: 3}
+      propertyPath: ability
+      value: 
+      objectReference: {fileID: 11400000, guid: ec78b87edd0b1454db7b312c0d932452,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f37f857c370004b4db2a2ccfd7a977cf, type: 3}
 --- !u!1001 &1506651085
@@ -734,6 +747,12 @@ PrefabInstance:
       propertyPath: team
       value: 
       objectReference: {fileID: 11400000, guid: 50ec59c1cc1783e4fb6314d6f0d9fc40,
+        type: 2}
+    - target: {fileID: 4631612643918431119, guid: 7e87941ff8f086f44bf8c4a27f8a6ce8,
+        type: 3}
+      propertyPath: ability
+      value: 
+      objectReference: {fileID: 11400000, guid: ec78b87edd0b1454db7b312c0d932452,
         type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7e87941ff8f086f44bf8c4a27f8a6ce8, type: 3}
@@ -914,6 +933,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 50ec59c1cc1783e4fb6314d6f0d9fc40,
         type: 2}
+    - target: {fileID: 2892413928567645728, guid: b927de3aa5ea6a049ba020a2128d92b5,
+        type: 3}
+      propertyPath: ability
+      value: 
+      objectReference: {fileID: 11400000, guid: ec78b87edd0b1454db7b312c0d932452,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b927de3aa5ea6a049ba020a2128d92b5, type: 3}
 --- !u!1 &1836512365
@@ -1043,8 +1068,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 160, y: 90}
+  m_AnchoredPosition: {x: 0, y: -21.2}
+  m_SizeDelta: {x: 227.5, y: 158.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1851847445
 MonoBehaviour:
@@ -1089,7 +1114,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Press Space to Pause/Unpause. Enable/Disable health bars with V.
+  m_Text: "Press Space to Pause/Unpause. Enable/Disable health bars with V. \n\nF
+    to resolve faster, S for slower. N for normal."
 --- !u!222 &1851847447
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1098,6 +1124,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1851847443}
   m_CullTransparentMesh: 0
+--- !u!1 &2128982368 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6101613848001326399, guid: b1df25e8289c5c747bcf894e607ed74f,
+    type: 3}
+  m_PrefabInstance: {fileID: 181043382088227199}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &86760308005200951
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1170,6 +1202,12 @@ PrefabInstance:
       propertyPath: team
       value: 
       objectReference: {fileID: 11400000, guid: 50ec59c1cc1783e4fb6314d6f0d9fc40,
+        type: 2}
+    - target: {fileID: 4392090260729499094, guid: f37f857c370004b4db2a2ccfd7a977cf,
+        type: 3}
+      propertyPath: ability
+      value: 
+      objectReference: {fileID: 11400000, guid: ec78b87edd0b1454db7b312c0d932452,
         type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f37f857c370004b4db2a2ccfd7a977cf, type: 3}
@@ -1301,6 +1339,17 @@ PrefabInstance:
       propertyPath: team
       value: 
       objectReference: {fileID: 11400000, guid: 5448075b66749f347a9d240d37ee5609,
+        type: 2}
+    - target: {fileID: 8994926729317995891, guid: b1df25e8289c5c747bcf894e607ed74f,
+        type: 3}
+      propertyPath: body
+      value: 
+      objectReference: {fileID: 2128982368}
+    - target: {fileID: 8994926729317995891, guid: b1df25e8289c5c747bcf894e607ed74f,
+        type: 3}
+      propertyPath: ability
+      value: 
+      objectReference: {fileID: 11400000, guid: ec78b87edd0b1454db7b312c0d932452,
         type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1df25e8289c5c747bcf894e607ed74f, type: 3}
@@ -1456,6 +1505,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 50ec59c1cc1783e4fb6314d6f0d9fc40,
         type: 2}
+    - target: {fileID: 2892413928567645728, guid: b927de3aa5ea6a049ba020a2128d92b5,
+        type: 3}
+      propertyPath: ability
+      value: 
+      objectReference: {fileID: 11400000, guid: ec78b87edd0b1454db7b312c0d932452,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b927de3aa5ea6a049ba020a2128d92b5, type: 3}
 --- !u!1001 &3375649801243367420
@@ -1610,6 +1665,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 50ec59c1cc1783e4fb6314d6f0d9fc40,
         type: 2}
+    - target: {fileID: 2754194657924981659, guid: 0e844113f01d9dd47aa692154fa9c52b,
+        type: 3}
+      propertyPath: ability
+      value: 
+      objectReference: {fileID: 11400000, guid: 2a6c0b27850041846bb4315c43451273,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e844113f01d9dd47aa692154fa9c52b, type: 3}
 --- !u!1001 &5952650880407367098
@@ -1684,6 +1745,12 @@ PrefabInstance:
       propertyPath: team
       value: 
       objectReference: {fileID: 11400000, guid: 50ec59c1cc1783e4fb6314d6f0d9fc40,
+        type: 2}
+    - target: {fileID: 4631612643918431119, guid: 7e87941ff8f086f44bf8c4a27f8a6ce8,
+        type: 3}
+      propertyPath: ability
+      value: 
+      objectReference: {fileID: 11400000, guid: ec78b87edd0b1454db7b312c0d932452,
         type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7e87941ff8f086f44bf8c4a27f8a6ce8, type: 3}

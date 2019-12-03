@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unit: {fileID: 11400000, guid: 5fd1089f7a9c509428bd5b0928ba57fb, type: 2}
+  team: {fileID: 0}
   unitName: 
   maxHealth: 0
   currHealth: 0
@@ -57,8 +58,8 @@ MonoBehaviour:
   atkRange: 0
   abilityRange: 0
   moveSpeed: 0
-  team: 2
   currentState: 0
+  body: {fileID: 4876463760455154729}
   healthBar: {fileID: 3375649801278832015}
   healthBG: {fileID: 3375649800080488039}
   target: {fileID: 0}
