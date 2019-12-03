@@ -30,7 +30,7 @@ public class WinScreenText : MonoBehaviour
         if (GameManager.Instance.DeclareVictory)
         {
             text.enabled = true;
-            text.color = GetColorForTeam(GameManager.Instance.winningTeam);
+            text.color = GameManager.Instance.winningTeam.color;
         }
         else
         {
@@ -38,7 +38,7 @@ public class WinScreenText : MonoBehaviour
         }
     }
 
-    Color GetColorForTeam (ScriptableTeam.Team team)
+   /* Color GetColorForTeam (ScriptableTeam.Team team)
     {
         switch (team)
         {
@@ -51,4 +51,5 @@ public class WinScreenText : MonoBehaviour
 
         }
     }
+    */
 }

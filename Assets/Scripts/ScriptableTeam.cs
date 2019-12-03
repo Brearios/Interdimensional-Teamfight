@@ -7,5 +7,6 @@ public class ScriptableTeam : ScriptableObject
 {
     
     public enum Team { Neutral, Blue, Red }; // Green, Purple, Orange
+    public Team team;
     public Color color;
 }

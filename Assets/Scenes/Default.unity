@@ -555,7 +555,7 @@ MonoBehaviour:
   IsRunning: 0
   DisplayHealth: 1
   DeclareVictory: 0
-  winningTeam: 0
+  winningTeam: {fileID: 0}
   winningTeamColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!4 &951133640
 Transform:
@@ -1016,6 +1016,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4392090260729499094, guid: f37f857c370004b4db2a2ccfd7a977cf,
+        type: 3}
+      propertyPath: team
+      value: 
+      objectReference: {fileID: 11400000, guid: 50ec59c1cc1783e4fb6314d6f0d9fc40,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f37f857c370004b4db2a2ccfd7a977cf, type: 3}
 --- !u!1001 &181043382088227199
@@ -1090,6 +1096,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8994926729317995891, guid: b1df25e8289c5c747bcf894e607ed74f,
+        type: 3}
+      propertyPath: team
+      value: 
+      objectReference: {fileID: 11400000, guid: 5448075b66749f347a9d240d37ee5609,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1df25e8289c5c747bcf894e607ed74f, type: 3}
 --- !u!1001 &455447941601551513
@@ -1164,6 +1176,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9067871908612739286, guid: 46c8f6bc6fb23b94eb33d4c4c370af81,
+        type: 3}
+      propertyPath: team
+      value: 
+      objectReference: {fileID: 11400000, guid: 5448075b66749f347a9d240d37ee5609,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 46c8f6bc6fb23b94eb33d4c4c370af81, type: 3}
 --- !u!1001 &2859812884575269042
@@ -1238,6 +1256,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2892413928567645728, guid: b927de3aa5ea6a049ba020a2128d92b5,
+        type: 3}
+      propertyPath: team
+      value: 
+      objectReference: {fileID: 11400000, guid: 50ec59c1cc1783e4fb6314d6f0d9fc40,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b927de3aa5ea6a049ba020a2128d92b5, type: 3}
 --- !u!1001 &3375649801243367420
@@ -1307,6 +1331,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4504585786749364892, guid: e7508a99ae261984489c6871e40ba455,
+        type: 3}
+      propertyPath: team
+      value: 
+      objectReference: {fileID: 11400000, guid: 5448075b66749f347a9d240d37ee5609,
+        type: 2}
     - target: {fileID: 3375649801233002934, guid: e7508a99ae261984489c6871e40ba455,
         type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag
@@ -1386,6 +1416,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2754194657924981659, guid: 0e844113f01d9dd47aa692154fa9c52b,
+        type: 3}
+      propertyPath: team
+      value: 
+      objectReference: {fileID: 11400000, guid: 50ec59c1cc1783e4fb6314d6f0d9fc40,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e844113f01d9dd47aa692154fa9c52b, type: 3}
 --- !u!1001 &5952650880407367098
@@ -1455,6 +1491,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4631612643918431119, guid: 7e87941ff8f086f44bf8c4a27f8a6ce8,
+        type: 3}
+      propertyPath: team
+      value: 
+      objectReference: {fileID: 11400000, guid: 50ec59c1cc1783e4fb6314d6f0d9fc40,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7e87941ff8f086f44bf8c4a27f8a6ce8, type: 3}
 --- !u!1001 &6018737411687149091
@@ -1524,5 +1566,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5603795348887577441, guid: 33d591745655abd4e8d1e89844e3a037,
+        type: 3}
+      propertyPath: team
+      value: 
+      objectReference: {fileID: 11400000, guid: 5448075b66749f347a9d240d37ee5609,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 33d591745655abd4e8d1e89844e3a037, type: 3}
