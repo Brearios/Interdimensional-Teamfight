@@ -20,17 +20,16 @@ public class WinScreenText : MonoBehaviour
         // Convert winningTeam to String
         WinningTeamString = GameManager.Instance.winningTeam.ToString();
 
-        // Set text to "The Winner is TeamName
-        text.text = $"{WinningTeamString} Wins!";
-
         // Set color to WinningTeam Color
         // text.color = GameManager.Instance.winningTeamColor;
 
         // Enable the Text
         if (GameManager.Instance.DeclareVictory)
         {
+            // Set text to "The Winner is TeamName
+            text.text = $"{WinningTeamString} Wins!";
+            text.color = GameManager.Instance.winningTeamColor;
             text.enabled = true;
-            text.color = GameManager.Instance.winningTeam.color;
         }
         else
         {

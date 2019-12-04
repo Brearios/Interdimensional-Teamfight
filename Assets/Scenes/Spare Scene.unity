@@ -969,15 +969,37 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mage
       objectReference: {fileID: 0}
+    - target: {fileID: 1198467041174047035, guid: 10bebb8e089d8fb4dbb764e2c9b179be,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1198467041174047035, guid: 10bebb8e089d8fb4dbb764e2c9b179be,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3815987076759777675, guid: 10bebb8e089d8fb4dbb764e2c9b179be,
+        type: 3}
+      propertyPath: team
+      value: 
+      objectReference: {fileID: 11400000, guid: 5448075b66749f347a9d240d37ee5609,
+        type: 2}
+    - target: {fileID: 3815987076759777675, guid: 10bebb8e089d8fb4dbb764e2c9b179be,
+        type: 3}
+      propertyPath: ability
+      value: 
+      objectReference: {fileID: 11400000, guid: ec78b87edd0b1454db7b312c0d932452,
+        type: 2}
     - target: {fileID: 5236509248646722110, guid: 10bebb8e089d8fb4dbb764e2c9b179be,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.24
+      value: 9.073
       objectReference: {fileID: 0}
     - target: {fileID: 5236509248646722110, guid: 10bebb8e089d8fb4dbb764e2c9b179be,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.81
+      value: -2.013
       objectReference: {fileID: 0}
     - target: {fileID: 5236509248646722110, guid: 10bebb8e089d8fb4dbb764e2c9b179be,
         type: 3}
@@ -1022,28 +1044,6 @@ PrefabInstance:
     - target: {fileID: 5236509248646722110, guid: 10bebb8e089d8fb4dbb764e2c9b179be,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3815987076759777675, guid: 10bebb8e089d8fb4dbb764e2c9b179be,
-        type: 3}
-      propertyPath: team
-      value: 
-      objectReference: {fileID: 11400000, guid: 5448075b66749f347a9d240d37ee5609,
-        type: 2}
-    - target: {fileID: 3815987076759777675, guid: 10bebb8e089d8fb4dbb764e2c9b179be,
-        type: 3}
-      propertyPath: ability
-      value: 
-      objectReference: {fileID: 11400000, guid: ec78b87edd0b1454db7b312c0d932452,
-        type: 2}
-    - target: {fileID: 1198467041174047035, guid: 10bebb8e089d8fb4dbb764e2c9b179be,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1198467041174047035, guid: 10bebb8e089d8fb4dbb764e2c9b179be,
-        type: 3}
-      propertyPath: m_Color.b
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1318,6 +1318,28 @@ PrefabInstance:
       propertyPath: m_Name
       value: Warrior
       objectReference: {fileID: 0}
+    - target: {fileID: 716779278724603727, guid: dec66e1d904d0984093b6ef359d80a4f,
+        type: 3}
+      propertyPath: team
+      value: 
+      objectReference: {fileID: 11400000, guid: 5448075b66749f347a9d240d37ee5609,
+        type: 2}
+    - target: {fileID: 716779278724603727, guid: dec66e1d904d0984093b6ef359d80a4f,
+        type: 3}
+      propertyPath: ability
+      value: 
+      objectReference: {fileID: 11400000, guid: ec78b87edd0b1454db7b312c0d932452,
+        type: 2}
+    - target: {fileID: 1606097188977213476, guid: dec66e1d904d0984093b6ef359d80a4f,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1606097188977213476, guid: dec66e1d904d0984093b6ef359d80a4f,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3529528353989285355, guid: dec66e1d904d0984093b6ef359d80a4f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1371,28 +1393,6 @@ PrefabInstance:
     - target: {fileID: 3529528353989285355, guid: dec66e1d904d0984093b6ef359d80a4f,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 716779278724603727, guid: dec66e1d904d0984093b6ef359d80a4f,
-        type: 3}
-      propertyPath: team
-      value: 
-      objectReference: {fileID: 11400000, guid: 5448075b66749f347a9d240d37ee5609,
-        type: 2}
-    - target: {fileID: 716779278724603727, guid: dec66e1d904d0984093b6ef359d80a4f,
-        type: 3}
-      propertyPath: ability
-      value: 
-      objectReference: {fileID: 11400000, guid: ec78b87edd0b1454db7b312c0d932452,
-        type: 2}
-    - target: {fileID: 1606097188977213476, guid: dec66e1d904d0984093b6ef359d80a4f,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1606097188977213476, guid: dec66e1d904d0984093b6ef359d80a4f,
-        type: 3}
-      propertyPath: m_Color.b
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1464,18 +1464,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7796036342871283522, guid: 093a10270226c0f4f9d5f3d7b878f296,
-        type: 3}
-      propertyPath: team
-      value: 
-      objectReference: {fileID: 11400000, guid: 5448075b66749f347a9d240d37ee5609,
-        type: 2}
-    - target: {fileID: 7796036342871283522, guid: 093a10270226c0f4f9d5f3d7b878f296,
-        type: 3}
-      propertyPath: ability
-      value: 
-      objectReference: {fileID: 11400000, guid: ec78b87edd0b1454db7b312c0d932452,
-        type: 2}
     - target: {fileID: 6715191143055021621, guid: 093a10270226c0f4f9d5f3d7b878f296,
         type: 3}
       propertyPath: m_Color.r
@@ -1491,5 +1479,17 @@ PrefabInstance:
       propertyPath: m_Color.b
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7796036342871283522, guid: 093a10270226c0f4f9d5f3d7b878f296,
+        type: 3}
+      propertyPath: team
+      value: 
+      objectReference: {fileID: 11400000, guid: 5448075b66749f347a9d240d37ee5609,
+        type: 2}
+    - target: {fileID: 7796036342871283522, guid: 093a10270226c0f4f9d5f3d7b878f296,
+        type: 3}
+      propertyPath: ability
+      value: 
+      objectReference: {fileID: 11400000, guid: ec78b87edd0b1454db7b312c0d932452,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 093a10270226c0f4f9d5f3d7b878f296, type: 3}

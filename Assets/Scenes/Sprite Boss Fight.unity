@@ -301,7 +301,7 @@ PrefabInstance:
         type: 3}
       propertyPath: ability
       value: 
-      objectReference: {fileID: 11400000, guid: 2a6c0b27850041846bb4315c43451273,
+      objectReference: {fileID: 11400000, guid: f81ca7937fe240e4aaf8657be5ce1c02,
         type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e844113f01d9dd47aa692154fa9c52b, type: 3}
@@ -671,7 +671,7 @@ PrefabInstance:
         type: 3}
       propertyPath: ability
       value: 
-      objectReference: {fileID: 11400000, guid: ec78b87edd0b1454db7b312c0d932452,
+      objectReference: {fileID: 11400000, guid: ce80ff9f4cf65b14e82502bfb80dcb0b,
         type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f37f857c370004b4db2a2ccfd7a977cf, type: 3}
@@ -752,7 +752,7 @@ PrefabInstance:
         type: 3}
       propertyPath: ability
       value: 
-      objectReference: {fileID: 11400000, guid: ec78b87edd0b1454db7b312c0d932452,
+      objectReference: {fileID: 11400000, guid: 6bf2c15b44422ec41a09da5e79a3a2e2,
         type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7e87941ff8f086f44bf8c4a27f8a6ce8, type: 3}
@@ -937,7 +937,7 @@ PrefabInstance:
         type: 3}
       propertyPath: ability
       value: 
-      objectReference: {fileID: 11400000, guid: ec78b87edd0b1454db7b312c0d932452,
+      objectReference: {fileID: 11400000, guid: eed78b34608a1014da24262aa2df7b67,
         type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b927de3aa5ea6a049ba020a2128d92b5, type: 3}
@@ -1207,7 +1207,7 @@ PrefabInstance:
         type: 3}
       propertyPath: ability
       value: 
-      objectReference: {fileID: 11400000, guid: ec78b87edd0b1454db7b312c0d932452,
+      objectReference: {fileID: 11400000, guid: ce80ff9f4cf65b14e82502bfb80dcb0b,
         type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f37f857c370004b4db2a2ccfd7a977cf, type: 3}
@@ -1349,7 +1349,7 @@ PrefabInstance:
         type: 3}
       propertyPath: ability
       value: 
-      objectReference: {fileID: 11400000, guid: ec78b87edd0b1454db7b312c0d932452,
+      objectReference: {fileID: 11400000, guid: f81ca7937fe240e4aaf8657be5ce1c02,
         type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1df25e8289c5c747bcf894e607ed74f, type: 3}
@@ -1509,7 +1509,7 @@ PrefabInstance:
         type: 3}
       propertyPath: ability
       value: 
-      objectReference: {fileID: 11400000, guid: ec78b87edd0b1454db7b312c0d932452,
+      objectReference: {fileID: 11400000, guid: eed78b34608a1014da24262aa2df7b67,
         type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b927de3aa5ea6a049ba020a2128d92b5, type: 3}
@@ -1750,7 +1750,7 @@ PrefabInstance:
         type: 3}
       propertyPath: ability
       value: 
-      objectReference: {fileID: 11400000, guid: ec78b87edd0b1454db7b312c0d932452,
+      objectReference: {fileID: 11400000, guid: 6bf2c15b44422ec41a09da5e79a3a2e2,
         type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7e87941ff8f086f44bf8c4a27f8a6ce8, type: 3}

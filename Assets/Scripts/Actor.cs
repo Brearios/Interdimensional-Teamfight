@@ -22,6 +22,8 @@ public class Actor : MonoBehaviour
     public string role;
     public float atkRange;
     public float abilityRange;
+    public float abilityCooldown;
+    public float abilityCooldownCount;
     public float moveSpeed;
     public State currentState = State.Idle;
     // public Team team = Team.Neutral; - Handled by ScriptableTeam
@@ -48,7 +50,7 @@ public class Actor : MonoBehaviour
         moveSpeed = unit.moveSpeed;
         // teamName = Team.Neutral;
         // teamColor = team.color;
-
+        abilityCooldown = ability.abilityCooldown;
         // Set Health
         currHealth = maxHealth;
         // Fetch Material from Renderer
@@ -176,12 +178,20 @@ public class Actor : MonoBehaviour
     {
         currentState = State.Attacking;
         globalCooldownCount = 0f;
+        abilityCooldownCount = 0f;
 
     }
 
     void UpdateAttackLoop()
     {
         globalCooldownCount += Time.deltaTime;
+        abilityCooldownCount += Time.deltaTime;
+        if (abilityCooldownCount >= abilityCooldown)
+        {
+            UseAbility();
+            abilityCooldownCount -= abilityCooldown;
+        }
+
         if (globalCooldownCount >= globalCooldown)
         {
             PerformAttack();
@@ -203,6 +213,12 @@ public class Actor : MonoBehaviour
         target.currHealth -= attackDamage;
         if (target.currHealth <= 0)
             target = null;
-    }        
+    }
+    void UseAbility()
+    {
+        // Select a Target if usedOnFriends
+        // Else use normal target
+        // Call ability.abilityCode ??
+    }
 }
 

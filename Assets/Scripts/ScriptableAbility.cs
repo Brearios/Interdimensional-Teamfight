@@ -9,7 +9,8 @@ public class ScriptableAbility : ScriptableObject
     public int rank;
     public float abilityRange;
     public float abilityCooldown;
-    public bool usedOnFriends;
+    public bool usedOnFriends; // Can use on friendly targets
+    public bool usedOnSelf; // Can only use on self
 
     // Start is called before the first frame update
     void Start()

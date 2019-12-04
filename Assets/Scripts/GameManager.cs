@@ -74,7 +74,8 @@ public class GameManager : MonoBehaviour
             }
         if (DeclareVictory)
         {
-            winningTeamColor = allActors[0].GetComponentInChildren<Color>();
+            winningTeamColor = winCheckTeam.color;
+            // winningTeamColor = allActors[0].GetComponentInChildren<Color>();
         }
         
 
@@ -85,19 +86,19 @@ public class GameManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.F))
         {
-            Time.timeScale += 1.0f;
+            Time.timeScale += .5f;
         }
 
         if (Input.GetKeyDown(KeyCode.S))
         {
-            if (Time.timeScale <= 1.0f)
+            if (Time.timeScale <= .5f)
             {
                 Time.timeScale = 0f;
             }
 
             else
             {
-                Time.timeScale -= 1.0f;
+                Time.timeScale -= .5f;
             }
         }
 
