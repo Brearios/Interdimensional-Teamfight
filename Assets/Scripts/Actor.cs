@@ -167,7 +167,7 @@ public class Actor : MonoBehaviour
         // It's OK if we set this every frame even if we're already moving.
         currentState = State.Moving;
 
-        transform.position = Vector2.MoveTowards(transform.position, target.transform.position, moveSpeed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, target.transform.position, moveSpeed * GameManager.Instance.deltaTime);
     }
     public bool CheckTargetRange()
     {
@@ -184,8 +184,8 @@ public class Actor : MonoBehaviour
 
     void UpdateAttackLoop()
     {
-        globalCooldownCount += Time.deltaTime;
-        abilityCooldownCount += Time.deltaTime;
+        globalCooldownCount += GameManager.Instance.deltaTime;
+        abilityCooldownCount += GameManager.Instance.deltaTime;
         if (abilityCooldownCount >= abilityCooldown)
         {
             UseAbility();

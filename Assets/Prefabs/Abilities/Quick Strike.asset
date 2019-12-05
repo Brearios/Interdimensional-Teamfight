@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb4150d779a2b1143b0ae420b32688ed, type: 3}
   m_Name: Quick Strike
   m_EditorClassIdentifier: 
+  targettype: 2
   abilityName: Quick Strike
   rank: 1
   abilityRange: 1
   abilityCooldown: 4
-  usedOnFriends: 0
-  usedOnSelf: 1
+  description: Reset attack cooldown.

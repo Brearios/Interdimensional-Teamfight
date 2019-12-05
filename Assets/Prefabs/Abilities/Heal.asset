@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb4150d779a2b1143b0ae420b32688ed, type: 3}
   m_Name: Heal
   m_EditorClassIdentifier: 
+  targettype: 1
   abilityName: Heal
   rank: 1
+  HpDelta: 25
   abilityRange: 6
   abilityCooldown: 4
-  usedOnFriends: 1
+  description: Restore health to a friendly target.

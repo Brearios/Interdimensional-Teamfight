@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
     public bool IsRunning = false; // Allows pausing the game
     public bool DisplayHealth = true; // Shows or hides health bars
     public float gameSpeed;
+    public float deltaTime;
+    public float timeIncrement = .5f;
     public bool DeclareVictory;
     public ScriptableTeam winningTeam;
     public Color winningTeamColor;
@@ -16,7 +18,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        gameSpeed = 1.0f;
+        timeIncrement = 1f;
     }
 
     public void Awake()
@@ -82,29 +85,29 @@ public class GameManager : MonoBehaviour
     }
     void TimeControls()
     {
-        gameSpeed = Time.timeScale;
+        deltaTime = (gameSpeed * Time.deltaTime);
 
         if (Input.GetKeyDown(KeyCode.F))
         {
-            Time.timeScale += .5f;
+            gameSpeed += timeIncrement;
         }
 
         if (Input.GetKeyDown(KeyCode.S))
         {
-            if (Time.timeScale <= .5f)
+            if (gameSpeed <= timeIncrement)
             {
-                Time.timeScale = 0f;
+                gameSpeed = 0f;
             }
 
             else
             {
-                Time.timeScale -= .5f;
+                gameSpeed -= timeIncrement;
             }
         }
 
         if (Input.GetKeyDown(KeyCode.N))
         {
-            Time.timeScale = 1.0f;
+            gameSpeed = 1.0f;
         }
 
     }

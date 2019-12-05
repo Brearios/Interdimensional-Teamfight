@@ -499,9 +499,11 @@ MonoBehaviour:
   IsRunning: 0
   DisplayHealth: 1
   gameSpeed: 0
+  deltaTime: 0
+  timeIncrement: 0
   DeclareVictory: 0
   winningTeam: {fileID: 0}
-  winningTeamColor: {r: 0, g: 0, b: 0, a: 0}
+  winningTeamColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!4 &951133640
 Transform:
   m_ObjectHideFlags: 0
@@ -994,12 +996,12 @@ PrefabInstance:
     - target: {fileID: 5236509248646722110, guid: 10bebb8e089d8fb4dbb764e2c9b179be,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.073
+      value: 5.06
       objectReference: {fileID: 0}
     - target: {fileID: 5236509248646722110, guid: 10bebb8e089d8fb4dbb764e2c9b179be,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.013
+      value: -0.45
       objectReference: {fileID: 0}
     - target: {fileID: 5236509248646722110, guid: 10bebb8e089d8fb4dbb764e2c9b179be,
         type: 3}
