@@ -654,6 +654,8 @@ MonoBehaviour:
   IsRunning: 0
   DisplayHealth: 1
   gameSpeed: 0
+  deltaTime: 0
+  timeIncrement: 0.5
   DeclareVictory: 0
   winningTeam: {fileID: 0}
   winningTeamColor: {r: 0, g: 0, b: 0, a: 0}
@@ -963,6 +965,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rogue (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2034396223258333742, guid: f37f857c370004b4db2a2ccfd7a977cf,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8682159599204218068, guid: f37f857c370004b4db2a2ccfd7a977cf,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1116,6 +1123,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: f81ca7937fe240e4aaf8657be5ce1c02,
         type: 2}
+    - target: {fileID: 8994926729317995891, guid: b1df25e8289c5c747bcf894e607ed74f,
+        type: 3}
+      propertyPath: body
+      value: 
+      objectReference: {fileID: 7683689672237621182, guid: dbc81211002055b438493b1f69586ca9,
+        type: 3}
+    - target: {fileID: 8994926729317995891, guid: b1df25e8289c5c747bcf894e607ed74f,
+        type: 3}
+      propertyPath: targetType
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1df25e8289c5c747bcf894e607ed74f, type: 3}
 --- !u!1001 &455447941601551513
@@ -1302,6 +1320,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rogue
       objectReference: {fileID: 0}
+    - target: {fileID: 2183109664612398436, guid: e7508a99ae261984489c6871e40ba455,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8794804522130379678, guid: e7508a99ae261984489c6871e40ba455,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1460,6 +1483,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: f81ca7937fe240e4aaf8657be5ce1c02,
         type: 2}
+    - target: {fileID: 2754194657924981659, guid: 0e844113f01d9dd47aa692154fa9c52b,
+        type: 3}
+      propertyPath: targetType
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e844113f01d9dd47aa692154fa9c52b, type: 3}
 --- !u!1001 &5952650880407367098
@@ -1473,6 +1501,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Mage (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5246891048410552781, guid: 7e87941ff8f086f44bf8c4a27f8a6ce8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4330217933342670906, guid: 7e87941ff8f086f44bf8c4a27f8a6ce8,
         type: 3}
@@ -1554,6 +1587,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Mage
+      objectReference: {fileID: 0}
+    - target: {fileID: 4995290915333044515, guid: 33d591745655abd4e8d1e89844e3a037,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3574278382435950804, guid: 33d591745655abd4e8d1e89844e3a037,
         type: 3}

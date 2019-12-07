@@ -10,16 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eb4150d779a2b1143b0ae420b32688ed, type: 3}
-  m_Name: Heal
+  m_Name: Stun
   m_EditorClassIdentifier: 
-  targetType: 0
-  abilityName: Heal
+  targettype: 0
+  abilityName: Stun
   rank: 1
-  HpDelta: 25
-  abilityRange: 6
-  abilityCooldown: 4
-  description: Restore health to a friendly target.
-  effectDuration: 0
+  HpDelta: 0
+  abilityRange: 1
+  abilityCooldown: 5
+  description: Stun an enemy for a period of time.
+  effectDuration: 3
   HpDeltaPerSecond: 0
   CooldownsDeltaPerSecond: 0
-  knockbackDistance: 0

@@ -7,6 +7,7 @@ public class Actor : MonoBehaviour
 {
     public enum Team { Neutral, Blue, Red };
     public enum State { Idle, Moving, Attacking };
+    public enum TargetType { Enemy, Friendly, Self };
 
     public ScriptableUnit unit;
     public ScriptableTeam team;
@@ -26,15 +27,14 @@ public class Actor : MonoBehaviour
     public float abilityCooldownCount;
     public float moveSpeed;
     public State currentState = State.Idle;
-    // public Team team = Team.Neutral; - Handled by ScriptableTeam
-    // Color teamColor; - also handled ^
     Color currentColor;
     Color alphaColor;
     public GameObject body;
     public Image healthBar;
     public Image healthBG;
-
-    public Actor target;
+    public Actor autoAtkTarget;
+    public Actor abilityTarget;
+    public TargetType targetType;
 
 
     // Start is called before the first frame update
@@ -55,6 +55,7 @@ public class Actor : MonoBehaviour
         currHealth = maxHealth;
         // Fetch Material from Renderer
         currentColor = GetComponentInChildren<SpriteRenderer>().color;
+
     }
 
     // Update is called once per frame
@@ -75,15 +76,15 @@ public class Actor : MonoBehaviour
         /* if (currHealth > 0)
         {
             // UpdateAlpha();
-        } */ 
+        } */
 
         if (currentState == State.Idle)
         {
-            FindNearestEnemy();
+            FindTargets();
         }
 
         var targetInRange = false;
-        if (target != null)
+        if (autoAtkTarget != null)
         {
             targetInRange = CheckTargetRange();
             // This func should determine if we're in range of our target. Return a boolean
@@ -109,7 +110,7 @@ public class Actor : MonoBehaviour
 
         else
         {
-            if (target != null)
+            if (autoAtkTarget != null)
             {
                 MoveTowardsTarget();
             }
@@ -118,6 +119,12 @@ public class Actor : MonoBehaviour
             { currentState = State.Idle; }
         }
 
+    }
+
+    void FindTargets()
+    {
+        FindNearestEnemy();
+        FindAbilityTarget();
     }
 
     void HealthBarManagement()
@@ -140,11 +147,11 @@ public class Actor : MonoBehaviour
         Actor[] allActors = GameObject.FindObjectsOfType<Actor>();
 
         float distanceToClosestActor = Mathf.Infinity;
-        target = null;
+        autoAtkTarget = null;
 
         foreach (Actor currentActor in allActors)
         {
-            if (currentActor.team == team) // I can't get these to compare - have tried Actor.Team, this.Team, and other formats (was due to using break, not continue)
+            if (currentActor.team == team)
             {
                 continue;
             }
@@ -154,11 +161,69 @@ public class Actor : MonoBehaviour
                 if (distanceToActor < distanceToClosestActor)
                 {
                     distanceToClosestActor = distanceToActor;
-                    target = currentActor;
+                    autoAtkTarget = currentActor;
                 }
             }
 
         }
+    }
+
+    void FindAbilityTarget()
+    {
+        if (ability.targetType == ScriptableAbility.TargetType.Enemy)
+        {
+            
+            Actor[] allActors = GameObject.FindObjectsOfType<Actor>();
+
+            float distanceToClosestActor = Mathf.Infinity;
+
+            foreach (Actor currAbilityActor in allActors)
+            {
+                if (currAbilityActor.team == team)
+                {
+                    continue;
+                }
+                else
+                {
+                    float distanceToActor = (currAbilityActor.transform.position - transform.position).sqrMagnitude;
+                    if (distanceToActor < distanceToClosestActor)
+                    {
+                        distanceToClosestActor = distanceToActor;
+                        abilityTarget = currAbilityActor;
+                    }
+                }
+
+            }
+        }
+        else if (ability.targetType == ScriptableAbility.TargetType.Friendly)
+        {
+            Actor[] allActors = GameObject.FindObjectsOfType<Actor>();
+
+            float lowestHealthPercent = 101;
+
+            foreach (Actor currAbilityActor in allActors)
+            {
+                if (currAbilityActor.team == team)
+                {
+                    float healthPercent = (currAbilityActor.currHealth / currAbilityActor.maxHealth);
+                    if (healthPercent < lowestHealthPercent)
+                    {
+                        lowestHealthPercent = healthPercent;
+                        abilityTarget = currAbilityActor;
+                    }
+                }
+                else
+                {
+                    continue;    
+                }
+
+            }
+        }
+        else if (ability.targetType == ScriptableAbility.TargetType.Self)
+        {
+            abilityTarget = this; 
+        }
+
     }
 
 
@@ -167,19 +232,17 @@ public class Actor : MonoBehaviour
         // It's OK if we set this every frame even if we're already moving.
         currentState = State.Moving;
 
-        transform.position = Vector2.MoveTowards(transform.position, target.transform.position, moveSpeed * GameManager.Instance.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, autoAtkTarget.transform.position, moveSpeed * GameManager.Instance.deltaTime);
     }
     public bool CheckTargetRange()
     {
-        return (Vector2.Distance(target.transform.position, transform.position) <= atkRange);
+        return (Vector2.Distance(autoAtkTarget.transform.position, transform.position) <= atkRange);
     }
 
     void StartAttacking()
     {
         currentState = State.Attacking;
         globalCooldownCount = 0f;
-        abilityCooldownCount = 0f;
-
     }
 
     void UpdateAttackLoop()
@@ -202,7 +265,7 @@ public class Actor : MonoBehaviour
     void PerformAttack()
     {
         // Attack with "animation"
-            if (0 < (target.transform.position.x - transform.position.x))
+            if (0 < (autoAtkTarget.transform.position.x - transform.position.x))
         {
                 iTween.RotateFrom(body, new Vector3(0, 0, -20), .4f);
             }
@@ -210,15 +273,23 @@ public class Actor : MonoBehaviour
             {
                 iTween.RotateFrom(body, new Vector3(0, 0, 20), .4f);
             }
-        target.currHealth -= attackDamage;
-        if (target.currHealth <= 0)
-            target = null;
+        autoAtkTarget.currHealth -= attackDamage;
+        if (autoAtkTarget.currHealth <= 0)
+            autoAtkTarget = null;
     }
     void UseAbility()
     {
+        abilityTarget.currHealth += ability.HpDelta;
+        if (abilityTarget.currHealth > abilityTarget.maxHealth)
+        {
+            abilityTarget.currHealth = abilityTarget.maxHealth;
+        }
+        FindAbilityTarget();
         // Select a Target if usedOnFriends
         // Else use normal target
         // Call ability.abilityCode ??
+        // Animation
+        // Floating Combat Text (goes on recipient, though)
     }
 }
 

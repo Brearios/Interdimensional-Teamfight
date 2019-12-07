@@ -6,7 +6,7 @@ using UnityEngine;
 public class ScriptableAbility : ScriptableObject
 {
     public enum TargetType { Enemy, Friendly, Self }; // Options for all enemies or all allies or 3 enemies or 3 allies?
-    public TargetType targettype;
+    public TargetType targetType;
     public string abilityName;
     public int rank;
     public int HpDelta;
@@ -16,6 +16,7 @@ public class ScriptableAbility : ScriptableObject
     public float effectDuration; 
     public int HpDeltaPerSecond; // DoT or HoT Abilities
     public float CooldownsDeltaPerSecond; // Haste or Slow Abilities
+    public float knockbackDistance;
     
 
     // Start is called before the first frame update

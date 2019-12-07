@@ -10,10 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eb4150d779a2b1143b0ae420b32688ed, type: 3}
-  m_Name: Heal Ability
+  m_Name: Regen
   m_EditorClassIdentifier: 
-  abilityName: Heal
+  targettype: 1
+  abilityName: Regen
   rank: 1
-  abilityRange: 3
-  abilityCooldown: 5
-  usedOnFriends: 1
+  HpDelta: 0
+  abilityRange: 6
+  abilityCooldown: 7
+  description: Restore health each second.
+  effectDuration: 5
+  HpDeltaPerSecond: 5
+  CooldownsDeltaPerSecond: 0
+  knockbackDistance: 0
