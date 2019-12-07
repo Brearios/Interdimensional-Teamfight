@@ -199,7 +199,7 @@ public class Actor : MonoBehaviour
         {
             Actor[] allActors = GameObject.FindObjectsOfType<Actor>();
 
-            float lowestHealthPercent = 101;
+            float lowestHealthPercent = 1;
 
             foreach (Actor currAbilityActor in allActors)
             {
