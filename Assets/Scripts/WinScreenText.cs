@@ -18,7 +18,7 @@ public class WinScreenText : MonoBehaviour
     void Update()
     {
         // Convert winningTeam to String
-        WinningTeamString = GameManager.Instance.winningTeam.ToString();
+        WinningTeamString = GameManager.Instance.winningTeam.name;
 
         // Set color to WinningTeam Color
         // text.color = GameManager.Instance.winningTeamColor;

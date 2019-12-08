@@ -34,8 +34,6 @@ public class Actor : MonoBehaviour
     public Image healthBG;
     public Actor autoAtkTarget;
     public Actor abilityTarget;
-    public TargetType targetType;
-
 
     // Start is called before the first frame update
     void Start()
@@ -73,6 +71,8 @@ public class Actor : MonoBehaviour
             return;
         }
 
+        FindAbilityTarget();
+
         /* if (currHealth > 0)
         {
             // UpdateAlpha();
@@ -80,7 +80,7 @@ public class Actor : MonoBehaviour
 
         if (currentState == State.Idle)
         {
-            FindTargets();
+            FindNearestEnemy();
         }
 
         var targetInRange = false;
@@ -119,12 +119,6 @@ public class Actor : MonoBehaviour
             { currentState = State.Idle; }
         }
 
-    }
-
-    void FindTargets()
-    {
-        FindNearestEnemy();
-        FindAbilityTarget();
     }
 
     void HealthBarManagement()
@@ -284,6 +278,9 @@ public class Actor : MonoBehaviour
         {
             abilityTarget.currHealth = abilityTarget.maxHealth;
         }
+
+        // Code for things that don't just modify HP directly
+
         FindAbilityTarget();
         // Select a Target if usedOnFriends
         // Else use normal target
