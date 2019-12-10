@@ -35,6 +35,8 @@ public class Actor : MonoBehaviour
     public Actor autoAtkTarget;
     public Actor abilityTarget;
 
+    public GameObject FloatingTextPrefab;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -267,17 +269,16 @@ public class Actor : MonoBehaviour
             {
                 iTween.RotateFrom(body, new Vector3(0, 0, 20), .4f);
             }
-        autoAtkTarget.currHealth -= attackDamage;
+        autoAtkTarget.ChangeHealth(-attackDamage);
+        // autoAtkTarget.currHealth -= attackDamage; - old code
         if (autoAtkTarget.currHealth <= 0)
             autoAtkTarget = null;
     }
     void UseAbility()
     {
-        abilityTarget.currHealth += ability.HpDelta;
-        if (abilityTarget.currHealth > abilityTarget.maxHealth)
-        {
-            abilityTarget.currHealth = abilityTarget.maxHealth;
-        }
+        abilityTarget.ChangeHealth(ability.HpDelta);
+        // abilityTarget.currHealth += ability.HpDelta; - old code
+
 
         // Code for things that don't just modify HP directly
 
@@ -288,5 +289,38 @@ public class Actor : MonoBehaviour
         // Animation
         // Floating Combat Text (goes on recipient, though)
     }
+
+    void ChangeHealth(float amount)
+    {
+        // Add or Subtract Health
+        currHealth += amount;
+        if (currHealth > maxHealth)
+        {
+            currHealth = maxHealth;
+        }
+        // Animation/Knockback
+        // Floating Combat Text
+        if (FloatingTextPrefab)
+        {
+            ShowFloatingText(amount);
+        }
+    }
+
+    void ShowFloatingText(float amount)
+    {
+        //Instantiate prefab at position of Actor with no rotation
+        var go = Instantiate(FloatingTextPrefab, transform.position, Quaternion.identity, transform);
+        if (amount < 0)
+        {
+            go.GetComponent<TextMesh>().color = Color.black; 
+        }
+        if (amount > 0)
+        {
+            go.GetComponent<TextMesh>().color = Color.green;
+        }
+        
+        go.GetComponent<TextMesh>().text = amount.ToString();
+    }
+
 }
 

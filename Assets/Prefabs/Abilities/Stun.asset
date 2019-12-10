@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb4150d779a2b1143b0ae420b32688ed, type: 3}
   m_Name: Stun
   m_EditorClassIdentifier: 
-  targettype: 0
+  targetType: 0
+  effectType: 2
   abilityName: Stun
   rank: 1
   HpDelta: 0
@@ -22,3 +23,4 @@ MonoBehaviour:
   effectDuration: 3
   HpDeltaPerSecond: 0
   CooldownsDeltaPerSecond: 0
+  knockbackDistance: 0

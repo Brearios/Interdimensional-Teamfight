@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Heal
   m_EditorClassIdentifier: 
   targetType: 1
+  effectType: 1
   abilityName: Heal
   rank: 1
   HpDelta: 25

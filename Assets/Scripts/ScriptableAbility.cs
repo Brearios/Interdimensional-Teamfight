@@ -6,7 +6,9 @@ using UnityEngine;
 public class ScriptableAbility : ScriptableObject
 {
     public enum TargetType { Enemy, Friendly, Self }; // Options for all enemies or all allies or 3 enemies or 3 allies?
+    public enum EffectType { Damage, Heal, Status, DamageAndStatus, HealAndStatus };
     public TargetType targetType;
+    public EffectType effectType;
     public string abilityName;
     public int rank;
     public int HpDelta;
