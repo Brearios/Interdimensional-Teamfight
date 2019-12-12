@@ -14,11 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitName: Mage
   maxHealth: 100
-  attackDamage: 15
-  globalCooldown: 2
+  attackDamage: 5
+  globalCooldown: 3
   role: RangedDPS
   team: 
   atkRange: 3
   moveSpeed: 1
-  abilityRange: 3
-  abilityName: 

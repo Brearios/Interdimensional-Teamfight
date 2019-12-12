@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eb4150d779a2b1143b0ae420b32688ed, type: 3}
-  m_Name: Frostbolt
+  m_Name: Icecicle
   m_EditorClassIdentifier: 
   targetType: 0
   effectType: 3
   abilityName: Frostbolt
   rank: 1
-  HpDelta: 10
+  HpDelta: -24
   abilityRange: 4
   abilityCooldown: 4
   description: Deal damage and slow an enemy's attack speed.

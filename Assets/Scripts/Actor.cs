@@ -26,6 +26,7 @@ public class Actor : MonoBehaviour
     public float abilityCooldown;
     public float abilityCooldownCount;
     public float moveSpeed;
+    public float abilitySpeed;
     public State currentState = State.Idle;
     Color currentColor;
     Color alphaColor;
@@ -34,6 +35,7 @@ public class Actor : MonoBehaviour
     public Image healthBG;
     public Actor autoAtkTarget;
     public Actor abilityTarget;
+    
 
     public GameObject FloatingTextPrefab;
 

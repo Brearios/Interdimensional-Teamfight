@@ -486,6 +486,8 @@ MonoBehaviour:
   IsRunning: 0
   DisplayHealth: 1
   gameSpeed: 0
+  deltaTime: 0
+  timeIncrement: 0.5
   DeclareVictory: 0
   winningTeam: {fileID: 0}
   winningTeamColor: {r: 0, g: 0, b: 0, a: 0}
@@ -1351,6 +1353,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: f81ca7937fe240e4aaf8657be5ce1c02,
         type: 2}
+    - target: {fileID: 8994926729317995891, guid: b1df25e8289c5c747bcf894e607ed74f,
+        type: 3}
+      propertyPath: FloatingTextPrefab
+      value: 
+      objectReference: {fileID: 3012059549555167978, guid: 0109102a0e323cf4a8c8a00b944fe359,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1df25e8289c5c747bcf894e607ed74f, type: 3}
 --- !u!1001 &455447941601551513

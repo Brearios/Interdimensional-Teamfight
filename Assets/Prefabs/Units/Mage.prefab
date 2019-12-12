@@ -373,6 +373,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 11400000, guid: f6faf2d35a07ac142b54d43bd3a6afbc, type: 2}
   team: {fileID: 0}
+  ability: {fileID: 11400000, guid: 6bf2c15b44422ec41a09da5e79a3a2e2, type: 2}
   unitName: 
   maxHealth: 0
   currHealth: 0
@@ -383,9 +384,13 @@ MonoBehaviour:
   role: 
   atkRange: 0
   abilityRange: 0
+  abilityCooldown: 0
+  abilityCooldownCount: 0
   moveSpeed: 0
   currentState: 0
   body: {fileID: 1783398528745941840}
   healthBar: {fileID: 3078047493419184902}
   healthBG: {fileID: 3078047494129415254}
-  target: {fileID: 0}
+  autoAtkTarget: {fileID: 0}
+  abilityTarget: {fileID: 0}
+  FloatingTextPrefab: {fileID: 0}
