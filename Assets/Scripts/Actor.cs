@@ -106,7 +106,10 @@ public class Actor : MonoBehaviour
             }
             else
             {
-                UpdateAttackLoop();
+                if (gameObject != null)
+                {
+                    UpdateAttackLoop();
+                }
                 // Update the attack timer, and if the timer is up, perform an attack
                 // UpdateAttackLoop();
             }
@@ -249,7 +252,10 @@ public class Actor : MonoBehaviour
         abilityCooldownCount += GameManager.Instance.deltaTime;
         if (abilityCooldownCount >= abilityCooldown)
         {
-            UseAbility();
+            if (gameObject != null)
+            {
+                UseAbility();
+            }
             abilityCooldownCount -= abilityCooldown;
         }
 
@@ -278,7 +284,10 @@ public class Actor : MonoBehaviour
     }
     void UseAbility()
     {
-        abilityTarget.ChangeHealth(ability.HpDelta);
+        if (gameObject != null)
+        {
+            abilityTarget.ChangeHealth(ability.HpDelta);
+        }
         // abilityTarget.currHealth += ability.HpDelta; - old code
 
 
@@ -304,24 +313,30 @@ public class Actor : MonoBehaviour
         // Floating Combat Text
         if (FloatingTextPrefab)
         {
-            ShowFloatingText(amount);
+            if (gameObject != null)
+            {
+                ShowFloatingText(amount);
+            }
         }
     }
 
     void ShowFloatingText(float amount)
     {
         //Instantiate prefab at position of Actor with no rotation
-        var go = Instantiate(FloatingTextPrefab, transform.position, Quaternion.identity, transform);
-        if (amount < 0)
+        if (gameObject != null)
         {
-            go.GetComponent<TextMesh>().color = Color.black; 
+            var go = Instantiate(FloatingTextPrefab, transform.position, Quaternion.identity, transform);
+            if (amount > 0)
+            {
+                go.GetComponent<TextMesh>().color = Color.green;
+            }
+            else
+            {
+                go.GetComponent<TextMesh>().color = Color.black;
+            }
+
+            go.GetComponent<TextMesh>().text = amount.ToString();
         }
-        if (amount > 0)
-        {
-            go.GetComponent<TextMesh>().color = Color.green;
-        }
-        
-        go.GetComponent<TextMesh>().text = amount.ToString();
     }
 
 }

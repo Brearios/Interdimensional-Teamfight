@@ -108,7 +108,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DestroyTime: 1.5
   Offset: {x: 0, y: 2, z: 0}
-  driftRate: {x: 0, y: 0.3, z: 0}
+  driftRate: {x: 0, y: 0.03, z: 0}
 --- !u!95 &3012059549555167979
 Animator:
   serializedVersion: 3

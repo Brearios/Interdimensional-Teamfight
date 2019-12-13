@@ -5,7 +5,7 @@ using UnityEngine;
 public class FloatingText : MonoBehaviour
 {
 
-    public float DestroyTime = .1f;
+    public float DestroyTime = .4f;
     public Vector3 Offset = new Vector3(0, 2, 0);
     public Vector3 driftRate = new Vector3(0, .0001f, 0);
 
@@ -22,6 +22,6 @@ public class FloatingText : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.transform.position += driftRate / GameManager.Instance.gameSpeed;
+        transform.position += (driftRate / GameManager.Instance.gameSpeed);
     }
 }
