@@ -22,6 +22,11 @@ public class FloatingText : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameManager.Instance.IsRunning == false)
+        {
+            return;
+        }
         transform.position += (driftRate / GameManager.Instance.gameSpeed);
+        
     }
 }

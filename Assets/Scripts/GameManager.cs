@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance; // <- reference link to GameManager
     public bool IsRunning = false; // Allows pausing the game
     public bool DisplayHealth = true; // Shows or hides health bars
+    public bool ShowTarget = true;
     public float gameSpeed;
     public float deltaTime;
     public float timeIncrement = .5f;
@@ -45,6 +46,11 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.V))
         {
             DisplayHealth = !DisplayHealth; // Toggles health bars when V is pressed
+        }
+
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            ShowTarget = !ShowTarget; // Toggles target lines when T is pressed
         }
 
         TimeControls();

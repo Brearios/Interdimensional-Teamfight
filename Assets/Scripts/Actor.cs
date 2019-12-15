@@ -64,6 +64,7 @@ public class Actor : MonoBehaviour
     void Update()
     {
         HealthBarManagement();
+        
         if (GameManager.Instance.IsRunning == false)
         {
             return;
@@ -74,7 +75,7 @@ public class Actor : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-
+                        
         FindAbilityTarget();
 
         /* if (currHealth > 0)
@@ -86,6 +87,10 @@ public class Actor : MonoBehaviour
         {
             FindNearestEnemy();
         }
+
+        TargetLineDisplay();
+
+        
 
         var targetInRange = false;
         if (autoAtkTarget != null)
@@ -136,6 +141,21 @@ public class Actor : MonoBehaviour
         healthBar.fillAmount = healthPercent;
     }
 
+    void TargetLineDisplay()
+    {
+        if (GameManager.Instance.ShowTarget)
+        {
+            if (autoAtkTarget != null)
+            {
+                Debug.DrawLine(transform.position, autoAtkTarget.transform.position);
+            }
+            if (abilityTarget != null)
+            {
+                Debug.DrawLine(transform.position, abilityTarget.transform.position, Color.red);
+            }
+        }
+    }
+
     void UpdateAlpha() // Set Opacity based upon Health
     {
         healthPercent = (currHealth / maxHealth);
@@ -167,7 +187,7 @@ public class Actor : MonoBehaviour
             }
 
         }
-    }
+            }
 
     void FindAbilityTarget()
     {
@@ -268,25 +288,28 @@ public class Actor : MonoBehaviour
 
     void PerformAttack()
     {
-        // Attack with "animation"
-            if (0 < (autoAtkTarget.transform.position.x - transform.position.x))
+        if (gameObject != null)
         {
+            // Attack with "animation"
+            if (0 < (autoAtkTarget.transform.position.x - transform.position.x))
+            {
                 iTween.RotateFrom(body, new Vector3(0, 0, -20), .4f);
             }
             else
             {
                 iTween.RotateFrom(body, new Vector3(0, 0, 20), .4f);
             }
-        autoAtkTarget.ChangeHealth(-attackDamage);
-        // autoAtkTarget.currHealth -= attackDamage; - old code
-        if (autoAtkTarget.currHealth <= 0)
-            autoAtkTarget = null;
+            autoAtkTarget.ChangeHealth(-attackDamage, false);
+            // autoAtkTarget.currHealth -= attackDamage; - old code
+            if (autoAtkTarget.currHealth <= 0)
+                autoAtkTarget = null;
+        }
     }
     void UseAbility()
     {
         if (gameObject != null)
         {
-            abilityTarget.ChangeHealth(ability.HpDelta);
+            abilityTarget.ChangeHealth(ability.HpDelta, true);
         }
         // abilityTarget.currHealth += ability.HpDelta; - old code
 
@@ -301,7 +324,7 @@ public class Actor : MonoBehaviour
         // Floating Combat Text (goes on recipient, though)
     }
 
-    void ChangeHealth(float amount)
+    void ChangeHealth(float amount, bool wantFloatingText)
     {
         // Add or Subtract Health
         currHealth += amount;
@@ -311,11 +334,14 @@ public class Actor : MonoBehaviour
         }
         // Animation/Knockback
         // Floating Combat Text
-        if (FloatingTextPrefab)
+        if (gameObject != null) 
         {
-            if (gameObject != null)
+            if (FloatingTextPrefab)
             {
-                ShowFloatingText(amount);
+                if (wantFloatingText == true)
+                {
+                    ShowFloatingText(amount);
+                }
             }
         }
     }
