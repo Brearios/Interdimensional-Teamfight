@@ -9,16 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d9a75471d10e234095c808943749452, type: 3}
-  m_Name: HealerUnit
+  m_Script: {fileID: 11500000, guid: 2cf6d9c660445bc4ea3b73f5a50f852a, type: 3}
+  m_Name: SpeedIncrease
   m_EditorClassIdentifier: 
-  unitName: Healer
-  maxHealth: 100
-  attackDamage: 5
-  globalCooldown: 2
-  role: Healer
-  team: 
-  atkRange: 2
-  moveSpeed: 1
-  abilityRange: 5
-  abilityName: 
+  effectName: SpeedIncrease
+  effectMagnitude: 0
+  effectDuration: 0
+  canStack: 0
+  numStacks: 0

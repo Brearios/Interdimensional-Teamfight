@@ -35,7 +35,7 @@ public class Actor : MonoBehaviour
     public Image healthBG;
     public Actor autoAtkTarget;
     public Actor abilityTarget;
-    
+    public List<ScriptableEffects> CurrentEffects;
 
     public GameObject FloatingTextPrefab;
 
@@ -356,11 +356,14 @@ public class Actor : MonoBehaviour
             {
                 go.GetComponent<TextMesh>().color = Color.green;
             }
-            else
+            if (amount < 0)
             {
                 go.GetComponent<TextMesh>().color = Color.black;
             }
-
+            if (amount == 0)
+            {
+                go.GetComponent<TextMesh>().color = Color.clear;
+            }
             go.GetComponent<TextMesh>().text = amount.ToString();
         }
     }

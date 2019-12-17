@@ -10,15 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2d9a75471d10e234095c808943749452, type: 3}
-  m_Name: RogueUnit
+  m_Name: BossUnit
   m_EditorClassIdentifier: 
-  unitName: Rogue
-  maxHealth: 100
-  attackDamage: 15
+  unitName: Boss
+  maxHealth: 900
+  attackDamage: 60
   globalCooldown: 2
-  role: MeleeDPS
-  team: 
-  atkRange: 1
-  moveSpeed: 1.5
-  abilityRange: 1
-  abilityName: 
+  role: 
+  team: Red
+  atkRange: 4
+  moveSpeed: 2
