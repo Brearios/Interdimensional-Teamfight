@@ -16,6 +16,7 @@ MonoBehaviour:
   maxHealth: 100
   attackDamage: 15
   globalCooldown: 2
+  xpWhenKilled: 25
   role: MeleeDPS
   team: 
   atkRange: 1

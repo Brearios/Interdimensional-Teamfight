@@ -16,6 +16,7 @@ MonoBehaviour:
   maxHealth: 300
   attackDamage: 5
   globalCooldown: 2
+  xpWhenKilled: 25
   role: Tank
   team: 
   atkRange: 1

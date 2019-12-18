@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public bool IsRunning = false; // Allows pausing the game
     public bool DisplayHealth = true; // Shows or hides health bars
     public bool ShowTarget = true;
+    public int earnedBattleXP;
     public float gameSpeed;
     public float deltaTime;
     public float timeIncrement = .5f;
@@ -85,10 +86,20 @@ public class GameManager : MonoBehaviour
         {
             winningTeamColor = winCheckTeam.color;
             // winningTeamColor = allActors[0].GetComponentInChildren<Color>();
+            DistributeXP();
+            // Load Upgrade Screen?
         }
         
 
     }
+
+    void DistributeXP()
+    {
+        // Count heroes in scene
+        // Divide XP by Heroes
+        // Increase XP by their share
+    }
+
     void TimeControls()
     {
         deltaTime = (gameSpeed * Time.deltaTime);

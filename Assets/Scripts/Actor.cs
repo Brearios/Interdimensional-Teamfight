@@ -18,6 +18,7 @@ public class Actor : MonoBehaviour
     public float currHealth;
     public float healthPercent;
     public int attackDamage; // Later make this a random amount within a range
+    public int xpWhenKilled;
     public float globalCooldown;
     public float globalCooldownCount;
     public string role;
@@ -57,6 +58,7 @@ public class Actor : MonoBehaviour
         currHealth = maxHealth;
         // Fetch Material from Renderer
         currentColor = GetComponentInChildren<SpriteRenderer>().color;
+        xpWhenKilled = unit.xpWhenKilled;
 
     }
 
@@ -72,6 +74,7 @@ public class Actor : MonoBehaviour
 
         if (currHealth <= 0)
         {
+            GameManager.Instance.earnedBattleXP += xpWhenKilled;
             Destroy(gameObject);
             return;
         }
