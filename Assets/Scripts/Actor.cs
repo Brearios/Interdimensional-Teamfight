@@ -37,6 +37,7 @@ public class Actor : MonoBehaviour
     public Actor autoAtkTarget;
     public Actor abilityTarget;
     public List<ScriptableEffects> CurrentEffects;
+    public bool isDead;
 
     public GameObject FloatingTextPrefab;
 
@@ -58,6 +59,7 @@ public class Actor : MonoBehaviour
         currHealth = maxHealth;
         // Fetch Material from Renderer
         currentColor = GetComponentInChildren<SpriteRenderer>().color;
+        isDead = false;
         xpWhenKilled = unit.xpWhenKilled;
 
     }

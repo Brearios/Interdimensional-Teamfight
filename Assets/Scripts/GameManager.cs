@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     public bool DeclareVictory;
     public ScriptableTeam winningTeam;
     public Color winningTeamColor;
+    public bool isSceneBattle;
 
     // Start is called before the first frame update
     void Start()
@@ -56,6 +57,13 @@ public class GameManager : MonoBehaviour
 
         TimeControls();
 
+        Actor[] allActors = GameObject.FindObjectsOfType<Actor>();
+        // Prevent IsBattleOver from erroring on menu/title scenes
+        if (allActors.Length == 0)
+        {
+            return;
+        }
+
         IsBattleOver();
     }
 
@@ -66,6 +74,11 @@ public class GameManager : MonoBehaviour
         // If none found, WinningTeam = Actor.Team 
 
         Actor[] allActors = GameObject.FindObjectsOfType<Actor>();
+        // Prevent IsBattleOver from erroring on menu/title scenes
+        if (allActors.Length == 0)
+        {
+            return;
+        }
 
         // Get Team of Any One Unit
         ScriptableTeam winCheckTeam = allActors[0].team;
