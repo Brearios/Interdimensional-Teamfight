@@ -62,6 +62,12 @@ public class Actor : MonoBehaviour
         isDead = false;
         xpWhenKilled = unit.xpWhenKilled;
 
+        /*
+        applyHealthLevel;
+        applyAtkLevel;
+        applyAbilityLevel;
+        */
+
     }
 
     // Update is called once per frame

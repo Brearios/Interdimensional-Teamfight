@@ -1,25 +1,23 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DisplayText : MonoBehaviour
+public class xpAvailableText : MonoBehaviour
 {
     public static DisplayText Instance;
+    public CharacterProfile SceneCharacter;
     Text text;
     // Start is called before the first frame update
     void Start()
     {
         text = GetComponent<Text>();
+        SceneCharacter = GameObject.FindObjectOfType<CharacterProfile>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        // By setting the entire game object inactive, yes you
-        // prevent it's lifecycle from calling. You can enable/disable
-        // individual components on a game object like this.
-
-        text.enabled = !GameManager.Instance.IsRunning;
+        text.text = $"{SceneCharacter.characterAvailableXP} XP Remaining";
     }
 }

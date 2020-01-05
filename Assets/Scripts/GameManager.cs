@@ -143,6 +143,7 @@ public class GameManager : MonoBehaviour
     {
         CharacterProfile ActiveCharacters = GameObject.FindObjectOfType<CharacterProfile>();
         ActiveCharacters.characterTotalXP += earnedBattleXP;
+        ActiveCharacters.characterAvailableXP += earnedBattleXP;
         // Old code for multiple heroes
         /* Actor[] allActors = GameObject.FindObjectsOfType<Actor>();
         foreach (Actor Actor in allActors)

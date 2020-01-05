@@ -6,12 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Active Scenes/Title Screen.unity
+    path: Assets/Scenes/Active Scenes/00 Title Screen.unity
     guid: 23eb361003f2f364f95dc6fa03489701
   - enabled: 1
-    path: Assets/Scenes/Active Scenes/First Scene.unity
+    path: Assets/Scenes/Active Scenes/01 First Scene.unity
     guid: f30fd100db892b34593c22e15f7e5bee
   - enabled: 1
-    path: Assets/Scenes/Active Scenes/Second Scene.unity
+    path: Assets/Scenes/Active Scenes/02 Character Menu Screen.unity
+    guid: 74b18a85be6bba14cb6c303ef4adb98b
+  - enabled: 1
+    path: Assets/Scenes/Active Scenes/03 Second Scene.unity
     guid: 1cb420223cdf0954d86abaab56d5d739
   m_configObjects: {}

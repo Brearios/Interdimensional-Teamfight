@@ -10,6 +10,8 @@ public class CharacterProfile : MonoBehaviour
     public int healthLevel;
     public int AtkLevel;
     public int AbilityLevel;
+    public int nextXPCost;
+    
     // Start is called before the first frame update
 
     private void Awake()
@@ -30,11 +32,13 @@ public class CharacterProfile : MonoBehaviour
         
     }
 
-    
+
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
+
+
 }

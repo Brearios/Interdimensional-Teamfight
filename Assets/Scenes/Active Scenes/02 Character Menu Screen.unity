@@ -352,6 +352,7 @@ GameObject:
   - component: {fileID: 182010044}
   - component: {fileID: 182010043}
   - component: {fileID: 182010042}
+  - component: {fileID: 182010045}
   m_Layer: 5
   m_Name: PlusButton
   m_TagString: Untagged
@@ -421,7 +422,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 182010043}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 182010045}
+        m_MethodName: IncrementHealth
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &182010043
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -458,6 +470,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 182010040}
   m_CullTransparentMesh: 0
+--- !u!114 &182010045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 182010040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9cd973e8afa0194ca7283e73847212d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  xpCosts: 640000006c000000740000007e00000088000000930000009f000000ab000000b9000000c8000000d8000000ea000000fd00000011010000270100003f010000590100007401000092010000b3010000
+  nextXPCost: 0
+  i: 0
+  SceneCharacter: {fileID: 0}
 --- !u!1 &214496165
 GameObject:
   m_ObjectHideFlags: 0
@@ -1909,9 +1937,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 865685911}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af44832850a79a74dbe4674ed45dbb48, type: 3}
+  m_Script: {fileID: 11500000, guid: 5bbd6e62ffbf73748874fc1198e50c96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SceneCharacter: {fileID: 0}
 --- !u!114 &865685914
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1993,6 +2022,8 @@ MonoBehaviour:
   winningTeamColor: {r: 0, g: 0, b: 0, a: 0}
   winnersReceivingXP: 0
   xpPerCharacter: 0
+  xpCounted: 0
+  xpDistributed: 0
 --- !u!4 &951133640
 Transform:
   m_ObjectHideFlags: 0
@@ -2479,7 +2510,6 @@ GameObject:
   - component: {fileID: 1319499795}
   - component: {fileID: 1319499798}
   - component: {fileID: 1319499797}
-  - component: {fileID: 1319499796}
   m_Layer: 5
   m_Name: InstructionText
   m_TagString: Untagged
@@ -2506,18 +2536,6 @@ RectTransform:
   m_AnchoredPosition: {x: -6, y: -38}
   m_SizeDelta: {x: 227.5, y: 158.3}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1319499796
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1319499794}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af44832850a79a74dbe4674ed45dbb48, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1319499797
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3225,6 +3243,7 @@ GameObject:
   - component: {fileID: 1833377131}
   - component: {fileID: 1833377130}
   - component: {fileID: 1833377129}
+  - component: {fileID: 1833377132}
   m_Layer: 5
   m_Name: PlusButton
   m_TagString: Untagged
@@ -3294,7 +3313,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1833377130}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1833377132}
+        m_MethodName: IncrementAtk
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1833377130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3331,6 +3361,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1833377127}
   m_CullTransparentMesh: 0
+--- !u!114 &1833377132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1833377127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9cd973e8afa0194ca7283e73847212d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  xpCosts: 640000006c000000740000007e00000088000000930000009f000000ab000000b9000000c8000000d8000000ea000000fd00000011010000270100003f010000590100007401000092010000b3010000
+  nextXPCost: 0
+  i: 0
+  SceneCharacter: {fileID: 0}
 --- !u!1 &1836512365
 GameObject:
   m_ObjectHideFlags: 0
@@ -3435,6 +3481,7 @@ GameObject:
   - component: {fileID: 1910240901}
   - component: {fileID: 1910240900}
   - component: {fileID: 1910240899}
+  - component: {fileID: 1910240902}
   m_Layer: 5
   m_Name: PlusButton
   m_TagString: Untagged
@@ -3504,7 +3551,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1910240900}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1910240902}
+        m_MethodName: IncrementAbility
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1910240900
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3541,6 +3599,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1910240897}
   m_CullTransparentMesh: 0
+--- !u!114 &1910240902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1910240897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9cd973e8afa0194ca7283e73847212d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  xpCosts: 640000006c000000740000007e00000088000000930000009f000000ab000000b9000000c8000000d8000000ea000000fd00000011010000270100003f010000590100007401000092010000b3010000
+  nextXPCost: 0
+  i: 0
+  SceneCharacter: {fileID: 0}
 --- !u!1 &2006061682
 GameObject:
   m_ObjectHideFlags: 0
