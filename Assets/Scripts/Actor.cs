@@ -76,8 +76,10 @@ public class Actor : MonoBehaviour
 
         if (currHealth <= 0)
         {
-            GameManager.Instance.earnedBattleXP += xpWhenKilled;
-            Destroy(gameObject);
+            isDead = true;
+            GameManager.Instance.earnedBattleXP += xpWhenKilled; // this should be done in the GameManager at the end of the battle
+            // gameObject.SetActive(false); < -switching to SetActive should allow rezzing
+            Destroy(gameObject); 
             return;
         }
                         

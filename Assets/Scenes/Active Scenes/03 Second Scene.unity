@@ -498,12 +498,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsRunning: 0
   DisplayHealth: 1
+  ShowTarget: 1
+  earnedBattleXP: 0
   gameSpeed: 0
   deltaTime: 0
   timeIncrement: 0.5
   DeclareVictory: 0
   winningTeam: {fileID: 0}
   winningTeamColor: {r: 0, g: 0, b: 0, a: 0}
+  winnersReceivingXP: 0
+  xpPerCharacter: 0
 --- !u!4 &951133640
 Transform:
   m_ObjectHideFlags: 0
@@ -807,7 +811,7 @@ PrefabInstance:
     - target: {fileID: 2034396223258333742, guid: f37f857c370004b4db2a2ccfd7a977cf,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8682159599204218068, guid: f37f857c370004b4db2a2ccfd7a977cf,
         type: 3}

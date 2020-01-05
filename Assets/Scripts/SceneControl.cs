@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class NextScene : MonoBehaviour
+public class SceneControl : MonoBehaviour
 {
     public int nextScene;
 
@@ -15,5 +15,15 @@ public class NextScene : MonoBehaviour
     public void AdvanceScene()
     {
         SceneManager.LoadScene(nextScene);
+    }
+
+    public void MenuScene()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    public void CharScene()
+    {
+        SceneManager.LoadScene(2);
     }
 }

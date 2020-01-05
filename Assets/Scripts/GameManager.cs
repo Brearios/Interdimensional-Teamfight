@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -16,13 +17,19 @@ public class GameManager : MonoBehaviour
     public bool DeclareVictory;
     public ScriptableTeam winningTeam;
     public Color winningTeamColor;
-    public bool isSceneBattle;
+    public int winnersReceivingXP;
+    public int xpPerCharacter;
+    public bool xpCounted;
+    public bool xpDistributed;
 
     // Start is called before the first frame update
     void Start()
     {
         gameSpeed = 1.0f;
         timeIncrement = 1f;
+        earnedBattleXP = 0;
+        xpCounted = false;
+        xpDistributed = false;
     }
 
     public void Awake()
@@ -65,6 +72,24 @@ public class GameManager : MonoBehaviour
         }
 
         IsBattleOver();
+        if (DeclareVictory == true)
+        {
+            /* if (xpCounted == false)
+            {
+                TallyXP();
+                xpCounted = true;
+            } */
+            if (xpDistributed == false)
+            {
+                DistributeXP();
+                xpDistributed = true;
+            }
+            // Load Upgrade Screen?
+            if (Input.GetKeyDown(KeyCode.M))
+            {
+                MenuScreen();
+            }
+        }
     }
 
     void IsBattleOver()
@@ -95,22 +120,44 @@ public class GameManager : MonoBehaviour
                 DeclareVictory = true;
                 winningTeam = winCheckTeam;
             }
-        if (DeclareVictory)
+        if (DeclareVictory == true)
         {
             winningTeamColor = winCheckTeam.color;
             // winningTeamColor = allActors[0].GetComponentInChildren<Color>();
-            DistributeXP();
-            // Load Upgrade Screen?
         }
         
 
     }
 
+    void TallyXP()
+    {
+        Actor[] allActors = GameObject.FindObjectsOfType<Actor>();
+        foreach (Actor Actor in allActors)
+            if (Actor.isDead == true)
+            {
+                earnedBattleXP += Actor.xpWhenKilled;
+            }
+    }
+
     void DistributeXP()
     {
-        // Count heroes in scene
-        // Divide XP by Heroes
-        // Increase XP by their share
+        CharacterProfile ActiveCharacters = GameObject.FindObjectOfType<CharacterProfile>();
+        ActiveCharacters.characterTotalXP += earnedBattleXP;
+        // Old code for multiple heroes
+        /* Actor[] allActors = GameObject.FindObjectsOfType<Actor>();
+        foreach (Actor Actor in allActors)
+            if (Actor.team == winningTeam)
+            {
+                winnersReceivingXP++;
+            }
+        xpPerCharacter = (earnedBattleXP / winnersReceivingXP);
+        foreach (Actor Actor in allActors)
+            if (Actor.team == winningTeam)
+            {
+                CharacterProfile ActiveCharacters = GameObject.FindObjectOfType<CharacterProfile>();
+                ActiveCharacters.characterTotalXP += xpPerCharacter;
+            }
+        */
     }
 
     void TimeControls()
@@ -139,6 +186,9 @@ public class GameManager : MonoBehaviour
         {
             gameSpeed = 1.0f;
         }
-
+    }
+    void MenuScreen()
+    {
+        SceneManager.LoadScene(0);
     }
 }

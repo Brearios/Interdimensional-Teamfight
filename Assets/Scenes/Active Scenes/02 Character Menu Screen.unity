@@ -1052,7 +1052,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 434202853}
-        m_MethodName: AdvanceScene
+        m_MethodName: MenuScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1991,7 +1991,8 @@ MonoBehaviour:
   DeclareVictory: 0
   winningTeam: {fileID: 0}
   winningTeamColor: {r: 0, g: 0, b: 0, a: 0}
-  isSceneBattle: 0
+  winnersReceivingXP: 0
+  xpPerCharacter: 0
 --- !u!4 &951133640
 Transform:
   m_ObjectHideFlags: 0
