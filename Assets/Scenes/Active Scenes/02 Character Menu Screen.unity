@@ -204,7 +204,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 89342000}
-        m_MethodName: AdvanceScene
+        m_MethodName: AddXP
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -259,10 +259,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 89341995}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5e84bac2373e9a43afbbf22081c8916, type: 3}
+  m_Script: {fileID: 11500000, guid: f9cd973e8afa0194ca7283e73847212d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextScene: 0
+  xpCosts: 640000006c000000740000007e00000088000000930000009f000000ab000000b9000000c8000000d8000000ea000000fd00000011010000270100003f010000590100007401000092010000b3010000
+  nextXPCost: 0
+  i: 0
+  SceneCharacter: {fileID: 0}
 --- !u!1 &93802716
 GameObject:
   m_ObjectHideFlags: 0
@@ -776,7 +779,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Apply XP
+  m_Text: "Add 500 \nXP"
 --- !u!222 &331601804
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -897,7 +900,7 @@ GameObject:
   - component: {fileID: 421265385}
   - component: {fileID: 421265384}
   m_Layer: 5
-  m_Name: ApplyXPButtonCanvas
+  m_Name: AddXPButtonCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1500,10 +1503,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 522403487}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5e84bac2373e9a43afbbf22081c8916, type: 3}
+  m_Script: {fileID: 11500000, guid: f9cd973e8afa0194ca7283e73847212d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextScene: 0
+  xpCosts: 640000006c000000740000007e00000088000000930000009f000000ab000000b9000000c8000000d8000000ea000000fd00000011010000270100003f010000590100007401000092010000b3010000
+  nextXPCost: 0
+  i: 0
+  SceneCharacter: {fileID: 0}
 --- !u!114 &522403490
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1548,7 +1554,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 522403489}
-        m_MethodName: AdvanceScene
+        m_MethodName: ResetXP
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

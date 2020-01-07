@@ -15,8 +15,9 @@ MonoBehaviour:
   unitName: Small Rogue
   maxHealth: 25
   attackDamage: 7
+  abilityPower: 4
   globalCooldown: 2
-  xpWhenKilled: 10
+  xpWhenKilled: 100
   role: MeleeDPS
   team: 
   atkRange: 1

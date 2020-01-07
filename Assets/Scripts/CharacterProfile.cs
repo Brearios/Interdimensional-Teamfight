@@ -7,11 +7,17 @@ public class CharacterProfile : MonoBehaviour
     public static CharacterProfile Instance;
     public int characterTotalXP;
     public int characterAvailableXP;
-    public int healthLevel;
-    public int AtkLevel;
-    public int AbilityLevel;
+    // _ArrayLevel variables are to count XP cost increments
+    public int healthArrayLevel;
+    public int atkArrayLevel;
+    public int abilityArrayLevel;
     public int nextXPCost;
+    public int health;
+    public int atk;
+    public int abilityPower;
+
     
+
     // Start is called before the first frame update
 
     private void Awake()

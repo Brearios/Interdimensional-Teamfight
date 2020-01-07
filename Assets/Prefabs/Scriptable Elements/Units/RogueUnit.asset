@@ -15,6 +15,7 @@ MonoBehaviour:
   unitName: Rogue
   maxHealth: 100
   attackDamage: 15
+  abilityPower: 8
   globalCooldown: 2
   xpWhenKilled: 25
   role: MeleeDPS

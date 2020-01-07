@@ -89,6 +89,10 @@ public class GameManager : MonoBehaviour
             {
                 MenuScreen();
             }
+            if (Input.GetKeyDown(KeyCode.N))
+            {
+                NextBattle();
+            }
         }
     }
 
@@ -191,5 +195,10 @@ public class GameManager : MonoBehaviour
     void MenuScreen()
     {
         SceneManager.LoadScene(0);
+    }
+
+    void NextBattle()
+    {
+        SceneManager.LoadScene(3);
     }
 }

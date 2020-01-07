@@ -16,7 +16,7 @@ MonoBehaviour:
   effectType: 3
   abilityName: Frostbolt
   rank: 1
-  HpDelta: -24
+  hpDelta: -3
   abilityRange: 4
   abilityCooldown: 4
   description: Deal damage and slow an enemy's attack speed.

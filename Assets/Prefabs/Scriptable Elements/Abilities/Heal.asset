@@ -16,7 +16,7 @@ MonoBehaviour:
   effectType: 1
   abilityName: Heal
   rank: 1
-  HpDelta: 36
+  hpDelta: 5
   abilityRange: 6
   abilityCooldown: 6
   description: Restore health to a friendly target.

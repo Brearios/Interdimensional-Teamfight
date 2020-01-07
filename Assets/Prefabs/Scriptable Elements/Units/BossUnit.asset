@@ -15,7 +15,9 @@ MonoBehaviour:
   unitName: Boss
   maxHealth: 900
   attackDamage: 60
+  abilityPower: 16
   globalCooldown: 2
+  xpWhenKilled: 0
   role: 
   team: Red
   atkRange: 4

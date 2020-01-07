@@ -18,7 +18,9 @@ public class Actor : MonoBehaviour
     public float currHealth;
     public float healthPercent;
     public int attackDamage; // Later make this a random amount within a range
+    public int abilityPower;
     public int xpWhenKilled;
+    public int abilityHpDelta;
     public float globalCooldown;
     public float globalCooldownCount;
     public string role;
@@ -38,6 +40,7 @@ public class Actor : MonoBehaviour
     public Actor abilityTarget;
     public List<ScriptableEffects> CurrentEffects;
     public bool isDead;
+    public CharacterProfile MageStats;
 
     public GameObject FloatingTextPrefab;
 
@@ -47,6 +50,20 @@ public class Actor : MonoBehaviour
         unitName = unit.unitName;
         maxHealth = unit.maxHealth;
         attackDamage = unit.attackDamage;
+        abilityPower = unit.abilityPower;
+        MageStats = GameObject.FindObjectOfType<CharacterProfile>();
+        if (unitName == "Mage" && MageStats.atk > 0)
+        {
+            attackDamage = MageStats.atk;
+        }
+        if (unitName == "Mage" && MageStats.health > 0)
+        { 
+            maxHealth = MageStats.health;
+        }
+        if (unitName == "Mage" && MageStats.abilityPower > 0)
+        {
+            abilityPower = MageStats.abilityPower;
+        }
         globalCooldown = unit.globalCooldown;
         role = unit.role;
         atkRange = unit.atkRange;
@@ -61,6 +78,7 @@ public class Actor : MonoBehaviour
         currentColor = GetComponentInChildren<SpriteRenderer>().color;
         isDead = false;
         xpWhenKilled = unit.xpWhenKilled;
+        abilityHpDelta = (abilityPower * ability.hpDelta);
 
         /*
         applyHealthLevel;
@@ -320,9 +338,9 @@ public class Actor : MonoBehaviour
     }
     void UseAbility()
     {
-        if (gameObject != null)
+        if (abilityTarget != null)
         {
-            abilityTarget.ChangeHealth(ability.HpDelta, true);
+            abilityTarget.ChangeHealth(abilityHpDelta, true);
         }
         // abilityTarget.currHealth += ability.HpDelta; - old code
 
@@ -347,7 +365,7 @@ public class Actor : MonoBehaviour
         }
         // Animation/Knockback
         // Floating Combat Text
-        if (gameObject != null) 
+        if (abilityTarget != null) 
         {
             if (FloatingTextPrefab)
             {

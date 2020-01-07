@@ -15,6 +15,7 @@ MonoBehaviour:
   unitName: Warrior
   maxHealth: 300
   attackDamage: 5
+  abilityPower: 8
   globalCooldown: 2
   xpWhenKilled: 25
   role: Tank

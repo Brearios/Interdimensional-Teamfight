@@ -15,6 +15,7 @@ MonoBehaviour:
   unitName: Healer
   maxHealth: 100
   attackDamage: 5
+  abilityPower: 8
   globalCooldown: 2
   xpWhenKilled: 25
   role: Healer

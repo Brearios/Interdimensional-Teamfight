@@ -11,7 +11,7 @@ public class ScriptableAbility : ScriptableObject
     public EffectType effectType;
     public string abilityName;
     public int rank;
-    public int HpDelta;
+    public int hpDelta; // multiplies by ability power to determine ability strength
     public float abilityRange;
     public float abilityCooldown;
     public string description;
