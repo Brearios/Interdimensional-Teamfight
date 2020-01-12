@@ -41,6 +41,11 @@ public class Actor : MonoBehaviour
     public List<ScriptableEffects> CurrentEffects;
     public bool isDead;
     public CharacterProfile MageStats;
+    public float ThreatScore;
+    public float targetCheckCount;
+    public float targetCheckFrequency;
+    public bool hasTaunted;
+    public float tauntResetClock;
 
     public GameObject FloatingTextPrefab;
 
@@ -52,18 +57,7 @@ public class Actor : MonoBehaviour
         attackDamage = unit.attackDamage;
         abilityPower = unit.abilityPower;
         MageStats = GameObject.FindObjectOfType<CharacterProfile>();
-        if (unitName == "Mage" && MageStats.atk > 0)
-        {
-            attackDamage = MageStats.atk;
-        }
-        if (unitName == "Mage" && MageStats.health > 0)
-        { 
-            maxHealth = MageStats.health;
-        }
-        if (unitName == "Mage" && MageStats.abilityPower > 0)
-        {
-            abilityPower = MageStats.abilityPower;
-        }
+        ApplyMageStats();
         globalCooldown = unit.globalCooldown;
         role = unit.role;
         atkRange = unit.atkRange;
@@ -79,6 +73,8 @@ public class Actor : MonoBehaviour
         isDead = false;
         xpWhenKilled = unit.xpWhenKilled;
         abilityHpDelta = (abilityPower * ability.hpDelta);
+        targetCheckCount = 0;
+        targetCheckFrequency = unit.targetCheckFrequency;
 
         /*
         applyHealthLevel;
@@ -106,9 +102,13 @@ public class Actor : MonoBehaviour
             Destroy(gameObject); 
             return;
         }
-                        
-        FindAbilityTarget();
 
+        UpdateThreatScore();
+
+        if (abilityTarget == null)
+        {
+            FindAbilityTarget();
+        }
         /* if (currHealth > 0)
         {
             // UpdateAlpha();
@@ -116,7 +116,7 @@ public class Actor : MonoBehaviour
 
         if (currentState == State.Idle)
         {
-            FindNearestEnemy();
+            FindPriorityEnemy();
         }
 
         TargetLineDisplay();
@@ -162,6 +162,8 @@ public class Actor : MonoBehaviour
             { currentState = State.Idle; }
         }
 
+        // Check for better targets every X seconds, frequency from scriptable unit
+        TargetCheckLoop();
     }
 
     void HealthBarManagement()
@@ -218,13 +220,40 @@ public class Actor : MonoBehaviour
             }
 
         }
+    }
+
+    void FindPriorityEnemy()
+    {
+        Actor[] allActors = GameObject.FindObjectsOfType<Actor>();
+
+        float highestThreatEnemy = -Mathf.Infinity;
+        autoAtkTarget = null;
+
+        foreach (Actor currentActor in allActors)
+        {
+            if (currentActor.team == team)
+            {
+                continue;
             }
+            else
+            {
+                float enemyThreat = currentActor.ThreatScore;
+                if (enemyThreat > highestThreatEnemy)
+                {
+                    highestThreatEnemy = enemyThreat;
+                    autoAtkTarget = currentActor;
+                }
+            }
+
+        }
+    }
 
     void FindAbilityTarget()
     {
         if (ability.targetType == ScriptableAbility.TargetType.Enemy)
         {
-            
+            abilityTarget = autoAtkTarget;
+            /*
             Actor[] allActors = GameObject.FindObjectsOfType<Actor>();
 
             float distanceToClosestActor = Mathf.Infinity;
@@ -244,8 +273,9 @@ public class Actor : MonoBehaviour
                         abilityTarget = currAbilityActor;
                     }
                 }
-
+                
             }
+            */
         }
         else if (ability.targetType == ScriptableAbility.TargetType.Friendly)
         {
@@ -340,7 +370,41 @@ public class Actor : MonoBehaviour
     {
         if (abilityTarget != null)
         {
-            abilityTarget.ChangeHealth(abilityHpDelta, true);
+            if (ability.targetType == ScriptableAbility.TargetType.Self)
+            {
+                // if (ability.name == "Taunt")
+                // {
+                    float highestThreat = 0;
+                    Actor[] allActors = GameObject.FindObjectsOfType<Actor>();
+                    foreach (Actor teamThreatActor in allActors)
+                    {
+                        if (teamThreatActor.team != team)
+                        {
+                            continue;
+                        }
+                        else
+                        {
+                            
+                            if (ThreatScore > highestThreat)
+                            {
+                                highestThreat = ThreatScore;
+                            }
+                        }
+                    }
+                    if (highestThreat == this.ThreatScore)
+                    {
+                        return;
+                    }
+                    ThreatScore = (highestThreat * 2);
+                    hasTaunted = true;
+                    tauntResetClock = 3;
+                // }
+
+            }
+            else
+            {
+                abilityTarget.ChangeHealth(abilityHpDelta, true);
+            }
         }
         // abilityTarget.currHealth += ability.HpDelta; - old code
 
@@ -396,6 +460,51 @@ public class Actor : MonoBehaviour
                 go.GetComponent<TextMesh>().color = Color.clear;
             }
             go.GetComponent<TextMesh>().text = amount.ToString();
+        }
+    }
+
+    void UpdateThreatScore()
+    {
+        // MaxHealth over CurrHealth (so as health decreases, priority increases)
+        // multiplied by sum of atk & ability power
+        // over maxHealth, so that 
+        if (hasTaunted)
+        {
+            tauntResetClock -= GameManager.Instance.deltaTime;
+            if (tauntResetClock <= 0)
+            {
+                hasTaunted = false;
+            }
+        }
+        else
+        {
+            ThreatScore = ((maxHealth / currHealth) * (attackDamage + abilityPower));
+        }
+    }
+    void ApplyMageStats()
+    {
+        if (unitName == "Mage" && MageStats.atk > 0)
+        {
+            attackDamage = MageStats.atk;
+        }
+        if (unitName == "Mage" && MageStats.health > 0)
+        {
+            maxHealth = MageStats.health;
+        }
+        if (unitName == "Mage" && MageStats.abilityPower > 0)
+        {
+            abilityPower = MageStats.abilityPower;
+        }
+    }
+
+    void TargetCheckLoop()
+    {
+        targetCheckCount += GameManager.Instance.deltaTime;
+        if (targetCheckCount >= targetCheckFrequency)
+        {
+            FindPriorityEnemy();
+            FindAbilityTarget();
+            targetCheckCount = 0;
         }
     }
 

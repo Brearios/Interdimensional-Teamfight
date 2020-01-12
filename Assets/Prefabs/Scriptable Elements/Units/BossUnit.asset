@@ -22,3 +22,4 @@ MonoBehaviour:
   team: Red
   atkRange: 4
   moveSpeed: 2
+  targetCheckFrequency: 2
