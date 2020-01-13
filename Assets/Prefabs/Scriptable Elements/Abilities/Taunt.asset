@@ -19,7 +19,7 @@ MonoBehaviour:
   hpDelta: 0
   abilityRange: 3
   abilityCooldown: 5
-  description: Set enemy target to self.
+  description: 'Temporarily sets threat to #1 on team.'
   effectDuration: 3
   HpDeltaPerSecond: 0
   CooldownsDeltaPerSecond: 0

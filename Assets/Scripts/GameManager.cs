@@ -93,6 +93,10 @@ public class GameManager : MonoBehaviour
             {
                 NextBattle();
             }
+            if (Input.GetKeyDown(KeyCode.B))
+            {
+                BossBattle();
+            }
         }
     }
 
@@ -200,5 +204,12 @@ public class GameManager : MonoBehaviour
     void NextBattle()
     {
         SceneManager.LoadScene(3);
+    }
+
+    // Press B to load the boss fight
+
+    void BossBattle()
+    {
+        SceneManager.LoadScene(4);
     }
 }

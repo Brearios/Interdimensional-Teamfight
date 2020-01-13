@@ -370,7 +370,7 @@ public class Actor : MonoBehaviour
     {
         if (abilityTarget != null)
         {
-            if (ability.targetType == ScriptableAbility.TargetType.Self)
+            if ((ability.targetType == ScriptableAbility.TargetType.Self) && ability.name == "Taunt")
             {
                 // if (ability.name == "Taunt")
                 // {
@@ -391,10 +391,12 @@ public class Actor : MonoBehaviour
                             }
                         }
                     }
+                    /* This seems to be preventing taunting
                     if (highestThreat == this.ThreatScore)
                     {
                         return;
                     }
+                    */ 
                     ThreatScore = (highestThreat * 2);
                     hasTaunted = true;
                     tauntResetClock = 3;
