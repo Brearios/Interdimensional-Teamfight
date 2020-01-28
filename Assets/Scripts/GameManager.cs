@@ -149,11 +149,12 @@ public class GameManager : MonoBehaviour
 
     void DistributeXP()
     {
-        CharacterProfile ActiveCharacters = GameObject.FindObjectOfType<CharacterProfile>();
-        ActiveCharacters.characterTotalXP += earnedBattleXP;
-        ActiveCharacters.characterAvailableXP += earnedBattleXP;
-        // Old code for multiple heroes
-        /* Actor[] allActors = GameObject.FindObjectsOfType<Actor>();
+        // Old code for single hero
+        // CharacterProfile ActiveCharacters = GameObject.FindObjectOfType<CharacterProfile>();
+        // ActiveCharacters.characterTotalXP += earnedBattleXP;
+        // ActiveCharacters.characterAvailableXP += earnedBattleXP;
+        
+        Actor[] allActors = GameObject.FindObjectsOfType<Actor>();
         foreach (Actor Actor in allActors)
             if (Actor.team == winningTeam)
             {
@@ -166,7 +167,6 @@ public class GameManager : MonoBehaviour
                 CharacterProfile ActiveCharacters = GameObject.FindObjectOfType<CharacterProfile>();
                 ActiveCharacters.characterTotalXP += xpPerCharacter;
             }
-        */
     }
 
     void TimeControls()
@@ -203,13 +203,13 @@ public class GameManager : MonoBehaviour
 
     void NextBattle()
     {
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(5);
     }
 
     // Press B to load the boss fight
 
     void BossBattle()
     {
-        SceneManager.LoadScene(4);
+        SceneManager.LoadScene(6);
     }
 }

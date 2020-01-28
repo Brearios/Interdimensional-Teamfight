@@ -40,12 +40,13 @@ public class Actor : MonoBehaviour
     public Actor abilityTarget;
     public List<ScriptableEffects> CurrentEffects;
     public bool isDead;
-    public CharacterProfile MageStats;
+    // public CharacterProfile MageStats;
     public float ThreatScore;
     public float targetCheckCount;
     public float targetCheckFrequency;
     public bool hasTaunted;
     public float tauntResetClock;
+    public bool playerCharacter; 
 
     public GameObject FloatingTextPrefab;
 
@@ -56,8 +57,8 @@ public class Actor : MonoBehaviour
         maxHealth = unit.maxHealth;
         attackDamage = unit.attackDamage;
         abilityPower = unit.abilityPower;
-        MageStats = GameObject.FindObjectOfType<CharacterProfile>();
-        ApplyMageStats();
+        // MageStats = GameObject.FindObjectOfType<CharacterProfile>();
+        ApplyStats();
         globalCooldown = unit.globalCooldown;
         role = unit.role;
         atkRange = unit.atkRange;
@@ -88,7 +89,7 @@ public class Actor : MonoBehaviour
     void Update()
     {
         HealthBarManagement();
-        
+
         if (GameManager.Instance.IsRunning == false)
         {
             return;
@@ -99,7 +100,7 @@ public class Actor : MonoBehaviour
             isDead = true;
             GameManager.Instance.earnedBattleXP += xpWhenKilled; // this should be done in the GameManager at the end of the battle
             // gameObject.SetActive(false); < -switching to SetActive should allow rezzing
-            Destroy(gameObject); 
+            Destroy(gameObject);
             return;
         }
 
@@ -121,7 +122,7 @@ public class Actor : MonoBehaviour
 
         TargetLineDisplay();
 
-        
+
 
         var targetInRange = false;
         if (autoAtkTarget != null)
@@ -296,14 +297,14 @@ public class Actor : MonoBehaviour
                 }
                 else
                 {
-                    continue;    
+                    continue;
                 }
 
             }
         }
         else if (ability.targetType == ScriptableAbility.TargetType.Self)
         {
-            abilityTarget = this; 
+            abilityTarget = this;
         }
 
     }
@@ -374,32 +375,32 @@ public class Actor : MonoBehaviour
             {
                 // if (ability.name == "Taunt")
                 // {
-                    float highestThreat = 0;
-                    Actor[] allActors = GameObject.FindObjectsOfType<Actor>();
-                    foreach (Actor teamThreatActor in allActors)
+                float highestThreat = 0;
+                Actor[] allActors = GameObject.FindObjectsOfType<Actor>();
+                foreach (Actor teamThreatActor in allActors)
+                {
+                    if (teamThreatActor.team != team)
                     {
-                        if (teamThreatActor.team != team)
+                        continue;
+                    }
+                    else
+                    {
+
+                        if (ThreatScore > highestThreat)
                         {
-                            continue;
-                        }
-                        else
-                        {
-                            
-                            if (ThreatScore > highestThreat)
-                            {
-                                highestThreat = ThreatScore;
-                            }
+                            highestThreat = ThreatScore;
                         }
                     }
-                    /* This seems to be preventing taunting
-                    if (highestThreat == this.ThreatScore)
-                    {
-                        return;
-                    }
-                    */ 
-                    ThreatScore = (highestThreat * 2);
-                    hasTaunted = true;
-                    tauntResetClock = 3;
+                }
+                /* This seems to be preventing taunting
+                if (highestThreat == this.ThreatScore)
+                {
+                    return;
+                }
+                */
+                ThreatScore = (highestThreat * 2);
+                hasTaunted = true;
+                tauntResetClock = 3;
                 // }
 
             }
@@ -431,7 +432,7 @@ public class Actor : MonoBehaviour
         }
         // Animation/Knockback
         // Floating Combat Text
-        if (abilityTarget != null) 
+        if (abilityTarget != null)
         {
             if (FloatingTextPrefab)
             {
@@ -483,6 +484,43 @@ public class Actor : MonoBehaviour
             ThreatScore = ((maxHealth / currHealth) * (attackDamage + abilityPower));
         }
     }
+
+    void ApplyStats()
+    {
+        // Identify whether player character
+        if (playerCharacter)
+        {
+            switch (unit.name)
+            {
+                case "Mage":
+                    {
+                        attackDamage = PlayerProfile.Instance.mageHero.atk;
+                        maxHealth = PlayerProfile.Instance.mageHero.health;
+                        abilityPower = PlayerProfile.Instance.mageHero.abilityPower;
+                    }
+                    break;
+                case "Priest":
+                    {
+                        attackDamage = PlayerProfile.Instance.priestHero.atk;
+                        maxHealth = PlayerProfile.Instance.priestHero.health;
+                        abilityPower = PlayerProfile.Instance.priestHero.abilityPower;
+                    }
+                    break;
+                case "Warrior":
+                    {
+                        attackDamage = PlayerProfile.Instance.warriorHero.atk;
+                        maxHealth = PlayerProfile.Instance.warriorHero.health;
+                        abilityPower = PlayerProfile.Instance.warriorHero.abilityPower;
+                    }
+                    break;
+            }
+        
+        }
+    }
+
+
+
+    /*
     void ApplyMageStats()
     {
         if (unitName == "Mage" && MageStats.atk > 0)
@@ -498,6 +536,7 @@ public class Actor : MonoBehaviour
             abilityPower = MageStats.abilityPower;
         }
     }
+    */
 
     void TargetCheckLoop()
     {

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CharacterProfile : MonoBehaviour
 {
-    public static CharacterProfile Instance;
+    // public static CharacterProfile Instance;
     public int characterTotalXP;
     public int characterAvailableXP;
     // _ArrayLevel variables are to count XP cost increments
@@ -15,27 +15,27 @@ public class CharacterProfile : MonoBehaviour
     public int health;
     public int atk;
     public int abilityPower;
-
-    
-
-    // Start is called before the first frame update
-
+    public bool created = false;
+        
     private void Awake()
     {
-        if (Instance == null)
+        /*
+        if (!created)
         {
-            Instance = this;
-            DontDestroyOnLoad(this);
+            DontDestroyOnLoad(this.gameObject);
+            created = true;
         }
         else
         {
             Destroy(gameObject);
         }
+        */
     }
-
+    
+    // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
 

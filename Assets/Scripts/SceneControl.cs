@@ -22,8 +22,26 @@ public class SceneControl : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
+    // Make this go to character selector menu/indexer
+    /*
     public void CharScene()
     {
         SceneManager.LoadScene(2);
+    }
+    */
+
+    public void MageScene()
+    {
+        SceneManager.LoadScene(2);
+    }
+
+    public void PriestScene()
+    {
+        SceneManager.LoadScene(3);
+    }
+
+    public void WarriorScene()
+    {
+        SceneManager.LoadScene(4);
     }
 }
