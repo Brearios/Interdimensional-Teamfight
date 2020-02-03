@@ -521,6 +521,7 @@ MonoBehaviour:
   health: 0
   atk: 0
   abilityPower: 0
+  characterSprite: {fileID: 0}
 --- !u!4 &333586138
 Transform:
   m_ObjectHideFlags: 0
@@ -835,9 +836,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ddb7648f91a19c4e857b8f8dca2e155, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mageHero: {fileID: 333586137}
-  warriorHero: {fileID: 1788240520}
-  priestHero: {fileID: 1677995318}
+  mageHero: {fileID: 0}
+  warriorHero: {fileID: 0}
+  priestHero: {fileID: 0}
+  currentEditingInteger: 0
+  characterProfiles: []
+  CurrentEditingCharacter: {fileID: 0}
 --- !u!4 &450642976
 Transform:
   m_ObjectHideFlags: 0
@@ -1669,6 +1673,7 @@ MonoBehaviour:
   health: 0
   atk: 0
   abilityPower: 0
+  characterSprite: {fileID: 0}
 --- !u!4 &1677995319
 Transform:
   m_ObjectHideFlags: 0
@@ -1721,6 +1726,7 @@ MonoBehaviour:
   health: 0
   atk: 0
   abilityPower: 0
+  characterSprite: {fileID: 0}
 --- !u!4 &1788240521
 Transform:
   m_ObjectHideFlags: 0
