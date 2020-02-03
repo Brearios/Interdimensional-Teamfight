@@ -52,6 +52,7 @@ public class PlayerProfile : MonoBehaviour
             Destroy(gameObject);
         }
 
+        // Sets the current editing character to the first one at the start of the script
         CurrentEditingCharacter = characterProfiles[currentEditingInteger];
 
         characterProfiles.Add(mageHero);
@@ -61,6 +62,7 @@ public class PlayerProfile : MonoBehaviour
 
     void Start()
     {
+        // Sets the current editing character to the index determined by the buttons when the scene reloads
         CurrentEditingCharacter = characterProfiles[currentEditingInteger];
     }
 
