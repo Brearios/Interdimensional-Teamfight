@@ -8,7 +8,7 @@ public class XpController : MonoBehaviour
     // 20 levels of XP costs
     public int[] xpCosts = { 100, 108, 116, 126, 136, 147, 159, 171, 185, 200, 216, 234, 253, 273, 295, 319, 345, 372, 402, 435 };
     public int nextXPCost;
-    public int i;
+    public int indexOfXpCosts;
     // _Index variables to track position in array for each
     public int healthIndex;
     public int atkIndex;
@@ -26,34 +26,36 @@ public class XpController : MonoBehaviour
 
     void Start()
     {
+        SceneCharacter = PlayerProfile.Instance.CurrentEditingCharacter;
+    }
         // Ultra-clunky original method:
         // SceneCharacter = GameObject.FindObjectOfType<CharacterProfile>();
 
         // Even clunkier temporary method:
-        int SceneName = SceneManager.GetActiveScene().buildIndex;
-        switch (SceneName)
-        {
-            case 2:
-                SceneCharacter = PlayerProfile.Instance.mageHero;
-                break;
-            case 3:
-                SceneCharacter = PlayerProfile.Instance.priestHero;
-                break;
-            case 4:
-                SceneCharacter = PlayerProfile.Instance.warriorHero;
-                break;
-            default:
-                SceneCharacter = null;
-                break;
-        }
-    }
+    //    int SceneName = SceneManager.GetActiveScene().buildIndex;
+    //    switch (SceneName)
+    //    {
+    //        case 2:
+    //            SceneCharacter = PlayerProfile.Instance.mageHero;
+    //            break;
+    //        case 3:
+    //            SceneCharacter = PlayerProfile.Instance.priestHero;
+    //            break;
+    //        case 4:
+    //            SceneCharacter = PlayerProfile.Instance.warriorHero;
+    //            break;
+    //        default:
+    //            SceneCharacter = null;
+    //            break;
+    //    }
+    //}
 
     // Update is called once per frame
     void Update()
     {
         if (SceneCharacter != null)
-        i = (SceneCharacter.healthArrayLevel + SceneCharacter.atkArrayLevel + SceneCharacter.abilityArrayLevel);
-        nextXPCost = xpCosts[i];
+        indexOfXpCosts = (SceneCharacter.healthArrayLevel + SceneCharacter.atkArrayLevel + SceneCharacter.abilityArrayLevel);
+        nextXPCost = xpCosts[indexOfXpCosts];
     }
     public void IncrementHealth()
     {
@@ -66,10 +68,10 @@ public class XpController : MonoBehaviour
             SceneCharacter.characterAvailableXP -= nextXPCost;
             SceneCharacter.healthArrayLevel++;
             // i++;
-            nextXPCost = xpCosts[i];
+            nextXPCost = xpCosts[indexOfXpCosts];
             // healthIndex++; - Wrong way to calculate, didn't allow persistence
             // extra health for warriors
-            if (SceneCharacter = PlayerProfile.Instance.warriorHero)
+            if (SceneCharacter == PlayerProfile.Instance.warriorHero)
             {
                 SceneCharacter.health = (3 * healthLevel[SceneCharacter.healthArrayLevel]);
             }
@@ -91,7 +93,7 @@ public class XpController : MonoBehaviour
             SceneCharacter.characterAvailableXP -= nextXPCost;
             SceneCharacter.atkArrayLevel++;
             // i++;
-            nextXPCost = xpCosts[i];
+            nextXPCost = xpCosts[indexOfXpCosts];
             // atkIndex++;
             SceneCharacter.atk = atkLevel[SceneCharacter.atkArrayLevel];
         }
@@ -126,7 +128,7 @@ public class XpController : MonoBehaviour
             SceneCharacter.characterAvailableXP -= nextXPCost;
             SceneCharacter.abilityArrayLevel++;
             // i++;
-            nextXPCost = xpCosts[i];
+            nextXPCost = xpCosts[indexOfXpCosts];
             // abilityIndex++;
             SceneCharacter.abilityPower = abilityLevel[SceneCharacter.abilityArrayLevel];
         }

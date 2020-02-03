@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerProfile : MonoBehaviour
 {
@@ -8,11 +9,20 @@ public class PlayerProfile : MonoBehaviour
     public CharacterProfile mageHero;
     public CharacterProfile warriorHero;
     public CharacterProfile priestHero;
+    public int currentEditingInteger = 0;
+
     // public CharacterProfile rogueHero; - menu not implemented yet
 
-    public Dictionary<ScriptableUnit, CharacterProfile> characterProfiles;
+    // public Dictionary<ScriptableUnit, CharacterProfile> characterProfiles;
+    public List<CharacterProfile> characterProfiles = new List<CharacterProfile>();
+    
+    public CharacterProfile CurrentEditingCharacter;
 
-    CharacterProfile GetCharacterProfileForUnit(ScriptableUnit unit)
+    // Code to set the CurrentEditingCharacter (starts as mageHero on Awake)
+    // Code to use the CurrentEditingCharacter on the menu screen, and re-load the menu screen
+    // Code to display the CurrentEditingCharacter.Sprite
+
+    public CharacterProfile GetCharacterProfileForUnit (ScriptableUnit unit)
     {
         switch (unit.name)
         {
@@ -30,7 +40,6 @@ public class PlayerProfile : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
     private void Awake()
     {
         if (Instance == null)
@@ -42,48 +51,28 @@ public class PlayerProfile : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        CurrentEditingCharacter = characterProfiles[currentEditingInteger];
+
+        characterProfiles.Add(mageHero);
+        characterProfiles.Add(warriorHero);
+        characterProfiles.Add(priestHero);
     }
 
     void Start()
     {
-        duplicateProfileCheck();
+        CurrentEditingCharacter = characterProfiles[currentEditingInteger];
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
         
     }
 
-    void duplicateProfileCheck()
-    {
-        if (mageHero != mageHero.created)
-        {
-            DontDestroyOnLoad(mageHero);
-            mageHero.created = true;
-        }
-        else
-        {
-            Destroy(mageHero);
-        }
-        if (priestHero != priestHero.created)
-        {
-            DontDestroyOnLoad(priestHero);
-            priestHero.created = true;
-        }
-        else
-        {
-            Destroy(priestHero);
-        }
-        if (warriorHero != warriorHero.created)
-        {
-            DontDestroyOnLoad(warriorHero);
-            warriorHero.created = true;
-        }
-        else
-        {
-            Destroy(warriorHero);
-        }
-    }
-   
+
+
+
+
+
 }

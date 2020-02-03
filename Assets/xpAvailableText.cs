@@ -12,7 +12,7 @@ public class xpAvailableText : MonoBehaviour
     void Start()
     {
         text = GetComponent<Text>();
-        SceneCharacter = GameObject.FindObjectOfType<CharacterProfile>();
+        SceneCharacter = PlayerProfile.Instance.CurrentEditingCharacter;
     }
 
     // Update is called once per frame

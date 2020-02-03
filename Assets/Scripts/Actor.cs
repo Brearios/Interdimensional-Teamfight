@@ -46,7 +46,7 @@ public class Actor : MonoBehaviour
     public float targetCheckFrequency;
     public bool hasTaunted;
     public float tauntResetClock;
-    public bool playerCharacter; 
+    public bool isPlayer;
 
     public GameObject FloatingTextPrefab;
 
@@ -76,13 +76,6 @@ public class Actor : MonoBehaviour
         abilityHpDelta = (abilityPower * ability.hpDelta);
         targetCheckCount = 0;
         targetCheckFrequency = unit.targetCheckFrequency;
-
-        /*
-        applyHealthLevel;
-        applyAtkLevel;
-        applyAbilityLevel;
-        */
-
     }
 
     // Update is called once per frame
@@ -488,33 +481,44 @@ public class Actor : MonoBehaviour
     void ApplyStats()
     {
         // Identify whether player character
-        if (playerCharacter)
+        if (isPlayer)
         {
-            switch (unit.name)
+            CharacterProfile currentProfile = PlayerProfile.Instance.GetCharacterProfileForUnit(unit);
+            attackDamage = currentProfile.atk;
+            if (unit.role == "tank")
             {
-                case "Mage":
-                    {
-                        attackDamage = PlayerProfile.Instance.mageHero.atk;
-                        maxHealth = PlayerProfile.Instance.mageHero.health;
-                        abilityPower = PlayerProfile.Instance.mageHero.abilityPower;
-                    }
-                    break;
-                case "Priest":
-                    {
-                        attackDamage = PlayerProfile.Instance.priestHero.atk;
-                        maxHealth = PlayerProfile.Instance.priestHero.health;
-                        abilityPower = PlayerProfile.Instance.priestHero.abilityPower;
-                    }
-                    break;
-                case "Warrior":
-                    {
-                        attackDamage = PlayerProfile.Instance.warriorHero.atk;
-                        maxHealth = PlayerProfile.Instance.warriorHero.health;
-                        abilityPower = PlayerProfile.Instance.warriorHero.abilityPower;
-                    }
-                    break;
+                maxHealth = (3 * currentProfile.health);
             }
-        
+            else
+            {
+                maxHealth = currentProfile.health;
+            }
+            abilityPower = currentProfile.abilityPower;
+            //switch (unit.name)
+            //{
+            //    case "Mage":
+            //        {
+            //            attackDamage = PlayerProfile.Instance.mageHero.atk;
+            //            maxHealth = PlayerProfile.Instance.mageHero.health;
+            //            abilityPower = PlayerProfile.Instance.mageHero.abilityPower;
+            //        }
+            //        break;
+            //    case "Priest":
+            //        {
+            //            attackDamage = PlayerProfile.Instance.priestHero.atk;
+            //            maxHealth = PlayerProfile.Instance.priestHero.health;
+            //            abilityPower = PlayerProfile.Instance.priestHero.abilityPower;
+            //        }
+            //        break;
+            //    case "Warrior":
+            //        {
+            //            attackDamage = PlayerProfile.Instance.warriorHero.atk;
+            //            maxHealth = PlayerProfile.Instance.warriorHero.health;
+            //            abilityPower = PlayerProfile.Instance.warriorHero.abilityPower;
+            //        }
+            //        break;
+            //}
+
         }
     }
 

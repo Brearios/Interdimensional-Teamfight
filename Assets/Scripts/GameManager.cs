@@ -162,10 +162,11 @@ public class GameManager : MonoBehaviour
             }
         xpPerCharacter = (earnedBattleXP / winnersReceivingXP);
         foreach (Actor Actor in allActors)
-            if (Actor.team == winningTeam)
+            if (// Actor.team == winningTeam)
+                Actor.isPlayer)
             {
-                CharacterProfile ActiveCharacters = GameObject.FindObjectOfType<CharacterProfile>();
-                ActiveCharacters.characterTotalXP += xpPerCharacter;
+                CharacterProfile xpProfile = PlayerProfile.Instance.GetCharacterProfileForUnit(Actor.unit);
+                xpProfile.characterTotalXP += xpPerCharacter;
             }
     }
 
@@ -203,13 +204,13 @@ public class GameManager : MonoBehaviour
 
     void NextBattle()
     {
-        SceneManager.LoadScene(5);
+        SceneManager.LoadScene(3);
     }
 
     // Press B to load the boss fight
 
     void BossBattle()
     {
-        SceneManager.LoadScene(6);
+        SceneManager.LoadScene(4);
     }
 }

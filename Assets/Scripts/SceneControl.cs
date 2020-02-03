@@ -35,13 +35,35 @@ public class SceneControl : MonoBehaviour
         SceneManager.LoadScene(2);
     }
 
-    public void PriestScene()
+    //public void PriestScene()
+    //{
+    //    SceneManager.LoadScene(3);
+    //}
+
+    //public void WarriorScene()
+    //{
+    //    SceneManager.LoadScene(4);
+    //}
+
+    public void PrevMenuCharacter()
     {
-        SceneManager.LoadScene(3);
+        if (PlayerProfile.Instance.currentEditingInteger > 0)
+        {
+            PlayerProfile.Instance.currentEditingInteger--;
+            SceneManager.LoadScene(2);
+        }
+
     }
 
-    public void WarriorScene()
+    public void NextMenuCharacter()
     {
-        SceneManager.LoadScene(4);
+        int charListLength = (PlayerProfile.Instance.characterProfiles.Count - 1);
+        if (PlayerProfile.Instance.currentEditingInteger < charListLength)
+        {
+            PlayerProfile.Instance.currentEditingInteger++;
+            SceneManager.LoadScene(2);
+        }
     }
+
+  
 }
