@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class CharacterProfile : ScriptableObject
+public class CharacterProfile
 {
     // public static CharacterProfile Instance;
     public int characterTotalXP;
@@ -17,4 +17,5 @@ public class CharacterProfile : ScriptableObject
     public int atk;
     public int abilityPower;
     public Sprite characterSprite;
+    public int totalLevel;
 }

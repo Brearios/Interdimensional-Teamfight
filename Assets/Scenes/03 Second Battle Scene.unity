@@ -995,6 +995,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3012059549555167978, guid: 788f1abb9f6d32644a47a90d8101bc2d,
         type: 3}
+    - target: {fileID: 4392090260729499094, guid: f37f857c370004b4db2a2ccfd7a977cf,
+        type: 3}
+      propertyPath: unitName
+      value: Rogue
+      objectReference: {fileID: 0}
+    - target: {fileID: 4392090260729499094, guid: f37f857c370004b4db2a2ccfd7a977cf,
+        type: 3}
+      propertyPath: isPlayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 86760307645205413, guid: f37f857c370004b4db2a2ccfd7a977cf,
         type: 3}
       propertyPath: m_Color.r
@@ -1108,6 +1118,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3012059549555167978, guid: 0109102a0e323cf4a8c8a00b944fe359,
         type: 3}
+    - target: {fileID: 8994926729317995891, guid: b1df25e8289c5c747bcf894e607ed74f,
+        type: 3}
+      propertyPath: unitName
+      value: Priest
+      objectReference: {fileID: 0}
     - target: {fileID: 181043382415372256, guid: b1df25e8289c5c747bcf894e607ed74f,
         type: 3}
       propertyPath: m_Color.r
@@ -1210,6 +1225,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3012059549555167978, guid: 0109102a0e323cf4a8c8a00b944fe359,
         type: 3}
+    - target: {fileID: 9067871908612739286, guid: 46c8f6bc6fb23b94eb33d4c4c370af81,
+        type: 3}
+      propertyPath: unitName
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 455447941829960204, guid: 46c8f6bc6fb23b94eb33d4c4c370af81,
         type: 3}
       propertyPath: m_Color.r
@@ -1315,6 +1335,16 @@ PrefabInstance:
     - target: {fileID: 2892413928567645728, guid: b927de3aa5ea6a049ba020a2128d92b5,
         type: 3}
       propertyPath: playerCharacter
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2892413928567645728, guid: b927de3aa5ea6a049ba020a2128d92b5,
+        type: 3}
+      propertyPath: unitName
+      value: Warrior
+      objectReference: {fileID: 0}
+    - target: {fileID: 2892413928567645728, guid: b927de3aa5ea6a049ba020a2128d92b5,
+        type: 3}
+      propertyPath: isPlayer
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2859812885327443740, guid: b927de3aa5ea6a049ba020a2128d92b5,
@@ -1536,6 +1566,11 @@ PrefabInstance:
       propertyPath: playerCharacter
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2754194657924981659, guid: 0e844113f01d9dd47aa692154fa9c52b,
+        type: 3}
+      propertyPath: isPlayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5268804761655384788, guid: 0e844113f01d9dd47aa692154fa9c52b,
         type: 3}
       propertyPath: m_Color.r
@@ -1643,6 +1678,16 @@ PrefabInstance:
       propertyPath: playerCharacter
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4631612643918431119, guid: 7e87941ff8f086f44bf8c4a27f8a6ce8,
+        type: 3}
+      propertyPath: unitName
+      value: Mage
+      objectReference: {fileID: 0}
+    - target: {fileID: 4631612643918431119, guid: 7e87941ff8f086f44bf8c4a27f8a6ce8,
+        type: 3}
+      propertyPath: isPlayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5952650880331396946, guid: 7e87941ff8f086f44bf8c4a27f8a6ce8,
         type: 3}
       propertyPath: m_Color.r
@@ -1670,17 +1715,17 @@ PrefabInstance:
     - target: {fileID: 4995290915333044515, guid: 33d591745655abd4e8d1e89844e3a037,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3574278382435950804, guid: 33d591745655abd4e8d1e89844e3a037,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.24
+      value: 7.9
       objectReference: {fileID: 0}
     - target: {fileID: 3574278382435950804, guid: 33d591745655abd4e8d1e89844e3a037,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.81
+      value: -0.46
       objectReference: {fileID: 0}
     - target: {fileID: 3574278382435950804, guid: 33d591745655abd4e8d1e89844e3a037,
         type: 3}

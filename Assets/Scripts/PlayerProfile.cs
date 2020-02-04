@@ -9,9 +9,8 @@ public class PlayerProfile : MonoBehaviour
     public CharacterProfile mageHero;
     public CharacterProfile warriorHero;
     public CharacterProfile priestHero;
-    public int currentEditingInteger = 0;
-
-    // public CharacterProfile rogueHero; - menu not implemented yet
+    public CharacterProfile rogueHero;
+    public int currentEditingInteger;
 
     // public Dictionary<ScriptableUnit, CharacterProfile> characterProfiles;
     public List<CharacterProfile> characterProfiles = new List<CharacterProfile>();
@@ -26,14 +25,17 @@ public class PlayerProfile : MonoBehaviour
     {
         switch (unit.name)
         {
-            case "Mage":
+            case "MageUnit":
                 return mageHero;
 
-            case "Priest":
+            case "PriestUnit":
                 return priestHero;
 
-            case "Warrior":
+            case "WarriorUnit":
                 return warriorHero;
+
+            case "RogueUnit":
+                return rogueHero;
 
             default:
                 return null;
@@ -52,24 +54,26 @@ public class PlayerProfile : MonoBehaviour
             Destroy(gameObject);
         }
 
-        // Sets the current editing character to the first one at the start of the script
-        CurrentEditingCharacter = characterProfiles[currentEditingInteger];
-
         characterProfiles.Add(mageHero);
         characterProfiles.Add(warriorHero);
         characterProfiles.Add(priestHero);
+        characterProfiles.Add(rogueHero);
+
+        currentEditingInteger = 0;
+        // Sets the current editing character to the first one at the start of the script
+        CurrentEditingCharacter = characterProfiles[currentEditingInteger];
     }
 
     void Start()
     {
         // Sets the current editing character to the index determined by the buttons when the scene reloads
-        CurrentEditingCharacter = characterProfiles[currentEditingInteger];
+        
     }
 
     
     void Update()
     {
-        
+        CurrentEditingCharacter = characterProfiles[currentEditingInteger];
     }
 
 

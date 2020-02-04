@@ -250,14 +250,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xpCosts: 640000006c000000740000007e00000088000000930000009f000000ab000000b9000000c8000000d8000000ea000000fd00000011010000270100003f010000590100007401000092010000b3010000
   nextXPCost: 0
-  i: 0
+  indexOfXpCosts: 0
   healthIndex: 0
   atkIndex: 0
   abilityIndex: 0
   atkLevel: 050000000600000007000000090000000a0000000c0000000e00000010000000110000001200000013000000140000001600000017000000180000001a0000001b0000001d0000001f0000002000000022000000
   abilityLevel: 090000000b0000000d0000000e0000000f000000100000001100000012000000140000001500000016000000180000001a0000001b0000001d0000001f00000021000000230000002500000027000000
   healthLevel: 640000006e00000078000000840000008f0000009b000000a8000000b5000000c3000000d2000000e2000000f20000000301000015010000280100003c01000051010000660100007d01000095010000af010000c9010000e501000002020000
-  SceneCharacter: {fileID: 0}
+  warriorHealthLevel: 2c0100004a0100006a0100008b010000ad010000d2010000f8010000200200004a02000077020000a5020000d60200000a0300003f03000078030000b3030000f20300003304000078040000c00400000c0500005c050000af05000007060000
+  SceneCharacter:
+    characterTotalXP: 0
+    characterAvailableXP: 0
+    healthArrayLevel: 0
+    atkArrayLevel: 0
+    abilityArrayLevel: 0
+    nextXPCost: 0
+    health: 0
+    atk: 0
+    abilityPower: 0
+    characterSprite: {fileID: 0}
 --- !u!4 &436278124
 Transform:
   m_ObjectHideFlags: 0
@@ -452,17 +463,17 @@ PrefabInstance:
     - target: {fileID: 2183109664612398436, guid: e7508a99ae261984489c6871e40ba455,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8794804522130379678, guid: e7508a99ae261984489c6871e40ba455,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.98
+      value: 8.81
       objectReference: {fileID: 0}
     - target: {fileID: 8794804522130379678, guid: e7508a99ae261984489c6871e40ba455,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.03
+      value: 4.04
       objectReference: {fileID: 0}
     - target: {fileID: 8794804522130379678, guid: e7508a99ae261984489c6871e40ba455,
         type: 3}
@@ -1358,7 +1369,7 @@ PrefabInstance:
     - target: {fileID: 2183109664612398436, guid: e7508a99ae261984489c6871e40ba455,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8794804522130379678, guid: e7508a99ae261984489c6871e40ba455,
         type: 3}
@@ -2208,7 +2219,12 @@ PrefabInstance:
     - target: {fileID: 4631612643918431119, guid: 7e87941ff8f086f44bf8c4a27f8a6ce8,
         type: 3}
       propertyPath: unitName
-      value: 
+      value: Mage
+      objectReference: {fileID: 0}
+    - target: {fileID: 4631612643918431119, guid: 7e87941ff8f086f44bf8c4a27f8a6ce8,
+        type: 3}
+      propertyPath: isPlayer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5952650880331396946, guid: 7e87941ff8f086f44bf8c4a27f8a6ce8,
         type: 3}

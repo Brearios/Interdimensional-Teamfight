@@ -1124,6 +1124,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3012059549555167978, guid: 788f1abb9f6d32644a47a90d8101bc2d,
         type: 3}
+    - target: {fileID: 4392090260729499094, guid: f37f857c370004b4db2a2ccfd7a977cf,
+        type: 3}
+      propertyPath: isPlayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 86760307645205413, guid: f37f857c370004b4db2a2ccfd7a977cf,
         type: 3}
       propertyPath: m_Color.r
@@ -1461,6 +1466,11 @@ PrefabInstance:
       propertyPath: playerCharacter
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2892413928567645728, guid: b927de3aa5ea6a049ba020a2128d92b5,
+        type: 3}
+      propertyPath: isPlayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2859812885327443740, guid: b927de3aa5ea6a049ba020a2128d92b5,
         type: 3}
       propertyPath: m_Color.r
@@ -1680,6 +1690,11 @@ PrefabInstance:
       propertyPath: playerCharacter
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2754194657924981659, guid: 0e844113f01d9dd47aa692154fa9c52b,
+        type: 3}
+      propertyPath: isPlayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5268804761655384788, guid: 0e844113f01d9dd47aa692154fa9c52b,
         type: 3}
       propertyPath: m_Color.r
@@ -1785,6 +1800,11 @@ PrefabInstance:
     - target: {fileID: 4631612643918431119, guid: 7e87941ff8f086f44bf8c4a27f8a6ce8,
         type: 3}
       propertyPath: playerCharacter
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4631612643918431119, guid: 7e87941ff8f086f44bf8c4a27f8a6ce8,
+        type: 3}
+      propertyPath: isPlayer
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5952650880331396946, guid: 7e87941ff8f086f44bf8c4a27f8a6ce8,

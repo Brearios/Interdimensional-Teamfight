@@ -46,6 +46,7 @@ public class Actor : MonoBehaviour
     public float targetCheckFrequency;
     public bool hasTaunted;
     public float tauntResetClock;
+    // public int myTeam;
     public bool isPlayer;
 
     public GameObject FloatingTextPrefab;
@@ -58,7 +59,6 @@ public class Actor : MonoBehaviour
         attackDamage = unit.attackDamage;
         abilityPower = unit.abilityPower;
         // MageStats = GameObject.FindObjectOfType<CharacterProfile>();
-        ApplyStats();
         globalCooldown = unit.globalCooldown;
         role = unit.role;
         atkRange = unit.atkRange;
@@ -67,15 +67,17 @@ public class Actor : MonoBehaviour
         // teamName = Team.Neutral;
         // teamColor = team.color;
         abilityCooldown = ability.abilityCooldown;
-        // Set Health
-        currHealth = maxHealth;
         // Fetch Material from Renderer
         currentColor = GetComponentInChildren<SpriteRenderer>().color;
         isDead = false;
         xpWhenKilled = unit.xpWhenKilled;
-        abilityHpDelta = (abilityPower * ability.hpDelta);
         targetCheckCount = 0;
         targetCheckFrequency = unit.targetCheckFrequency;
+        // PlayerCheck();
+        ApplyStats();
+        // Set Health
+        currHealth = maxHealth;
+        abilityHpDelta = (abilityPower * ability.hpDelta);
     }
 
     // Update is called once per frame
@@ -92,8 +94,8 @@ public class Actor : MonoBehaviour
         {
             isDead = true;
             GameManager.Instance.earnedBattleXP += xpWhenKilled; // this should be done in the GameManager at the end of the battle
-            // gameObject.SetActive(false); < -switching to SetActive should allow rezzing
-            Destroy(gameObject);
+            gameObject.SetActive(false); // -switching to SetActive should allow rezzing
+            // Destroy(gameObject);
             return;
         }
 
@@ -484,16 +486,26 @@ public class Actor : MonoBehaviour
         if (isPlayer)
         {
             CharacterProfile currentProfile = PlayerProfile.Instance.GetCharacterProfileForUnit(unit);
-            attackDamage = currentProfile.atk;
-            if (unit.role == "tank")
+            if (currentProfile.atkArrayLevel > 0)
             {
-                maxHealth = (3 * currentProfile.health);
+                attackDamage = currentProfile.atk;
             }
-            else
+            if (currentProfile.abilityArrayLevel > 0)
             {
-                maxHealth = currentProfile.health;
+                abilityPower = currentProfile.abilityPower;
             }
-            abilityPower = currentProfile.abilityPower;
+            if (currentProfile.healthArrayLevel > 0)
+            {
+                if (unit.role == "tank")
+                {
+                    maxHealth = (3 * currentProfile.health);
+                }
+                else
+                {
+                    maxHealth = currentProfile.health;
+                }
+            }
+            
             //switch (unit.name)
             //{
             //    case "Mage":
@@ -552,6 +564,17 @@ public class Actor : MonoBehaviour
             targetCheckCount = 0;
         }
     }
-
+    void PlayerCheck()
+    {
+        //if (Actor.Team = Team.Blue)
+        //{
+        //    isPlayer = true;
+        //}
+        //else
+        //{
+        //    isPlayer = false;
+        //}
+    }
 }
+    
 

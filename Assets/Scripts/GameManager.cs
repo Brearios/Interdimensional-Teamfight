@@ -162,11 +162,11 @@ public class GameManager : MonoBehaviour
             }
         xpPerCharacter = (earnedBattleXP / winnersReceivingXP);
         foreach (Actor Actor in allActors)
-            if (// Actor.team == winningTeam)
-                Actor.isPlayer)
+            if (Actor.isPlayer)
             {
                 CharacterProfile xpProfile = PlayerProfile.Instance.GetCharacterProfileForUnit(Actor.unit);
                 xpProfile.characterTotalXP += xpPerCharacter;
+                xpProfile.characterAvailableXP += xpPerCharacter;
             }
     }
 
