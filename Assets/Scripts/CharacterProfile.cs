@@ -6,6 +6,7 @@ using UnityEngine;
 public class CharacterProfile
 {
     // public static CharacterProfile Instance;
+    public string heroName;
     public int characterTotalXP;
     public int characterAvailableXP;
     // _ArrayLevel variables are to count XP cost increments

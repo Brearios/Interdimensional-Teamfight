@@ -53,6 +53,10 @@ public class SceneControl : MonoBehaviour
             SceneManager.LoadScene(2);
             Debug.Log("Currently Editing " + PlayerProfile.Instance.CurrentEditingCharacter);
         }
+        else
+        {
+            PlayerProfile.Instance.currentEditingInteger = (PlayerProfile.Instance.characterProfiles.Count - 1);
+        }
 
     }
 
@@ -64,6 +68,10 @@ public class SceneControl : MonoBehaviour
             PlayerProfile.Instance.currentEditingInteger++;
             SceneManager.LoadScene(2);
             Debug.Log("Currently Editing " + PlayerProfile.Instance.CurrentEditingCharacter);
+        }
+        else
+        {
+            PlayerProfile.Instance.currentEditingInteger = 0;
         }
     }
 
