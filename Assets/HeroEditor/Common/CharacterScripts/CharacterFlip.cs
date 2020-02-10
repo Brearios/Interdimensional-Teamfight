@@ -2,20 +2,21 @@
 
 namespace Assets.HeroEditor.Common.CharacterScripts
 {
-    /// <summary>
-    /// Makes character to look at cursor side (flip by X scale).
-    /// </summary>
-    public class CharacterFlip : MonoBehaviour
-    {
-        public void Update()
-        {
-	        var scale = transform.localScale;
+	/// <summary>
+	/// Makes character to look at cursor side (flip by X scale).
+	/// </summary>
+	public class CharacterFlip : MonoBehaviour
+	{
+		public void Update()
+		{
+			var scale = transform.localScale;
 
-	        scale.x = Mathf.Abs(scale.x);
+			scale.x = Mathf.Abs(scale.x);
 
-	        if (Camera.main.ScreenToWorldPoint(Input.mousePosition).x < transform.position.x) scale.x *= -1;
+			// Flips if right or left of target
+			if (GetComponent<Actor>().autoAtkTarget.transform.position.x < transform.position.x) scale.x *= -1;
 
 			transform.localScale = scale;
-        }
-    }
+		}
+	}
 }

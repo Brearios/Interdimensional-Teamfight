@@ -48,6 +48,7 @@ public class Actor : MonoBehaviour
     public float tauntResetClock;
     // public int myTeam;
     public bool isPlayer;
+    public bool beginAtkAnim;
 
     public GameObject FloatingTextPrefab;
 
@@ -74,16 +75,22 @@ public class Actor : MonoBehaviour
         targetCheckCount = 0;
         targetCheckFrequency = unit.targetCheckFrequency;
         // PlayerCheck();
-        ApplyStats();
+        if (isPlayer)
+        {
+            ApplyStats();
+        }
         // Set Health
         currHealth = maxHealth;
         abilityHpDelta = (abilityPower * ability.hpDelta);
+        beginAtkAnim = false;
     }
 
     // Update is called once per frame
     void Update()
     {
         HealthBarManagement();
+
+        beginAtkAnim = false;
 
         if (GameManager.Instance.IsRunning == false)
         {
@@ -349,13 +356,14 @@ public class Actor : MonoBehaviour
         {
             // Attack with "animation"
             if (0 < (autoAtkTarget.transform.position.x - transform.position.x))
-            {
-                iTween.RotateFrom(body, new Vector3(0, 0, -20), .4f);
-            }
-            else
-            {
-                iTween.RotateFrom(body, new Vector3(0, 0, 20), .4f);
-            }
+                beginAtkAnim = true;
+            //{
+            //    iTween.RotateFrom(body, new Vector3(0, 0, -20), .4f);
+            //}
+            //else
+            //{
+            //    iTween.RotateFrom(body, new Vector3(0, 0, 20), .4f);
+            //}
             autoAtkTarget.ChangeHealth(-attackDamage, false);
             // autoAtkTarget.currHealth -= attackDamage; - old code
             if (autoAtkTarget.currHealth <= 0)
@@ -401,6 +409,7 @@ public class Actor : MonoBehaviour
             }
             else
             {
+                beginAtkAnim = true;
                 abilityTarget.ChangeHealth(abilityHpDelta, true);
             }
         }

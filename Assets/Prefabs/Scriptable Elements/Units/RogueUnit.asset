@@ -20,6 +20,6 @@ MonoBehaviour:
   xpWhenKilled: 25
   role: MeleeDPS
   team: 
-  atkRange: 1
+  atkRange: 2
   moveSpeed: 1.5
   targetCheckFrequency: 2
