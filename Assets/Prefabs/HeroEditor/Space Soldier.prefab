@@ -11611,7 +11611,7 @@ Transform:
   m_GameObject: {fileID: 6672321985025395352}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 2.329059, y: 1.3266709, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_Children:
   - {fileID: 6669189936465386144}
   - {fileID: 3738982014823544183}
@@ -11662,8 +11662,10 @@ MonoBehaviour:
   targetCheckCount: 0
   targetCheckFrequency: 0
   hasTaunted: 0
-  tauntResetClock: 0
+  threatResetClock: 0
   isPlayer: 0
+  beginAtkAnim: 0
+  isStealthed: 0
   FloatingTextPrefab: {fileID: 3012059549555167978, guid: 1e98c7aa83e776648ae16b3785ac6c38,
     type: 3}
 --- !u!114 &6703907281675167270

@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2d9a75471d10e234095c808943749452, type: 3}
-  m_Name: WarriorUnit
+  m_Name: WarriorSkeleton
   m_EditorClassIdentifier: 
   unitName: Warrior
-  maxHealth: 300
+  maxHealth: 150
   attackDamage: 5
   abilityPower: 8
   globalCooldown: 2

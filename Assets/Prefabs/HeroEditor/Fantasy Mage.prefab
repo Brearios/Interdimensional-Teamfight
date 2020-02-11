@@ -36,7 +36,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.7235231, y: 1.4357948}
+  m_AnchoredPosition: {x: 0, y: 3}
   m_SizeDelta: {x: 35, y: 35}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &8102440565869618969
@@ -5367,9 +5367,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8102634624511559635}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6.236477, y: -3.8957949, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_Children:
   - {fileID: 8106220352781183639}
   - {fileID: 8102440565869618948}
@@ -5420,8 +5420,10 @@ MonoBehaviour:
   targetCheckCount: 0
   targetCheckFrequency: 0
   hasTaunted: 0
-  tauntResetClock: 0
+  threatResetClock: 0
   isPlayer: 1
+  beginAtkAnim: 0
+  isStealthed: 0
   FloatingTextPrefab: {fileID: 3012059549555167978, guid: 1e98c7aa83e776648ae16b3785ac6c38,
     type: 3}
 --- !u!114 &8207522223971313803

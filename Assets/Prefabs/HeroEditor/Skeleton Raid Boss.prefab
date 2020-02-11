@@ -15253,7 +15253,7 @@ Transform:
   m_GameObject: {fileID: 6738371103545747026}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -1.0470796, y: 1.0918093, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.3, y: 1.3, z: 1.3}
   m_Children:
   - {fileID: 6743228021749329846}
   - {fileID: 1069487510108782637}
@@ -15272,9 +15272,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b0ce10ba1de5194cb07dc56bd422a12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unit: {fileID: 0}
-  team: {fileID: 0}
-  ability: {fileID: 0}
+  unit: {fileID: 11400000, guid: a4d44bbb9fab98642879a5040555e4f3, type: 2}
+  team: {fileID: 11400000, guid: 5448075b66749f347a9d240d37ee5609, type: 2}
+  ability: {fileID: 11400000, guid: ec78b87edd0b1454db7b312c0d932452, type: 2}
   unitName: 
   maxHealth: 0
   currHealth: 0
@@ -15304,8 +15304,10 @@ MonoBehaviour:
   targetCheckCount: 0
   targetCheckFrequency: 0
   hasTaunted: 0
-  tauntResetClock: 0
+  threatResetClock: 0
   isPlayer: 0
+  beginAtkAnim: 0
+  isStealthed: 0
   FloatingTextPrefab: {fileID: 3012059549555167978, guid: 1e98c7aa83e776648ae16b3785ac6c38,
     type: 3}
 --- !u!114 &6634428453322190086

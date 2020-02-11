@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eb4150d779a2b1143b0ae420b32688ed, type: 3}
-  m_Name: Quick Strike
+  m_Name: Stealth
   m_EditorClassIdentifier: 
   targetType: 2
   effectType: 2
   abilityName: Quick Strike
   rank: 1
-  HpDelta: 0
+  hpDelta: 0
   abilityRange: 1
   abilityCooldown: 4
   description: Reset attack cooldown.

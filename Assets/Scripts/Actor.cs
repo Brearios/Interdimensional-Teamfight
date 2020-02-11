@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Assets.HeroEditor.Common.CharacterScripts;
 
 public class Actor : MonoBehaviour
 {
@@ -45,10 +46,11 @@ public class Actor : MonoBehaviour
     public float targetCheckCount;
     public float targetCheckFrequency;
     public bool hasTaunted;
-    public float tauntResetClock;
+    public float threatResetClock;
     // public int myTeam;
     public bool isPlayer;
     public bool beginAtkAnim;
+    public bool isStealthed;
 
     public GameObject FloatingTextPrefab;
 
@@ -107,6 +109,7 @@ public class Actor : MonoBehaviour
         }
 
         UpdateThreatScore();
+        
 
         if (abilityTarget == null)
         {
@@ -316,7 +319,8 @@ public class Actor : MonoBehaviour
     {
         // It's OK if we set this every frame even if we're already moving.
         currentState = State.Moving;
-
+        // GetComponent<Character>().Animator.Play("Walk"); Definitely not doing what I want
+        
         transform.position = Vector2.MoveTowards(transform.position, autoAtkTarget.transform.position, moveSpeed * GameManager.Instance.deltaTime);
     }
     public bool CheckTargetRange()
@@ -403,14 +407,23 @@ public class Actor : MonoBehaviour
                 */
                 ThreatScore = (highestThreat * 2);
                 hasTaunted = true;
-                tauntResetClock = 3;
+                threatResetClock = 3;
                 // }
+
+            }
+            else if ((ability.targetType == ScriptableAbility.TargetType.Self) && ability.name == "Stealth")
+            {
+                ThreatScore = (ThreatScore / 2);
+                isStealthed = true;
+                threatResetClock = 3;
 
             }
             else
             {
+                Debug.Log("Ability started.");
                 beginAtkAnim = true;
                 abilityTarget.ChangeHealth(abilityHpDelta, true);
+                Debug.Log("Ability processed for " + abilityHpDelta);
             }
         }
         // abilityTarget.currHealth += ability.HpDelta; - old code
@@ -477,10 +490,18 @@ public class Actor : MonoBehaviour
         // over maxHealth, so that 
         if (hasTaunted)
         {
-            tauntResetClock -= GameManager.Instance.deltaTime;
-            if (tauntResetClock <= 0)
+            threatResetClock -= GameManager.Instance.deltaTime;
+            if (threatResetClock <= 0)
             {
                 hasTaunted = false;
+            }
+        }
+        if (isStealthed)
+        {
+            threatResetClock -= GameManager.Instance.deltaTime;
+            if (threatResetClock <= 0)
+            {
+                isStealthed = false;
             }
         }
         else

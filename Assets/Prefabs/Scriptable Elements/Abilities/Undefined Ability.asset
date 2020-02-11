@@ -16,7 +16,7 @@ MonoBehaviour:
   effectType: 0
   abilityName: TBA
   rank: 1
-  HpDelta: 0
+  hpDelta: 10
   abilityRange: 1
   abilityCooldown: 1
   description: 
