@@ -18,9 +18,10 @@ MonoBehaviour:
   rank: 1
   hpDelta: 0
   abilityRange: 3
-  abilityCooldown: 5
+  abilityCooldown: 6
   description: 'Temporarily sets threat to #1 on team.'
-  effectDuration: 3
+  effectDuration: 4
   HpDeltaPerSecond: 0
   CooldownsDeltaPerSecond: 0
   knockbackDistance: 0
+  abilityStartingCooldownCredit: 4.5

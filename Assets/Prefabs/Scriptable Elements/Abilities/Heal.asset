@@ -24,3 +24,4 @@ MonoBehaviour:
   HpDeltaPerSecond: 0
   CooldownsDeltaPerSecond: 0
   knockbackDistance: 0
+  abilityStartingCooldownCredit: 3

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Skeleton Rogue
   m_EditorClassIdentifier: 
   unitName: Skeleton Rogue
-  maxHealth: 20
+  maxHealth: 25
   attackDamage: 6
   abilityPower: 4
   globalCooldown: 2
@@ -23,3 +23,4 @@ MonoBehaviour:
   atkRange: 3
   moveSpeed: 1.5
   targetCheckFrequency: 2
+  abilityAnimationType: Slash

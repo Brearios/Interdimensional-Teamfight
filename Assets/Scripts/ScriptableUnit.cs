@@ -17,4 +17,5 @@ public class ScriptableUnit : ScriptableObject
     public float atkRange;
     public float moveSpeed;
     public float targetCheckFrequency;
+    public string abilityAnimationType;
 }

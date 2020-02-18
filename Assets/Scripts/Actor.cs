@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Assets.HeroEditor.Common.CharacterScripts;
 
-public class Actor : MonoBehaviour
+public class Actor : MonoBehaviour, IChangeState
 {
     public enum Team { Neutral, Blue, Red };
     public enum State { Idle, Moving, Attacking };
@@ -29,6 +29,7 @@ public class Actor : MonoBehaviour
     public float abilityRange;
     public float abilityCooldown;
     public float abilityCooldownCount;
+    public string abilityName;
     public float moveSpeed;
     public float abilitySpeed;
     public State currentState = State.Idle;
@@ -51,6 +52,8 @@ public class Actor : MonoBehaviour
     public bool isPlayer;
     public bool beginAtkAnim;
     public bool isStealthed;
+    public bool xpAdded;
+    public string abilityAnimationType;
 
     public GameObject FloatingTextPrefab;
 
@@ -65,8 +68,11 @@ public class Actor : MonoBehaviour
         globalCooldown = unit.globalCooldown;
         role = unit.role;
         atkRange = unit.atkRange;
+        abilityName = ability.abilityName;
         abilityRange = ability.abilityRange;
         moveSpeed = unit.moveSpeed;
+        abilityCooldownCount = ability.abilityStartingCooldownCredit;
+        abilityAnimationType = unit.abilityAnimationType;
         // teamName = Team.Neutral;
         // teamColor = team.color;
         abilityCooldown = ability.abilityCooldown;
@@ -74,17 +80,19 @@ public class Actor : MonoBehaviour
         currentColor = GetComponentInChildren<SpriteRenderer>().color;
         isDead = false;
         xpWhenKilled = unit.xpWhenKilled;
-        targetCheckCount = 0;
         targetCheckFrequency = unit.targetCheckFrequency;
+        targetCheckCount = Random.Range(.4f, unit.targetCheckFrequency);
         // PlayerCheck();
         if (isPlayer)
         {
             ApplyStats();
+            // ApplyGearUpgrades();
         }
         // Set Health
         currHealth = maxHealth;
         abilityHpDelta = (abilityPower * ability.hpDelta);
         beginAtkAnim = false;
+        xpAdded = false;
     }
 
     // Update is called once per frame
@@ -102,7 +110,11 @@ public class Actor : MonoBehaviour
         if (currHealth <= 0)
         {
             isDead = true;
-            GameManager.Instance.earnedBattleXP += xpWhenKilled; // this should be done in the GameManager at the end of the battle
+            if (xpAdded == false && isPlayer == false)
+            {
+                GameManager.Instance.earnedBattleXP += xpWhenKilled; // this should be done in the GameManager at the end of the battle
+                xpAdded = true;
+            }
             gameObject.SetActive(false); // -switching to SetActive should allow rezzing
             // Destroy(gameObject);
             return;
@@ -122,6 +134,7 @@ public class Actor : MonoBehaviour
 
         if (currentState == State.Idle)
         {
+            GetComponent<Character>().Animator.SetBool("Ready", true);
             FindPriorityEnemy();
         }
 
@@ -243,10 +256,12 @@ public class Actor : MonoBehaviour
             }
             else
             {
+                float distanceToActor = (currentActor.transform.position - transform.position).sqrMagnitude;
                 float enemyThreat = currentActor.ThreatScore;
-                if (enemyThreat > highestThreatEnemy)
+                float threatWithDistance = (enemyThreat - (distanceToActor / 5));
+                if (threatWithDistance > highestThreatEnemy)
                 {
-                    highestThreatEnemy = enemyThreat;
+                    highestThreatEnemy = threatWithDistance;
                     autoAtkTarget = currentActor;
                 }
             }
@@ -318,9 +333,11 @@ public class Actor : MonoBehaviour
     void MoveTowardsTarget()
     {
         // It's OK if we set this every frame even if we're already moving.
+        GetComponent<Character>().Animator.SetBool("Ready", false);
         currentState = State.Moving;
+        GetComponent<Character>().Animator.SetBool("Walk", true);
         // GetComponent<Character>().Animator.Play("Walk"); Definitely not doing what I want
-        
+
         transform.position = Vector2.MoveTowards(transform.position, autoAtkTarget.transform.position, moveSpeed * GameManager.Instance.deltaTime);
     }
     public bool CheckTargetRange()
@@ -331,6 +348,7 @@ public class Actor : MonoBehaviour
     void StartAttacking()
     {
         currentState = State.Attacking;
+        GetComponent<Character>().Animator.SetBool("Walk", false);
         globalCooldownCount = 0f;
     }
 
@@ -359,8 +377,8 @@ public class Actor : MonoBehaviour
         if (gameObject != null)
         {
             // Attack with "animation"
-            if (0 < (autoAtkTarget.transform.position.x - transform.position.x))
-                beginAtkAnim = true;
+            // if (0 < (autoAtkTarget.transform.position.x - transform.position.x))
+            // beginAtkAnim = true;
             //{
             //    iTween.RotateFrom(body, new Vector3(0, 0, -20), .4f);
             //}
@@ -368,10 +386,17 @@ public class Actor : MonoBehaviour
             //{
             //    iTween.RotateFrom(body, new Vector3(0, 0, 20), .4f);
             //}
+        
+            // Doesn't seem to work
+            GetComponent<Character>().Animator.SetBool("Slash", true);
             autoAtkTarget.ChangeHealth(-attackDamage, false);
+            Debug.Log($"{unitName} attacked {autoAtkTarget} for {attackDamage}");
+
             // autoAtkTarget.currHealth -= attackDamage; - old code
             if (autoAtkTarget.currHealth <= 0)
+            {
                 autoAtkTarget = null;
+            }
         }
     }
     void UseAbility()
@@ -421,9 +446,18 @@ public class Actor : MonoBehaviour
             else
             {
                 Debug.Log("Ability started.");
-                beginAtkAnim = true;
+                // beginAtkAnim = true;
+                //if (abilityAnimationType == "Cast")
+                //{
+                //    GetComponent<Character>().Animator.SetBool("Slash", true);
+                //}
+                //if (abilityAnimationType == "Slash")
+                //{ 
+                //    GetComponent<Character>().Animator.SetBool("Slash", true);
+                //}
+                GetComponent<Character>().Animator.SetBool("Slash", true);
                 abilityTarget.ChangeHealth(abilityHpDelta, true);
-                Debug.Log("Ability processed for " + abilityHpDelta);
+                Debug.Log($"{unitName} used {abilityName} on {abilityTarget} for {abilityHpDelta}");
             }
         }
         // abilityTarget.currHealth += ability.HpDelta; - old code
@@ -513,8 +547,6 @@ public class Actor : MonoBehaviour
     void ApplyStats()
     {
         // Identify whether player character
-        if (isPlayer)
-        {
             CharacterProfile currentProfile = PlayerProfile.Instance.GetCharacterProfileForUnit(unit);
             if (currentProfile.atkArrayLevel > 0)
             {
@@ -560,8 +592,6 @@ public class Actor : MonoBehaviour
             //        }
             //        break;
             //}
-
-        }
     }
 
 
@@ -604,6 +634,11 @@ public class Actor : MonoBehaviour
         //{
         //    isPlayer = false;
         //}
+    }
+
+    public void changeState()
+    {
+        // 
     }
 }
     

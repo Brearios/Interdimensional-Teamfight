@@ -14,13 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetType: 2
   effectType: 2
-  abilityName: Quick Strike
+  abilityName: Subtlety
   rank: 1
   hpDelta: 0
   abilityRange: 1
   abilityCooldown: 4
-  description: Reset attack cooldown.
+  description: Cut threat by half
   effectDuration: 0
   HpDeltaPerSecond: 0
   CooldownsDeltaPerSecond: 0
   knockbackDistance: 0
+  abilityStartingCooldownCredit: 4

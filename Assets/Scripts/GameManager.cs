@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         gameSpeed = 1.0f;
-        timeIncrement = 1f;
+        timeIncrement = .2f;
         earnedBattleXP = 0;
         xpCounted = false;
         xpDistributed = false;
@@ -137,7 +137,7 @@ public class GameManager : MonoBehaviour
 
     }
 
-    void TallyXP()
+    void TallyXP() // Not used - XP is added from Actor script, if not player and not previously added
     {
         Actor[] allActors = GameObject.FindObjectsOfType<Actor>();
         foreach (Actor Actor in allActors)

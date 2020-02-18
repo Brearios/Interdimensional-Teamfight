@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetType: 0
   effectType: 3
-  abilityName: Frostbolt
+  abilityName: Icecicle
   rank: 1
   hpDelta: -3
   abilityRange: 4
@@ -24,3 +24,4 @@ MonoBehaviour:
   HpDeltaPerSecond: 0
   CooldownsDeltaPerSecond: 0
   knockbackDistance: 0
+  abilityStartingCooldownCredit: 4

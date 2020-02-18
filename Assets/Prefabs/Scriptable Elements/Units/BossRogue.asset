@@ -22,4 +22,5 @@ MonoBehaviour:
   team: 
   atkRange: 3
   moveSpeed: 1.5
-  targetCheckFrequency: 7
+  targetCheckFrequency: 2
+  abilityAnimationType: Slash
