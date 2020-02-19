@@ -100,7 +100,7 @@ public class Actor : MonoBehaviour, IChangeState
     {
         HealthBarManagement();
 
-        beginAtkAnim = false;
+        // beginAtkAnim = false;
 
         if (GameManager.Instance.IsRunning == false)
         {

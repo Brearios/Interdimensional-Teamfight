@@ -545,11 +545,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Skeleton Mob (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 8887474151139866053, guid: d976bd0383c6f25428c1855b09688f56,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8881565587964174519, guid: d976bd0383c6f25428c1855b09688f56,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -618,11 +613,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Skeleton Mob (3)
-      objectReference: {fileID: 0}
-    - target: {fileID: 8887474151139866053, guid: d976bd0383c6f25428c1855b09688f56,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8881565587964174519, guid: d976bd0383c6f25428c1855b09688f56,
         type: 3}
@@ -1216,11 +1206,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Skeleton Mob (2)
       objectReference: {fileID: 0}
-    - target: {fileID: 8887474151139866053, guid: d976bd0383c6f25428c1855b09688f56,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8881565587964174519, guid: d976bd0383c6f25428c1855b09688f56,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1568,16 +1553,6 @@ PrefabInstance:
         type: 3}
       propertyPath: abilityPower
       value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 8116660445754411997, guid: 594caef060026ff498458d790d7df964,
-        type: 3}
-      propertyPath: maxHealth
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8116660445754411997, guid: 594caef060026ff498458d790d7df964,
-        type: 3}
-      propertyPath: abilityCooldownCount
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8102440565869618948, guid: 594caef060026ff498458d790d7df964,
         type: 3}
