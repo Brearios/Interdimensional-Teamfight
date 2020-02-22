@@ -7,7 +7,7 @@ namespace Assets.HeroEditor.Common.CharacterScripts
 	/// <summary>
 	/// Rotates arms and passes input events to child components like FirearmFire and BowShooting.
 	/// </summary>
-	public class WeaponControls : MonoBehaviour
+	public class WeaponControls : MonoBehaviour, IChangeState
 	{
 		public Character Character;
 		public Transform ArmL;
@@ -115,6 +115,11 @@ namespace Assets.HeroEditor.Common.CharacterScripts
 			}
 
 			arm.transform.localEulerAngles = new Vector3(0, 0, angle);
+		}
+
+		public void changeState()
+		{
+
 		}
 	}
 }
