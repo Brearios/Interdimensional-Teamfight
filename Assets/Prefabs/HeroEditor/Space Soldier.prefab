@@ -11633,6 +11633,7 @@ MonoBehaviour:
   unit: {fileID: 0}
   team: {fileID: 0}
   ability: {fileID: 0}
+  stateChangeListeners: []
   unitName: 
   maxHealth: 0
   currHealth: 0
@@ -11648,6 +11649,7 @@ MonoBehaviour:
   abilityRange: 0
   abilityCooldown: 0
   abilityCooldownCount: 0
+  abilityName: 
   moveSpeed: 0
   abilitySpeed: 0
   currentState: 0
@@ -11666,6 +11668,8 @@ MonoBehaviour:
   isPlayer: 0
   beginAtkAnim: 0
   isStealthed: 0
+  xpAdded: 0
+  abilityAnimationType: 
   FloatingTextPrefab: {fileID: 3012059549555167978, guid: 1e98c7aa83e776648ae16b3785ac6c38,
     type: 3}
 --- !u!114 &6703907281675167270

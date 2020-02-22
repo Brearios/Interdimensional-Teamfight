@@ -352,6 +352,7 @@ public class Actor : MonoBehaviour, IChangeState
     {
         currentState = State.Attacking;
         GetComponent<Character>().Animator.SetBool("Walk", false);
+        GetComponent<Character>().Animator.SetBool("Ready", true);
         globalCooldownCount = 0f;
     }
 
@@ -641,7 +642,7 @@ public class Actor : MonoBehaviour, IChangeState
 
     void RegisterListeners()
     {
-        stateChangeListeners.Add(WeaponControls);
+        // stateChangeListeners.Add(WeaponControls);
     }
 
     public void changeState()
