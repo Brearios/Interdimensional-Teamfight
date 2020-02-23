@@ -127,7 +127,13 @@ namespace Assets.HeroEditor.Common.CharacterScripts
 
     public void changeState()
     {
+      // The following is psuedo-code, but should give the
+      // general idea of what should go in here:
 
+      // if (actor.beginAtkAnim)
+      // {
+      // 	Character.Animator.SetTrigger(Time.frameCount % 2 == 0 ? "Slash" : "Jab"); // Play animation randomly
+      // }
 
     }
   }
