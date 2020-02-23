@@ -21,17 +21,10 @@ public class GameManager : MonoBehaviour
     public int xpPerCharacter;
     public bool xpCounted;
     public bool xpDistributed;
+    public int nextBattleScene = 0;
+    public int[] nextBattle = new int[5] { 2, 3, 4, 5, 6 };
 
     // Start is called before the first frame update
-    void Start()
-    {
-        gameSpeed = 1.0f;
-        timeIncrement = .2f;
-        earnedBattleXP = 0;
-        xpCounted = false;
-        xpDistributed = false;
-    }
-
     public void Awake()
     {
         if (Instance == null)
@@ -43,6 +36,17 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    void Start()
+    {
+        gameSpeed = 1.0f;
+        timeIncrement = .2f;
+        earnedBattleXP = 0;
+        xpCounted = false;
+        xpDistributed = false;
+    }
+
+    
 
     // Update is called once per frame
     void Update()
@@ -93,9 +97,9 @@ public class GameManager : MonoBehaviour
             {
                 NextBattle();
             }
-            if (Input.GetKeyDown(KeyCode.B))
+            if (Input.GetKeyDown(KeyCode.R))
             {
-                BossBattle();
+                RepeatBattle();
             }
         }
     }
@@ -199,18 +203,24 @@ public class GameManager : MonoBehaviour
     }
     void MenuScreen()
     {
+        nextBattleScene++;
         SceneManager.LoadScene(0);
     }
 
     void NextBattle()
     {
-        SceneManager.LoadScene(3);
+        Debug.Log("You selected the next battle.");
+        Debug.Log("Going from Battle " + nextBattleScene + " to " + (nextBattleScene + 1) + ".");
+        nextBattleScene++;
+        Debug.Log("Next scene updated to " + nextBattleScene + ".");
+        Debug.Log("Loading scene number " + nextBattle[nextBattleScene] + ".");
+        SceneManager.LoadScene(nextBattle[nextBattleScene]);
     }
 
     // Press B to load the boss fight
 
-    void BossBattle()
+    void RepeatBattle()
     {
-        SceneManager.LoadScene(4);
+        SceneManager.LoadScene(nextBattle[nextBattleScene]);
     }
 }

@@ -726,6 +726,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Skeleton Raid Boss
       objectReference: {fileID: 0}
+    - target: {fileID: 6738371103545747026, guid: ccb0182f380f2574cbac818c78381a9d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6743171421553406752, guid: ccb0182f380f2574cbac818c78381a9d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1936,6 +1941,8 @@ MonoBehaviour:
   xpPerCharacter: 0
   xpCounted: 0
   xpDistributed: 0
+  nextBattleScene: 0
+  nextBattle: 02000000030000000400000005000000
 --- !u!4 &951133640
 Transform:
   m_ObjectHideFlags: 0

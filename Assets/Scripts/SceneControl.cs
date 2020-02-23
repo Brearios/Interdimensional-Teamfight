@@ -5,22 +5,31 @@ using UnityEngine.SceneManagement;
 
 public class SceneControl : MonoBehaviour
 {
-    public int nextScene;
-
-    private void Start()
+    
+    public void StartBattles()
     {
-        nextScene = SceneManager.GetActiveScene().buildIndex + 1;
+        SceneManager.LoadScene(2);
     }
 
-    public void AdvanceScene()
-    {
-        SceneManager.LoadScene(nextScene);
-    }
-
-    public void MenuScene()
+    public void TitleScene()
     {
         SceneManager.LoadScene(0);
     }
+
+    public void SceneManagerNextBattle()
+    {
+        SceneManager.LoadScene(GameManager.Instance.nextBattle[GameManager.Instance.nextBattleScene]);
+    }
+
+    //public void NextBattleScene()
+    //{
+    //    SceneManager.LoadScene(nextBattle[nextBattleScene]); // Load the next scene you haven't beaten
+    //}
+
+    //public void LastBattleScene()
+    //{
+    //    SceneManager.LoadScene(nextBattle[nextBattleScene - 1]); // Load the last scene you did beat to farm XP
+    //}
 
     // Make this go to character selector menu/indexer
     /*
@@ -30,9 +39,9 @@ public class SceneControl : MonoBehaviour
     }
     */
 
-    public void MageScene()
+    public void MenuScene()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(1);
     }
 
     //public void PriestScene()
@@ -50,7 +59,7 @@ public class SceneControl : MonoBehaviour
         if (PlayerProfile.Instance.currentEditingInteger > 0)
         {
             PlayerProfile.Instance.currentEditingInteger--;
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene(1);
             Debug.Log("Currently Editing " + PlayerProfile.Instance.CurrentEditingCharacter);
         }
         else
@@ -66,7 +75,7 @@ public class SceneControl : MonoBehaviour
         if (PlayerProfile.Instance.currentEditingInteger < charListLength)
         {
             PlayerProfile.Instance.currentEditingInteger++;
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene(1);
             Debug.Log("Currently Editing " + PlayerProfile.Instance.CurrentEditingCharacter);
         }
         else
