@@ -4,122 +4,137 @@ using UnityEngine;
 
 namespace Assets.HeroEditor.Common.CharacterScripts
 {
-	/// <summary>
-	/// Rotates arms and passes input events to child components like FirearmFire and BowShooting.
-	/// </summary>
-	public class WeaponControls : MonoBehaviour, IChangeState
-	{
-		public Character Character;
-		public Transform ArmL;
-		public Transform ArmR;
-		public KeyCode FireButton;
-		public KeyCode ReloadButton;
-		public bool FixHorizontal;
+  /// <summary>
+  /// Rotates arms and passes input events to child components like FirearmFire and BowShooting.
+  /// </summary>
+  public class WeaponControls : MonoBehaviour, IChangeState
+  {
+    public Character Character;
+    public Transform ArmL;
+    public Transform ArmR;
+    public KeyCode FireButton;
+    public KeyCode ReloadButton;
+    public bool FixHorizontal;
 
-		private bool _locked;
+    private bool _locked;
 
-		public void Update()
-		{
-			_locked = !Character.Animator.GetBool("Ready") || Character.Animator.GetInteger("Dead") > 0;
+    Actor actor;
 
-			if (_locked) return;
+    void Start()
+    {
+      actor = GetComponent<Actor>();
+      actor.RegisterListener(this);
+    }
 
-			switch (Character.WeaponType)
-			{
-				case WeaponType.Melee1H:
-				case WeaponType.Melee2H:
-				case WeaponType.MeleePaired:
-					if (GetComponent<Actor>().beginAtkAnim == true)
-					{
-						Character.Animator.SetTrigger(Time.frameCount % 2 == 0 ? "Slash" : "Jab"); // Play animation randomly
-					}
-					break;
-				case WeaponType.Bow:
-					Character.BowShooting.ChargeButtonDown = Input.GetKeyDown(FireButton);
-					Character.BowShooting.ChargeButtonUp = Input.GetKeyUp(FireButton);
-					break;
-				case WeaponType.Firearms1H:
-				case WeaponType.Firearms2H:
-					Character.Firearm.Fire.FireButtonDown = Input.GetKeyDown(FireButton);
-					Character.Firearm.Fire.FireButtonPressed = Input.GetKey(FireButton);
-					Character.Firearm.Fire.FireButtonUp = Input.GetKeyUp(FireButton);
-					Character.Firearm.Reload.ReloadButtonDown = Input.GetKeyDown(ReloadButton);
-					break;
-				case WeaponType.Supplies:
-					if (Input.GetKeyDown(FireButton))
-					{
-						Character.Animator.Play(Time.frameCount % 2 == 0 ? "UseSupply" : "ThrowSupply", 0); // Play animation randomly
-					}
-					break;
-			}
-		}
+    public void Update()
+    {
+      _locked = !Character.Animator.GetBool("Ready") || Character.Animator.GetInteger("Dead") > 0;
 
-		/// <summary>
-		/// Called each frame update, weapon to mouse rotation example.
-		/// </summary>
-		public void LateUpdate()
-		{
-			if (_locked) return;
+      if (_locked) return;
 
-			Transform arm;
-			Transform weapon;
+      switch (Character.WeaponType)
+      {
+        case WeaponType.Melee1H:
+        case WeaponType.Melee2H:
+        case WeaponType.MeleePaired:
+          if (GetComponent<Actor>().beginAtkAnim == true)
+          {
+            Character.Animator.SetTrigger(Time.frameCount % 2 == 0 ? "Slash" : "Jab"); // Play animation randomly
+          }
+          break;
+        case WeaponType.Bow:
+          Character.BowShooting.ChargeButtonDown = Input.GetKeyDown(FireButton);
+          Character.BowShooting.ChargeButtonUp = Input.GetKeyUp(FireButton);
+          break;
+        case WeaponType.Firearms1H:
+        case WeaponType.Firearms2H:
+          Character.Firearm.Fire.FireButtonDown = Input.GetKeyDown(FireButton);
+          Character.Firearm.Fire.FireButtonPressed = Input.GetKey(FireButton);
+          Character.Firearm.Fire.FireButtonUp = Input.GetKeyUp(FireButton);
+          Character.Firearm.Reload.ReloadButtonDown = Input.GetKeyDown(ReloadButton);
+          break;
+        case WeaponType.Supplies:
+          if (Input.GetKeyDown(FireButton))
+          {
+            Character.Animator.Play(Time.frameCount % 2 == 0 ? "UseSupply" : "ThrowSupply", 0); // Play animation randomly
+          }
+          break;
+      }
+    }
 
-			switch (Character.WeaponType)
-			{
-				case WeaponType.Bow:
-					arm = ArmL;
-					weapon = Character.BowRenderers[3].transform;
-					break;
-				case WeaponType.Firearms1H:
-				case WeaponType.Firearms2H:
-					arm = ArmR;
-					weapon = Character.Firearm.FireTransform;
-					break;
-				default:
-					return;
-			}
+    /// <summary>
+    /// Called each frame update, weapon to mouse rotation example.
+    /// </summary>
+    public void LateUpdate()
+    {
+      if (_locked) return;
 
-			RotateArm(arm, weapon, FixHorizontal ? arm.position + 1000 * Vector3.right : Camera.main.ScreenToWorldPoint(Input.mousePosition), -40, 40);
-		}
+      Transform arm;
+      Transform weapon;
 
-		/// <summary>
-		/// Selected arm to position (world space) rotation, with limits.
-		/// </summary>
-		public void RotateArm(Transform arm, Transform weapon, Vector2 target, float angleMin, float angleMax) // TODO: Very hard to understand logic
-		{
-			target = arm.transform.InverseTransformPoint(target);
-			
-			var angleToTarget = Vector2.SignedAngle(Vector2.right, target);
-			var angleToFirearm = Vector2.SignedAngle(weapon.right, arm.transform.right) * Math.Sign(weapon.lossyScale.x);
-			var angleFix = Mathf.Asin(weapon.InverseTransformPoint(arm.transform.position).y / target.magnitude) * Mathf.Rad2Deg;
-			var angle = angleToTarget + angleToFirearm + angleFix;
+      switch (Character.WeaponType)
+      {
+        case WeaponType.Bow:
+          arm = ArmL;
+          weapon = Character.BowRenderers[3].transform;
+          break;
+        case WeaponType.Firearms1H:
+        case WeaponType.Firearms2H:
+          arm = ArmR;
+          weapon = Character.Firearm.FireTransform;
+          break;
+        default:
+          return;
+      }
 
-			angleMin += angleToFirearm;
-			angleMax += angleToFirearm;
+      RotateArm(arm, weapon, FixHorizontal ? arm.position + 1000 * Vector3.right : Camera.main.ScreenToWorldPoint(Input.mousePosition), -40, 40);
+    }
 
-			var z = arm.transform.localEulerAngles.z;
+    /// <summary>
+    /// Selected arm to position (world space) rotation, with limits.
+    /// </summary>
+    public void RotateArm(Transform arm, Transform weapon, Vector2 target, float angleMin, float angleMax) // TODO: Very hard to understand logic
+    {
+      target = arm.transform.InverseTransformPoint(target);
 
-			if (z > 180) z -= 360;
+      var angleToTarget = Vector2.SignedAngle(Vector2.right, target);
+      var angleToFirearm = Vector2.SignedAngle(weapon.right, arm.transform.right) * Math.Sign(weapon.lossyScale.x);
+      var angleFix = Mathf.Asin(weapon.InverseTransformPoint(arm.transform.position).y / target.magnitude) * Mathf.Rad2Deg;
+      var angle = angleToTarget + angleToFirearm + angleFix;
 
-			if (z + angle > angleMax)
-			{
-				angle = angleMax;
-			}
-			else if (z + angle < angleMin)
-			{
-				angle = angleMin;
-			}
-			else
-			{
-				angle += z;
-			}
+      angleMin += angleToFirearm;
+      angleMax += angleToFirearm;
 
-			arm.transform.localEulerAngles = new Vector3(0, 0, angle);
-		}
+      var z = arm.transform.localEulerAngles.z;
 
-		public void changeState()
-		{
+      if (z > 180) z -= 360;
 
-		}
-	}
+      if (z + angle > angleMax)
+      {
+        angle = angleMax;
+      }
+      else if (z + angle < angleMin)
+      {
+        angle = angleMin;
+      }
+      else
+      {
+        angle += z;
+      }
+
+      arm.transform.localEulerAngles = new Vector3(0, 0, angle);
+    }
+
+    public void changeState()
+    {
+      // The following is psuedo-code, but should give the
+      // general idea of what should go in here:
+
+      // if (actor.beginAtkAnim)
+      // {
+      // 	Character.Animator.SetTrigger(Time.frameCount % 2 == 0 ? "Slash" : "Jab"); // Play animation randomly
+      // }
+
+    }
+  }
 }
