@@ -18,6 +18,13 @@ namespace Assets.HeroEditor.Common.CharacterScripts
 
 		private bool _locked;
 
+		Actor actor;
+
+		void Start()
+		{
+			actor = GetComponent<Actor>();
+		}
+
 		public void Update()
 		{
 			_locked = !Character.Animator.GetBool("Ready") || Character.Animator.GetInteger("Dead") > 0;
@@ -29,10 +36,10 @@ namespace Assets.HeroEditor.Common.CharacterScripts
 				case WeaponType.Melee1H:
 				case WeaponType.Melee2H:
 				case WeaponType.MeleePaired:
-					if (GetComponent<Actor>().beginAtkAnim == true)
-					{
-						Character.Animator.SetTrigger(Time.frameCount % 2 == 0 ? "Slash" : "Jab"); // Play animation randomly
-					}
+					//if (GetComponent<Actor>().beginAtkAnim == true)
+					//{
+					//	Character.Animator.SetTrigger(Time.frameCount % 2 == 0 ? "Slash" : "Jab"); // Play animation randomly
+					//}
 					break;
 				case WeaponType.Bow:
 					Character.BowShooting.ChargeButtonDown = Input.GetKeyDown(FireButton);
@@ -119,7 +126,10 @@ namespace Assets.HeroEditor.Common.CharacterScripts
 
 		public void changeState()
 		{
-
+			if (actor.beginAtkAnim)
+			{
+				Character.Animator.SetTrigger(Time.frameCount % 2 == 0 ? "Slash" : "Jab"); // Play animation randomly
+			}
 		}
 	}
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Assets.HeroEditor.Common.CharacterScripts;
 
-public class Actor : MonoBehaviour, IChangeState
+public class Actor : MonoBehaviour
 {
     public enum Team { Neutral, Blue, Red };
     public enum State { Idle, Moving, Attacking, Unconscious };
@@ -14,7 +14,7 @@ public class Actor : MonoBehaviour, IChangeState
     public ScriptableTeam team;
     public ScriptableAbility ability;
 
-    public List<MonoBehaviour> stateChangeListeners = new List<MonoBehaviour>();  // List of Monobehaviours that need to listen for state changes
+    public List<IChangeState> stateChangeListeners = new List<IChangeState>();  // List of Monobehaviours that need to listen for state changes
     
     public string unitName;
     public float maxHealth;
@@ -95,7 +95,6 @@ public class Actor : MonoBehaviour, IChangeState
         abilityHpDelta = (abilityPower * ability.hpDelta);
         beginAtkAnim = false;
         xpAdded = false;
-        RegisterListeners();
     }
 
     // Update is called once per frame
@@ -640,14 +639,17 @@ public class Actor : MonoBehaviour, IChangeState
         //}
     }
 
-    void RegisterListeners()
+    public void RegisterListener(IChangeState listener)
     {
-        // stateChangeListeners.Add(WeaponControls);
+        stateChangeListeners.Add(listener);
     }
 
-    public void changeState()
+    public void NotifyListeners()
     {
-        // foreach stateChangeListeners;
+        stateChangeListeners.ForEach(listener =>
+        {
+            listener.changeState();
+        });
     }
 }
     
