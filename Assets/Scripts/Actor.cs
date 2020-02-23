@@ -644,6 +644,15 @@ public class Actor : MonoBehaviour
     stateChangeListeners.Add(listener);
   }
 
+  // Example function that notifies all listeners
+  void NotifyListeners()
+  {
+    stateChangeListeners.ForEach(listener =>
+    {
+      listener.changeState();
+    });
+  }
+
 }
 
 
