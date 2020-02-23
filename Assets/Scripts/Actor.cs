@@ -95,7 +95,6 @@ public class Actor : MonoBehaviour
     abilityHpDelta = (abilityPower * ability.hpDelta);
     beginAtkAnim = false;
     xpAdded = false;
-    RegisterListeners();
   }
 
   // Update is called once per frame
