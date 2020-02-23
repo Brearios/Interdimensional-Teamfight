@@ -21,8 +21,8 @@ public class GameManager : MonoBehaviour
     public int xpPerCharacter;
     public bool xpCounted;
     public bool xpDistributed;
-    public int nextBattleScene = 0;
-    public int[] nextBattle = new int[5] { 2, 3, 4, 5, 6 };
+    // public int nextBattleScene = 0;
+    // public int[] nextBattle = new int[5] { 2, 3, 4, 5, 6 };
 
     // Start is called before the first frame update
     public void Awake()
@@ -203,24 +203,24 @@ public class GameManager : MonoBehaviour
     }
     void MenuScreen()
     {
-        nextBattleScene++;
+        PlayerProfile.Instance.nextBattleScene++;
         SceneManager.LoadScene(0);
     }
 
     void NextBattle()
     {
         Debug.Log("You selected the next battle.");
-        Debug.Log("Going from Battle " + nextBattleScene + " to " + (nextBattleScene + 1) + ".");
-        nextBattleScene++;
-        Debug.Log("Next scene updated to " + nextBattleScene + ".");
-        Debug.Log("Loading scene number " + nextBattle[nextBattleScene] + ".");
-        SceneManager.LoadScene(nextBattle[nextBattleScene]);
+        Debug.Log("Going from Battle " + PlayerProfile.Instance.nextBattleScene + " to " + (PlayerProfile.Instance.nextBattleScene + 1) + ".");
+        PlayerProfile.Instance.nextBattleScene++;
+        Debug.Log("Next scene updated to " + PlayerProfile.Instance.nextBattleScene + ".");
+        Debug.Log("Loading scene number " + PlayerProfile.Instance.nextBattleScene + ".");
+        SceneManager.LoadScene(PlayerProfile.Instance.nextBattleScene);
     }
 
     // Press B to load the boss fight
 
     void RepeatBattle()
     {
-        SceneManager.LoadScene(nextBattle[nextBattleScene]);
+        SceneManager.LoadScene(PlayerProfile.Instance.nextBattleScene);
     }
 }

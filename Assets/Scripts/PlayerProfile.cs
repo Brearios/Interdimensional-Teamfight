@@ -11,6 +11,7 @@ public class PlayerProfile : MonoBehaviour
     public CharacterProfile priestHero;
     public CharacterProfile rogueHero;
     public int currentEditingInteger;
+    public int nextBattleScene;
 
     // public Dictionary<ScriptableUnit, CharacterProfile> characterProfiles;
     public List<CharacterProfile> characterProfiles = new List<CharacterProfile>();
@@ -53,6 +54,8 @@ public class PlayerProfile : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        nextBattleScene = 2;
 
         characterProfiles.Add(mageHero);
         characterProfiles.Add(warriorHero);

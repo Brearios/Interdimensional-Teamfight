@@ -18,7 +18,7 @@ public class SceneControl : MonoBehaviour
 
     public void SceneManagerNextBattle()
     {
-        SceneManager.LoadScene(GameManager.Instance.nextBattle[GameManager.Instance.nextBattleScene]);
+        SceneManager.LoadScene(PlayerProfile.Instance.nextBattleScene);
     }
 
     //public void NextBattleScene()

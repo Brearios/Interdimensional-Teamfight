@@ -581,7 +581,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5e84bac2373e9a43afbbf22081c8916, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextScene: 0
 --- !u!114 &214496168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -988,7 +987,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5e84bac2373e9a43afbbf22081c8916, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextScene: 0
 --- !u!114 &434202854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1033,7 +1031,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 434202853}
-        m_MethodName: MenuScene
+        m_MethodName: TitleScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1711,7 +1709,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5e84bac2373e9a43afbbf22081c8916, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextScene: 0
 --- !u!1 &529689182
 GameObject:
   m_ObjectHideFlags: 0
@@ -2289,7 +2286,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5e84bac2373e9a43afbbf22081c8916, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextScene: 0
 --- !u!1 &865685911
 GameObject:
   m_ObjectHideFlags: 0
@@ -2691,7 +2687,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5e84bac2373e9a43afbbf22081c8916, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextScene: 0
 --- !u!114 &1299136390
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3071,7 +3066,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5e84bac2373e9a43afbbf22081c8916, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextScene: 0
 --- !u!114 &1456036593
 MonoBehaviour:
   m_ObjectHideFlags: 0
