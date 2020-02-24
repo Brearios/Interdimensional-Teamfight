@@ -17,10 +17,12 @@ public class GameManager : MonoBehaviour
     public bool DeclareVictory;
     public ScriptableTeam winningTeam;
     public Color winningTeamColor;
-    public int winnersReceivingXP;
+    public int playersReceivingXP;
     public int xpPerCharacter;
     public bool xpCounted;
     public bool xpDistributed;
+    public int playerCharacterStartingCount;
+    Actor[] allActors;
     // public int nextBattleScene = 0;
     // public int[] nextBattle = new int[5] { 2, 3, 4, 5, 6 };
 
@@ -44,6 +46,9 @@ public class GameManager : MonoBehaviour
         earnedBattleXP = 0;
         xpCounted = false;
         xpDistributed = false;
+        playerCharacterStartingCount = 0;
+
+        CountPlayers();
     }
 
     
@@ -109,9 +114,9 @@ public class GameManager : MonoBehaviour
         // Identify Team of Actor
         // Look for Actors on !Team
         // If none found, WinningTeam = Actor.Team 
-
-        Actor[] allActors = GameObject.FindObjectsOfType<Actor>();
         // Prevent IsBattleOver from erroring on menu/title scenes
+        Actor[] allActors = GameObject.FindObjectsOfType<Actor>();
+
         if (allActors.Length == 0)
         {
             return;
@@ -157,21 +162,36 @@ public class GameManager : MonoBehaviour
         // CharacterProfile ActiveCharacters = GameObject.FindObjectOfType<CharacterProfile>();
         // ActiveCharacters.characterTotalXP += earnedBattleXP;
         // ActiveCharacters.characterAvailableXP += earnedBattleXP;
-        
-        Actor[] allActors = GameObject.FindObjectsOfType<Actor>();
-        foreach (Actor Actor in allActors)
-            if (Actor.team == winningTeam)
-            {
-                winnersReceivingXP++;
-            }
-        xpPerCharacter = (earnedBattleXP / winnersReceivingXP);
-        foreach (Actor Actor in allActors)
+        DivideExperience();
+
+        Actor[] endActors = Resources.FindObjectsOfTypeAll<Actor>();
+
+        foreach (Actor Actor in endActors)
+        {
             if (Actor.isPlayer)
             {
                 CharacterProfile xpProfile = PlayerProfile.Instance.GetCharacterProfileForUnit(Actor.unit);
                 xpProfile.characterTotalXP += xpPerCharacter;
                 xpProfile.characterAvailableXP += xpPerCharacter;
             }
+        }
+    }
+
+    void CountPlayers()
+    {
+        Actor[] allActors = GameObject.FindObjectsOfType<Actor>();
+        foreach (Actor Actor in allActors)
+        {
+            if (Actor.isPlayer == true)
+            {
+                playerCharacterStartingCount++;
+            }
+        }
+    }
+
+    void DivideExperience()
+    {
+        xpPerCharacter = (earnedBattleXP / playerCharacterStartingCount);
     }
 
     void TimeControls()
