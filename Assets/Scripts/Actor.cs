@@ -180,7 +180,8 @@ public class Actor : MonoBehaviour
             }
 
             else
-            { currentState = State.Idle; }
+            { currentState = State.Idle;
+                NotifyListeners(); }
         }
 
         // Check for better targets every X seconds, frequency from scriptable unit
@@ -337,6 +338,7 @@ public class Actor : MonoBehaviour
         // It's OK if we set this every frame even if we're already moving.
         GetComponent<Character>().Animator.SetBool("Ready", false);
         currentState = State.Moving;
+        NotifyListeners();
         GetComponent<Character>().Animator.SetBool("Walk", true);
         // GetComponent<Character>().Animator.Play("Walk"); Definitely not doing what I want
 
@@ -350,6 +352,7 @@ public class Actor : MonoBehaviour
     void StartAttacking()
     {
         currentState = State.Attacking;
+        NotifyListeners();
         GetComponent<Character>().Animator.SetBool("Walk", false);
         GetComponent<Character>().Animator.SetBool("Ready", true);
         globalCooldownCount = 0f;
