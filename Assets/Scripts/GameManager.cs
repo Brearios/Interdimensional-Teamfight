@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     public bool xpDistributed;
     public int playerCharacterStartingCount;
     Actor[] allActors;
+    public int activeScene;
     // public int nextBattleScene = 0;
     // public int[] nextBattle = new int[5] { 2, 3, 4, 5, 6 };
 
@@ -41,6 +42,8 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        activeScene = SceneManager.GetActiveScene().buildIndex;
+        DeclareVictory = false;
         gameSpeed = 1.0f;
         timeIncrement = .2f;
         earnedBattleXP = 0;
@@ -79,8 +82,10 @@ public class GameManager : MonoBehaviour
         {
             return;
         }
-
-        IsBattleOver();
+        if (activeScene > 1)
+        {
+            IsBattleOver();
+        }
         if (DeclareVictory == true)
         {
             /* if (xpCounted == false)
@@ -90,7 +95,11 @@ public class GameManager : MonoBehaviour
             } */
             if (xpDistributed == false)
             {
-                DistributeXP();
+                DivideExperience();
+                if (xpPerCharacter > 0)
+                {
+                    DistributeXP();
+                }
                 xpDistributed = true;
             }
             // Load Upgrade Screen?
@@ -101,6 +110,10 @@ public class GameManager : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.N))
             {
                 NextBattle();
+            }
+            if (Input.GetKeyDown(KeyCode.H))
+            {
+                HighestBattle();
             }
             if (Input.GetKeyDown(KeyCode.R))
             {
@@ -162,7 +175,6 @@ public class GameManager : MonoBehaviour
         // CharacterProfile ActiveCharacters = GameObject.FindObjectOfType<CharacterProfile>();
         // ActiveCharacters.characterTotalXP += earnedBattleXP;
         // ActiveCharacters.characterAvailableXP += earnedBattleXP;
-        DivideExperience();
 
         Actor[] endActors = Resources.FindObjectsOfTypeAll<Actor>();
 
@@ -172,7 +184,9 @@ public class GameManager : MonoBehaviour
             {
                 CharacterProfile xpProfile = PlayerProfile.Instance.GetCharacterProfileForUnit(Actor.unit);
                 xpProfile.characterTotalXP += xpPerCharacter;
+                Debug.Log($"Adding {xpPerCharacter} to {xpProfile.heroName}'s total XP. They now have {xpProfile.characterTotalXP} total XP.");
                 xpProfile.characterAvailableXP += xpPerCharacter;
+                Debug.Log($"Adding {xpPerCharacter} to {xpProfile.heroName}'s available XP. They now have {xpProfile.characterAvailableXP} available XP.");
             }
         }
     }
@@ -192,6 +206,7 @@ public class GameManager : MonoBehaviour
     void DivideExperience()
     {
         xpPerCharacter = (earnedBattleXP / playerCharacterStartingCount);
+        xpPerCharacter = ((xpPerCharacter / 3) + 1); // Clunky fix to this running 3 times for unknown reasons
     }
 
     void TimeControls()
@@ -223,17 +238,38 @@ public class GameManager : MonoBehaviour
     }
     void MenuScreen()
     {
-        PlayerProfile.Instance.nextBattleScene++;
+        if (winningTeam.team == ScriptableTeam.Team.Blue && (activeScene == PlayerProfile.Instance.nextBattleScene))
+        {
+            PlayerProfile.Instance.nextBattleScene++;
+        }
         SceneManager.LoadScene(0);
     }
 
     void NextBattle()
     {
         Debug.Log("You selected the next battle.");
-        Debug.Log("Going from Battle " + PlayerProfile.Instance.nextBattleScene + " to " + (PlayerProfile.Instance.nextBattleScene + 1) + ".");
-        PlayerProfile.Instance.nextBattleScene++;
-        Debug.Log("Next scene updated to " + PlayerProfile.Instance.nextBattleScene + ".");
-        Debug.Log("Loading scene number " + PlayerProfile.Instance.nextBattleScene + ".");
+        Debug.Log("Going from Battle " + activeScene + " to " + (activeScene + 1) + ".");
+        if(activeScene == PlayerProfile.Instance.nextBattleScene)
+        {
+            PlayerProfile.Instance.nextBattleScene++;
+            SceneManager.LoadScene(PlayerProfile.Instance.nextBattleScene);
+        }
+        else
+        {
+            SceneManager.LoadScene(activeScene + 1);
+        }
+        // Debug.Log("Next scene updated to " + PlayerProfile.Instance.nextBattleScene + ".");
+        // Debug.Log("Loading scene number " + PlayerProfile.Instance.nextBattleScene + ".");
+        
+    }
+
+    void HighestBattle()
+    {
+        Debug.Log("Going to the highest uncleared level.");
+        if (activeScene == PlayerProfile.Instance.nextBattleScene)
+        {
+            PlayerProfile.Instance.nextBattleScene++;
+        }
         SceneManager.LoadScene(PlayerProfile.Instance.nextBattleScene);
     }
 

@@ -6,12 +6,13 @@ using UnityEngine.SceneManagement;
 public class PlayerProfile : MonoBehaviour
 {
     public static PlayerProfile Instance;
+    public int nextBattleScene;
     public CharacterProfile mageHero;
     public CharacterProfile warriorHero;
     public CharacterProfile priestHero;
     public CharacterProfile rogueHero;
     public int currentEditingInteger;
-    public int nextBattleScene;
+    
 
     // public Dictionary<ScriptableUnit, CharacterProfile> characterProfiles;
     public List<CharacterProfile> characterProfiles = new List<CharacterProfile>();

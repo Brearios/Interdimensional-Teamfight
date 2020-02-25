@@ -4504,6 +4504,7 @@ MonoBehaviour:
   abilityRange: 0
   abilityCooldown: 0
   abilityCooldownCount: 0
+  abilityName: 
   moveSpeed: 0
   abilitySpeed: 0
   currentState: 0
@@ -4519,9 +4520,11 @@ MonoBehaviour:
   targetCheckFrequency: 0
   hasTaunted: 0
   threatResetClock: 0
-  isPlayer: 0
+  isPlayer: 1
   beginAtkAnim: 0
   isStealthed: 0
+  xpAdded: 0
+  abilityAnimationType: 
   FloatingTextPrefab: {fileID: 3012059549555167978, guid: 1e98c7aa83e776648ae16b3785ac6c38,
     type: 3}
 --- !u!114 &6532594780909132015

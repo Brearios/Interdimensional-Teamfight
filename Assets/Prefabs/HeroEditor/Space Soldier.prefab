@@ -11633,7 +11633,6 @@ MonoBehaviour:
   unit: {fileID: 0}
   team: {fileID: 0}
   ability: {fileID: 0}
-  stateChangeListeners: []
   unitName: 
   maxHealth: 0
   currHealth: 0
@@ -11665,7 +11664,7 @@ MonoBehaviour:
   targetCheckFrequency: 0
   hasTaunted: 0
   threatResetClock: 0
-  isPlayer: 0
+  isPlayer: 1
   beginAtkAnim: 0
   isStealthed: 0
   xpAdded: 0

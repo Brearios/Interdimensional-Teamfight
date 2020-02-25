@@ -100,8 +100,10 @@ public class Actor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        HealthBarManagement();
-
+        if (GameManager.Instance.activeScene > 1)
+        {
+            HealthBarManagement();
+        }
         // beginAtkAnim = false;
 
         if (GameManager.Instance.IsRunning == false)
@@ -424,7 +426,7 @@ public class Actor : MonoBehaviour
                     else
                     {
 
-                        if (ThreatScore > highestThreat)
+                        if (teamThreatActor.ThreatScore > highestThreat)
                         {
                             highestThreat = ThreatScore;
                         }
@@ -564,7 +566,7 @@ public class Actor : MonoBehaviour
             }
             if (currentProfile.healthArrayLevel > 0)
             {
-                if (unit.role == "tank")
+                if (unit.role == "Tank")
                 {
                     maxHealth = (3 * currentProfile.health);
                 }

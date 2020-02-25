@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/06 Fifth Battle - Raid.unity
     guid: 1cb420223cdf0954d86abaab56d5d739
+  - enabled: 1
+    path: Assets/Scenes/07 End Screen.unity
+    guid: e3171bc7da4b83841bc95b751961a557
   m_configObjects: {}

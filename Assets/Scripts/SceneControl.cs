@@ -84,5 +84,10 @@ public class SceneControl : MonoBehaviour
         }
     }
 
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
+
   
 }
