@@ -24,3 +24,4 @@ MonoBehaviour:
   moveSpeed: 2
   targetCheckFrequency: 2
   abilityAnimationType: Slash
+  dmgVariance: 0.3

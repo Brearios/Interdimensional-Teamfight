@@ -24,3 +24,4 @@ MonoBehaviour:
   moveSpeed: 1
   targetCheckFrequency: 2
   abilityAnimationType: Cast
+  dmgVariance: 0.3

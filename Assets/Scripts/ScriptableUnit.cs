@@ -18,4 +18,5 @@ public class ScriptableUnit : ScriptableObject
     public float moveSpeed;
     public float targetCheckFrequency;
     public string abilityAnimationType;
+    public float dmgVariance;
 }

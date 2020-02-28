@@ -15,7 +15,7 @@ public class Actor : MonoBehaviour
     public ScriptableAbility ability;
 
     public List<IChangeState> stateChangeListeners = new List<IChangeState>();  // List of Monobehaviours that need to listen for state changes
-    
+
     public string unitName;
     public float maxHealth;
     public float currHealth;
@@ -56,6 +56,9 @@ public class Actor : MonoBehaviour
     public bool isStealthed;
     public bool xpAdded;
     public string abilityAnimationType;
+    public float dmgVariance;
+    public int hpChangeVaried;
+    public int debuggingID;
 
     public GameObject FloatingTextPrefab;
 
@@ -95,6 +98,7 @@ public class Actor : MonoBehaviour
         abilityHpDelta = (abilityPower * ability.hpDelta);
         beginAtkAnim = false;
         xpAdded = false;
+        dmgVariance = unit.dmgVariance;
     }
 
     // Update is called once per frame
@@ -125,7 +129,7 @@ public class Actor : MonoBehaviour
         }
 
         UpdateThreatScore();
-        
+
 
         if (abilityTarget == null)
         {
@@ -394,9 +398,14 @@ public class Actor : MonoBehaviour
             //{
             //    iTween.RotateFrom(body, new Vector3(0, 0, 20), .4f);
             //}
-        
-            // Doesn't seem to work
+
+            // Random Damage based on dmgVariance stat
+            // ApplyRandomness(attackDamage);
+
             GetComponent<Character>().Animator.SetBool("Slash", true);
+            //autoAtkTarget.ChangeHealth(-hpChangeVaried, false);
+            //Debug.Log($"{unitName} attacked {autoAtkTarget} for {hpChangeVaried}");
+
             autoAtkTarget.ChangeHealth(-attackDamage, false);
             Debug.Log($"{unitName} attacked {autoAtkTarget} for {attackDamage}");
 
@@ -464,6 +473,10 @@ public class Actor : MonoBehaviour
                 //    GetComponent<Character>().Animator.SetBool("Slash", true);
                 //}
                 GetComponent<Character>().Animator.SetBool("Slash", true);
+                //ApplyRandomness(abilityHpDelta);
+                //abilityTarget.ChangeHealth(hpChangeVaried, true);
+                //Debug.Log($"{unitName} used {abilityName} on {abilityTarget} for {hpChangeVaried}");
+
                 abilityTarget.ChangeHealth(abilityHpDelta, true);
                 Debug.Log($"{unitName} used {abilityName} on {abilityTarget} for {abilityHpDelta}");
             }
@@ -555,51 +568,51 @@ public class Actor : MonoBehaviour
     void ApplyStats()
     {
         // Identify whether player character
-            CharacterProfile currentProfile = PlayerProfile.Instance.GetCharacterProfileForUnit(unit);
-            if (currentProfile.atkArrayLevel > 0)
+        CharacterProfile currentProfile = PlayerProfile.Instance.GetCharacterProfileForUnit(unit);
+        if (currentProfile.atkArrayLevel > 0)
+        {
+            attackDamage = currentProfile.atk;
+        }
+        if (currentProfile.abilityArrayLevel > 0)
+        {
+            abilityPower = currentProfile.abilityPower;
+        }
+        if (currentProfile.healthArrayLevel > 0)
+        {
+            if (unit.role == "Tank")
             {
-                attackDamage = currentProfile.atk;
+                maxHealth = (3 * currentProfile.health);
             }
-            if (currentProfile.abilityArrayLevel > 0)
+            else
             {
-                abilityPower = currentProfile.abilityPower;
+                maxHealth = currentProfile.health;
             }
-            if (currentProfile.healthArrayLevel > 0)
-            {
-                if (unit.role == "Tank")
-                {
-                    maxHealth = (3 * currentProfile.health);
-                }
-                else
-                {
-                    maxHealth = currentProfile.health;
-                }
-            }
-            
-            //switch (unit.name)
-            //{
-            //    case "Mage":
-            //        {
-            //            attackDamage = PlayerProfile.Instance.mageHero.atk;
-            //            maxHealth = PlayerProfile.Instance.mageHero.health;
-            //            abilityPower = PlayerProfile.Instance.mageHero.abilityPower;
-            //        }
-            //        break;
-            //    case "Priest":
-            //        {
-            //            attackDamage = PlayerProfile.Instance.priestHero.atk;
-            //            maxHealth = PlayerProfile.Instance.priestHero.health;
-            //            abilityPower = PlayerProfile.Instance.priestHero.abilityPower;
-            //        }
-            //        break;
-            //    case "Warrior":
-            //        {
-            //            attackDamage = PlayerProfile.Instance.warriorHero.atk;
-            //            maxHealth = PlayerProfile.Instance.warriorHero.health;
-            //            abilityPower = PlayerProfile.Instance.warriorHero.abilityPower;
-            //        }
-            //        break;
-            //}
+        }
+
+        //switch (unit.name)
+        //{
+        //    case "Mage":
+        //        {
+        //            attackDamage = PlayerProfile.Instance.mageHero.atk;
+        //            maxHealth = PlayerProfile.Instance.mageHero.health;
+        //            abilityPower = PlayerProfile.Instance.mageHero.abilityPower;
+        //        }
+        //        break;
+        //    case "Priest":
+        //        {
+        //            attackDamage = PlayerProfile.Instance.priestHero.atk;
+        //            maxHealth = PlayerProfile.Instance.priestHero.health;
+        //            abilityPower = PlayerProfile.Instance.priestHero.abilityPower;
+        //        }
+        //        break;
+        //    case "Warrior":
+        //        {
+        //            attackDamage = PlayerProfile.Instance.warriorHero.atk;
+        //            maxHealth = PlayerProfile.Instance.warriorHero.health;
+        //            abilityPower = PlayerProfile.Instance.warriorHero.abilityPower;
+        //        }
+        //        break;
+        //}
     }
 
 
@@ -644,6 +657,27 @@ public class Actor : MonoBehaviour
         //}
     }
 
+    //public int ApplyRandomness(int hpToVary)
+    //{
+    //    if (dmgVariance == 0)
+    //        {
+    //        Debug.LogWarning($"{unitName}'s Damage Variance is set to 0.");
+    //        }
+    //    // Random chane from 0 to unit.DmgVariance
+    //    float randomChange = Random.Range(0, (hpToVary * dmgVariance));
+
+    //    // Randomly negative or positive
+    //    int posOrNeg = Random.Range(1, 2);
+    //    if (posOrNeg == 1) // negative if 1
+    //    {
+    //        randomChange = (dmgVariance * -1);
+    //    }
+
+    //    // hpChangeVaried = hpToVary + randomChange
+    //    int hpChangeVaried = (hpToVary + System.Convert.ToInt32(randomChange));
+    //    return hpChangeVaried;
+    //}
+
     public void RegisterListener(IChangeState listener)
     {
         stateChangeListeners.Add(listener);
@@ -656,6 +690,8 @@ public class Actor : MonoBehaviour
             listener.changeState();
         });
     }
+
+    
 }
     
 

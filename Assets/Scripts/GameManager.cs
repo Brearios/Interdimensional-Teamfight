@@ -122,6 +122,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    //private void LateUpdate()
+    //{
+    //    ManageLayers();
+    //}
+
     void IsBattleOver()
     {
         // Identify Team of Actor
@@ -279,4 +284,14 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(PlayerProfile.Instance.nextBattleScene);
     }
+
+    //void ManageLayers()
+    //{
+    //    SpriteRenderer[] renderers = FindObjectsOfType<SpriteRenderer>();
+
+    //    foreach(SpriteRenderer renderer in renderers)
+    //    {
+    //        renderer.sortingOrder = (int)(renderer.transform.position.y * -100);
+    //    }
+    //}
 }
