@@ -128,6 +128,10 @@ public class Actor : MonoBehaviour
             return;
         }
 
+        var pos = transform.position;
+        pos.z = transform.position.y;
+        transform.position = pos;
+
         UpdateThreatScore();
 
 
@@ -689,9 +693,7 @@ public class Actor : MonoBehaviour
         {
             listener.changeState();
         });
-    }
-
-    
+    }    
 }
     
 
