@@ -57,7 +57,7 @@ public class Actor : MonoBehaviour
     public bool xpAdded;
     public string abilityAnimationType;
     public float dmgVariance;
-    public int hpChangeVaried;
+    // public int hpChangeVaried; Moved to a local variable
     public int debuggingID;
 
     public GameObject FloatingTextPrefab;
@@ -404,14 +404,14 @@ public class Actor : MonoBehaviour
             //}
 
             // Random Damage based on dmgVariance stat
-            // ApplyRandomness(attackDamage);
+            int hpChangeVaried = ApplyRandomness(attackDamage);
 
             GetComponent<Character>().Animator.SetBool("Slash", true);
-            //autoAtkTarget.ChangeHealth(-hpChangeVaried, false);
-            //Debug.Log($"{unitName} attacked {autoAtkTarget} for {hpChangeVaried}");
+            autoAtkTarget.ChangeHealth(-hpChangeVaried, false);
+            Debug.Log($"{unitName} attacked {autoAtkTarget} for {hpChangeVaried}");
 
-            autoAtkTarget.ChangeHealth(-attackDamage, false);
-            Debug.Log($"{unitName} attacked {autoAtkTarget} for {attackDamage}");
+            //autoAtkTarget.ChangeHealth(-attackDamage, false);
+            //Debug.Log($"{unitName} attacked {autoAtkTarget} for {attackDamage}");
 
             // autoAtkTarget.currHealth -= attackDamage; - old code
             if (autoAtkTarget.currHealth <= 0)
@@ -477,11 +477,11 @@ public class Actor : MonoBehaviour
                 //    GetComponent<Character>().Animator.SetBool("Slash", true);
                 //}
                 GetComponent<Character>().Animator.SetBool("Slash", true);
-                //ApplyRandomness(abilityHpDelta);
-                //abilityTarget.ChangeHealth(hpChangeVaried, true);
-                //Debug.Log($"{unitName} used {abilityName} on {abilityTarget} for {hpChangeVaried}");
+                int hpChangeVaried = ApplyRandomness(abilityHpDelta);
+                abilityTarget.ChangeHealth(hpChangeVaried, true);
+                Debug.Log($"{unitName} used {abilityName} on {abilityTarget} for {hpChangeVaried}");
 
-                abilityTarget.ChangeHealth(abilityHpDelta, true);
+                // abilityTarget.ChangeHealth(abilityHpDelta, true);
                 Debug.Log($"{unitName} used {abilityName} on {abilityTarget} for {abilityHpDelta}");
             }
         }
@@ -651,7 +651,7 @@ public class Actor : MonoBehaviour
     }
     void PlayerCheck()
     {
-        //if (Actor.Team = Team.Blue)
+        //if (Actor.Team == Team.Blue)
         //{
         //    isPlayer = true;
         //}
@@ -661,26 +661,32 @@ public class Actor : MonoBehaviour
         //}
     }
 
-    //public int ApplyRandomness(int hpToVary)
-    //{
-    //    if (dmgVariance == 0)
-    //        {
-    //        Debug.LogWarning($"{unitName}'s Damage Variance is set to 0.");
-    //        }
-    //    // Random chane from 0 to unit.DmgVariance
-    //    float randomChange = Random.Range(0, (hpToVary * dmgVariance));
+    public int ApplyRandomness(int hpToVary)
+    {
+        if (dmgVariance == 0)
+        {
+            Debug.LogWarning($"{unitName}'s Damage Variance is set to 0.");
+        }
+        // Random chane from 0 to unit.DmgVariance
+        float randomChange = Random.Range(0, (hpToVary * dmgVariance));
+        Debug.Log($"{unitName}'s attack or ability will vary by {randomChange}.");
 
-    //    // Randomly negative or positive
-    //    int posOrNeg = Random.Range(1, 2);
-    //    if (posOrNeg == 1) // negative if 1
-    //    {
-    //        randomChange = (dmgVariance * -1);
-    //    }
+        // randomChange to int, rounded to the Nearest Whole Number
+        int randomIntChange = System.Convert.ToInt32(randomChange);
+        Debug.Log($"Rounding, {unitName}'s attack or ability will vary by {randomIntChange}.");
 
-    //    // hpChangeVaried = hpToVary + randomChange
-    //    int hpChangeVaried = (hpToVary + System.Convert.ToInt32(randomChange));
-    //    return hpChangeVaried;
-    //}
+        // Randomly negative or positive
+        int posOrNeg = Random.Range(1, 2);
+        if (posOrNeg == 1) // negative if 1
+        {
+            randomIntChange *= -1;
+        }
+
+        // hpChangeVaried = hpToVary + randomChange
+        int hpChangeVaried = (hpToVary + randomIntChange);
+        Debug.Log($"{unitName}'s attack or ability will change target's HP by {hpChangeVaried}.");
+        return hpChangeVaried;
+    }
 
     public void RegisterListener(IChangeState listener)
     {

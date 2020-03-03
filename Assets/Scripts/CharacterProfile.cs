@@ -17,6 +17,6 @@ public class CharacterProfile
     public int health;
     public int atk;
     public int abilityPower;
-    public Sprite characterSprite;
+    // public Sprite characterSprite;
     public int totalLevel;
 }
