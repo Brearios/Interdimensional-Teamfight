@@ -136,22 +136,37 @@ public class GameManager : MonoBehaviour
         // Prevent IsBattleOver from erroring on menu/title scenes
         Actor[] allActors = GameObject.FindObjectsOfType<Actor>();
 
+
+        // Keep the script from running on menu screens
         if (allActors.Length == 0)
         {
             return;
         }
 
-        // Get Team of Any One Unit
-        ScriptableTeam winCheckTeam = allActors[0].team;
+        // Get Team of Any One (Alive) Unit
+        int arrayPosition = 0;
+        while (allActors[arrayPosition].isDead)
+        {
+            arrayPosition += 1;
+        }
+
+        ScriptableTeam winCheckTeam = allActors[arrayPosition].team;
 
         // Compare Other Actors to that Team
         foreach (Actor Team in allActors)
-            if (Team.team != winCheckTeam && !Team.isDead)
+
+            // The dead are not relevant to our evaluation
+            //if (Team.isDead)
+            //{
+            //    continue;
+            //}
+
+            if (!Team.isDead && Team.team != winCheckTeam)
             {
                 DeclareVictory = false;
                 break;
             }
-            else if (Team.team == winCheckTeam || Team.isDead)
+            else if (!Team.isDead && Team.team == winCheckTeam)
             {
                 DeclareVictory = true;
                 winningTeam = winCheckTeam;
@@ -182,7 +197,7 @@ public class GameManager : MonoBehaviour
         // ActiveCharacters.characterTotalXP += earnedBattleXP;
         // ActiveCharacters.characterAvailableXP += earnedBattleXP;
 
-        Actor[] endActors = Resources.FindObjectsOfTypeAll<Actor>();
+        Actor[] endActors = GameObject.FindObjectsOfType<Actor>();
 
         foreach (Actor Actor in endActors)
         {
