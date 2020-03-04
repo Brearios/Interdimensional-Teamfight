@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     public bool DeclareVictory;
     public ScriptableTeam winningTeam;
     public Color winningTeamColor;
-    public int playersReceivingXP;
+    // public int playersReceivingXP;
     public int xpPerCharacter;
     public bool xpCounted;
     public bool xpDistributed;
@@ -95,6 +95,7 @@ public class GameManager : MonoBehaviour
             } */
             if (xpDistributed == false)
             {
+                TallyXP();
                 DivideExperience();
                 if (xpPerCharacter > 0)
                 {
@@ -145,12 +146,12 @@ public class GameManager : MonoBehaviour
 
         // Compare Other Actors to that Team
         foreach (Actor Team in allActors)
-            if (Team.team != winCheckTeam)
+            if (Team.team != winCheckTeam && !Team.isDead)
             {
                 DeclareVictory = false;
                 break;
             }
-            else if (Team.team == winCheckTeam)
+            else if (Team.team == winCheckTeam || Team.isDead)
             {
                 DeclareVictory = true;
                 winningTeam = winCheckTeam;
@@ -168,7 +169,7 @@ public class GameManager : MonoBehaviour
     {
         Actor[] allActors = GameObject.FindObjectsOfType<Actor>();
         foreach (Actor Actor in allActors)
-            if (Actor.isDead == true)
+            if (Actor.isDead == true && !Actor.isPlayer)
             {
                 earnedBattleXP += Actor.xpWhenKilled;
             }
@@ -211,7 +212,7 @@ public class GameManager : MonoBehaviour
     void DivideExperience()
     {
         xpPerCharacter = (earnedBattleXP / playerCharacterStartingCount);
-        xpPerCharacter = ((xpPerCharacter / 3) + 1); // Clunky fix to this running 3 times for unknown reasons
+        // xpPerCharacter = ((xpPerCharacter / 3) + 1); // Clunky fix to this running 3 times for unknown reasons
     }
 
     void TimeControls()

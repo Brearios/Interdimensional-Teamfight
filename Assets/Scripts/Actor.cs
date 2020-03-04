@@ -7,7 +7,7 @@ using Assets.HeroEditor.Common.CharacterScripts;
 public class Actor : MonoBehaviour
 {
     public enum Team { Neutral, Blue, Red };
-    public enum State { Idle, Moving, Attacking, Unconscious };
+    public enum State { Idle, Moving, Attacking, Dead };
     public enum TargetType { Enemy, Friendly, Self };
 
     public ScriptableUnit unit;
@@ -115,17 +115,14 @@ public class Actor : MonoBehaviour
             return;
         }
 
+        if (isDead)
+        {
+            return;
+        }
+
         if (currHealth <= 0)
         {
-            isDead = true;
-            if (xpAdded == false && isPlayer == false)
-            {
-                GameManager.Instance.earnedBattleXP += xpWhenKilled; // this should be done in the GameManager at the end of the battle
-                xpAdded = true;
-            }
-            gameObject.SetActive(false); // -switching to SetActive should allow rezzing
-            // Destroy(gameObject);
-            return;
+            Die();
         }
 
         var pos = transform.position;
@@ -264,6 +261,10 @@ public class Actor : MonoBehaviour
         foreach (Actor currentActor in allActors)
         {
             if (currentActor.team == team)
+            {
+                continue;
+            }
+            if (currentActor.isDead)
             {
                 continue;
             }
@@ -700,6 +701,25 @@ public class Actor : MonoBehaviour
             listener.changeState();
         });
     }    
+
+    public void Die()
+    {
+        isDead = true;
+        {
+            GetComponent<Character>().Animator.SetTrigger(Time.frameCount % 2 == 0 ? "DieBack" : "DieFront"); // Play animation randomly
+        }
+        //currentState = State.Dead;
+        //NotifyListeners();
+
+        //if (xpAdded == false && isPlayer == false)
+        //{
+        //    GameManager.Instance.earnedBattleXP += xpWhenKilled; // this should be done in the GameManager at the end of the battle
+        //    xpAdded = true;
+        //}
+        //gameObject.SetActive(false); // -switching to SetActive should allow rezzing
+        //// Destroy(gameObject);
+        return;
+    }
 }
     
 
