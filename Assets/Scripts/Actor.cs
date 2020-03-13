@@ -705,6 +705,8 @@ public class Actor : MonoBehaviour
     public void Die()
     {
         isDead = true;
+        healthBar.canvasRenderer.SetAlpha(0);
+        healthBG.canvasRenderer.SetAlpha(0);
         {
             GetComponent<Character>().Animator.SetTrigger(Time.frameCount % 2 == 0 ? "DieBack" : "DieFront"); // Play animation randomly
         }
