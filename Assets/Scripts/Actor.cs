@@ -59,6 +59,7 @@ public class Actor : MonoBehaviour
     public float dmgVariance;
     // public int hpChangeVaried; Moved to a local variable
     public int debuggingID;
+    public bool debugShowTargetLines;
 
     public GameObject FloatingTextPrefab;
 
@@ -205,7 +206,7 @@ public class Actor : MonoBehaviour
 
     void TargetLineDisplay()
     {
-        if (GameManager.Instance.ShowTarget)
+        if (GameManager.Instance.ShowTarget || debugShowTargetLines)
         {
             if (autoAtkTarget != null)
             {
@@ -323,7 +324,7 @@ public class Actor : MonoBehaviour
                 if (currAbilityActor.team == team)
                 {
                     float healthPercent = (currAbilityActor.currHealth / currAbilityActor.maxHealth);
-                    if (healthPercent < lowestHealthPercent)
+                    if ((healthPercent < lowestHealthPercent) && (healthPercent < 0))
                     {
                         lowestHealthPercent = healthPercent;
                         abilityTarget = currAbilityActor;
