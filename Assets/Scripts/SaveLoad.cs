@@ -3,20 +3,31 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
+[System.Serializable]
+class SaveWrapper {
+    public PlayerProfile profile;
+}
+
 public class SaveLoad : MonoBehaviour
 {
-    public string json;
+    public string SavePath {
+        get {
+            return Application.persistentDataPath + "/gamesave.json";
+        }
+    }
+
     public void SavePlayerProfile()
     {
         string json = JsonUtility.ToJson(PlayerProfile.Instance);
         Debug.Log("Saving as JSON" + json);
-        FileStream file = File.Create(Application.persistentDataPath + "/gamesave.txt");
+        File.WriteAllText(SavePath, json);
     }
 
     public void LoadPlayerProfile()
     {
-        FileStream file = File.Open(Application.persistentDataPath + "/gamesave.txt", FileMode.Open);
-        PlayerProfile.Instance = JsonUtility.FromJson<PlayerProfile>(json);
+        string json = File.ReadAllText(SavePath);
+        Debug.Log("Loading JSON" + json);
+        JsonUtility.FromJsonOverwrite(json, PlayerProfile.Instance);
     }
 
 
