@@ -4,9 +4,6 @@ using System.IO;
 using UnityEngine;
 
 [System.Serializable]
-class SaveWrapper {
-    public PlayerProfile profile;
-}
 
 public class SaveLoad : MonoBehaviour
 {
@@ -18,7 +15,7 @@ public class SaveLoad : MonoBehaviour
 
     public void SavePlayerProfile()
     {
-        string json = JsonUtility.ToJson(PlayerProfile.Instance);
+        string json = JsonUtility.ToJson(PlayerProfile.Instance, true);
         Debug.Log("Saving as JSON" + json);
         File.WriteAllText(SavePath, json);
     }

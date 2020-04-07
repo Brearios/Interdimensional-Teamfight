@@ -286,6 +286,8 @@ public class Actor : MonoBehaviour
 
     void FindAbilityTarget()
     {
+        abilityTarget = null;
+
         if (ability.targetType == ScriptableAbility.TargetType.Enemy)
         {
             abilityTarget = autoAtkTarget;
@@ -469,6 +471,15 @@ public class Actor : MonoBehaviour
             else
             {
                 Debug.Log("Ability started.");
+                
+                // This would give them perfect reaction time
+
+                //if (abilityTarget.currHealth <= 0)
+                //{
+                //    FindAbilityTarget();
+                //}
+
+
                 // beginAtkAnim = true;
                 //if (abilityAnimationType == "Cast")
                 //{
