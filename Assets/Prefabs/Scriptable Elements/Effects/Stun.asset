@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2cf6d9c660445bc4ea3b73f5a50f852a, type: 3}
-  m_Name: DamageDebuff
+  m_Name: Stun
   m_EditorClassIdentifier: 
-  effectType: 2
-  effectName: DamageDebuff
+  effectType: 0
+  effectName: 
   effectMagnitude: 0
   effectTickDuration: 0
   effectTotalDuration: 0
