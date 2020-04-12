@@ -42,7 +42,7 @@ public class Actor : MonoBehaviour
     public Image healthBG;
     public Actor autoAtkTarget;
     public Actor abilityTarget;
-    public List<ScriptableEffects> CurrentEffects;
+    public List<ScriptableEffect> CurrentEffects;
     public bool isDead;
     // public CharacterProfile MageStats;
     public float ThreatScore;
@@ -129,6 +129,11 @@ public class Actor : MonoBehaviour
         var pos = transform.position;
         pos.z = transform.position.y;
         transform.position = pos;
+
+        foreach (ScriptableEffect effect in CurrentEffects)
+        {
+            ProcessStatusEffect(effect);
+        }
 
         UpdateThreatScore();
 
@@ -326,7 +331,7 @@ public class Actor : MonoBehaviour
                 if (currAbilityActor.team == team)
                 {
                     float healthPercent = (currAbilityActor.currHealth / currAbilityActor.maxHealth);
-                    if ((healthPercent < lowestHealthPercent) && (healthPercent < 0))
+                    if ((healthPercent < lowestHealthPercent) && (healthPercent > 0))
                     {
                         lowestHealthPercent = healthPercent;
                         abilityTarget = currAbilityActor;
@@ -733,6 +738,16 @@ public class Actor : MonoBehaviour
         //gameObject.SetActive(false); // -switching to SetActive should allow rezzing
         //// Destroy(gameObject);
         return;
+    }
+
+    public void ApplyStatusEffect (ScriptableEffect effect)
+    {
+        CurrentEffects.Add(effect);
+    }
+
+    public void ProcessStatusEffect (ScriptableEffect effect)
+    {
+        // Code to process each type of effect here
     }
 }
     
