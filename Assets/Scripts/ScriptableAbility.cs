@@ -17,7 +17,6 @@ public class ScriptableAbility : ScriptableObject
     public float abilityRange;
     public float abilityCooldown;
     public string description;
-    
     public float abilityStartingCooldownCredit; // Can it be used immediately, after a set delay, or a short cooldown?
     public ScriptableEffect effect;
 

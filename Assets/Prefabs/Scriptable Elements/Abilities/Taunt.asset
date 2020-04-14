@@ -12,16 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb4150d779a2b1143b0ae420b32688ed, type: 3}
   m_Name: Taunt
   m_EditorClassIdentifier: 
-  targetType: 2
-  effectType: 2
+  targetType: 0
   abilityName: Taunt
-  rank: 1
   hpDelta: 0
   abilityRange: 3
   abilityCooldown: 6
-  description: 'Temporarily sets threat to #1 on team.'
-  effectDuration: 4
-  HpDeltaPerSecond: 0
-  CooldownsDeltaPerSecond: 0
-  knockbackDistance: 0
-  abilityStartingCooldownCredit: 4.5
+  description: Temporarily forces target to attack you.
+  abilityStartingCooldownCredit: 2.5
+  effect: {fileID: 11400000, guid: 4947ab8acb07dec4e87a9d980895f3b7, type: 2}

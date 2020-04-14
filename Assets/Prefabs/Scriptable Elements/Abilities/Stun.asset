@@ -13,14 +13,10 @@ MonoBehaviour:
   m_Name: Stun
   m_EditorClassIdentifier: 
   targetType: 0
-  effectType: 2
   abilityName: Stun
-  rank: 1
-  HpDelta: 0
+  hpDelta: 0
   abilityRange: 1
   abilityCooldown: 5
   description: Stun an enemy for a period of time.
-  effectDuration: 3
-  HpDeltaPerSecond: 0
-  CooldownsDeltaPerSecond: 0
-  knockbackDistance: 0
+  abilityStartingCooldownCredit: 0
+  effect: {fileID: 11400000, guid: 29a993dcc3153894cac4f4355982c7cb, type: 2}

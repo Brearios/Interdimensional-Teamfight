@@ -49,6 +49,8 @@ public class Actor : MonoBehaviour
     public float targetCheckCount;
     public float targetCheckFrequency;
     public bool hasTaunted;
+    public bool isTaunted;
+    public bool isStunned;
     public float threatResetClock;
     // public int myTeam;
     public bool isPlayer;
@@ -137,6 +139,11 @@ public class Actor : MonoBehaviour
 
         UpdateThreatScore();
 
+        if (isStunned)
+        {
+            return;
+        }
+
 
         if (abilityTarget == null)
         {
@@ -198,7 +205,11 @@ public class Actor : MonoBehaviour
         }
 
         // Check for better targets every X seconds, frequency from scriptable unit
-        TargetCheckLoop();
+
+        if (isTaunted == false)
+        {
+            TargetCheckLoop();
+        }
     }
 
     void HealthBarManagement()
@@ -433,39 +444,49 @@ public class Actor : MonoBehaviour
     {
         if (abilityTarget != null)
         {
-            if ((ability.targetType == ScriptableAbility.TargetType.Self) && ability.name == "Taunt")
+            if (abilityName == "Taunt")
             {
-                // if (ability.name == "Taunt")
-                // {
-                float highestThreat = 0;
-                Actor[] allActors = GameObject.FindObjectsOfType<Actor>();
-                foreach (Actor teamThreatActor in allActors)
-                {
-                    if (teamThreatActor.team != team)
-                    {
-                        continue;
-                    }
-                    else
-                    {
-
-                        if (teamThreatActor.ThreatScore > highestThreat)
-                        {
-                            highestThreat = ThreatScore;
-                        }
-                    }
-                }
-                /* This seems to be preventing taunting
-                if (highestThreat == this.ThreatScore)
-                {
-                    return;
-                }
-                */
-                ThreatScore = (highestThreat * 2);
-                hasTaunted = true;
-                threatResetClock = 3;
-                // }
-
+                abilityTarget.autoAtkTarget = this;
+                abilityTarget.abilityTarget = null; // if the TargetType is enemy, it will derive from auto, if allied it will re-target
+                ApplyStatusEffect(abilityTarget, ability.effect);
             }
+            if (abilityName == "Stun")
+            {
+                ApplyStatusEffect(abilityTarget, ability.effect);
+            }
+            
+            //if ((ability.targetType == ScriptableAbility.TargetType.Self) && ability.name == "Taunt")
+            //{
+            //    // if (ability.name == "Taunt")
+            //    // {
+            //    float highestThreat = 0;
+            //    Actor[] allActors = GameObject.FindObjectsOfType<Actor>();
+            //    foreach (Actor teamThreatActor in allActors)
+            //    {
+            //        if (teamThreatActor.team != team)
+            //        {
+            //            continue;
+            //        }
+            //        else
+            //        {
+
+            //            if (teamThreatActor.ThreatScore > highestThreat)
+            //            {
+            //                highestThreat = ThreatScore;
+            //            }
+            //        }
+            //    }
+            //    /* This seems to be preventing taunting
+            //    if (highestThreat == this.ThreatScore)
+            //    {
+            //        return;
+            //    }
+            //    */
+            //    ThreatScore = (highestThreat * 2);
+            //    hasTaunted = true;
+            //    threatResetClock = 3;
+            //    // }
+
             else if ((ability.targetType == ScriptableAbility.TargetType.Self) && ability.name == "Stealth")
             {
                 ThreatScore = (ThreatScore / 2);
@@ -740,13 +761,35 @@ public class Actor : MonoBehaviour
         return;
     }
 
-    public void ApplyStatusEffect (ScriptableEffect effect)
+    public void ApplyStatusEffect (Actor actor, ScriptableEffect effect)
     {
-        CurrentEffects.Add(effect);
+        actor.CurrentEffects.Add(effect);
     }
 
     public void ProcessStatusEffect (ScriptableEffect effect)
     {
+        effect.remainingDuration += GameManager.Instance.deltaTime;
+       
+        if (effect.effect == ScriptableEffect.Effect.Taunt)
+        {
+            isTaunted = true;
+            if (effect.remainingDuration >= effect.totalDuration)
+            {
+                CurrentEffects.Remove(effect);
+                isTaunted = false;
+            }
+        }
+
+        if (effect.effect == ScriptableEffect.Effect.Stun)
+        {
+            isStunned = true;
+            if (effect.remainingDuration >= effect.totalDuration)
+            {
+                CurrentEffects.Remove(effect);
+                isStunned = false;
+            }
+        }
+
         // Code to process each type of effect here
     }
 }
