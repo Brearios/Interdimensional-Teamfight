@@ -794,8 +794,10 @@ public class Actor : MonoBehaviour
             isStunned = true;
             if (effect.remainingDuration >= effect.totalDuration)
             {
-                CurrentEffects.Remove(effect);
-                isStunned = false;
+                AddToRemoveList(effect, isStunned);
+
+                // CurrentEffects.Remove(effect);
+                // isStunned = false;
             }
         }
 
