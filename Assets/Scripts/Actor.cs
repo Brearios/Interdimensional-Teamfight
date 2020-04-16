@@ -43,6 +43,7 @@ public class Actor : MonoBehaviour
     public Actor autoAtkTarget;
     public Actor abilityTarget;
     public List<ScriptableEffect> CurrentEffects;
+    public List<int> CurrentEffectsRemovalInts;
     public bool isDead;
     // public CharacterProfile MageStats;
     public float ThreatScore;
@@ -136,6 +137,12 @@ public class Actor : MonoBehaviour
         {
             ProcessStatusEffect(effect);
         }
+
+        foreach (int RemoveFromCurrentEffects in CurrentEffectsRemovalInts)
+        {
+            RemoveExpiredEffect(RemoveFromCurrentEffects);
+        }
+        CurrentEffectsRemovalInts.Clear();
 
         UpdateThreatScore();
 
@@ -775,8 +782,10 @@ public class Actor : MonoBehaviour
             isTaunted = true;
             if (effect.remainingDuration >= effect.totalDuration)
             {
-                CurrentEffects.Remove(effect);
-                isTaunted = false;
+                AddToRemoveList(effect, isTaunted);
+
+                // CurrentEffects.Remove(effect);
+                // isTaunted = false;
             }
         }
 
@@ -791,6 +800,18 @@ public class Actor : MonoBehaviour
         }
 
         // Code to process each type of effect here
+    }
+
+    public void AddToRemoveList(ScriptableEffect effect, bool removedBool)
+    {
+        int RemoveFromCurrentEffects = CurrentEffects.IndexOf(effect);
+        CurrentEffectsRemovalInts.Add(RemoveFromCurrentEffects);
+        removedBool = false;
+    }
+
+    public void RemoveExpiredEffect(int IndexToRemove)
+    {
+        CurrentEffects.RemoveAt(IndexToRemove);
     }
 }
     
