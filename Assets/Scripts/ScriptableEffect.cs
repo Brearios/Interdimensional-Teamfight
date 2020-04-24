@@ -16,6 +16,7 @@ public class ScriptableEffect : ScriptableObject
     public int effectPerStack;
     public int currentStacks;
     public int maxStacks;
+    public enum Bool { isTaunted,  }
     // public float CooldownsDeltaPerSecond; // Haste or Slow Abilities
     // public float knockbackDistance;
 }

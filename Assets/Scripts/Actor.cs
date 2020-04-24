@@ -12,7 +12,11 @@ public class Actor : MonoBehaviour
 
     public ScriptableUnit unit;
     public ScriptableTeam team;
-    public ScriptableAbility ability;
+    public ScriptableAbility autoAtk;
+    public ScriptableAbility ability1;
+    public ScriptableAbility ability2;
+    public ScriptableAbility ability3;
+    public ScriptableAbility potion;
 
     public List<IChangeState> stateChangeListeners = new List<IChangeState>();  // List of Monobehaviours that need to listen for state changes
 
@@ -23,25 +27,28 @@ public class Actor : MonoBehaviour
     public int attackDamage; // Later make this a random amount within a range
     public int abilityPower;
     public int xpWhenKilled;
-    public int abilityHpDelta;
-    public float globalCooldown;
-    public float globalCooldownCount;
     public string role;
     public float atkRange;
-    public float abilityRange;
-    public float abilityCooldown;
-    public float abilityCooldownCount;
-    public string abilityName;
     public float moveSpeed;
-    public float abilitySpeed;
+    // Moved into code for each ability
+    //public float abilityRange;
+    //public float abilityCooldown;
+    //public float abilityCooldownCount;
+    //public string abilityName;
+    //public int abilityHpDelta;
+    //public float globalCooldown;
+    //public float globalCooldownCount;
+    // public float abilitySpeed; Unused
+    public Actor autoAtkTarget;
+    public Actor abilityTarget;
     public State currentState = State.Idle;
     Color currentColor;
     Color alphaColor;
     public GameObject body;
     public Image healthBar;
     public Image healthBG;
-    public Actor autoAtkTarget;
-    public Actor abilityTarget;
+   
+    public List<ScriptableAbility> MyAbilities;
     public List<ScriptableEffect> CurrentEffects;
     public List<int> CurrentEffectsRemovalInts;
     public bool isDead;
@@ -74,17 +81,26 @@ public class Actor : MonoBehaviour
         attackDamage = unit.attackDamage;
         abilityPower = unit.abilityPower;
         // MageStats = GameObject.FindObjectOfType<CharacterProfile>();
-        globalCooldown = unit.globalCooldown;
+        MyAbilities.Add(autoAtk);
+        MyAbilities.Add(ability1);
+        MyAbilities.Add(ability2);
+        MyAbilities.Add(ability3);
+        MyAbilities.Add(potion);
+
+        // Moved to Ability Data
+        //abilityName = ability.abilityName;
+        //abilityRange = ability.abilityRange;
+        //globalCooldown = unit.globalCooldown;
+        //abilityCooldown = ability.abilityCooldown;
+        //abilityCooldownCount = ability.abilityStartingCooldownCredit;
+        //abilityHpDelta = (abilityPower * ability.hpDelta);
         role = unit.role;
         atkRange = unit.atkRange;
-        abilityName = ability.abilityName;
-        abilityRange = ability.abilityRange;
-        moveSpeed = unit.moveSpeed;
-        abilityCooldownCount = ability.abilityStartingCooldownCredit;
+        
         abilityAnimationType = unit.abilityAnimationType;
         // teamName = Team.Neutral;
         // teamColor = team.color;
-        abilityCooldown = ability.abilityCooldown;
+        moveSpeed = unit.moveSpeed;
         // Fetch Material from Renderer
         currentColor = GetComponentInChildren<SpriteRenderer>().color;
         isDead = false;
@@ -99,7 +115,6 @@ public class Actor : MonoBehaviour
         }
         // Set Health
         currHealth = maxHealth;
-        abilityHpDelta = (abilityPower * ability.hpDelta);
         beginAtkAnim = false;
         xpAdded = false;
         dmgVariance = unit.dmgVariance;
@@ -144,6 +159,7 @@ public class Actor : MonoBehaviour
         }
         CurrentEffectsRemovalInts.Clear();
 
+
         UpdateThreatScore();
 
         if (isStunned)
@@ -152,9 +168,13 @@ public class Actor : MonoBehaviour
         }
 
 
-        if (abilityTarget == null)
+        foreach (ScriptableAbility ability in MyAbilities)
         {
-            FindAbilityTarget();
+            if (ability.currentTarget == null)
+                if ((ability.isTauntable) && (isTaunted == false))
+                {
+                    FindAbilityTarget(ability);
+                }
         }
         /* if (currHealth > 0)
         {
@@ -213,10 +233,11 @@ public class Actor : MonoBehaviour
 
         // Check for better targets every X seconds, frequency from scriptable unit
 
-        if (isTaunted == false)
-        {
-            TargetCheckLoop();
-        }
+        // Moving this logic into Ability forEach loop
+        //if (isTaunted == false)
+        //{
+        //    TargetCheckLoop();
+        //}
     }
 
     void HealthBarManagement()
@@ -275,12 +296,12 @@ public class Actor : MonoBehaviour
         }
     }
 
-    void FindPriorityEnemy()
+    Actor FindPriorityEnemy()
     {
         Actor[] allActors = GameObject.FindObjectsOfType<Actor>();
 
         float highestThreatEnemy = -Mathf.Infinity;
-        autoAtkTarget = null;
+        Actor highThreatEnemy = null;
 
         foreach (Actor currentActor in allActors)
         {
@@ -300,18 +321,18 @@ public class Actor : MonoBehaviour
                 if (threatWithDistance > highestThreatEnemy)
                 {
                     highestThreatEnemy = threatWithDistance;
-                    autoAtkTarget = currentActor;
+                    highThreatEnemy = currentActor;
                 }
             }
-
         }
+        return highThreatEnemy;
     }
 
-    void FindAbilityTarget()
+    void FindAbilityTarget(ScriptableAbility ability)
     {
         abilityTarget = null;
 
-        if (ability.targetType == ScriptableAbility.TargetType.Enemy)
+        if (ability.targetType == ScriptableAbility.TargetType.EnemyDamage)
         {
             abilityTarget = autoAtkTarget;
             /*
@@ -338,7 +359,7 @@ public class Actor : MonoBehaviour
             }
             */
         }
-        else if (ability.targetType == ScriptableAbility.TargetType.Friendly)
+        else if (ability.targetType == ScriptableAbility.TargetType.FriendlyHeal)
         {
             Actor[] allActors = GameObject.FindObjectsOfType<Actor>();
 
@@ -392,27 +413,28 @@ public class Actor : MonoBehaviour
         NotifyListeners();
         GetComponent<Character>().Animator.SetBool("Walk", false);
         GetComponent<Character>().Animator.SetBool("Ready", true);
-        globalCooldownCount = 0f;
+        // globalCooldownCount = 0f; Unecessary due to conversion of autoAtk to ability
     }
 
     void UpdateAttackLoop()
     {
-        globalCooldownCount += GameManager.Instance.deltaTime;
-        abilityCooldownCount += GameManager.Instance.deltaTime;
-        if (abilityCooldownCount >= abilityCooldown)
-        {
-            if (gameObject != null)
-            {
-                UseAbility();
-            }
-            abilityCooldownCount -= abilityCooldown;
-        }
+        // globalCooldownCount += GameManager.Instance.deltaTime; Unecessary due to conversion of autoAtk to ability
 
-        if (globalCooldownCount >= globalCooldown)
+        foreach (ScriptableAbility ability in MyAbilities)
         {
-            PerformAttack();
-            globalCooldownCount -= globalCooldown;
+            ability.abilityCooldownCount += GameManager.Instance.deltaTime;
+            if (ability.abilityCooldownCount >= ability.abilityCooldown)
+            {
+                UseAbility(ability);
+                ability.abilityCooldownCount -= ability.abilityCooldown;
+            }
         }
+        // Unecessary due to conversion of autoAtk to ability
+        //if (globalCooldownCount >= globalCooldown)
+        //{
+        //    PerformAttack();
+        //    globalCooldownCount -= globalCooldown;
+        //}
     }
 
     void PerformAttack()
@@ -447,59 +469,62 @@ public class Actor : MonoBehaviour
             }
         }
     }
-    void UseAbility()
+    void UseAbility(ScriptableAbility ability)
     {
         if (abilityTarget != null)
         {
-            if (abilityName == "Taunt")
+            if (ability.abilityName == "Taunt")
             {
                 abilityTarget.autoAtkTarget = this;
                 abilityTarget.abilityTarget = null; // if the TargetType is enemy, it will derive from auto, if allied it will re-target
                 ApplyStatusEffect(abilityTarget, ability.effect);
+
+                
+                // Old Taunt implementation to double max team threat score
+                //if ((ability.targetType == ScriptableAbility.TargetType.Self) && ability.name == "Taunt")
+                //{
+                //    // if (ability.name == "Taunt")
+                //    // {
+                //    float highestThreat = 0;
+                //    Actor[] allActors = GameObject.FindObjectsOfType<Actor>();
+                //    foreach (Actor teamThreatActor in allActors)
+                //    {
+                //        if (teamThreatActor.team != team)
+                //        {
+                //            continue;
+                //        }
+                //        else
+                //        {
+
+                //            if (teamThreatActor.ThreatScore > highestThreat)
+                //            {
+                //                highestThreat = ThreatScore;
+                //            }
+                //        }
+                //    }
+                //    /* This seems to be preventing taunting
+                //    if (highestThreat == this.ThreatScore)
+                //    {
+                //        return;
+                //    }
+                //    */
+                //    ThreatScore = (highestThreat * 2);
+                //    hasTaunted = true;
+                //    threatResetClock = 3;
+                //    // }
             }
-            if (abilityName == "Stun")
+            if (ability.abilityName == "Stun")
             {
                 ApplyStatusEffect(abilityTarget, ability.effect);
             }
             
-            //if ((ability.targetType == ScriptableAbility.TargetType.Self) && ability.name == "Taunt")
-            //{
-            //    // if (ability.name == "Taunt")
-            //    // {
-            //    float highestThreat = 0;
-            //    Actor[] allActors = GameObject.FindObjectsOfType<Actor>();
-            //    foreach (Actor teamThreatActor in allActors)
-            //    {
-            //        if (teamThreatActor.team != team)
-            //        {
-            //            continue;
-            //        }
-            //        else
-            //        {
 
-            //            if (teamThreatActor.ThreatScore > highestThreat)
-            //            {
-            //                highestThreat = ThreatScore;
-            //            }
-            //        }
-            //    }
-            //    /* This seems to be preventing taunting
-            //    if (highestThreat == this.ThreatScore)
-            //    {
-            //        return;
-            //    }
-            //    */
-            //    ThreatScore = (highestThreat * 2);
-            //    hasTaunted = true;
-            //    threatResetClock = 3;
-            //    // }
 
             else if ((ability.targetType == ScriptableAbility.TargetType.Self) && ability.name == "Stealth")
             {
                 ThreatScore = (ThreatScore / 2);
                 isStealthed = true;
                 threatResetClock = 3;
-
             }
             else
             {
@@ -523,12 +548,12 @@ public class Actor : MonoBehaviour
                 //    GetComponent<Character>().Animator.SetBool("Slash", true);
                 //}
                 GetComponent<Character>().Animator.SetBool("Slash", true);
-                int hpChangeVaried = ApplyRandomness(abilityHpDelta);
+                int hpChangeVaried = ApplyRandomness(ability.hpDelta);
                 abilityTarget.ChangeHealth(hpChangeVaried, true);
-                Debug.Log($"{unitName} used {abilityName} on {abilityTarget} for {hpChangeVaried}");
+                Debug.Log($"{unitName} used {ability.abilityName} on {abilityTarget} for {hpChangeVaried}");
 
                 // abilityTarget.ChangeHealth(abilityHpDelta, true);
-                Debug.Log($"{unitName} used {abilityName} on {abilityTarget} for {abilityHpDelta}");
+                Debug.Log($"{unitName} used {ability.abilityName} on {abilityTarget} for {ability.hpDelta}");
             }
         }
         // abilityTarget.currHealth += ability.HpDelta; - old code
@@ -536,7 +561,7 @@ public class Actor : MonoBehaviour
 
         // Code for things that don't just modify HP directly
 
-        FindAbilityTarget();
+        FindAbilityTarget(ability);
         // Select a Target if usedOnFriends
         // Else use normal target
         // Call ability.abilityCode ??
@@ -685,16 +710,18 @@ public class Actor : MonoBehaviour
     }
     */
 
-    void TargetCheckLoop()
-    {
-        targetCheckCount += GameManager.Instance.deltaTime;
-        if (targetCheckCount >= targetCheckFrequency)
-        {
-            FindPriorityEnemy();
-            FindAbilityTarget();
-            targetCheckCount = 0;
-        }
-    }
+    // Unnecessary due to ability list change
+
+    //void TargetCheckLoop()
+    //{
+    //    targetCheckCount += GameManager.Instance.deltaTime;
+    //    if (targetCheckCount >= targetCheckFrequency)
+    //    {
+    //        FindPriorityEnemy();
+    //        FindAbilityTarget();
+    //        targetCheckCount = 0;
+    //    }
+    //}
     void PlayerCheck()
     {
         //if (Actor.Team == Team.Blue)
