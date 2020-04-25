@@ -12,11 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb4150d779a2b1143b0ae420b32688ed, type: 3}
   m_Name: Taunt
   m_EditorClassIdentifier: 
-  targetType: 0
+  targetType: 1
   abilityName: Taunt
   hpDelta: 0
   abilityRange: 3
   abilityCooldown: 6
+  abilityCooldownCount: 0
   description: Temporarily forces target to attack you.
   abilityStartingCooldownCredit: 2.5
+  currentTarget: {fileID: 0}
   effect: {fileID: 11400000, guid: 4947ab8acb07dec4e87a9d980895f3b7, type: 2}
+  abilityCharges: 0
