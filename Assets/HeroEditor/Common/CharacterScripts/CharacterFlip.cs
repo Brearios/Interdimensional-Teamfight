@@ -14,9 +14,9 @@ namespace Assets.HeroEditor.Common.CharacterScripts
 			scale.x = Mathf.Abs(scale.x);
 
 			// Flips if right or left of target
-			if (GetComponent<Actor>().autoAtkTarget != null)
+			if (GetComponent<Actor>().highThreatTarget != null)
 			{
-				if (GetComponent<Actor>().autoAtkTarget.transform.position.x < transform.position.x) scale.x *= -1;
+				if (GetComponent<Actor>().highThreatTarget.transform.position.x < transform.position.x) scale.x *= -1;
 			}
 
 			transform.localScale = scale;

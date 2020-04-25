@@ -39,8 +39,8 @@ public class Actor : MonoBehaviour
     //public float globalCooldown;
     //public float globalCooldownCount;
     // public float abilitySpeed; Unused
-    public Actor autoAtkTarget;
-    public Actor abilityTarget;
+    //public Actor abilityTarget;
+    public Actor highThreatTarget;
     public State currentState = State.Idle;
     Color currentColor;
     Color alphaColor;
@@ -171,10 +171,24 @@ public class Actor : MonoBehaviour
         foreach (ScriptableAbility ability in MyAbilities)
         {
             if (ability.currentTarget == null)
-                if ((ability.isTauntable) && (isTaunted == false))
+            {
+                if (!isTaunted)
                 {
                     FindAbilityTarget(ability);
+                    continue;
                 }
+                if ((isTaunted) && (ability.targetType != ScriptableAbility.TargetType.EnemyDamage))
+                {
+                    FindAbilityTarget(ability);
+                    continue;
+                }
+                // Unnecessary code
+                //if (isTaunted && ability.isTauntable)
+                //{
+                //    continue;
+                //}
+
+            }
         }
         /* if (currHealth > 0)
         {
@@ -187,12 +201,15 @@ public class Actor : MonoBehaviour
             FindPriorityEnemy();
         }
 
-        TargetLineDisplay();
+        if (GameManager.Instance.ShowTarget || debugShowTargetLines)
+        {
+            TargetLineDisplay();
+        }
 
 
 
         var targetInRange = false;
-        if (autoAtkTarget != null)
+        if (autoAtk.currentTarget != null)
         {
             targetInRange = CheckTargetRange();
             // This func should determine if we're in range of our target. Return a boolean
@@ -221,7 +238,7 @@ public class Actor : MonoBehaviour
 
         else
         {
-            if (autoAtkTarget != null)
+            if (autoAtk.currentTarget != null)
             {
                 MoveTowardsTarget();
             }
@@ -250,15 +267,22 @@ public class Actor : MonoBehaviour
 
     void TargetLineDisplay()
     {
-        if (GameManager.Instance.ShowTarget || debugShowTargetLines)
         {
-            if (autoAtkTarget != null)
+            if (autoAtk.currentTarget != null)
             {
-                Debug.DrawLine(transform.position, autoAtkTarget.transform.position);
+                Debug.DrawLine(transform.position, autoAtk.currentTarget.transform.position);
             }
-            if (abilityTarget != null)
+            if (ability1.currentTarget != null)
             {
-                Debug.DrawLine(transform.position, abilityTarget.transform.position, Color.red);
+                Debug.DrawLine(transform.position, ability1.currentTarget.transform.position, Color.red);
+            }
+            if (ability2.currentTarget != null)
+            {
+                Debug.DrawLine(transform.position, ability2.currentTarget.transform.position, Color.blue);
+            }
+            if (ability3.currentTarget != null)
+            {
+                Debug.DrawLine(transform.position, ability3.currentTarget.transform.position, Color.green);
             }
         }
     }
@@ -275,7 +299,7 @@ public class Actor : MonoBehaviour
         Actor[] allActors = GameObject.FindObjectsOfType<Actor>();
 
         float distanceToClosestActor = Mathf.Infinity;
-        autoAtkTarget = null;
+        autoAtk.currentTarget = null;
 
         foreach (Actor currentActor in allActors)
         {
@@ -289,19 +313,19 @@ public class Actor : MonoBehaviour
                 if (distanceToActor < distanceToClosestActor)
                 {
                     distanceToClosestActor = distanceToActor;
-                    autoAtkTarget = currentActor;
+                    autoAtk.currentTarget = currentActor;
                 }
             }
 
         }
     }
 
-    Actor FindPriorityEnemy()
+    void FindPriorityEnemy()
     {
         Actor[] allActors = GameObject.FindObjectsOfType<Actor>();
 
         float highestThreatEnemy = -Mathf.Infinity;
-        Actor highThreatEnemy = null;
+        // Actor highThreatEnemy = null; Using Actor variable highThreatEnemy instead of local for wider usability
 
         foreach (Actor currentActor in allActors)
         {
@@ -321,59 +345,60 @@ public class Actor : MonoBehaviour
                 if (threatWithDistance > highestThreatEnemy)
                 {
                     highestThreatEnemy = threatWithDistance;
-                    highThreatEnemy = currentActor;
+                    autoAtk.currentTarget = currentActor;
                 }
             }
         }
-        return highThreatEnemy;
     }
 
     void FindAbilityTarget(ScriptableAbility ability)
     {
-        abilityTarget = null;
+        ability.currentTarget = null;
+        Actor[] allActors = GameObject.FindObjectsOfType<Actor>();
 
         if (ability.targetType == ScriptableAbility.TargetType.EnemyDamage)
         {
-            abilityTarget = autoAtkTarget;
-            /*
-            Actor[] allActors = GameObject.FindObjectsOfType<Actor>();
+            // Target is determined in FindPriorityEnemy to set who we move toward if out of range
+            ability.currentTarget = highThreatTarget;
+        }
+        else if (ability.targetType == ScriptableAbility.TargetType.EnemyDebuff)
+        {
+            float highestDamageEnemy = Mathf.NegativeInfinity;
 
-            float distanceToClosestActor = Mathf.Infinity;
-
-            foreach (Actor currAbilityActor in allActors)
+            foreach (Actor currentActor in allActors)
             {
-                if (currAbilityActor.team == team)
+                if (currentActor.team == team)
+                {
+                    continue;
+                }
+                if (currentActor.isDead)
                 {
                     continue;
                 }
                 else
                 {
-                    float distanceToActor = (currAbilityActor.transform.position - transform.position).sqrMagnitude;
-                    if (distanceToActor < distanceToClosestActor)
+                    float damageEvaluationActor = (currentActor.attackDamage + currentActor.abilityPower);
+                    if (damageEvaluationActor > highestDamageEnemy)
                     {
-                        distanceToClosestActor = distanceToActor;
-                        abilityTarget = currAbilityActor;
+                        highestDamageEnemy = damageEvaluationActor;
+                        ability.currentTarget = currentActor;
                     }
                 }
-                
             }
-            */
         }
         else if (ability.targetType == ScriptableAbility.TargetType.FriendlyHeal)
         {
-            Actor[] allActors = GameObject.FindObjectsOfType<Actor>();
-
             float lowestHealthPercent = 1;
 
-            foreach (Actor currAbilityActor in allActors)
+            foreach (Actor currentActor in allActors)
             {
-                if (currAbilityActor.team == team)
+                if (currentActor.team == team)
                 {
-                    float healthPercent = (currAbilityActor.currHealth / currAbilityActor.maxHealth);
+                    float healthPercent = (currentActor.currHealth / currentActor.maxHealth);
                     if ((healthPercent < lowestHealthPercent) && (healthPercent > 0))
                     {
                         lowestHealthPercent = healthPercent;
-                        abilityTarget = currAbilityActor;
+                        ability.currentTarget = currentActor;
                     }
                 }
                 else
@@ -381,13 +406,37 @@ public class Actor : MonoBehaviour
                     continue;
                 }
 
+            }
+        }
+        else if (ability.targetType == ScriptableAbility.TargetType.FriendlyBuff)
+        {
+            float highestDamageAlly = Mathf.NegativeInfinity;
+
+            foreach (Actor currentActor in allActors)
+            {
+                if (currentActor.team == team)
+                {
+                    continue;
+                }
+                if (currentActor.isDead)
+                {
+                    continue;
+                }
+                else
+                {
+                    float damageEvaluationActor = (currentActor.attackDamage + currentActor.abilityPower);
+                    if (damageEvaluationActor > highestDamageAlly)
+                    {
+                        highestDamageAlly = damageEvaluationActor;
+                        ability.currentTarget = currentActor;
+                    }
+                }
             }
         }
         else if (ability.targetType == ScriptableAbility.TargetType.Self)
         {
-            abilityTarget = this;
+            ability.currentTarget = this;
         }
-
     }
 
 
@@ -400,11 +449,11 @@ public class Actor : MonoBehaviour
         GetComponent<Character>().Animator.SetBool("Walk", true);
         // GetComponent<Character>().Animator.Play("Walk"); Definitely not doing what I want
 
-        transform.position = Vector2.MoveTowards(transform.position, autoAtkTarget.transform.position, moveSpeed * GameManager.Instance.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, highThreatTarget.transform.position, moveSpeed * GameManager.Instance.deltaTime);
     }
     public bool CheckTargetRange()
     {
-        return (Vector2.Distance(autoAtkTarget.transform.position, transform.position) <= atkRange);
+        return (Vector2.Distance(autoAtk.currentTarget.transform.position, transform.position) <= atkRange);
     }
 
     void StartAttacking()
@@ -456,28 +505,26 @@ public class Actor : MonoBehaviour
             int hpChangeVaried = ApplyRandomness(attackDamage);
 
             GetComponent<Character>().Animator.SetBool("Slash", true);
-            autoAtkTarget.ChangeHealth(-hpChangeVaried, false);
-            Debug.Log($"{unitName} attacked {autoAtkTarget} for {hpChangeVaried}");
+            highThreatTarget.ChangeHealth(-hpChangeVaried, false);
+            Debug.Log($"{unitName} attacked {highThreatTarget} for {hpChangeVaried}");
 
             //autoAtkTarget.ChangeHealth(-attackDamage, false);
             //Debug.Log($"{unitName} attacked {autoAtkTarget} for {attackDamage}");
 
             // autoAtkTarget.currHealth -= attackDamage; - old code
-            if (autoAtkTarget.currHealth <= 0)
+            if (highThreatTarget.currHealth <= 0)
             {
-                autoAtkTarget = null;
+                highThreatTarget = null;
             }
         }
     }
     void UseAbility(ScriptableAbility ability)
     {
-        if (abilityTarget != null)
+        if (ability.currentTarget != null)
         {
             if (ability.abilityName == "Taunt")
             {
-                abilityTarget.autoAtkTarget = this;
-                abilityTarget.abilityTarget = null; // if the TargetType is enemy, it will derive from auto, if allied it will re-target
-                ApplyStatusEffect(abilityTarget, ability.effect);
+                ApplyStatusEffect(ability.currentTarget, ability.effect);
 
                 
                 // Old Taunt implementation to double max team threat score
@@ -515,7 +562,7 @@ public class Actor : MonoBehaviour
             }
             if (ability.abilityName == "Stun")
             {
-                ApplyStatusEffect(abilityTarget, ability.effect);
+                ApplyStatusEffect(ability.currentTarget, ability.effect);
             }
             
 
@@ -549,11 +596,11 @@ public class Actor : MonoBehaviour
                 //}
                 GetComponent<Character>().Animator.SetBool("Slash", true);
                 int hpChangeVaried = ApplyRandomness(ability.hpDelta);
-                abilityTarget.ChangeHealth(hpChangeVaried, true);
-                Debug.Log($"{unitName} used {ability.abilityName} on {abilityTarget} for {hpChangeVaried}");
+                ability.currentTarget.ChangeHealth(hpChangeVaried, true);
+                Debug.Log($"{unitName} used {ability.abilityName} on {ability.currentTarget} for {hpChangeVaried}");
 
                 // abilityTarget.ChangeHealth(abilityHpDelta, true);
-                Debug.Log($"{unitName} used {ability.abilityName} on {abilityTarget} for {ability.hpDelta}");
+                Debug.Log($"{unitName} used {ability.abilityName} on {ability.currentTarget} for {ability.hpDelta}");
             }
         }
         // abilityTarget.currHealth += ability.HpDelta; - old code
@@ -579,8 +626,8 @@ public class Actor : MonoBehaviour
         }
         // Animation/Knockback
         // Floating Combat Text
-        if (abilityTarget != null)
-        {
+        // if (abilitytarget != null)
+        // {
             if (FloatingTextPrefab)
             {
                 if (wantFloatingText == true)
@@ -588,7 +635,7 @@ public class Actor : MonoBehaviour
                     ShowFloatingText(amount);
                 }
             }
-        }
+        // }
     }
 
     void ShowFloatingText(float amount)
