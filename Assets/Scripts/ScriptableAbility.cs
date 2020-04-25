@@ -17,10 +17,10 @@ public class ScriptableAbility : ScriptableObject
     public int hpDelta; // multiplies by ability power to determine ability strength
     public float abilityRange;
     // Ability Range must be equal to or larger than Auto Atk Range due to targeting logic.
-    public float abilityCooldown;
-    public float abilityCooldownCount;
+    public float cooldown;
+    public float cooldownCount;
+    public bool startsOnCooldown;
     public string description;
-    public float abilityStartingCooldownCredit; // Can it be used immediately, after a set delay, or a short cooldown?
     public Actor currentTarget;
     public ScriptableEffect effect;
     public float abilityCharges; // Not sure if we'll do this

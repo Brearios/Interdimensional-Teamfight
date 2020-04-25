@@ -16,7 +16,10 @@ MonoBehaviour:
   abilityName: TBA
   hpDelta: -10
   abilityRange: 1
-  abilityCooldown: 1
+  cooldown: 0
+  abilityCooldownCount: 0
+  startsOnCooldown: 0
   description: 
-  abilityStartingCooldownCredit: 0
+  currentTarget: {fileID: 0}
   effect: {fileID: 0}
+  abilityCharges: 0
