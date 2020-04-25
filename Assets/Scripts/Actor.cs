@@ -92,6 +92,14 @@ public class Actor : MonoBehaviour
         //abilityRange = ability.abilityRange;
         //globalCooldown = unit.globalCooldown;
         //abilityCooldown = ability.abilityCooldown;
+        foreach (ScriptableAbility ability in MyAbilities)
+        {
+            if (!ability.startsOnCooldown)
+            {
+                ability.cooldownCount = ability.cooldown;
+            }
+        }
+        
         //abilityCooldownCount = ability.abilityStartingCooldownCredit;
         //abilityHpDelta = (abilityPower * ability.hpDelta);
         role = unit.role;
@@ -471,11 +479,11 @@ public class Actor : MonoBehaviour
 
         foreach (ScriptableAbility ability in MyAbilities)
         {
-            ability.abilityCooldownCount += GameManager.Instance.deltaTime;
-            if (ability.abilityCooldownCount >= ability.abilityCooldown)
+            ability.cooldownCount += GameManager.Instance.deltaTime;
+            if (ability.cooldownCount >= ability.cooldown)
             {
                 UseAbility(ability);
-                ability.abilityCooldownCount -= ability.abilityCooldown;
+                ability.cooldownCount -= ability.cooldown;
             }
         }
         // Unecessary due to conversion of autoAtk to ability
@@ -522,7 +530,14 @@ public class Actor : MonoBehaviour
     {
         if (ability.currentTarget != null)
         {
-            if (ability.abilityName == "Taunt")
+            if (ability == autoAtk)
+            {
+                GetComponent<Character>().Animator.SetBool("Slash", true);
+                int hpChangeVaried = ApplyRandomness(attackDamage);
+                ability.currentTarget.ChangeHealth(hpChangeVaried, true);
+                Debug.Log($"{unitName} used {ability.abilityName} on {ability.currentTarget} for {hpChangeVaried}");
+            }
+            else if (ability.abilityName == "Taunt")
             {
                 ApplyStatusEffect(ability.currentTarget, ability.effect);
 
@@ -890,5 +905,3 @@ public class Actor : MonoBehaviour
         CurrentEffects.RemoveAt(IndexToRemove);
     }
 }
-    
-
