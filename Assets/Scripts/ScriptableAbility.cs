@@ -18,10 +18,10 @@ public class ScriptableAbility : ScriptableObject
     public float abilityRange;
     // Ability Range must be equal to or larger than Auto Atk Range due to targeting logic.
     public float cooldown;
-    public float cooldownCount;
+    // public float cooldownCount;
     public bool startsOnCooldown;
     public string description;
-    public Actor currentTarget;
+    // public Actor currentTarget;
     public ScriptableEffect effect;
     public float abilityCharges; // Not sure if we'll do this
     // public bool isTauntable; Unnecessary due to use of TargetType - only EnemyDamage is tauntable

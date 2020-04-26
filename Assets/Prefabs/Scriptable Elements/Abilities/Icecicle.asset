@@ -13,15 +13,13 @@ MonoBehaviour:
   m_Name: Icecicle
   m_EditorClassIdentifier: 
   targetType: 0
-  effectType: 3
   abilityName: Icecicle
-  rank: 1
   hpDelta: -3
   abilityRange: 4
-  abilityCooldown: 4
+  cooldown: 5
+  cooldownCount: 0
+  startsOnCooldown: 0
   description: Deal damage and slow an enemy's attack speed.
-  effectDuration: 0
-  HpDeltaPerSecond: 0
-  CooldownsDeltaPerSecond: 0
-  knockbackDistance: 0
-  abilityStartingCooldownCredit: 4
+  currentTarget: {fileID: 0}
+  effect: {fileID: 0}
+  abilityCharges: 0

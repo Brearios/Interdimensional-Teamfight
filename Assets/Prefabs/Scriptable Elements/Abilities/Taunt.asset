@@ -16,10 +16,10 @@ MonoBehaviour:
   abilityName: Taunt
   hpDelta: 0
   abilityRange: 3
-  abilityCooldown: 6
-  abilityCooldownCount: 0
+  cooldown: 5
+  cooldownCount: 0
+  startsOnCooldown: 0
   description: Temporarily forces target to attack you.
-  abilityStartingCooldownCredit: 2.5
   currentTarget: {fileID: 0}
   effect: {fileID: 11400000, guid: 4947ab8acb07dec4e87a9d980895f3b7, type: 2}
   abilityCharges: 0

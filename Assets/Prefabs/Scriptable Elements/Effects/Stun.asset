@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Stun
   m_EditorClassIdentifier: 
   effect: 1
-  deltaHealth: 0
   effectTickDuration: 0
-  effectTotalDuration: 2
+  totalDuration: 3
+  remainingDuration: 0
   canStack: 0
   effectPerStack: 0
   currentStacks: 0

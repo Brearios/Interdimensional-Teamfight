@@ -15,8 +15,11 @@ MonoBehaviour:
   targetType: 0
   abilityName: Stun
   hpDelta: 0
-  abilityRange: 1
-  abilityCooldown: 5
+  abilityRange: 3
+  cooldown: 5
+  cooldownCount: 0
+  startsOnCooldown: 0
   description: Stun an enemy for a period of time.
-  abilityStartingCooldownCredit: 0
+  currentTarget: {fileID: 0}
   effect: {fileID: 11400000, guid: 29a993dcc3153894cac4f4355982c7cb, type: 2}
+  abilityCharges: 0

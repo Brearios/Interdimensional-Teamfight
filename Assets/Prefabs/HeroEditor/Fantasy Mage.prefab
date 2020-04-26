@@ -5390,37 +5390,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 11400000, guid: f6faf2d35a07ac142b54d43bd3a6afbc, type: 2}
   team: {fileID: 11400000, guid: 50ec59c1cc1783e4fb6314d6f0d9fc40, type: 2}
-  ability: {fileID: 11400000, guid: 6bf2c15b44422ec41a09da5e79a3a2e2, type: 2}
+  autoAtk: {fileID: 11400000, guid: f4d8cad2a9a2b02449420d6832502937, type: 2}
+  ability1: {fileID: 11400000, guid: 6bf2c15b44422ec41a09da5e79a3a2e2, type: 2}
+  ability2: {fileID: 0}
+  ability3: {fileID: 0}
+  potion: {fileID: 0}
   unitName: 
-  maxHealth: 0
+  maxHealth: 100
   currHealth: 0
   healthPercent: 0
   attackDamage: 0
   abilityPower: 0
   xpWhenKilled: 0
-  abilityHpDelta: 0
-  globalCooldown: 0
-  globalCooldownCount: 0
   role: 
   atkRange: 0
-  abilityRange: 0
-  abilityCooldown: 0
-  abilityCooldownCount: 0
-  abilityName: 
   moveSpeed: 0
-  abilitySpeed: 0
+  highThreatTarget: {fileID: 0}
   currentState: 0
   body: {fileID: 1109987028385428, guid: a2c9ea2b2e8596a49933853b78fdb524, type: 3}
   healthBar: {fileID: 8102440566279438875}
   healthBG: {fileID: 8102440566031212871}
-  autoAtkTarget: {fileID: 0}
-  abilityTarget: {fileID: 0}
+  MyAbilities: []
   CurrentEffects: []
+  CurrentEffectsRemovalInts: 
   isDead: 0
   ThreatScore: 0
   targetCheckCount: 0
   targetCheckFrequency: 0
   hasTaunted: 0
+  isTaunted: 0
+  isStunned: 0
   threatResetClock: 0
   isPlayer: 1
   beginAtkAnim: 0
@@ -5428,8 +5427,8 @@ MonoBehaviour:
   xpAdded: 0
   abilityAnimationType: 
   dmgVariance: 0
-  hpChangeVaried: 0
   debuggingID: 0
+  debugShowTargetLines: 0
   FloatingTextPrefab: {fileID: 3012059549555167978, guid: 1e98c7aa83e776648ae16b3785ac6c38,
     type: 3}
 --- !u!114 &8207522223971313803

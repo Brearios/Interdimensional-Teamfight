@@ -12,12 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb4150d779a2b1143b0ae420b32688ed, type: 3}
   m_Name: Poison
   m_EditorClassIdentifier: 
-  targettype: 0
+  targetType: 0
   abilityName: Poison
-  rank: 1
-  HpDelta: 0
-  abilityRange: 2
-  abilityCooldown: 7
+  hpDelta: 0
+  abilityRange: 3
+  cooldown: 0
+  cooldownCount: 0
+  startsOnCooldown: 0
   description: Poisons an enemy, causing damage once per second.
-  effectDuration: 5
-  HpDeltaPerSecond: 3
+  currentTarget: {fileID: 0}
+  effect: {fileID: 0}
+  abilityCharges: 0

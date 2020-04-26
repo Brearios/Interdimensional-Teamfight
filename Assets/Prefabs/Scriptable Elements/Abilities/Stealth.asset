@@ -13,15 +13,13 @@ MonoBehaviour:
   m_Name: Stealth
   m_EditorClassIdentifier: 
   targetType: 2
-  effectType: 2
   abilityName: Subtlety
-  rank: 1
   hpDelta: 0
   abilityRange: 1
-  abilityCooldown: 4
+  cooldown: 5
+  cooldownCount: 0
+  startsOnCooldown: 0
   description: Cut threat by half
-  effectDuration: 0
-  HpDeltaPerSecond: 0
-  CooldownsDeltaPerSecond: 0
-  knockbackDistance: 0
-  abilityStartingCooldownCredit: 4
+  currentTarget: {fileID: 0}
+  effect: {fileID: 0}
+  abilityCharges: 0

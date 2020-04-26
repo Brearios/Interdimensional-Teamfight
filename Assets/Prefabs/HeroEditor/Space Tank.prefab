@@ -13105,7 +13105,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 11400000, guid: 232edcf067fd9464cb71f28bd0a58dd9, type: 2}
   team: {fileID: 11400000, guid: 50ec59c1cc1783e4fb6314d6f0d9fc40, type: 2}
-  ability: {fileID: 11400000, guid: eed78b34608a1014da24262aa2df7b67, type: 2}
+  autoAtk: {fileID: 11400000, guid: 2bebe808ca503864c9cc1f842b32a7d1, type: 2}
+  ability1: {fileID: 11400000, guid: eed78b34608a1014da24262aa2df7b67, type: 2}
+  ability2: {fileID: 0}
+  ability3: {fileID: 0}
+  potion: {fileID: 0}
   unitName: 
   maxHealth: 0
   currHealth: 0
@@ -13113,35 +13117,33 @@ MonoBehaviour:
   attackDamage: 0
   abilityPower: 0
   xpWhenKilled: 0
-  abilityHpDelta: 0
-  globalCooldown: 0
-  globalCooldownCount: 0
   role: tank
   atkRange: 0
-  abilityRange: 0
-  abilityCooldown: 0
-  abilityCooldownCount: 0
-  abilityName: 
   moveSpeed: 0
-  abilitySpeed: 0
+  highThreatTarget: {fileID: 0}
   currentState: 0
   body: {fileID: 0}
   healthBar: {fileID: 6490861647910916877}
   healthBG: {fileID: 7869939795317510884}
-  autoAtkTarget: {fileID: 0}
-  abilityTarget: {fileID: 0}
+  MyAbilities: []
   CurrentEffects: []
+  CurrentEffectsRemovalInts: 
   isDead: 0
   ThreatScore: 0
   targetCheckCount: 0
   targetCheckFrequency: 0
   hasTaunted: 0
+  isTaunted: 0
+  isStunned: 0
   threatResetClock: 0
   isPlayer: 1
   beginAtkAnim: 0
   isStealthed: 0
   xpAdded: 0
   abilityAnimationType: 
+  dmgVariance: 0
+  debuggingID: 0
+  debugShowTargetLines: 0
   FloatingTextPrefab: {fileID: 3012059549555167978, guid: 1e98c7aa83e776648ae16b3785ac6c38,
     type: 3}
 --- !u!114 &1487185326010703887

@@ -16,10 +16,10 @@ MonoBehaviour:
   abilityName: Auto Attack
   hpDelta: 0
   abilityRange: 3
-  abilityCooldown: 3
-  abilityCooldownCount: 0
+  cooldown: 3
+  cooldownCount: 0
+  startsOnCooldown: 0
   description: 
-  abilityStartingCooldownCredit: 0
   currentTarget: {fileID: 0}
   effect: {fileID: 0}
   abilityCharges: 0
