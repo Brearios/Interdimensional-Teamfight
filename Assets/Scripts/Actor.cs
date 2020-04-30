@@ -49,7 +49,7 @@ public class Actor : MonoBehaviour
     public Image healthBG;
    
     public List<ScriptableAbility> MyAbilities;
-    public List<float> CooldownCounts;
+    public List<AbilityProcessor> AbilityProcessors;
     public List<ScriptableEffect> CurrentEffects;
     public List<int> CurrentEffectsRemovalInts;
     public bool isDead;
@@ -71,16 +71,6 @@ public class Actor : MonoBehaviour
     // public int hpChangeVaried; Moved to a local variable
     public int debuggingID;
     public bool debugShowTargetLines;
-    public Actor debugAutoAtkTarget;
-    public Actor enemyDamageTarget;
-    public Actor enemyDebuffTarget;
-    public Actor friendlyHealTarget;
-    public Actor friendlyBuffTarget;
-    public float autoAtkCooldownCount;
-    public float ability1CooldownCount;
-    public float ability2CooldownCount;
-    public float ability3CooldownCount;
-    public float potionCooldownCount;
 
     public GameObject FloatingTextPrefab;
 
@@ -93,32 +83,30 @@ public class Actor : MonoBehaviour
         abilityPower = unit.abilityPower;
         // MageStats = GameObject.FindObjectOfType<CharacterProfile>();
 
-        if (autoAtk != null)
-            {
-                MyAbilities.Add(autoAtk);
-            }
-        if (ability1 != null)
-            {
-                MyAbilities.Add(ability1);
-            }
-        if (ability2 != null)
-            {
-                MyAbilities.Add(ability2);
-            }
-        if (ability3 != null)
-            {
-                MyAbilities.Add(ability3);
-            }
-        if (potion != null)
-            {
-                MyAbilities.Add(potion);
-            }
+        MyAbilities.Add(autoAtk);
+        MyAbilities.Add(ability1);
+        MyAbilities.Add(ability2);
+        MyAbilities.Add(ability3);
+        MyAbilities.Add(potion);
+        
+        new AbilityProcessor(autoAtk);
+        new AbilityProcessor(ability1);
+        new AbilityProcessor(ability2);
+        new AbilityProcessor(ability3);
+        new AbilityProcessor(potion);
 
-        CooldownCounts.Add(autoAtkCooldownCount);
-        CooldownCounts.Add(autoAtkCooldownCount);
-        CooldownCounts.Add(autoAtkCooldownCount);
-        CooldownCounts.Add(autoAtkCooldownCount);
-        CooldownCounts.Add(autoAtkCooldownCount);
+        AbilityProcessor[] AbilityProcessorsArray = GameObject.FindObjectsOfType<AbilityProcessor>();
+        foreach (AbilityProcessor currentProcessor in AbilityProcessorsArray)
+        {
+            AbilityProcessors.Add(currentProcessor);
+        }
+       
+        // Moved into AbilityProcessor
+        //CooldownCounts.Add(autoAtkCooldownCount);
+        //CooldownCounts.Add(autoAtkCooldownCount);
+        //CooldownCounts.Add(autoAtkCooldownCount);
+        //CooldownCounts.Add(autoAtkCooldownCount);
+        //CooldownCounts.Add(autoAtkCooldownCount);
 
         // Moved to Ability Data
         //abilityName = ability.abilityName;
@@ -213,20 +201,18 @@ public class Actor : MonoBehaviour
             return;
         }
 
-        // Switching to terrible manual code
-
-        //foreach (ScriptableAbility ability in MyAbilities)
-        //{
-        //    if (ability.currentTarget != null)
-        //    { 
-        //        // Taunt only affects damage ability targeting
-        //        if ((!isTaunted) || (ability.targetType != ScriptableAbility.TargetType.EnemyDamage))
-        //        {
-        //            FindAbilityTarget(ability);
-        //            continue;
-        //        }
-        //    }
-        //}
+        foreach (AbilityProcessor ability in AbilityProcessors)
+        {
+            if (ability.currentTarget != null)
+            { 
+                // Taunt only affects damage ability targeting
+                if ((!isTaunted) || (ability.abilityData.targetType != ScriptableAbility.TargetType.EnemyDamage))
+                {
+                    FindAbilityTarget(ability);
+                    continue;
+                }
+            }
+        }
 
 
         /* if (currHealth > 0)
@@ -248,7 +234,7 @@ public class Actor : MonoBehaviour
 
 
         bool targetInRange = false;
-        if (enemyDamageTarget != null)
+        if (highThreatTarget != null)
         {
             targetInRange = CheckTargetRange();
             // This func should determine if we're in range of our target. Return a boolean
@@ -305,42 +291,24 @@ public class Actor : MonoBehaviour
 
     void TargetLineDisplay()
     {
+        foreach (AbilityProcessor currentProcessor in AbilityProcessors)
         {
-            if ((autoAtk != null) && (enemyDamageTarget != null))
+            if ((currentProcessor.abilityData.targetType == ScriptableAbility.TargetType.EnemyDamage) && (currentProcessor.currentTarget != null))
             {
-                Debug.DrawLine(transform.position, enemyDamageTarget.transform.position);
+                Debug.DrawLine(transform.position, currentProcessor.currentTarget.transform.position);
             }
-            if ((ability1 != null) && (enemyDebuffTarget != null))
+            if ((currentProcessor.abilityData.targetType == ScriptableAbility.TargetType.EnemyDebuff) && (currentProcessor.currentTarget != null))
             {
-                Debug.DrawLine(transform.position, enemyDebuffTarget.transform.position, Color.red);
+                Debug.DrawLine(transform.position, currentProcessor.currentTarget.transform.position, Color.red);
             }
-            if ((ability2 != null) && (friendlyBuffTarget != null))
+            if ((currentProcessor.abilityData.targetType == ScriptableAbility.TargetType.FriendlyBuff) && (currentProcessor.currentTarget != null))
             {
-                Debug.DrawLine(transform.position, friendlyBuffTarget.transform.position, Color.blue);
+                Debug.DrawLine(transform.position, currentProcessor.currentTarget.transform.position, Color.blue);
             }
-            if ((ability3 != null) && (friendlyHealTarget != null))
+            if ((currentProcessor.abilityData.targetType == ScriptableAbility.TargetType.FriendlyHeal) && (currentProcessor.currentTarget != null))
             {
-                Debug.DrawLine(transform.position, friendlyHealTarget.transform.position, Color.green);
+                Debug.DrawLine(transform.position, currentProcessor.currentTarget.transform.position, Color.green);
             }
-
-            // Replacing with terrible repetiive code
-
-            //if ((autoAtk != null) && (autoAtk.currentTarget != null))
-            //{
-            //    Debug.DrawLine(transform.position, autoAtk.currentTarget.transform.position);
-            //}
-            //if ((ability1 != null) && (ability1.currentTarget != null))
-            //{
-            //    Debug.DrawLine(transform.position, ability1.currentTarget.transform.position, Color.red);
-            //}
-            //if ((ability2 != null) && (ability2.currentTarget != null))
-            //{
-            //    Debug.DrawLine(transform.position, ability2.currentTarget.transform.position, Color.blue);
-            //}
-            //if ((ability3 != null) && (ability3.currentTarget != null))
-            //{
-            //    Debug.DrawLine(transform.position, ability3.currentTarget.transform.position, Color.green);
-            //}
         }
     }
 
@@ -356,7 +324,7 @@ public class Actor : MonoBehaviour
         Actor[] allActors = GameObject.FindObjectsOfType<Actor>();
 
         float distanceToClosestActor = Mathf.Infinity;
-        enemyDamageTarget = null;
+        highThreatTarget = null;
 
         foreach (Actor currentActor in allActors)
         {
@@ -370,7 +338,7 @@ public class Actor : MonoBehaviour
                 if (distanceToActor < distanceToClosestActor)
                 {
                     distanceToClosestActor = distanceToActor;
-                    enemyDamageTarget = currentActor;
+                    highThreatTarget = currentActor;
                 }
             }
 
@@ -408,16 +376,16 @@ public class Actor : MonoBehaviour
         }
     }
 
-    void FindAbilityTarget(ScriptableAbility ability)
+    void FindAbilityTarget(AbilityProcessor abilityProcessor)
     {
         Actor[] allActors = GameObject.FindObjectsOfType<Actor>();
 
-        if (ability.targetType == ScriptableAbility.TargetType.EnemyDamage)
+        if (abilityProcessor.abilityData.targetType == ScriptableAbility.TargetType.EnemyDamage)
         {
             // Target is determined in FindPriorityEnemy to set who we move toward if out of range
-            enemyDamageTarget = highThreatTarget;
+            abilityProcessor.currentTarget = highThreatTarget;
         }
-        else if (ability.targetType == ScriptableAbility.TargetType.EnemyDebuff)
+        else if (abilityProcessor.abilityData.targetType == ScriptableAbility.TargetType.EnemyDebuff)
         {
             float highestDamageEnemy = Mathf.NegativeInfinity;
 
@@ -437,12 +405,12 @@ public class Actor : MonoBehaviour
                     if (damageEvaluationActor > highestDamageEnemy)
                     {
                         highestDamageEnemy = damageEvaluationActor;
-                        enemyDebuffTarget = currentActor;
+                        abilityProcessor.currentTarget = currentActor;
                     }
                 }
             }
         }
-        else if (ability.targetType == ScriptableAbility.TargetType.FriendlyHeal)
+        else if (abilityProcessor.abilityData.targetType == ScriptableAbility.TargetType.FriendlyHeal)
         {
             float lowestHealthPercent = 1;
 
@@ -454,7 +422,7 @@ public class Actor : MonoBehaviour
                     if ((healthPercent < lowestHealthPercent) && (healthPercent > 0))
                     {
                         lowestHealthPercent = healthPercent;
-                        friendlyHealTarget = currentActor;
+                        abilityProcessor.currentTarget = currentActor;
                     }
                 }
                 else
@@ -464,7 +432,7 @@ public class Actor : MonoBehaviour
 
             }
         }
-        else if (ability.targetType == ScriptableAbility.TargetType.FriendlyBuff)
+        else if (abilityProcessor.abilityData.targetType == ScriptableAbility.TargetType.FriendlyBuff)
         {
             float highestDamageAlly = Mathf.NegativeInfinity;
 
@@ -484,7 +452,7 @@ public class Actor : MonoBehaviour
                     if (damageEvaluationActor > highestDamageAlly)
                     {
                         highestDamageAlly = damageEvaluationActor;
-                        friendlyBuffTarget = currentActor;
+                        abilityProcessor.currentTarget = currentActor;
                     }
                 }
             }
@@ -509,7 +477,7 @@ public class Actor : MonoBehaviour
     }
     public bool CheckTargetRange()
     {
-        return (Vector2.Distance(enemyDamageTarget.transform.position, transform.position) <= autoAtk.abilityRange);
+        return (Vector2.Distance(highThreatTarget.transform.position, transform.position) <= autoAtk.abilityRange);
     }
 
     void StartAttacking()
@@ -525,24 +493,17 @@ public class Actor : MonoBehaviour
     {
         // globalCooldownCount += GameManager.Instance.deltaTime; Unecessary due to conversion of autoAtk to ability
 
-        autoAtkCooldownCount += GameManager.Instance.deltaTime;
-        ability1CooldownCount += GameManager.Instance.deltaTime;
-        ability2CooldownCount += GameManager.Instance.deltaTime;
-        ability3CooldownCount += GameManager.Instance.deltaTime;
-        potionCooldownCount += GameManager.Instance.deltaTime;
+        foreach (AbilityProcessor Processor in AbilityProcessors)
+        {
+            Processor.cooldownCount += GameManager.Instance.deltaTime;
+            if (Processor.cooldownCount > Processor.abilityData.cooldown)
+            {
+                UseAbility(Processor);
+                Processor.cooldownCount -= Processor.abilityData.cooldown;
+            }
+        }
 
-
-        // Switching to terrible manual code
-
-        //foreach (float Counter in CooldownCounts)
-        //{
-        //    Counter += GameManager.Instance.deltaTime;
-        //    if (ability.cooldownCount >= ability.cooldown)
-        //    {
-        //        UseAbility(ability);
-        //        ability.cooldownCount -= ability.cooldown;
-        //    }
-        //}
+        
 
         //foreach (ScriptableAbility ability in MyAbilities)
         //{
@@ -594,21 +555,22 @@ public class Actor : MonoBehaviour
             }
         }
     }
-    void UseAbility(ScriptableAbility ability)
+    void UseAbility(AbilityProcessor ability)
     {
         // Can't set target by ability
         // if (ability.currentTarget != null)
         {
-            if (ability == autoAtk)
+            if (ability.abilityData.targetType == ScriptableAbility.TargetType.EnemyDamage)
             {
                 GetComponent<Character>().Animator.SetBool("Slash", true);
                 int hpChangeVaried = ApplyRandomness(attackDamage);
-                enemyDamageTarget.ChangeHealth(hpChangeVaried, true);
-                Debug.Log($"{unitName} used {ability.abilityName} on {enemyDamageTarget} for {hpChangeVaried}");
+                ability.currentTarget.ChangeHealth(hpChangeVaried, true);
+                Debug.Log($"{unitName} used {ability.abilityData.abilityName} on {ability.currentTarget} for {hpChangeVaried}");
             }
-            else if (ability.abilityName == "Taunt")
+            else if (ability.abilityData.abilityName == "Taunt")
             {
-                ApplyStatusEffect(enemyDebuffTarget, ability.effect);
+                ability.currentTarget.highThreatTarget = this;
+                ApplyStatusEffect(ability.currentTarget, ability.abilityData.effect);
 
                 
                 // Old Taunt implementation to double max team threat score
@@ -644,11 +606,11 @@ public class Actor : MonoBehaviour
                 //    threatResetClock = 3;
                 //    // }
             }
-            if (ability.abilityName == "Stun")
+            if (ability.abilityData.abilityName == "Stun")
             {
-                ApplyStatusEffect(enemyDebuffTarget, ability.effect);
+                ApplyStatusEffect(ability.currentTarget, ability.abilityData.effect);
             }
-            else if ((ability.targetType == ScriptableAbility.TargetType.Self) && ability.name == "Stealth")
+            else if ((ability.abilityData.targetType == ScriptableAbility.TargetType.Self) && ability.name == "Stealth")
             {
                 ThreatScore = (ThreatScore / 2);
                 isStealthed = true;
@@ -656,7 +618,7 @@ public class Actor : MonoBehaviour
             }
             else
             {
-                Debug.Log($"{unitName} used {ability.abilityName}.");
+                Debug.Log($"{unitName} used {ability.abilityData.abilityName}.");
                 
                 // This would give them perfect reaction time
 
@@ -676,109 +638,15 @@ public class Actor : MonoBehaviour
                 //    GetComponent<Character>().Animator.SetBool("Slash", true);
                 //}
                 GetComponent<Character>().Animator.SetBool("Slash", true);
-                int hpChangeVaried = ApplyRandomness(ability.hpDelta);
-                friendlyHealTarget.ChangeHealth(hpChangeVaried, true);
-                Debug.Log($"{unitName} used {ability.abilityName} on {friendlyHealTarget} for {hpChangeVaried}");
+                int hpChangeVaried = ApplyRandomness(ability.abilityData.hpDelta);
+                ability.currentTarget.ChangeHealth(hpChangeVaried, true);
+                Debug.Log($"{unitName} used {ability.abilityData.abilityName} on {ability.currentTarget} for {hpChangeVaried}");
 
                 // abilityTarget.ChangeHealth(abilityHpDelta, true);
-                Debug.Log($"{unitName} used {ability.abilityName} on {friendlyHealTarget} for {ability.hpDelta}");
+                // Debug.Log($"{unitName} used {ability.abilityData.abilityName} on {ability.currentTarget} for {ability.abilityData.hpDelta}");
             }
-
-
-            // Removed code due to ability.currentTarget for terrible manual workaround
-
-            //if (ability == autoAtk)
-            //{
-            //    GetComponent<Character>().Animator.SetBool("Slash", true);
-            //    int hpChangeVaried = ApplyRandomness(attackDamage);
-            //    ability.currentTarget.ChangeHealth(hpChangeVaried, true);
-            //    Debug.Log($"{unitName} used {ability.abilityName} on {ability.currentTarget} for {hpChangeVaried}");
-            //}
-            //else if (ability.abilityName == "Taunt")
-            //{
-            //    ApplyStatusEffect(ability.currentTarget, ability.effect);
-
-
-            //    // Old Taunt implementation to double max team threat score
-            //    //if ((ability.targetType == ScriptableAbility.TargetType.Self) && ability.name == "Taunt")
-            //    //{
-            //    //    // if (ability.name == "Taunt")
-            //    //    // {
-            //    //    float highestThreat = 0;
-            //    //    Actor[] allActors = GameObject.FindObjectsOfType<Actor>();
-            //    //    foreach (Actor teamThreatActor in allActors)
-            //    //    {
-            //    //        if (teamThreatActor.team != team)
-            //    //        {
-            //    //            continue;
-            //    //        }
-            //    //        else
-            //    //        {
-
-            //    //            if (teamThreatActor.ThreatScore > highestThreat)
-            //    //            {
-            //    //                highestThreat = ThreatScore;
-            //    //            }
-            //    //        }
-            //    //    }
-            //    //    /* This seems to be preventing taunting
-            //    //    if (highestThreat == this.ThreatScore)
-            //    //    {
-            //    //        return;
-            //    //    }
-            //    //    */
-            //    //    ThreatScore = (highestThreat * 2);
-            //    //    hasTaunted = true;
-            //    //    threatResetClock = 3;
-            //    //    // }
-            //}
-            //if (ability.abilityName == "Stun")
-            //{
-            //    ApplyStatusEffect(ability.currentTarget, ability.effect);
-            //}
-            //else if ((ability.targetType == ScriptableAbility.TargetType.Self) && ability.name == "Stealth")
-            //{
-            //    ThreatScore = (ThreatScore / 2);
-            //    isStealthed = true;
-            //    threatResetClock = 3;
-            //}
-            //else
-            //{
-            //    Debug.Log($"{unitName} used {ability.abilityName}.");
-
-            //    // This would give them perfect reaction time
-
-            //    //if (abilityTarget.currHealth <= 0)
-            //    //{
-            //    //    FindAbilityTarget();
-            //    //}
-
-
-            //    // beginAtkAnim = true;
-            //    //if (abilityAnimationType == "Cast")
-            //    //{
-            //    //    GetComponent<Character>().Animator.SetBool("Slash", true);
-            //    //}
-            //    //if (abilityAnimationType == "Slash")
-            //    //{ 
-            //    //    GetComponent<Character>().Animator.SetBool("Slash", true);
-            //    //}
-            //    GetComponent<Character>().Animator.SetBool("Slash", true);
-            //    int hpChangeVaried = ApplyRandomness(ability.hpDelta);
-            //    ability.currentTarget.ChangeHealth(hpChangeVaried, true);
-            //    Debug.Log($"{unitName} used {ability.abilityName} on {ability.currentTarget} for {hpChangeVaried}");
-
-            //    // abilityTarget.ChangeHealth(abilityHpDelta, true);
-            //    Debug.Log($"{unitName} used {ability.abilityName} on {ability.currentTarget} for {ability.hpDelta}");
-            //}
         }
-        // abilityTarget.currHealth += ability.HpDelta; - old code
 
-
-        // Code for things that don't just modify HP directly
-
-        // I don't believe there's any current reason to select an ability here
-        // FindAbilityTarget(ability);
 
         // Animation
         // Floating Combat Text (goes on recipient, though)
