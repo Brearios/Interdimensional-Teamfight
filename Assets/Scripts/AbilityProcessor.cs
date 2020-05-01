@@ -2,16 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AbilityProcessor : MonoBehaviour
+public class AbilityProcessor
 {
     public float cooldownCount;
     public Actor currentTarget;
-    public string abilitySlot;
+    // public string abilitySlot;
     public ScriptableAbility abilityData;    
 
     public AbilityProcessor(ScriptableAbility ability)
     {
-        abilitySlot = ability.ToString();
+        // abilitySlot = ability.ToString();
         abilityData = ability;
         if (ability.startsOnCooldown == false)
         {

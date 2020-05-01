@@ -30,16 +30,7 @@ public class Actor : MonoBehaviour
     public string role;
     public float atkRange;
     public float moveSpeed;
-    // Moved into code for each ability
-    //public float abilityRange;
-    //public float abilityCooldown;
-    //public float abilityCooldownCount;
-    //public string abilityName;
-    //public int abilityHpDelta;
-    //public float globalCooldown;
-    //public float globalCooldownCount;
-    // public float abilitySpeed; Unused
-    //public Actor abilityTarget;
+
     public Actor highThreatTarget;
     public State currentState = State.Idle;
     Color currentColor;
@@ -48,7 +39,6 @@ public class Actor : MonoBehaviour
     public Image healthBar;
     public Image healthBG;
    
-    public List<ScriptableAbility> MyAbilities;
     public List<AbilityProcessor> AbilityProcessors;
     public List<ScriptableEffect> CurrentEffects;
     public List<int> CurrentEffectsRemovalInts;
@@ -83,51 +73,32 @@ public class Actor : MonoBehaviour
         abilityPower = unit.abilityPower;
         // MageStats = GameObject.FindObjectOfType<CharacterProfile>();
 
-        MyAbilities.Add(autoAtk);
-        MyAbilities.Add(ability1);
-        MyAbilities.Add(ability2);
-        MyAbilities.Add(ability3);
-        MyAbilities.Add(potion);
-        
-        new AbilityProcessor(autoAtk);
-        new AbilityProcessor(ability1);
-        new AbilityProcessor(ability2);
-        new AbilityProcessor(ability3);
-        new AbilityProcessor(potion);
-
-        AbilityProcessor[] AbilityProcessorsArray = GameObject.FindObjectsOfType<AbilityProcessor>();
-        foreach (AbilityProcessor currentProcessor in AbilityProcessorsArray)
+        if (autoAtk)
         {
-            AbilityProcessors.Add(currentProcessor);
+            AbilityProcessor autoAtkProcessor = new AbilityProcessor(autoAtk);
+            AbilityProcessors.Add(autoAtkProcessor);
         }
-       
-        // Moved into AbilityProcessor
-        //CooldownCounts.Add(autoAtkCooldownCount);
-        //CooldownCounts.Add(autoAtkCooldownCount);
-        //CooldownCounts.Add(autoAtkCooldownCount);
-        //CooldownCounts.Add(autoAtkCooldownCount);
-        //CooldownCounts.Add(autoAtkCooldownCount);
+        if (ability1)
+        {
+            AbilityProcessor ability1Processor = new AbilityProcessor(ability1);
+            AbilityProcessors.Add(ability1Processor);
+        }
+        if (ability2)
+        {
+            AbilityProcessor ability2Processor = new AbilityProcessor(ability2);
+            AbilityProcessors.Add(ability2Processor);
+        }
+        if (ability3)
+        {
+            AbilityProcessor ability3Processor = new AbilityProcessor(ability3);
+            AbilityProcessors.Add(ability3Processor);
+        }
+        if (potion)
+        {
+            AbilityProcessor potionProcessor = new AbilityProcessor(potion);
+            AbilityProcessors.Add(potionProcessor);
+        }
 
-        // Moved to Ability Data
-        //abilityName = ability.abilityName;
-        //abilityRange = ability.abilityRange;
-        //globalCooldown = unit.globalCooldown;
-        //abilityCooldown = ability.abilityCooldowns
-
-
-        //foreach (ScriptableAbility ability in MyAbilities)
-        //{
-        //    if (ability != null)
-        //    {
-        //        if (!ability.startsOnCooldown)
-        //        {
-        //            ability.cooldownCount = ability.cooldown;
-        //        }
-        //    }
-        //}
-        
-        //abilityCooldownCount = ability.abilityStartingCooldownCredit;
-        //abilityHpDelta = (abilityPower * ability.hpDelta);
         role = unit.role;
         atkRange = unit.atkRange;
         
@@ -610,7 +581,7 @@ public class Actor : MonoBehaviour
             {
                 ApplyStatusEffect(ability.currentTarget, ability.abilityData.effect);
             }
-            else if ((ability.abilityData.targetType == ScriptableAbility.TargetType.Self) && ability.name == "Stealth")
+            else if ((ability.abilityData.targetType == ScriptableAbility.TargetType.Self) && ability.abilityData.name == "Stealth")
             {
                 ThreatScore = (ThreatScore / 2);
                 isStealthed = true;
