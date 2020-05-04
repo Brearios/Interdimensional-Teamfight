@@ -11,11 +11,15 @@ public class ScriptableEffect : ScriptableObject
     public Effect effect;
     public float effectTickDuration;
     public float totalDuration;
-    public float remainingDuration;
     public bool canStack;
     public int effectPerStack;
-    public int currentStacks;
     public int maxStacks;
+    public string effectName;
+
+    // Moved to EffectProcessor to update during play
+    // public float remainingDuration;
+    // public int currentStacks;
+
     public enum Bool { isTaunted,  }
     // public float CooldownsDeltaPerSecond; // Haste or Slow Abilities
     // public float knockbackDistance;

@@ -15,11 +15,10 @@ MonoBehaviour:
   targetType: 0
   abilityName: Auto Attack
   hpDelta: 0
-  abilityRange: 8
+  abilityRange: 5
   cooldown: 3
-  cooldownCount: 0
   startsOnCooldown: 0
+  isAutoAtk: 1
   description: 
-  currentTarget: {fileID: 0}
   effect: {fileID: 0}
   abilityCharges: 0

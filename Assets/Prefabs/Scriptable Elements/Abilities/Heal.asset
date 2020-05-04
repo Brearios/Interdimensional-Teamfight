@@ -12,14 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb4150d779a2b1143b0ae420b32688ed, type: 3}
   m_Name: Heal
   m_EditorClassIdentifier: 
-  targetType: 2
+  targetType: 3
   abilityName: Heal
   hpDelta: 5
   abilityRange: 6
   cooldown: 5
-  cooldownCount: 0
   startsOnCooldown: 0
+  isAutoAtk: 0
   description: Restore health to a friendly target.
-  currentTarget: {fileID: 0}
   effect: {fileID: 0}
   abilityCharges: 0

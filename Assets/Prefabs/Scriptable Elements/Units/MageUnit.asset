@@ -15,7 +15,7 @@ MonoBehaviour:
   unitName: Mage
   maxHealth: 100
   attackDamage: 5
-  abilityPower: 8
+  abilityPower: 6
   globalCooldown: 3
   xpWhenKilled: 25
   role: RangedDPS

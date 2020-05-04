@@ -13,14 +13,15 @@ public class AbilityProcessor
     {
         // abilitySlot = ability.ToString();
         abilityData = ability;
-        if (ability.startsOnCooldown == false)
-        {
-            cooldownCount = ability.cooldown;
-        }
-        else
-        {
-            cooldownCount = 0;
-        }
+        //if (ability.startsOnCooldown == false)
+        //{
+        //    cooldownCount = ability.cooldown;
+        //}
+        //else
+        //{
+        //    cooldownCount = 0;
+        //}
+        cooldownCount = 0;
         currentTarget = null;
     }
 

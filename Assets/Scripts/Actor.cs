@@ -38,9 +38,9 @@ public class Actor : MonoBehaviour
     public GameObject body;
     public Image healthBar;
     public Image healthBG;
-   
-    public List<AbilityProcessor> AbilityProcessors;
-    public List<ScriptableEffect> CurrentEffects;
+
+    public List<AbilityProcessor> AbilityProcessors = new List<AbilityProcessor>();
+    public List<EffectProcessor> CurrentEffects = new List<EffectProcessor>();
     public List<int> CurrentEffectsRemovalInts;
     public bool isDead;
     // public CharacterProfile MageStats;
@@ -149,11 +149,16 @@ public class Actor : MonoBehaviour
             Die();
         }
 
+        if (GameManager.Instance.DeclareVictory == true)
+        {
+            return;
+        }
+
         var pos = transform.position;
         pos.z = transform.position.y;
         transform.position = pos;
 
-        foreach (ScriptableEffect effect in CurrentEffects)
+        foreach (EffectProcessor effect in CurrentEffects)
         {
             ProcessStatusEffect(effect);
         }
@@ -172,18 +177,18 @@ public class Actor : MonoBehaviour
             return;
         }
 
-        foreach (AbilityProcessor ability in AbilityProcessors)
-        {
-            if (ability.currentTarget != null)
-            { 
-                // Taunt only affects damage ability targeting
-                if ((!isTaunted) || (ability.abilityData.targetType != ScriptableAbility.TargetType.EnemyDamage))
-                {
-                    FindAbilityTarget(ability);
-                    continue;
-                }
-            }
-        }
+
+        //foreach (AbilityProcessor ability in AbilityProcessors)
+        //{
+        //    if (ability.currentTarget = null)
+        //    { 
+        //        // Taunt only affects damage ability targeting
+        //        if ((!isTaunted) || (ability.abilityData.targetType != ScriptableAbility.TargetType.EnemyDamage))
+        //        {
+        //            FindAbilityTarget(ability);
+        //        }
+        //    }
+        //}
 
 
         /* if (currHealth > 0)
@@ -244,12 +249,8 @@ public class Actor : MonoBehaviour
         }
 
         // Check for better targets every X seconds, frequency from scriptable unit
-
-        // Moving this logic into Ability forEach loop
-        //if (isTaunted == false)
-        //{
-        //    TargetCheckLoop();
-        //}
+        TargetCheckLoop();
+        
     }
 
     void HealthBarManagement()
@@ -318,6 +319,11 @@ public class Actor : MonoBehaviour
 
     void FindPriorityEnemy()
     {
+        if (isTaunted)
+        {
+            return;
+        }
+
         Actor[] allActors = GameObject.FindObjectsOfType<Actor>();
 
         float highestThreatEnemy = -Mathf.Infinity;
@@ -389,6 +395,10 @@ public class Actor : MonoBehaviour
             {
                 if (currentActor.team == team)
                 {
+                    if (isDead)
+                    {
+                        continue;
+                    }
                     float healthPercent = (currentActor.currHealth / currentActor.maxHealth);
                     if ((healthPercent < lowestHealthPercent) && (healthPercent > 0))
                     {
@@ -400,7 +410,6 @@ public class Actor : MonoBehaviour
                 {
                     continue;
                 }
-
             }
         }
         else if (abilityProcessor.abilityData.targetType == ScriptableAbility.TargetType.FriendlyBuff)
@@ -508,33 +517,50 @@ public class Actor : MonoBehaviour
             //{
             //    iTween.RotateFrom(body, new Vector3(0, 0, 20), .4f);
             //}
+            if (highThreatTarget.currHealth <= 0)
+            {
+                highThreatTarget = null;
+            }
 
             // Random Damage based on dmgVariance stat
             int hpChangeVaried = ApplyRandomness(attackDamage);
 
             GetComponent<Character>().Animator.SetBool("Slash", true);
             highThreatTarget.ChangeHealth(-hpChangeVaried, false);
-            Debug.Log($"{unitName} attacked {highThreatTarget} for {hpChangeVaried}");
+            Debug.Log($"{unitName} attacked {highThreatTarget} for {hpChangeVaried}.");
 
             //autoAtkTarget.ChangeHealth(-attackDamage, false);
             //Debug.Log($"{unitName} attacked {autoAtkTarget} for {attackDamage}");
 
             // autoAtkTarget.currHealth -= attackDamage; - old code
-            if (highThreatTarget.currHealth <= 0)
-            {
-                highThreatTarget = null;
-            }
+            
         }
     }
     void UseAbility(AbilityProcessor ability)
     {
         // Can't set target by ability
         // if (ability.currentTarget != null)
+
+
+        // This would give them perfect reaction time
+
+        //if (abilityTarget.currHealth <= 0)
+        //{
+        //    FindAbilityTarget();
+        //}
+
         {
-            if (ability.abilityData.targetType == ScriptableAbility.TargetType.EnemyDamage)
+            if ((ability.abilityData.targetType == ScriptableAbility.TargetType.EnemyDamage) && (ability.abilityData.isAutoAtk))
             {
                 GetComponent<Character>().Animator.SetBool("Slash", true);
-                int hpChangeVaried = ApplyRandomness(attackDamage);
+                int hpChangeVaried = ApplyRandomness(attackDamage * -1);
+                ability.currentTarget.ChangeHealth(hpChangeVaried, true);
+                Debug.Log($"{unitName} used {ability.abilityData.abilityName} on {ability.currentTarget} for {hpChangeVaried}");
+            }
+            else if (ability.abilityData.targetType == ScriptableAbility.TargetType.EnemyDamage)
+            {
+                GetComponent<Character>().Animator.SetBool("Slash", true);
+                int hpChangeVaried = ApplyRandomness(abilityPower * ability.abilityData.hpDelta);
                 ability.currentTarget.ChangeHealth(hpChangeVaried, true);
                 Debug.Log($"{unitName} used {ability.abilityData.abilityName} on {ability.currentTarget} for {hpChangeVaried}");
             }
@@ -542,40 +568,6 @@ public class Actor : MonoBehaviour
             {
                 ability.currentTarget.highThreatTarget = this;
                 ApplyStatusEffect(ability.currentTarget, ability.abilityData.effect);
-
-                
-                // Old Taunt implementation to double max team threat score
-                //if ((ability.targetType == ScriptableAbility.TargetType.Self) && ability.name == "Taunt")
-                //{
-                //    // if (ability.name == "Taunt")
-                //    // {
-                //    float highestThreat = 0;
-                //    Actor[] allActors = GameObject.FindObjectsOfType<Actor>();
-                //    foreach (Actor teamThreatActor in allActors)
-                //    {
-                //        if (teamThreatActor.team != team)
-                //        {
-                //            continue;
-                //        }
-                //        else
-                //        {
-
-                //            if (teamThreatActor.ThreatScore > highestThreat)
-                //            {
-                //                highestThreat = ThreatScore;
-                //            }
-                //        }
-                //    }
-                //    /* This seems to be preventing taunting
-                //    if (highestThreat == this.ThreatScore)
-                //    {
-                //        return;
-                //    }
-                //    */
-                //    ThreatScore = (highestThreat * 2);
-                //    hasTaunted = true;
-                //    threatResetClock = 3;
-                //    // }
             }
             if (ability.abilityData.abilityName == "Stun")
             {
@@ -587,34 +579,24 @@ public class Actor : MonoBehaviour
                 isStealthed = true;
                 threatResetClock = 3;
             }
-            else
-            {
-                Debug.Log($"{unitName} used {ability.abilityData.abilityName}.");
-                
-                // This would give them perfect reaction time
-
-                //if (abilityTarget.currHealth <= 0)
-                //{
-                //    FindAbilityTarget();
-                //}
+            else if (ability.abilityData.targetType == ScriptableAbility.TargetType.FriendlyHeal)
+            {               
 
 
-                // beginAtkAnim = true;
-                //if (abilityAnimationType == "Cast")
-                //{
-                //    GetComponent<Character>().Animator.SetBool("Slash", true);
-                //}
-                //if (abilityAnimationType == "Slash")
-                //{ 
-                //    GetComponent<Character>().Animator.SetBool("Slash", true);
-                //}
                 GetComponent<Character>().Animator.SetBool("Slash", true);
-                int hpChangeVaried = ApplyRandomness(ability.abilityData.hpDelta);
+                int hpChangeVaried = ApplyRandomness(abilityPower * ability.abilityData.hpDelta);
                 ability.currentTarget.ChangeHealth(hpChangeVaried, true);
                 Debug.Log($"{unitName} used {ability.abilityData.abilityName} on {ability.currentTarget} for {hpChangeVaried}");
 
                 // abilityTarget.ChangeHealth(abilityHpDelta, true);
                 // Debug.Log($"{unitName} used {ability.abilityData.abilityName} on {ability.currentTarget} for {ability.abilityData.hpDelta}");
+            }
+            else
+            {
+                GetComponent<Character>().Animator.SetBool("Slash", true);
+                int hpChangeVaried = ApplyRandomness(abilityPower * ability.abilityData.hpDelta);
+                ability.currentTarget.ChangeHealth(hpChangeVaried, true);
+                Debug.Log($"{unitName} used {ability.abilityData.abilityName} on {ability.currentTarget} for {hpChangeVaried}");
             }
         }
 
@@ -686,6 +668,8 @@ public class Actor : MonoBehaviour
         //}
         if (isStealthed)
         {
+            // Currently threat is "locked in" once you stealth, until stealth ends.
+            // I'm not sure if I like this.
             threatResetClock -= GameManager.Instance.deltaTime;
             if (threatResetClock <= 0)
             {
@@ -694,7 +678,14 @@ public class Actor : MonoBehaviour
         }
         else
         {
-            ThreatScore = ((maxHealth / currHealth) * (attackDamage + abilityPower));
+            if (isDead)
+            {
+                ThreatScore = Mathf.NegativeInfinity;
+            }
+            else
+            {
+                ThreatScore = (((maxHealth / currHealth) * (attackDamage + abilityPower)) - (currHealth / 5));
+            }
         }
     }
 
@@ -770,16 +761,19 @@ public class Actor : MonoBehaviour
 
     // Unnecessary due to ability list change
 
-    //void TargetCheckLoop()
-    //{
-    //    targetCheckCount += GameManager.Instance.deltaTime;
-    //    if (targetCheckCount >= targetCheckFrequency)
-    //    {
-    //        FindPriorityEnemy();
-    //        FindAbilityTarget();
-    //        targetCheckCount = 0;
-    //    }
-    //}
+    void TargetCheckLoop()
+    {
+        targetCheckCount += GameManager.Instance.deltaTime;
+        if (targetCheckCount >= targetCheckFrequency)
+        {
+            FindPriorityEnemy();
+            foreach (AbilityProcessor ability in AbilityProcessors)
+        {
+            FindAbilityTarget(ability);
+        }
+            targetCheckCount = 0;
+        }
+    }
     void PlayerCheck()
     {
         //if (Actor.Team == Team.Blue)
@@ -855,45 +849,42 @@ public class Actor : MonoBehaviour
 
     public void ApplyStatusEffect (Actor actor, ScriptableEffect effect)
     {
-        actor.CurrentEffects.Add(effect);
+
+        EffectProcessor effectData = new EffectProcessor(effect);
+        actor.CurrentEffects.Add(effectData);
     }
 
-    public void ProcessStatusEffect (ScriptableEffect effect)
+    public void ProcessStatusEffect (EffectProcessor effect)
     {
         effect.remainingDuration += GameManager.Instance.deltaTime;
        
-        if (effect.effect == ScriptableEffect.Effect.Taunt)
+        if (effect.effectData.effect == ScriptableEffect.Effect.Taunt)
         {
             isTaunted = true;
-            if (effect.remainingDuration >= effect.totalDuration)
+            if (effect.remainingDuration >= effect.effectData.totalDuration)
             {
-                AddToRemoveList(effect, isTaunted);
-
-                // CurrentEffects.Remove(effect);
-                // isTaunted = false;
+                AddToRemoveList(effect);
+                isTaunted = false;
             }
         }
 
-        if (effect.effect == ScriptableEffect.Effect.Stun)
+        if (effect.effectData.effect == ScriptableEffect.Effect.Stun)
         {
             isStunned = true;
-            if (effect.remainingDuration >= effect.totalDuration)
+            if (effect.remainingDuration >= effect.effectData.totalDuration)
             {
-                AddToRemoveList(effect, isStunned);
-
-                // CurrentEffects.Remove(effect);
-                // isStunned = false;
+                AddToRemoveList(effect);
+                isStunned = false;
             }
         }
 
         // Code to process each type of effect here
     }
 
-    public void AddToRemoveList(ScriptableEffect effect, bool removedBool)
+    public void AddToRemoveList(EffectProcessor effect)
     {
         int RemoveFromCurrentEffects = CurrentEffects.IndexOf(effect);
         CurrentEffectsRemovalInts.Add(RemoveFromCurrentEffects);
-        removedBool = false;
     }
 
     public void RemoveExpiredEffect(int IndexToRemove)
