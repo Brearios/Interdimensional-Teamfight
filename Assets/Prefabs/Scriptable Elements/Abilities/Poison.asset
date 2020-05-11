@@ -16,10 +16,9 @@ MonoBehaviour:
   abilityName: Poison
   hpDelta: 0
   abilityRange: 3
-  cooldown: 0
-  cooldownCount: 0
+  cooldown: 5
   startsOnCooldown: 0
+  isAutoAtk: 0
   description: Poisons an enemy, causing damage once per second.
-  currentTarget: {fileID: 0}
-  effect: {fileID: 0}
+  effect: {fileID: 11400000, guid: ebc4f922dcc1bc84ba1a2b092556cb96, type: 2}
   abilityCharges: 0

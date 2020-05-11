@@ -5054,7 +5054,7 @@ MonoBehaviour:
   team: {fileID: 11400000, guid: 50ec59c1cc1783e4fb6314d6f0d9fc40, type: 2}
   autoAtk: {fileID: 11400000, guid: f4d8cad2a9a2b02449420d6832502937, type: 2}
   ability1: {fileID: 11400000, guid: f81ca7937fe240e4aaf8657be5ce1c02, type: 2}
-  ability2: {fileID: 0}
+  ability2: {fileID: 11400000, guid: 2767b24bdb91e4845ac391337bf3b166, type: 2}
   ability3: {fileID: 0}
   potion: {fileID: 0}
   unitName: 
@@ -5072,7 +5072,6 @@ MonoBehaviour:
   body: {fileID: 0}
   healthBar: {fileID: 9040335055171608011}
   healthBG: {fileID: 7339833728500337437}
-  CurrentEffects: []
   CurrentEffectsRemovalInts: 
   isDead: 0
   ThreatScore: 0

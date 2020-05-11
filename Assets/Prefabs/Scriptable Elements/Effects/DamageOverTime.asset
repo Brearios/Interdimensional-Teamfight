@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cf6d9c660445bc4ea3b73f5a50f852a, type: 3}
   m_Name: DamageOverTime
   m_EditorClassIdentifier: 
-  effectType: 3
-  effectName: DamageOverTime
-  effectMagnitude: 0
+  effect: 4
   effectTickDuration: 2
-  effectTotalDuration: 10
+  totalDuration: 10
   canStack: 0
-  numStacks: 0
+  totalHpDelta: -5
+  effectPerStack: 0
   maxStacks: 0
+  effectName: DamageOverTime

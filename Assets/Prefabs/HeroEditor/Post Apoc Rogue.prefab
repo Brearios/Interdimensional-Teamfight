@@ -4491,7 +4491,7 @@ MonoBehaviour:
   autoAtk: {fileID: 11400000, guid: 2bebe808ca503864c9cc1f842b32a7d1, type: 2}
   ability1: {fileID: 11400000, guid: ce80ff9f4cf65b14e82502bfb80dcb0b, type: 2}
   ability2: {fileID: 11400000, guid: e0e64450ef3e11b4ea011125f457e545, type: 2}
-  ability3: {fileID: 0}
+  ability3: {fileID: 11400000, guid: 0967b2b18fb4f4a42a194cde27ae3704, type: 2}
   potion: {fileID: 0}
   unitName: 
   maxHealth: 0
@@ -4508,8 +4508,6 @@ MonoBehaviour:
   body: {fileID: 0}
   healthBar: {fileID: 740401214152244618}
   healthBG: {fileID: 1093301209713299422}
-  MyAbilities: []
-  CurrentEffects: []
   CurrentEffectsRemovalInts: 
   isDead: 0
   ThreatScore: 0

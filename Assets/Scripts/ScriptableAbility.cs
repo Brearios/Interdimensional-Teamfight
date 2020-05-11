@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Ability", menuName = "Ability")]
 public class ScriptableAbility : ScriptableObject
 {
-    public enum TargetType { EnemyDamage, FriendlyDot, EnemyDebuff, FriendlyHeal, FriendlyHot, FriendlyBuff, Self }; // Options for all enemies or all allies or 3 enemies or 3 allies?
+    public enum TargetType { EnemyDamage, EnemyDot, EnemyDebuff, FriendlyHeal, FriendlyHot, FriendlyBuff, Self }; // Options for all enemies or all allies or 3 enemies or 3 allies?
     // EnemyDamage is highest threat with some range consideration. EnemyDebuff is highest damage. FriendlyHeal is lowest health percentage. FriendlyBuff is highest friendly damage. Self is the actor.
     public enum EffectType { Damage, Heal, Status, DamageAndStatus, HealAndStatus };
     public TargetType targetType;

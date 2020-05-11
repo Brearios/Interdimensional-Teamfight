@@ -357,7 +357,7 @@ public class Actor : MonoBehaviour
     {
         Actor[] allActors = GameObject.FindObjectsOfType<Actor>();
 
-        if (abilityProcessor.abilityData.targetType == ScriptableAbility.TargetType.EnemyDamage)
+        if ((abilityProcessor.abilityData.targetType == ScriptableAbility.TargetType.EnemyDamage) || (abilityProcessor.abilityData.targetType == ScriptableAbility.TargetType.EnemyDot))
         {
             // Target is determined in FindPriorityEnemy to set who we move toward if out of range
             abilityProcessor.currentTarget = highThreatTarget;
@@ -387,7 +387,7 @@ public class Actor : MonoBehaviour
                 }
             }
         }
-        else if (abilityProcessor.abilityData.targetType == ScriptableAbility.TargetType.FriendlyHeal)
+        else if ((abilityProcessor.abilityData.targetType == ScriptableAbility.TargetType.FriendlyHeal) || (abilityProcessor.abilityData.targetType == ScriptableAbility.TargetType.FriendlyHot))
         {
             float lowestHealthPercent = 1;
 
@@ -567,22 +567,21 @@ public class Actor : MonoBehaviour
             else if (ability.abilityData.abilityName == "Taunt")
             {
                 ability.currentTarget.highThreatTarget = this;
-                ApplyStatusEffect(ability.currentTarget, ability.abilityData.effect);
+                ApplyStatusEffect(this, ability.currentTarget, ability.abilityData.effect);
             }
-            if (ability.abilityData.abilityName == "Stun")
+            else if (ability.abilityData.abilityName == "Stun")
             {
-                ApplyStatusEffect(ability.currentTarget, ability.abilityData.effect);
+                ApplyStatusEffect(this, ability.currentTarget, ability.abilityData.effect);
             }
             else if ((ability.abilityData.targetType == ScriptableAbility.TargetType.Self) && ability.abilityData.name == "Stealth")
             {
+                // This should be moved to StatusEffectProcessor, but it also works
                 ThreatScore = (ThreatScore / 2);
                 isStealthed = true;
                 threatResetClock = 3;
             }
             else if (ability.abilityData.targetType == ScriptableAbility.TargetType.FriendlyHeal)
             {               
-
-
                 GetComponent<Character>().Animator.SetBool("Slash", true);
                 int hpChangeVaried = ApplyRandomness(abilityPower * ability.abilityData.hpDelta);
                 ability.currentTarget.ChangeHealth(hpChangeVaried, true);
@@ -590,6 +589,14 @@ public class Actor : MonoBehaviour
 
                 // abilityTarget.ChangeHealth(abilityHpDelta, true);
                 // Debug.Log($"{unitName} used {ability.abilityData.abilityName} on {ability.currentTarget} for {ability.abilityData.hpDelta}");
+            }
+            else if (ability.abilityData.targetType == ScriptableAbility.TargetType.FriendlyHot)
+            {
+                ApplyStatusEffect(this, ability.currentTarget, ability.abilityData.effect);
+            }
+            else if (ability.abilityData.targetType == ScriptableAbility.TargetType.EnemyDot)
+            {
+                ApplyStatusEffect(this, ability.currentTarget, ability.abilityData.effect);
             }
             else
             {
@@ -847,10 +854,10 @@ public class Actor : MonoBehaviour
         return;
     }
 
-    public void ApplyStatusEffect (Actor actor, ScriptableEffect effect)
+    public void ApplyStatusEffect (Actor caster, Actor actor, ScriptableEffect effect)
     {
 
-        EffectProcessor effectData = new EffectProcessor(effect);
+        EffectProcessor effectData = new EffectProcessor(effect, caster.abilityPower);
         actor.CurrentEffects.Add(effectData);
     }
 
@@ -878,7 +885,23 @@ public class Actor : MonoBehaviour
             }
         }
 
+        if (effect.effectData.effect == ScriptableEffect.Effect.HealthOverTime)
+        {
+            effect.effectTickDurationCount += GameManager.Instance.deltaTime;
+            if (effect.effectTickDurationCount >= effect.effectData.effectTickDuration)
+            {
+                ApplyOverTimeEffect(effect.hpDeltaPerTickInt);
+                effect.effectTickDurationCount -= effect.effectData.effectTickDuration;
+            }  
+        }
+
         // Code to process each type of effect here
+    }
+
+    public void ApplyOverTimeEffect(int hpDeltaPerTick)
+    {
+        ChangeHealth(hpDeltaPerTick, true);
+        Debug.Log($"{unitName} was affected by a health or damage over time effect for {hpDeltaPerTick}");
     }
 
     public void AddToRemoveList(EffectProcessor effect)

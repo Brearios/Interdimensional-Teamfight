@@ -12,11 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cf6d9c660445bc4ea3b73f5a50f852a, type: 3}
   m_Name: AbilityHaste
   m_EditorClassIdentifier: 
-  effectType: 1
-  effectName: AbilityHaste
-  effectMagnitude: 0
+  effect: 3
   effectTickDuration: 0
-  effectTotalDuration: 0
+  totalDuration: 0
   canStack: 0
-  numStacks: 0
+  effectPerStack: 0
   maxStacks: 0
+  effectName: AbilityHaste
