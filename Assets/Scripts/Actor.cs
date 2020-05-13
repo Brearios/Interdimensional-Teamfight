@@ -476,7 +476,7 @@ public class Actor : MonoBehaviour
         foreach (AbilityProcessor Processor in AbilityProcessors)
         {
             Processor.cooldownCount += GameManager.Instance.deltaTime;
-            if (Processor.cooldownCount > Processor.abilityData.cooldown)
+            if (Processor.cooldownCount >= Processor.abilityData.cooldown)
             {
                 UseAbility(Processor);
                 Processor.cooldownCount -= Processor.abilityData.cooldown;

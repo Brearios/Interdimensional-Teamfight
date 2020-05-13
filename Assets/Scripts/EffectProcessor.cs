@@ -19,8 +19,8 @@ public class EffectProcessor
         effectTickDurationCount = 0;
         remainingDuration = 0;
         effectHpDelta = effectData.totalHpDelta;
-        // Determining HoT/DoT effect - planning for 200% of direct damage/heal
-        hpDeltaPerTick = ((2 * (effectData.totalHpDelta * casterAbilityPower) * (effect.effectTickDuration / effect.totalDuration)));
+        // Determining HoT/DoT effect - planning for 100% of direct damage/heal
+        hpDeltaPerTick = ((effectData.totalHpDelta * casterAbilityPower) * (effect.effectTickDuration / effect.totalDuration));
         hpDeltaPerTickInt = (int)hpDeltaPerTick;
 
         // Stack Processing Code
