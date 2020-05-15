@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EffectProcessor
+public class EffectData
 {
     public float remainingDuration;
     public float effectTickDurationCount;
@@ -10,19 +10,20 @@ public class EffectProcessor
     public int effectHpDelta;
     public float hpDeltaPerTick;
     public int hpDeltaPerTickInt;
-    public ScriptableEffect effectData;
+    public ScriptableEffect effectSettings;
     public bool isDamage;
 
-    public EffectProcessor(ScriptableEffect effect, int casterAbilityPower)
+    public EffectData(ScriptableEffect effect, int casterAbilityPower)
     {
-        effectData = effect;
+        effectSettings = effect;
         effectTickDurationCount = 0;
         remainingDuration = 0;
-        effectHpDelta = effectData.totalHpDelta;
+        effectHpDelta = effectSettings.totalHpDelta;
         // Determining HoT/DoT effect - planning for 100% of direct damage/heal
-        hpDeltaPerTick = ((effectData.totalHpDelta * casterAbilityPower) * (effect.effectTickDuration / effect.totalDuration));
-        hpDeltaPerTickInt = (int)hpDeltaPerTick;
+        hpDeltaPerTick = ((effectSettings.totalHpDelta * casterAbilityPower) * (effect.effectTickDuration / effect.totalDuration));
 
+        hpDeltaPerTickInt = (int)hpDeltaPerTick;
+        
         // Stack Processing Code
     }
 }

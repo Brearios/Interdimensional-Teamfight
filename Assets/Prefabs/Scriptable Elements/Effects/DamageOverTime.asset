@@ -16,6 +16,7 @@ MonoBehaviour:
   effectTickDuration: 2
   totalDuration: 10
   canStack: 0
+  isDamage: 1
   totalHpDelta: -5
   effectPerStack: 0
   maxStacks: 0

@@ -40,7 +40,7 @@ public class Actor : MonoBehaviour
     public Image healthBG;
 
     public List<AbilityProcessor> AbilityProcessors = new List<AbilityProcessor>();
-    public List<EffectProcessor> CurrentEffects = new List<EffectProcessor>();
+    public List<EffectData> CurrentEffects = new List<EffectData>();
     public List<int> CurrentEffectsRemovalInts;
     public bool isDead;
     // public CharacterProfile MageStats;
@@ -158,7 +158,7 @@ public class Actor : MonoBehaviour
         pos.z = transform.position.y;
         transform.position = pos;
 
-        foreach (EffectProcessor effect in CurrentEffects)
+        foreach (EffectData effect in CurrentEffects)
         {
             ProcessStatusEffect(effect);
         }
@@ -166,6 +166,7 @@ public class Actor : MonoBehaviour
         foreach (int RemoveFromCurrentEffects in CurrentEffectsRemovalInts)
         {
             RemoveExpiredEffect(RemoveFromCurrentEffects);
+            Debug.Log("A status effect removal attempt was made.");
         }
         CurrentEffectsRemovalInts.Clear();
 
@@ -389,6 +390,7 @@ public class Actor : MonoBehaviour
         }
         else if ((abilityProcessor.abilityData.targetType == ScriptableAbility.TargetType.FriendlyHeal) || (abilityProcessor.abilityData.targetType == ScriptableAbility.TargetType.FriendlyHot))
         {
+            abilityProcessor.currentTarget = this;
             float lowestHealthPercent = 1;
 
             foreach (Actor currentActor in allActors)
@@ -856,58 +858,60 @@ public class Actor : MonoBehaviour
 
     public void ApplyStatusEffect (Actor caster, Actor actor, ScriptableEffect effect)
     {
-
-        EffectProcessor effectData = new EffectProcessor(effect, caster.abilityPower);
+        EffectData effectData = new EffectData(effect, caster.abilityPower);
         actor.CurrentEffects.Add(effectData);
     }
 
-    public void ProcessStatusEffect (EffectProcessor effect)
+    public void ProcessStatusEffect (EffectData effect)
     {
         effect.remainingDuration += GameManager.Instance.deltaTime;
-       
-        if (effect.effectData.effect == ScriptableEffect.Effect.Taunt)
+
+        if (effect.effectSettings.effect == ScriptableEffect.Effect.Stun)
         {
             isTaunted = true;
-            if (effect.remainingDuration >= effect.effectData.totalDuration)
+            if (effect.remainingDuration >= effect.effectSettings.totalDuration)
             {
                 AddToRemoveList(effect);
                 isTaunted = false;
             }
         }
 
-        if (effect.effectData.effect == ScriptableEffect.Effect.Stun)
+        if (effect.effectSettings.effect == ScriptableEffect.Effect.Stun)
         {
             isStunned = true;
-            if (effect.remainingDuration >= effect.effectData.totalDuration)
+            if (effect.remainingDuration >= effect.effectSettings.totalDuration)
             {
                 AddToRemoveList(effect);
                 isStunned = false;
             }
         }
 
-        if (effect.effectData.effect == ScriptableEffect.Effect.HealthOverTime)
+        if (effect.effectSettings.effect == ScriptableEffect.Effect.HealthOverTime)
         {
             effect.effectTickDurationCount += GameManager.Instance.deltaTime;
-            if (effect.effectTickDurationCount >= effect.effectData.effectTickDuration)
+            if (effect.effectTickDurationCount >= effect.effectSettings.effectTickDuration)
             {
-                ApplyOverTimeEffect(effect.hpDeltaPerTickInt);
-                effect.effectTickDurationCount -= effect.effectData.effectTickDuration;
-            }  
+                ApplyOverTimeEffect(effect.hpDeltaPerTickInt, effect.effectSettings.effectName);
+                effect.effectTickDurationCount -= effect.effectSettings.effectTickDuration;
+            }
+            if (effect.remainingDuration >= effect.effectSettings.totalDuration)
+            {
+                AddToRemoveList(effect);
+            }
         }
-
-        // Code to process each type of effect here
     }
 
-    public void ApplyOverTimeEffect(int hpDeltaPerTick)
+    public void ApplyOverTimeEffect(int hpDeltaPerTickInt, string effectName)
     {
-        ChangeHealth(hpDeltaPerTick, true);
-        Debug.Log($"{unitName} was affected by a health or damage over time effect for {hpDeltaPerTick}");
+        ChangeHealth(hpDeltaPerTickInt, true);
+        Debug.Log($"{unitName} was affected by {effectName} effect for {hpDeltaPerTickInt}");
     }
 
-    public void AddToRemoveList(EffectProcessor effect)
+    public void AddToRemoveList(EffectData effect)
     {
-        int RemoveFromCurrentEffects = CurrentEffects.IndexOf(effect);
-        CurrentEffectsRemovalInts.Add(RemoveFromCurrentEffects);
+        // int RemoveFromCurrentEffects = CurrentEffects.IndexOf(effect);
+        // CurrentEffectsRemovalInts.Add(RemoveFromCurrentEffects);
+        CurrentEffectsRemovalInts.Add(CurrentEffects.IndexOf(effect));
     }
 
     public void RemoveExpiredEffect(int IndexToRemove)

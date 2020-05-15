@@ -7,7 +7,7 @@ public class ScriptableEffect : ScriptableObject
 {
     // public enum EffectType { Simple, RawChange, StackingEffect, HotOrDot };
     // public EffectType effectType;
-    public enum Effect { Taunt, Stun, Slow, Haste, HealthOverTime, Buff, Debuff }
+    public enum Effect { Taunt, Stun, Slow, Haste, HealthOverTime, DamageOverTime, Buff, Debuff }
     public Effect effect;
     public float effectTickDuration;
     public float totalDuration;
