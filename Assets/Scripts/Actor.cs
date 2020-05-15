@@ -139,6 +139,13 @@ public class Actor : MonoBehaviour
             return;
         }
 
+        foreach (int RemoveFromCurrentEffects in CurrentEffectsRemovalInts)
+        {
+            RemoveExpiredEffect(RemoveFromCurrentEffects);
+            Debug.Log("A status effect removal attempt was made.");
+        }
+        CurrentEffectsRemovalInts.Clear();
+
         if (isDead)
         {
             return;
@@ -162,14 +169,6 @@ public class Actor : MonoBehaviour
         {
             ProcessStatusEffect(effect);
         }
-
-        foreach (int RemoveFromCurrentEffects in CurrentEffectsRemovalInts)
-        {
-            RemoveExpiredEffect(RemoveFromCurrentEffects);
-            Debug.Log("A status effect removal attempt was made.");
-        }
-        CurrentEffectsRemovalInts.Clear();
-
 
         UpdateThreatScore();
 
