@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetType: 7
   abilityName: 
-  hpDelta: 5
+  hpDelta: -5
   abilityRange: 0
   aoeChancetoHit: 30
   cooldown: 10

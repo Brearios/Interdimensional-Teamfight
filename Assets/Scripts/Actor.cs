@@ -617,7 +617,7 @@ public class Actor : MonoBehaviour
                             // Add randomness to the amount of damage done
                             int hpChangeVaried = ApplyRandomness(abilityPower * ability.abilityData.hpDelta);
                             AoePotentialTarget.ChangeHealth(hpChangeVaried, true);
-                            Debug.Log($"{unitName} was hit by {ability.abilityData.abilityName} for {hpChangeVaried} damage.");
+                            Debug.Log($"{AoePotentialTarget.unitName} was hit by {ability.abilityData.abilityName} for {hpChangeVaried} damage.");
                         }
                     }
                 }
