@@ -299,7 +299,7 @@ PrefabInstance:
     - target: {fileID: 1412876653394393485, guid: ccb0182f380f2574cbac818c78381a9d,
         type: 3}
       propertyPath: attackDamage
-      value: 10
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 1412876653394393485, guid: ccb0182f380f2574cbac818c78381a9d,
         type: 3}
@@ -315,6 +315,22 @@ PrefabInstance:
         type: 3}
       propertyPath: globalCooldown
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1412876653394393485, guid: ccb0182f380f2574cbac818c78381a9d,
+        type: 3}
+      propertyPath: abilityPower
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1412876653394393485, guid: ccb0182f380f2574cbac818c78381a9d,
+        type: 3}
+      propertyPath: ability1
+      value: 
+      objectReference: {fileID: 11400000, guid: 37bfff7639beeba40b246122fffa0a57,
+        type: 2}
+    - target: {fileID: 1412876653394393485, guid: ccb0182f380f2574cbac818c78381a9d,
+        type: 3}
+      propertyPath: ability2
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ccb0182f380f2574cbac818c78381a9d, type: 3}

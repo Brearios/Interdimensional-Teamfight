@@ -165,6 +165,8 @@ public class Actor : MonoBehaviour
         pos.z = transform.position.y;
         transform.position = pos;
 
+        // UpdateAlpha();
+
         foreach (EffectData effect in CurrentEffects)
         {
             ProcessStatusEffect(effect);
@@ -176,25 +178,6 @@ public class Actor : MonoBehaviour
         {
             return;
         }
-
-
-        //foreach (AbilityProcessor ability in AbilityProcessors)
-        //{
-        //    if (ability.currentTarget = null)
-        //    { 
-        //        // Taunt only affects damage ability targeting
-        //        if ((!isTaunted) || (ability.abilityData.targetType != ScriptableAbility.TargetType.EnemyDamage))
-        //        {
-        //            FindAbilityTarget(ability);
-        //        }
-        //    }
-        //}
-
-
-        /* if (currHealth > 0)
-        {
-            // UpdateAlpha();
-        } */
 
         if (currentState == State.Idle)
         {
@@ -261,34 +244,48 @@ public class Actor : MonoBehaviour
         healthBar.fillAmount = healthPercent;
     }
 
+    // Fully broken right now
     void TargetLineDisplay()
     {
         foreach (AbilityProcessor currentProcessor in AbilityProcessors)
         {
-            if ((currentProcessor.abilityData.targetType == ScriptableAbility.TargetType.EnemyDamage) && (currentProcessor.currentTarget != null))
+            if ((currentProcessor.abilityData.targetType == ScriptableAbility.TargetType.Damage) && (currentProcessor.currentTarget != null))
             {
                 Debug.DrawLine(transform.position, currentProcessor.currentTarget.transform.position);
             }
-            if ((currentProcessor.abilityData.targetType == ScriptableAbility.TargetType.EnemyDebuff) && (currentProcessor.currentTarget != null))
+            if ((currentProcessor.abilityData.targetType == ScriptableAbility.TargetType.Debuff) && (currentProcessor.currentTarget != null))
             {
                 Debug.DrawLine(transform.position, currentProcessor.currentTarget.transform.position, Color.red);
             }
-            if ((currentProcessor.abilityData.targetType == ScriptableAbility.TargetType.FriendlyBuff) && (currentProcessor.currentTarget != null))
+            if ((currentProcessor.abilityData.targetType == ScriptableAbility.TargetType.Buff) && (currentProcessor.currentTarget != null))
             {
                 Debug.DrawLine(transform.position, currentProcessor.currentTarget.transform.position, Color.blue);
             }
-            if ((currentProcessor.abilityData.targetType == ScriptableAbility.TargetType.FriendlyHeal) && (currentProcessor.currentTarget != null))
+            if ((currentProcessor.abilityData.targetType == ScriptableAbility.TargetType.Heal) && (currentProcessor.currentTarget != null))
             {
                 Debug.DrawLine(transform.position, currentProcessor.currentTarget.transform.position, Color.green);
             }
         }
     }
 
-    void UpdateAlpha() // Set Opacity based upon Health
+    void UpdateAlpha() // Set Opacity based on status
     {
-        healthPercent = (currHealth / maxHealth);
-        alphaColor = new Vector4(currentColor.r, currentColor.g, currentColor.b, healthPercent);
-        GetComponentInChildren<SpriteRenderer>().color = alphaColor;
+        // Not working, perhaps because I went from shapes to sprites
+
+        //if (isStealthed)
+        //{
+        //    alphaColor = new Vector4(currentColor.r, currentColor.g, currentColor.b, 50);
+        //    GetComponentInChildren<SpriteRenderer>().color = alphaColor;
+        //}
+        //if (!isStealthed)
+        //{
+        //    alphaColor = new Vector4(currentColor.r, currentColor.g, currentColor.b, 100);
+        //    GetComponentInChildren<SpriteRenderer>().color = alphaColor;
+        //}
+
+        //healthPercent = (currHealth / maxHealth);
+        //alphaColor = new Vector4(currentColor.r, currentColor.g, currentColor.b, healthPercent);
+        //GetComponentInChildren<SpriteRenderer>().color = alphaColor;
     }
 
     void FindNearestEnemy()
@@ -357,12 +354,12 @@ public class Actor : MonoBehaviour
     {
         Actor[] allActors = GameObject.FindObjectsOfType<Actor>();
 
-        if ((abilityProcessor.abilityData.targetType == ScriptableAbility.TargetType.EnemyDamage) || (abilityProcessor.abilityData.targetType == ScriptableAbility.TargetType.EnemyDot))
+        if ((abilityProcessor.abilityData.targetType == ScriptableAbility.TargetType.Damage) || (abilityProcessor.abilityData.targetType == ScriptableAbility.TargetType.Dot))
         {
             // Target is determined in FindPriorityEnemy to set who we move toward if out of range
             abilityProcessor.currentTarget = highThreatTarget;
         }
-        else if (abilityProcessor.abilityData.targetType == ScriptableAbility.TargetType.EnemyDebuff)
+        else if (abilityProcessor.abilityData.targetType == ScriptableAbility.TargetType.Debuff)
         {
             float highestDamageEnemy = Mathf.NegativeInfinity;
 
@@ -387,7 +384,7 @@ public class Actor : MonoBehaviour
                 }
             }
         }
-        else if ((abilityProcessor.abilityData.targetType == ScriptableAbility.TargetType.FriendlyHeal) || (abilityProcessor.abilityData.targetType == ScriptableAbility.TargetType.FriendlyHot))
+        else if ((abilityProcessor.abilityData.targetType == ScriptableAbility.TargetType.Heal) || (abilityProcessor.abilityData.targetType == ScriptableAbility.TargetType.Hot))
         {
             abilityProcessor.currentTarget = this;
             float lowestHealthPercent = 1;
@@ -413,7 +410,7 @@ public class Actor : MonoBehaviour
                 }
             }
         }
-        else if (abilityProcessor.abilityData.targetType == ScriptableAbility.TargetType.FriendlyBuff)
+        else if (abilityProcessor.abilityData.targetType == ScriptableAbility.TargetType.Buff)
         {
             float highestDamageAlly = Mathf.NegativeInfinity;
 
@@ -437,6 +434,11 @@ public class Actor : MonoBehaviour
                     }
                 }
             }
+        }
+        else if (abilityProcessor.abilityData.targetType == ScriptableAbility.TargetType.AoePercentDamage)
+        {
+            // I'm not sure if I need a target to avoid errors
+            abilityProcessor.currentTarget = this;
         }
         //else if (ability.targetType == ScriptableAbility.TargetType.Self)
         //{
@@ -551,14 +553,14 @@ public class Actor : MonoBehaviour
         //}
 
         {
-            if ((ability.abilityData.targetType == ScriptableAbility.TargetType.EnemyDamage) && (ability.abilityData.isAutoAtk))
+            if ((ability.abilityData.targetType == ScriptableAbility.TargetType.Damage) && (ability.abilityData.isAutoAtk))
             {
                 GetComponent<Character>().Animator.SetBool("Slash", true);
                 int hpChangeVaried = ApplyRandomness(attackDamage * -1);
                 ability.currentTarget.ChangeHealth(hpChangeVaried, true);
                 Debug.Log($"{unitName} used {ability.abilityData.abilityName} on {ability.currentTarget} for {hpChangeVaried}");
             }
-            else if (ability.abilityData.targetType == ScriptableAbility.TargetType.EnemyDamage)
+            else if (ability.abilityData.targetType == ScriptableAbility.TargetType.Damage)
             {
                 GetComponent<Character>().Animator.SetBool("Slash", true);
                 int hpChangeVaried = ApplyRandomness(abilityPower * ability.abilityData.hpDelta);
@@ -579,9 +581,10 @@ public class Actor : MonoBehaviour
                 // This should be moved to StatusEffectProcessor, but it also works
                 ThreatScore = (ThreatScore / 2);
                 isStealthed = true;
+
                 threatResetClock = 3;
             }
-            else if (ability.abilityData.targetType == ScriptableAbility.TargetType.FriendlyHeal)
+            else if (ability.abilityData.targetType == ScriptableAbility.TargetType.Heal)
             {               
                 GetComponent<Character>().Animator.SetBool("Slash", true);
                 int hpChangeVaried = ApplyRandomness(abilityPower * ability.abilityData.hpDelta);
@@ -591,13 +594,33 @@ public class Actor : MonoBehaviour
                 // abilityTarget.ChangeHealth(abilityHpDelta, true);
                 // Debug.Log($"{unitName} used {ability.abilityData.abilityName} on {ability.currentTarget} for {ability.abilityData.hpDelta}");
             }
-            else if (ability.abilityData.targetType == ScriptableAbility.TargetType.FriendlyHot)
+            else if (ability.abilityData.targetType == ScriptableAbility.TargetType.Hot)
             {
                 ApplyStatusEffect(this, ability.currentTarget, ability.abilityData.effect);
             }
-            else if (ability.abilityData.targetType == ScriptableAbility.TargetType.EnemyDot)
+            else if (ability.abilityData.targetType == ScriptableAbility.TargetType.Dot)
             {
                 ApplyStatusEffect(this, ability.currentTarget, ability.abilityData.effect);
+            }
+            else if (ability.abilityData.targetType == ScriptableAbility.TargetType.AoePercentDamage)
+            {
+                Actor[] allActors = GameObject.FindObjectsOfType<Actor>();
+
+                foreach (Actor AoePotentialTarget in allActors)
+                {
+                    if (AoePotentialTarget.team != team)
+                    {
+                        int roll = Random.Range(1, 100);
+                        // The ability should hit "Chance to Hit" percent of the time, so if the roll is less than that percent, it should hit.
+                        if (roll < ability.abilityData.aoeChancetoHit)
+                        {
+                            // Add randomness to the amount of damage done
+                            int hpChangeVaried = ApplyRandomness(abilityPower * ability.abilityData.hpDelta);
+                            AoePotentialTarget.ChangeHealth(hpChangeVaried, true);
+                            Debug.Log($"{unitName} was hit by {ability.abilityData.abilityName} for {hpChangeVaried} damage.");
+                        }
+                    }
+                }
             }
             else
             {

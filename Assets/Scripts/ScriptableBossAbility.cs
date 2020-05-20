@@ -24,6 +24,7 @@ public class ScriptableBossAbility : ScriptableObject
     public float chainDamageReduction;
     public float chainDurationReduction;
     public string statusEffectApplied;
+    public ScriptableEffect effect;
     // public bool transfersToOthers; I believe the enum choices make this redundant
 
 }

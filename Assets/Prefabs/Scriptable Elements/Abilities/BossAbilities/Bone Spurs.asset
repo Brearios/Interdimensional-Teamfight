@@ -12,14 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9a4b58ff135ae144a7715bb85681b8e, type: 3}
   m_Name: Bone Spurs
   m_EditorClassIdentifier: 
-  targetType: 1
+  abilityType: 0
+  targetGroup: 0
   effectType: 0
   abilityName: Bone Spurs
   minTargetsAffected: 2
-  percentPlayersAffected: 50
+  percentPlayersAffected: 60
   maxTargetsAffected: 6
   damageRadius: 0
   effectDuration: 0
   chainDistance: 0
-  damage: 25
+  damage: 30
   chainDamageReduction: 0
+  chainDurationReduction: 0
+  statusEffectApplied: 
+  effect: {fileID: 0}

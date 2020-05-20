@@ -15276,15 +15276,15 @@ MonoBehaviour:
   team: {fileID: 11400000, guid: 5448075b66749f347a9d240d37ee5609, type: 2}
   autoAtk: {fileID: 11400000, guid: 2bebe808ca503864c9cc1f842b32a7d1, type: 2}
   ability1: {fileID: 11400000, guid: e0e64450ef3e11b4ea011125f457e545, type: 2}
-  ability2: {fileID: 0}
+  ability2: {fileID: 11400000, guid: 37bfff7639beeba40b246122fffa0a57, type: 2}
   ability3: {fileID: 0}
   potion: {fileID: 0}
   unitName: 
-  maxHealth: 0
-  currHealth: 0
+  maxHealth: 1000
+  currHealth: 1000
   healthPercent: 0
-  attackDamage: 0
-  abilityPower: 0
+  attackDamage: 50
+  abilityPower: 6
   xpWhenKilled: 0
   role: 
   atkRange: 0
@@ -15294,8 +15294,6 @@ MonoBehaviour:
   body: {fileID: 0}
   healthBar: {fileID: 6051267638390038809}
   healthBG: {fileID: 3457223372735823099}
-  MyAbilities: []
-  CurrentEffects: []
   CurrentEffectsRemovalInts: 
   isDead: 0
   ThreatScore: 0
