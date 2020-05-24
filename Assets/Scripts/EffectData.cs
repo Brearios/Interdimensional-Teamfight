@@ -12,10 +12,13 @@ public class EffectData
     public int hpDeltaPerTickInt;
     public ScriptableEffect effectSettings;
     public bool isDamage;
+    public string id;
+    
 
     public EffectData(ScriptableEffect effect, int casterAbilityPower)
     {
         effectSettings = effect;
+        id = System.Guid.NewGuid().ToString();
         effectTickDurationCount = 0;
         remainingDuration = 0;
         effectHpDelta = effectSettings.totalHpDelta;

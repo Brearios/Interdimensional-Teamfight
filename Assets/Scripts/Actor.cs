@@ -41,7 +41,7 @@ public class Actor : MonoBehaviour
 
     public List<AbilityProcessor> AbilityProcessors = new List<AbilityProcessor>();
     public List<EffectData> CurrentEffects = new List<EffectData>();
-    public List<int> CurrentEffectsRemovalInts;
+    public List<string> CurrentEffectsRemovalIds;
     public bool isDead;
     // public CharacterProfile MageStats;
     public float ThreatScore;
@@ -139,12 +139,12 @@ public class Actor : MonoBehaviour
             return;
         }
 
-        foreach (int RemoveFromCurrentEffects in CurrentEffectsRemovalInts)
+        foreach (string RemoveFromCurrentEffects in CurrentEffectsRemovalIds)
         {
             RemoveExpiredEffect(RemoveFromCurrentEffects);
             Debug.Log("A status effect removal attempt was made.");
         }
-        CurrentEffectsRemovalInts.Clear();
+        CurrentEffectsRemovalIds.Clear();
 
         if (isDead)
         {
@@ -933,11 +933,12 @@ public class Actor : MonoBehaviour
     {
         // int RemoveFromCurrentEffects = CurrentEffects.IndexOf(effect);
         // CurrentEffectsRemovalInts.Add(RemoveFromCurrentEffects);
-        CurrentEffectsRemovalInts.Add(CurrentEffects.IndexOf(effect));
+        CurrentEffectsRemovalIds.Add(effect.id);
     }
 
-    public void RemoveExpiredEffect(int IndexToRemove)
+    public void RemoveExpiredEffect(string effectId)
     {
-        CurrentEffects.RemoveAt(IndexToRemove);
+        // Find the removal Id and remove that item from the list
+        CurrentEffects.Remove(CurrentEffects.Find(effectToRemove => effectToRemove.id == effectId));
     }
 }
