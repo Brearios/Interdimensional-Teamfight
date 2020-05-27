@@ -15280,8 +15280,8 @@ MonoBehaviour:
   ability3: {fileID: 0}
   potion: {fileID: 0}
   unitName: 
-  maxHealth: 1000
-  currHealth: 1000
+  maxHealth: 1500
+  currHealth: 1500
   healthPercent: 0
   attackDamage: 50
   abilityPower: 6
@@ -15294,7 +15294,7 @@ MonoBehaviour:
   body: {fileID: 0}
   healthBar: {fileID: 6051267638390038809}
   healthBG: {fileID: 3457223372735823099}
-  CurrentEffectsRemovalInts: 
+  CurrentEffectsRemovalIds: []
   isDead: 0
   ThreatScore: 0
   targetCheckCount: 0

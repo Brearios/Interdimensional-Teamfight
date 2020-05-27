@@ -15,7 +15,8 @@ MonoBehaviour:
   targetType: 2
   abilityName: Taunt
   hpDelta: 0
-  abilityRange: 3
+  abilityRange: 8
+  aoeChancetoHit: 0
   cooldown: 5
   startsOnCooldown: 0
   isAutoAtk: 0

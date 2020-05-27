@@ -16,6 +16,7 @@ MonoBehaviour:
   abilityName: Poison
   hpDelta: 0
   abilityRange: 3
+  aoeChancetoHit: 0
   cooldown: 5
   startsOnCooldown: 0
   isAutoAtk: 0

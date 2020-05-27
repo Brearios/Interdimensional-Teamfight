@@ -17,7 +17,7 @@ MonoBehaviour:
   attackDamage: 5
   abilityPower: 8
   globalCooldown: 2
-  xpWhenKilled: 25
+  xpWhenKilled: 100
   role: Tank
   team: 
   atkRange: 3

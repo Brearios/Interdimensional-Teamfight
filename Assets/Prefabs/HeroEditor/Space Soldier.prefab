@@ -11652,7 +11652,7 @@ MonoBehaviour:
   body: {fileID: 0}
   healthBar: {fileID: 3550602298816205699}
   healthBG: {fileID: 116597431547028515}
-  CurrentEffectsRemovalInts: 
+  CurrentEffectsRemovalIds: []
   isDead: 0
   ThreatScore: 0
   targetCheckCount: 0
