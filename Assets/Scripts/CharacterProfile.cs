@@ -19,4 +19,5 @@ public class CharacterProfile
     public int abilityPower;
     // public Sprite characterSprite;
     public int totalLevel;
+    public List<AbilityUnlock> AbilityUnlockList;
 }
