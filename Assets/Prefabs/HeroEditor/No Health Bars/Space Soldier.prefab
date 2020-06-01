@@ -7657,7 +7657,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   team: {fileID: 0}
-  ability: {fileID: 0}
+  autoAtk: {fileID: 0}
+  ability1: {fileID: 0}
+  ability2: {fileID: 0}
+  ability3: {fileID: 0}
+  potion: {fileID: 0}
   unitName: 
   maxHealth: 0
   currHealth: 0
@@ -7665,35 +7669,31 @@ MonoBehaviour:
   attackDamage: 0
   abilityPower: 0
   xpWhenKilled: 0
-  abilityHpDelta: 0
-  globalCooldown: 0
-  globalCooldownCount: 0
   role: 
   atkRange: 0
-  abilityRange: 0
-  abilityCooldown: 0
-  abilityCooldownCount: 0
-  abilityName: 
   moveSpeed: 0
-  abilitySpeed: 0
+  highThreatTarget: {fileID: 0}
   currentState: 0
   body: {fileID: 0}
   healthBar: {fileID: 0}
   healthBG: {fileID: 0}
-  autoAtkTarget: {fileID: 0}
-  abilityTarget: {fileID: 0}
-  CurrentEffects: []
+  CurrentEffectsRemovalIds: []
   isDead: 0
   ThreatScore: 0
   targetCheckCount: 0
   targetCheckFrequency: 0
   hasTaunted: 0
+  isTaunted: 0
+  isStunned: 0
   threatResetClock: 0
   isPlayer: 0
   beginAtkAnim: 0
   isStealthed: 0
   xpAdded: 0
   abilityAnimationType: 
+  dmgVariance: 0
+  debuggingID: 0
+  debugShowTargetLines: 0
   FloatingTextPrefab: {fileID: 3012059549555167978, guid: 1e98c7aa83e776648ae16b3785ac6c38,
     type: 3}
 --- !u!114 &114006644524632173
