@@ -18,11 +18,11 @@ public class Actor : MonoBehaviour
     public ScriptableAbility ability3;
     public ScriptableAbility potion;
 
-    public AbilityUnlock autoAtkUnlock;
-    public AbilityUnlock ability1Unlock;
-    public AbilityUnlock ability2Unlock;
-    public AbilityUnlock ability3Unlock;
-    public AbilityUnlock potionUnlock;
+    //public AbilityUnlock autoAtkUnlock;
+    //public AbilityUnlock ability1Unlock;
+    //public AbilityUnlock ability2Unlock;
+    //public AbilityUnlock ability3Unlock;
+    //public AbilityUnlock potionUnlock;
 
     public List<IChangeState> stateChangeListeners = new List<IChangeState>();  // List of Monobehaviours that need to listen for state changes
 
@@ -80,36 +80,66 @@ public class Actor : MonoBehaviour
         // MageStats = GameObject.FindObjectOfType<CharacterProfile>();
 
         CharacterProfile currentProfile = PlayerProfile.Instance.GetCharacterProfileForUnit(unit);
-        //currentProfile.AbilityUnlocks.Add(autoAtkUnlock);
-        //currentProfile.AbilityUnlocks.Add(ability1Unlock);
-        //currentProfile.AbilityUnlocks.Add(ability1Unlock);
-        //currentProfile.AbilityUnlocks.Add(ability1Unlock);
-        //currentProfile.AbilityUnlocks.Add(potionUnlock);
 
-        if ((autoAtk) && (currentProfile.AbilityUnlocks.Contains(autoAtkUnlock)))
+        // Check that abilities exist/are defined and that they're unlocked before running them
+    if (isPlayer)
         {
-            AbilityProcessor autoAtkProcessor = new AbilityProcessor(autoAtk);
-            AbilityProcessors.Add(autoAtkProcessor);
+            // Old implementation
+            //if ((autoAtk) && (currentProfile.AbilityUnlocks.Contains(autoAtkUnlock)))
+            // New implementation based on length
+            if ((autoAtk) && ((currentProfile.autoAtkUnlock = true)))
+            {
+                AbilityProcessor autoAtkProcessor = new AbilityProcessor(autoAtk);
+                AbilityProcessors.Add(autoAtkProcessor);
+            }
+            if ((ability1) && ((currentProfile.ability1Unlock = true)))
+            {
+                AbilityProcessor ability1Processor = new AbilityProcessor(ability1);
+                AbilityProcessors.Add(ability1Processor);
+            }
+            if ((ability2) && ((currentProfile.ability2Unlock = true)))
+            {
+                AbilityProcessor ability2Processor = new AbilityProcessor(ability2);
+                AbilityProcessors.Add(ability2Processor);
+            }
+            if ((ability3) && ((currentProfile.ability3Unlock = true)))
+            {
+                AbilityProcessor ability3Processor = new AbilityProcessor(ability3);
+                AbilityProcessors.Add(ability3Processor);
+            }
+            if ((potion) && ((currentProfile.potionUnlock = true)))
+            {
+                AbilityProcessor potionProcessor = new AbilityProcessor(potion);
+                AbilityProcessors.Add(potionProcessor);
+            }
         }
-        if ((ability1) && (currentProfile.AbilityUnlocks.Contains(ability1Unlock)))
+    else
         {
-            AbilityProcessor ability1Processor = new AbilityProcessor(ability1);
-            AbilityProcessors.Add(ability1Processor);
-        }
-        if ((ability2) && (currentProfile.AbilityUnlocks.Contains(ability2Unlock)))
-        {
-            AbilityProcessor ability2Processor = new AbilityProcessor(ability2);
-            AbilityProcessors.Add(ability2Processor);
-        }
-        if ((ability3) && (currentProfile.AbilityUnlocks.Contains(ability3Unlock)))
-        {
-            AbilityProcessor ability3Processor = new AbilityProcessor(ability3);
-            AbilityProcessors.Add(ability3Processor);
-        }
-        if ((potion) && (currentProfile.AbilityUnlocks.Contains(potionUnlock)))
-        {
-            AbilityProcessor potionProcessor = new AbilityProcessor(potion);
-            AbilityProcessors.Add(potionProcessor);
+            if (autoAtk)
+            {
+                AbilityProcessor autoAtkProcessor = new AbilityProcessor(autoAtk);
+                AbilityProcessors.Add(autoAtkProcessor);
+            }
+            if (ability1)
+            {
+                AbilityProcessor ability1Processor = new AbilityProcessor(ability1);
+                AbilityProcessors.Add(ability1Processor);
+            }
+            if (ability2)
+            {
+                AbilityProcessor ability2Processor = new AbilityProcessor(ability2);
+                AbilityProcessors.Add(ability2Processor);
+            }
+            if (ability3)
+            {
+                AbilityProcessor ability3Processor = new AbilityProcessor(ability3);
+                AbilityProcessors.Add(ability3Processor);
+            }
+            if (potion)
+            {
+                AbilityProcessor potionProcessor = new AbilityProcessor(potion);
+                AbilityProcessors.Add(potionProcessor);
+            }
         }
 
         role = unit.role;

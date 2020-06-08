@@ -5,7 +5,15 @@ using UnityEngine;
 [System.Serializable]
 public class AbilityUnlock
 {
-    // Class for tracking whether an ability has been unlocked
+    string name;
     ScriptableAbility ability;
-    // bool unlocked; - I can just have anything in the list be unlocked
+    bool unlocked;
+
+
+    //public AbilityUnlock(string abilityName, ScriptableAbility uAbility)
+    //{
+    //    name = abilityName;
+    //    ability = uAbility;
+    //    unlocked = true;
+    //}
 }

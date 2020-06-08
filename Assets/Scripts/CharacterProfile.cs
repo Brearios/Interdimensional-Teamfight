@@ -17,6 +17,11 @@ public class CharacterProfile
     public int health;
     public int atk;
     public int abilityPower;
+    public bool autoAtkUnlock;
+    public bool ability1Unlock;
+    public bool ability2Unlock = false;
+    public bool ability3Unlock = false;
+    public bool potionUnlock = false;
     // public Sprite characterSprite;
     public int totalLevel;
     //public AbilityUnlock autoatk;

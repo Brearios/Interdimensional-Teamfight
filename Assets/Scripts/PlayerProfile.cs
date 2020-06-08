@@ -12,11 +12,16 @@ public class PlayerProfile : MonoBehaviour
     public CharacterProfile rogueHero;
     public int currentEditingInteger;
     public int nextBattleScene;
-    public AbilityUnlock autoAtkUnlock;
-    public AbilityUnlock ability1Unlock;
-    public AbilityUnlock ability2Unlock;
-    public AbilityUnlock ability3Unlock;
-    public AbilityUnlock potionUnlock;
+    public ScriptableAbility autoAtk;
+    public ScriptableAbility ability1;
+    public ScriptableAbility ability2;
+    public ScriptableAbility ability3;
+    public ScriptableAbility potion;
+    //public AbilityUnlock autoAtkUnlock;
+    //public AbilityUnlock ability1Unlock;
+    //public AbilityUnlock ability2Unlock;
+    //public AbilityUnlock ability3Unlock;
+    //public AbilityUnlock potionUnlock;
 
 
 
@@ -73,10 +78,14 @@ public class PlayerProfile : MonoBehaviour
         // Sets the current editing character to the first one at the start of the script
         CurrentEditingCharacter = characterProfiles[currentEditingInteger];
 
+        //foreach (CharacterProfile characterStartupProfile in characterProfiles)
+        //{
+        //    EnsureInitialUnlockedAbilities(characterStartupProfile, "autoAtk", autoAtk, autoAtkUnlock);
+        //    EnsureInitialUnlockedAbilities(characterStartupProfile, "ability1", ability1, ability1Unlock);
+        //}
         foreach (CharacterProfile characterStartupProfile in characterProfiles)
         {
-            EnsureInitialUnlockedAbilities(characterStartupProfile, autoAtkUnlock);
-            EnsureInitialUnlockedAbilities(characterStartupProfile, ability1Unlock);
+            EnsureInitialUnlockedAbilities(characterStartupProfile);
         }
     }
 
@@ -93,9 +102,19 @@ public class PlayerProfile : MonoBehaviour
     }
 
     // Add default unlocked abilities to the list
-    void EnsureInitialUnlockedAbilities(CharacterProfile listProfile, AbilityUnlock unlockedAbility)
+    //void EnsureInitialUnlockedAbilities(CharacterProfile listProfile, string abilityName, ScriptableAbility ability, AbilityUnlock unlockedAbility)
+    //{
+    //    AbilityUnlock unlockAbility = new AbilityUnlock(abilityName, ability);
+    //    listProfile.AbilityUnlocks.Add(unlockAbility);
+    //}
+    void EnsureInitialUnlockedAbilities(CharacterProfile unlockProfile)
     {
-        listProfile.AbilityUnlocks.Add(unlockedAbility);
+        unlockProfile.autoAtkUnlock = true;
+        unlockProfile.ability1Unlock = true;
+        //if (unlockProfile.ability2Unlock = null)
+        //{
+        //    unlockProfile.ability2Unlock = false;
+        //}
     }
 
 
