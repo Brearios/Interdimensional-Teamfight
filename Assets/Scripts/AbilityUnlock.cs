@@ -7,5 +7,5 @@ public class AbilityUnlock
 {
     // Class for tracking whether an ability has been unlocked
     ScriptableAbility ability;
-    bool unlocked = false;
+    // bool unlocked; - I can just have anything in the list be unlocked
 }

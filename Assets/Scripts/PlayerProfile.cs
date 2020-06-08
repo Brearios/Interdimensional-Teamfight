@@ -6,13 +6,19 @@ using UnityEngine.SceneManagement;
 public class PlayerProfile : MonoBehaviour
 {
     public static PlayerProfile Instance;
-    public int nextBattleScene;
     public CharacterProfile mageHero;
     public CharacterProfile warriorHero;
     public CharacterProfile priestHero;
     public CharacterProfile rogueHero;
     public int currentEditingInteger;
-    
+    public int nextBattleScene;
+    public AbilityUnlock autoAtkUnlock;
+    public AbilityUnlock ability1Unlock;
+    public AbilityUnlock ability2Unlock;
+    public AbilityUnlock ability3Unlock;
+    public AbilityUnlock potionUnlock;
+
+
 
     // public Dictionary<ScriptableUnit, CharacterProfile> characterProfiles;
     public List<CharacterProfile> characterProfiles = new List<CharacterProfile>();
@@ -66,6 +72,12 @@ public class PlayerProfile : MonoBehaviour
         currentEditingInteger = 0;
         // Sets the current editing character to the first one at the start of the script
         CurrentEditingCharacter = characterProfiles[currentEditingInteger];
+
+        foreach (CharacterProfile characterStartupProfile in characterProfiles)
+        {
+            EnsureInitialUnlockedAbilities(characterStartupProfile, autoAtkUnlock);
+            EnsureInitialUnlockedAbilities(characterStartupProfile, ability1Unlock);
+        }
     }
 
     void Start()
@@ -78,6 +90,12 @@ public class PlayerProfile : MonoBehaviour
     void Update()
     {
         CurrentEditingCharacter = characterProfiles[currentEditingInteger];
+    }
+
+    // Add default unlocked abilities to the list
+    void EnsureInitialUnlockedAbilities(CharacterProfile listProfile, AbilityUnlock unlockedAbility)
+    {
+        listProfile.AbilityUnlocks.Add(unlockedAbility);
     }
 
 

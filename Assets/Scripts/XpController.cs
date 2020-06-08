@@ -28,27 +28,6 @@ public class XpController : MonoBehaviour
     {
         SceneCharacter = PlayerProfile.Instance.CurrentEditingCharacter;
     }
-        // Ultra-clunky original method:
-        // SceneCharacter = GameObject.FindObjectOfType<CharacterProfile>();
-
-        // Even clunkier temporary method:
-    //    int SceneName = SceneManager.GetActiveScene().buildIndex;
-    //    switch (SceneName)
-    //    {
-    //        case 2:
-    //            SceneCharacter = PlayerProfile.Instance.mageHero;
-    //            break;
-    //        case 3:
-    //            SceneCharacter = PlayerProfile.Instance.priestHero;
-    //            break;
-    //        case 4:
-    //            SceneCharacter = PlayerProfile.Instance.warriorHero;
-    //            break;
-    //        default:
-    //            SceneCharacter = null;
-    //            break;
-    //    }
-    //}
 
     // Update is called once per frame
     void Update()
@@ -67,19 +46,7 @@ public class XpController : MonoBehaviour
         {
             SceneCharacter.characterAvailableXP -= nextXPCost;
             SceneCharacter.healthArrayLevel++;
-            // i++;
             nextXPCost = xpCosts[indexOfXpCosts];
-            // healthIndex++; - Wrong way to calculate, didn't allow persistence
-            // extra health for warriors
-            // Multiplying in Actor
-            //if (SceneCharacter == PlayerProfile.Instance.warriorHero)
-            //{
-            //    SceneCharacter.health = (3 * healthLevel[SceneCharacter.healthArrayLevel]);
-            //}
-            //else
-            //{
-            //    SceneCharacter.health = healthLevel[SceneCharacter.healthArrayLevel];
-            //}
             SceneCharacter.health = healthLevel[SceneCharacter.healthArrayLevel];
             IncrementLevel();
         }

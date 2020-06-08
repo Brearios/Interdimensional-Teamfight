@@ -19,5 +19,12 @@ public class CharacterProfile
     public int abilityPower;
     // public Sprite characterSprite;
     public int totalLevel;
-    public List<AbilityUnlock> AbilityUnlockList;
+    //public AbilityUnlock autoatk;
+    //public AbilityUnlock ability1;
+    //public AbilityUnlock ability2;
+    //public AbilityUnlock ability3;
+    //public AbilityUnlock potion;
+    //public List<AbilityUnlock> AbilityUnlocks = new List<AbilityUnlock>(){ autoAtk, ability1, ability2, ability3, potion };
+    public List<AbilityUnlock> AbilityUnlocks;
+    // Each character should have autoAtk and their first ability unlocked by default, but will need to unlock abilities 2 & 3 and their potion.
 }

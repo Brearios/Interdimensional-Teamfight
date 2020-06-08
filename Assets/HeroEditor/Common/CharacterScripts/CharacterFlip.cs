@@ -18,10 +18,10 @@ namespace Assets.HeroEditor.Common.CharacterScripts
 			{
 				if (GetComponent<Actor>().highThreatTarget.transform.position.x < transform.position.x) scale.x *= -1;
 			}
-            else
-            {
-                if (Camera.main.ScreenToWorldPoint(Input.mousePosition).x < transform.position.x) scale.x *= -1;
-            }
+			else
+			{
+				if (Camera.main.ScreenToWorldPoint(Input.mousePosition).x < transform.position.x) scale.x *= -1;
+			}
 
 			transform.localScale = scale;
 		}
