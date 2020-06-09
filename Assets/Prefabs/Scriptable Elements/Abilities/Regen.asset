@@ -16,9 +16,11 @@ MonoBehaviour:
   abilityName: Regen
   hpDelta: 0
   abilityRange: 6
+  aoeChancetoHit: 0
   cooldown: 5
   startsOnCooldown: 0
   isAutoAtk: 0
-  description: Restore health each second.
+  description: Restore health to the friendly target each second.
   effect: {fileID: 11400000, guid: a1af52d0fb6337b49b001d668e3fda3d, type: 2}
   abilityCharges: 0
+  unlockCost: 0

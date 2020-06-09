@@ -61,6 +61,10 @@ public class PlayerProfile : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(this);
+            //foreach (CharacterProfile newGameProfile in characterProfiles)
+            //{
+            //    LockHighLevelAbilities(newGameProfile);
+            //}
         }
         else
         {
@@ -115,6 +119,13 @@ public class PlayerProfile : MonoBehaviour
         //{
         //    unlockProfile.ability2Unlock = false;
         //}
+    }
+
+    void LockHighLevelAbilities(CharacterProfile lockProfile)
+    {
+        lockProfile.ability2Unlock = false;
+        lockProfile.ability3Unlock = false;
+        lockProfile.potionUnlock = false;
     }
 
 

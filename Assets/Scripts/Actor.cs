@@ -87,27 +87,27 @@ public class Actor : MonoBehaviour
             // Old implementation
             //if ((autoAtk) && (currentProfile.AbilityUnlocks.Contains(autoAtkUnlock)))
             // New implementation based on length
-            if ((autoAtk) && ((currentProfile.autoAtkUnlock = true)))
+            if ((autoAtk) && ((currentProfile.autoAtkUnlock == true)))
             {
                 AbilityProcessor autoAtkProcessor = new AbilityProcessor(autoAtk);
                 AbilityProcessors.Add(autoAtkProcessor);
             }
-            if ((ability1) && ((currentProfile.ability1Unlock = true)))
+            if ((ability1) && ((currentProfile.ability1Unlock == true)))
             {
                 AbilityProcessor ability1Processor = new AbilityProcessor(ability1);
                 AbilityProcessors.Add(ability1Processor);
             }
-            if ((ability2) && ((currentProfile.ability2Unlock = true)))
+            if ((ability2) && ((currentProfile.ability2Unlock == true)))
             {
                 AbilityProcessor ability2Processor = new AbilityProcessor(ability2);
                 AbilityProcessors.Add(ability2Processor);
             }
-            if ((ability3) && ((currentProfile.ability3Unlock = true)))
+            if ((ability3) && ((currentProfile.ability3Unlock == true)))
             {
                 AbilityProcessor ability3Processor = new AbilityProcessor(ability3);
                 AbilityProcessors.Add(ability3Processor);
             }
-            if ((potion) && ((currentProfile.potionUnlock = true)))
+            if ((potion) && ((currentProfile.potionUnlock == true)))
             {
                 AbilityProcessor potionProcessor = new AbilityProcessor(potion);
                 AbilityProcessors.Add(potionProcessor);

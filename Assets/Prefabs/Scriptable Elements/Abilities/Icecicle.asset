@@ -16,9 +16,11 @@ MonoBehaviour:
   abilityName: Icecicle
   hpDelta: -3
   abilityRange: 5
+  aoeChancetoHit: 0
   cooldown: 5
   startsOnCooldown: 0
   isAutoAtk: 0
-  description: Deal damage and slow an enemy's attack speed.
+  description: Direct damage with a shard of ice.
   effect: {fileID: 0}
   abilityCharges: 0
+  unlockCost: 0

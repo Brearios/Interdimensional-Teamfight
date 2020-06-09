@@ -19,9 +19,9 @@ public class CharacterProfile
     public int abilityPower;
     public bool autoAtkUnlock;
     public bool ability1Unlock;
-    public bool ability2Unlock = false;
-    public bool ability3Unlock = false;
-    public bool potionUnlock = false;
+    public bool ability2Unlock;
+    public bool ability3Unlock;
+    public bool potionUnlock;
     // public Sprite characterSprite;
     public int totalLevel;
     //public AbilityUnlock autoatk;

@@ -16,9 +16,11 @@ MonoBehaviour:
   abilityName: Subtlety
   hpDelta: 0
   abilityRange: 1
+  aoeChancetoHit: 0
   cooldown: 5
   startsOnCooldown: 0
   isAutoAtk: 0
-  description: Cut threat by half
+  description: Fade into the background, reducing threat by half.
   effect: {fileID: 0}
   abilityCharges: 0
+  unlockCost: 0

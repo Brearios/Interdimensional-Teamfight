@@ -28,4 +28,5 @@ public class ScriptableAbility : ScriptableObject
     public float abilityCharges; // Not sure if we'll do this
     // public bool isTauntable; Unnecessary due to use of TargetType - only EnemyDamage is tauntable
     // public int rank; Do I want ranks?
+    public int unlockCost;
 }
