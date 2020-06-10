@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UIMenuControl : MonoBehaviour
 {
@@ -25,10 +26,11 @@ public class UIMenuControl : MonoBehaviour
     }
     public void RootMenu()
     {
-        rootMenuCanvas.SetActive(true);
-        statUpgradeCanvas.SetActive(false);
-        characterAbilitiesCanvas.SetActive(false);
-        craftedUpgradesCanvas.SetActive(false);
+        SceneManager.LoadScene(1);
+        //rootMenuCanvas.SetActive(true);
+        //statUpgradeCanvas.SetActive(false);
+        //characterAbilitiesCanvas.SetActive(false);
+        //craftedUpgradesCanvas.SetActive(false);
     }
 
     public void StatUpgrade()

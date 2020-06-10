@@ -367,7 +367,7 @@ GameObject:
   - component: {fileID: 48700305}
   - component: {fileID: 48700304}
   m_Layer: 5
-  m_Name: AttackDamageButton
+  m_Name: Ability3Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -393,7 +393,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 240, y: -20}
-  m_SizeDelta: {x: 100, y: 90}
+  m_SizeDelta: {x: 200, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &48700304
 MonoBehaviour:
@@ -404,9 +404,40 @@ MonoBehaviour:
   m_GameObject: {fileID: 48700302}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5e84bac2373e9a43afbbf22081c8916, type: 3}
+  m_Script: {fileID: 11500000, guid: f9cd973e8afa0194ca7283e73847212d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  xpCosts: 640000006c000000740000007e00000088000000930000009f000000ab000000b9000000c8000000d8000000ea000000fd00000011010000270100003f010000590100007401000092010000b3010000
+  nextXPCost: 0
+  indexOfXpCosts: 0
+  healthArrayLevel: 0
+  atkArrayLevel: 0
+  abilityArrayLevel: 0
+  atkLevel: 050000000600000007000000090000000a0000000c0000000e00000010000000110000001200000013000000140000001600000017000000180000001a0000001b0000001d0000001f0000002000000022000000
+  abilityLevel: 090000000b0000000d0000000e0000000f000000100000001100000012000000140000001500000016000000180000001a0000001b0000001d0000001f00000021000000230000002500000027000000
+  healthLevel: 640000006e00000078000000840000008f0000009b000000a8000000b5000000c3000000d2000000e2000000f20000000301000015010000280100003c01000051010000660100007d01000095010000af010000c9010000e501000002020000
+  warriorHealthLevel: 2c0100004a0100006a0100008b010000ad010000d2010000f8010000200200004a02000077020000a5020000d60200000a0300003f03000078030000b3030000f20300003304000078040000c00400000c0500005c050000af05000007060000
+  ability2UnlockCost: 500
+  ability3UnlockCost: 750
+  potionUnlockCost: 1000
+  SceneCharacter:
+    heroName: 
+    characterTotalXP: 0
+    characterAvailableXP: 0
+    healthArrayLevel: 0
+    atkArrayLevel: 0
+    abilityArrayLevel: 0
+    nextXPCost: 0
+    health: 0
+    atk: 0
+    abilityPower: 0
+    autoAtkUnlock: 0
+    ability1Unlock: 0
+    ability2Unlock: 0
+    ability3Unlock: 0
+    potionUnlock: 0
+    totalLevel: 0
+    AbilityUnlocks: []
 --- !u!114 &48700305
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -451,7 +482,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 48700304}
-        m_MethodName: AdvanceScene
+        m_MethodName: ThirdAbilityUnlockButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -534,7 +565,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 79, y: -2}
+  m_AnchoredPosition: {x: 120, y: -2}
   m_SizeDelta: {x: 30, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &87404286
@@ -559,6 +590,9 @@ MonoBehaviour:
   abilityLevel: 090000000b0000000d0000000e0000000f000000100000001100000012000000140000001500000016000000180000001a0000001b0000001d0000001f00000021000000230000002500000027000000
   healthLevel: 640000006e00000078000000840000008f0000009b000000a8000000b5000000c3000000d2000000e2000000f20000000301000015010000280100003c01000051010000660100007d01000095010000af010000c9010000e501000002020000
   warriorHealthLevel: 2c0100004a0100006a0100008b010000ad010000d2010000f8010000200200004a02000077020000a5020000d60200000a0300003f03000078030000b3030000f20300003304000078040000c00400000c0500005c050000af05000007060000
+  ability2UnlockCost: 500
+  ability3UnlockCost: 750
+  potionUnlockCost: 1000
   SceneCharacter:
     heroName: 
     characterTotalXP: 0
@@ -570,8 +604,13 @@ MonoBehaviour:
     health: 0
     atk: 0
     abilityPower: 0
+    autoAtkUnlock: 0
+    ability1Unlock: 0
+    ability2Unlock: 0
+    ability3Unlock: 0
+    potionUnlock: 0
     totalLevel: 0
-    AbilityUnlockList: []
+    AbilityUnlocks: []
 --- !u!114 &87404287
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -814,6 +853,9 @@ MonoBehaviour:
   abilityLevel: 090000000b0000000d0000000e0000000f000000100000001100000012000000140000001500000016000000180000001a0000001b0000001d0000001f00000021000000230000002500000027000000
   healthLevel: 640000006e00000078000000840000008f0000009b000000a8000000b5000000c3000000d2000000e2000000f20000000301000015010000280100003c01000051010000660100007d01000095010000af010000c9010000e501000002020000
   warriorHealthLevel: 2c0100004a0100006a0100008b010000ad010000d2010000f8010000200200004a02000077020000a5020000d60200000a0300003f03000078030000b3030000f20300003304000078040000c00400000c0500005c050000af05000007060000
+  ability2UnlockCost: 500
+  ability3UnlockCost: 750
+  potionUnlockCost: 1000
   SceneCharacter:
     heroName: 
     characterTotalXP: 0
@@ -825,8 +867,13 @@ MonoBehaviour:
     health: 0
     atk: 0
     abilityPower: 0
+    autoAtkUnlock: 0
+    ability1Unlock: 0
+    ability2Unlock: 0
+    ability3Unlock: 0
+    potionUnlock: 0
     totalLevel: 0
-    AbilityUnlockList: []
+    AbilityUnlocks: []
 --- !u!1 &93802716
 GameObject:
   m_ObjectHideFlags: 0
@@ -1108,6 +1155,9 @@ MonoBehaviour:
   abilityLevel: 090000000b0000000d0000000e0000000f000000100000001100000012000000140000001500000016000000180000001a0000001b0000001d0000001f00000021000000230000002500000027000000
   healthLevel: 640000006e00000078000000840000008f0000009b000000a8000000b5000000c3000000d2000000e2000000f20000000301000015010000280100003c01000051010000660100007d01000095010000af010000c9010000e501000002020000
   warriorHealthLevel: 2c0100004a0100006a0100008b010000ad010000d2010000f8010000200200004a02000077020000a5020000d60200000a0300003f03000078030000b3030000f20300003304000078040000c00400000c0500005c050000af05000007060000
+  ability2UnlockCost: 500
+  ability3UnlockCost: 750
+  potionUnlockCost: 1000
   SceneCharacter:
     heroName: 
     characterTotalXP: 0
@@ -1119,8 +1169,13 @@ MonoBehaviour:
     health: 0
     atk: 0
     abilityPower: 0
+    autoAtkUnlock: 0
+    ability1Unlock: 0
+    ability2Unlock: 0
+    ability3Unlock: 0
+    potionUnlock: 0
     totalLevel: 0
-    AbilityUnlockList: []
+    AbilityUnlocks: []
 --- !u!114 &142685211
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1558,6 +1613,9 @@ MonoBehaviour:
   abilityLevel: 090000000b0000000d0000000e0000000f000000100000001100000012000000140000001500000016000000180000001a0000001b0000001d0000001f00000021000000230000002500000027000000
   healthLevel: 640000006e00000078000000840000008f0000009b000000a8000000b5000000c3000000d2000000e2000000f20000000301000015010000280100003c01000051010000660100007d01000095010000af010000c9010000e501000002020000
   warriorHealthLevel: 2c0100004a0100006a0100008b010000ad010000d2010000f8010000200200004a02000077020000a5020000d60200000a0300003f03000078030000b3030000f20300003304000078040000c00400000c0500005c050000af05000007060000
+  ability2UnlockCost: 500
+  ability3UnlockCost: 750
+  potionUnlockCost: 1000
   SceneCharacter:
     heroName: 
     characterTotalXP: 0
@@ -1569,8 +1627,13 @@ MonoBehaviour:
     health: 0
     atk: 0
     abilityPower: 0
+    autoAtkUnlock: 0
+    ability1Unlock: 0
+    ability2Unlock: 0
+    ability3Unlock: 0
+    potionUnlock: 0
     totalLevel: 0
-    AbilityUnlockList: []
+    AbilityUnlocks: []
 --- !u!1 &198767032
 GameObject:
   m_ObjectHideFlags: 0
@@ -2493,6 +2556,9 @@ MonoBehaviour:
   abilityLevel: 090000000b0000000d0000000e0000000f000000100000001100000012000000140000001500000016000000180000001a0000001b0000001d0000001f00000021000000230000002500000027000000
   healthLevel: 640000006e00000078000000840000008f0000009b000000a8000000b5000000c3000000d2000000e2000000f20000000301000015010000280100003c01000051010000660100007d01000095010000af010000c9010000e501000002020000
   warriorHealthLevel: 2c0100004a0100006a0100008b010000ad010000d2010000f8010000200200004a02000077020000a5020000d60200000a0300003f03000078030000b3030000f20300003304000078040000c00400000c0500005c050000af05000007060000
+  ability2UnlockCost: 500
+  ability3UnlockCost: 750
+  potionUnlockCost: 1000
   SceneCharacter:
     heroName: 
     characterTotalXP: 0
@@ -2504,8 +2570,13 @@ MonoBehaviour:
     health: 0
     atk: 0
     abilityPower: 0
+    autoAtkUnlock: 0
+    ability1Unlock: 0
+    ability2Unlock: 0
+    ability3Unlock: 0
+    potionUnlock: 0
     totalLevel: 0
-    AbilityUnlockList: []
+    AbilityUnlocks: []
 --- !u!114 &323592864
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2864,7 +2935,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 79, y: -1}
+  m_AnchoredPosition: {x: 120, y: -1}
   m_SizeDelta: {x: 30, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &382936415
@@ -2889,6 +2960,9 @@ MonoBehaviour:
   abilityLevel: 090000000b0000000d0000000e0000000f000000100000001100000012000000140000001500000016000000180000001a0000001b0000001d0000001f00000021000000230000002500000027000000
   healthLevel: 640000006e00000078000000840000008f0000009b000000a8000000b5000000c3000000d2000000e2000000f20000000301000015010000280100003c01000051010000660100007d01000095010000af010000c9010000e501000002020000
   warriorHealthLevel: 2c0100004a0100006a0100008b010000ad010000d2010000f8010000200200004a02000077020000a5020000d60200000a0300003f03000078030000b3030000f20300003304000078040000c00400000c0500005c050000af05000007060000
+  ability2UnlockCost: 500
+  ability3UnlockCost: 750
+  potionUnlockCost: 1000
   SceneCharacter:
     heroName: 
     characterTotalXP: 0
@@ -2900,8 +2974,13 @@ MonoBehaviour:
     health: 0
     atk: 0
     abilityPower: 0
+    autoAtkUnlock: 0
+    ability1Unlock: 0
+    ability2Unlock: 0
+    ability3Unlock: 0
+    potionUnlock: 0
     totalLevel: 0
-    AbilityUnlockList: []
+    AbilityUnlocks: []
 --- !u!114 &382936416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4004,6 +4083,9 @@ MonoBehaviour:
   abilityLevel: 090000000b0000000d0000000e0000000f000000100000001100000012000000140000001500000016000000180000001a0000001b0000001d0000001f00000021000000230000002500000027000000
   healthLevel: 640000006e00000078000000840000008f0000009b000000a8000000b5000000c3000000d2000000e2000000f20000000301000015010000280100003c01000051010000660100007d01000095010000af010000c9010000e501000002020000
   warriorHealthLevel: 2c0100004a0100006a0100008b010000ad010000d2010000f8010000200200004a02000077020000a5020000d60200000a0300003f03000078030000b3030000f20300003304000078040000c00400000c0500005c050000af05000007060000
+  ability2UnlockCost: 500
+  ability3UnlockCost: 750
+  potionUnlockCost: 1000
   SceneCharacter:
     heroName: 
     characterTotalXP: 0
@@ -4015,8 +4097,13 @@ MonoBehaviour:
     health: 0
     atk: 0
     abilityPower: 0
+    autoAtkUnlock: 0
+    ability1Unlock: 0
+    ability2Unlock: 0
+    ability3Unlock: 0
+    potionUnlock: 0
     totalLevel: 0
-    AbilityUnlockList: []
+    AbilityUnlocks: []
 --- !u!114 &522403490
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4793,9 +4880,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Attack
-
-    Damage'
+  m_Text: Place holder
 --- !u!222 &647255210
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4872,7 +4957,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Health
+  m_Text: Place holder
 --- !u!222 &687464122
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5236,8 +5321,13 @@ MonoBehaviour:
     health: 0
     atk: 0
     abilityPower: 0
+    autoAtkUnlock: 0
+    ability1Unlock: 0
+    ability2Unlock: 0
+    ability3Unlock: 0
+    potionUnlock: 0
     totalLevel: 0
-    AbilityUnlockList: []
+    AbilityUnlocks: []
 --- !u!114 &731640862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5369,7 +5459,7 @@ GameObject:
   - component: {fileID: 762591598}
   - component: {fileID: 762591597}
   m_Layer: 5
-  m_Name: HealthButton
+  m_Name: Ability2Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5395,7 +5485,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 240, y: 100}
-  m_SizeDelta: {x: 100, y: 90}
+  m_SizeDelta: {x: 200, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &762591597
 MonoBehaviour:
@@ -5406,9 +5496,40 @@ MonoBehaviour:
   m_GameObject: {fileID: 762591595}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5e84bac2373e9a43afbbf22081c8916, type: 3}
+  m_Script: {fileID: 11500000, guid: f9cd973e8afa0194ca7283e73847212d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  xpCosts: 640000006c000000740000007e00000088000000930000009f000000ab000000b9000000c8000000d8000000ea000000fd00000011010000270100003f010000590100007401000092010000b3010000
+  nextXPCost: 0
+  indexOfXpCosts: 0
+  healthArrayLevel: 0
+  atkArrayLevel: 0
+  abilityArrayLevel: 0
+  atkLevel: 050000000600000007000000090000000a0000000c0000000e00000010000000110000001200000013000000140000001600000017000000180000001a0000001b0000001d0000001f0000002000000022000000
+  abilityLevel: 090000000b0000000d0000000e0000000f000000100000001100000012000000140000001500000016000000180000001a0000001b0000001d0000001f00000021000000230000002500000027000000
+  healthLevel: 640000006e00000078000000840000008f0000009b000000a8000000b5000000c3000000d2000000e2000000f20000000301000015010000280100003c01000051010000660100007d01000095010000af010000c9010000e501000002020000
+  warriorHealthLevel: 2c0100004a0100006a0100008b010000ad010000d2010000f8010000200200004a02000077020000a5020000d60200000a0300003f03000078030000b3030000f20300003304000078040000c00400000c0500005c050000af05000007060000
+  ability2UnlockCost: 500
+  ability3UnlockCost: 750
+  potionUnlockCost: 1000
+  SceneCharacter:
+    heroName: 
+    characterTotalXP: 0
+    characterAvailableXP: 0
+    healthArrayLevel: 0
+    atkArrayLevel: 0
+    abilityArrayLevel: 0
+    nextXPCost: 0
+    health: 0
+    atk: 0
+    abilityPower: 0
+    autoAtkUnlock: 0
+    ability1Unlock: 0
+    ability2Unlock: 0
+    ability3Unlock: 0
+    potionUnlock: 0
+    totalLevel: 0
+    AbilityUnlocks: []
 --- !u!114 &762591598
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5453,7 +5574,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 762591597}
-        m_MethodName: AdvanceScene
+        m_MethodName: SecondAbilityUnlockButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5845,6 +5966,9 @@ MonoBehaviour:
   abilityLevel: 090000000b0000000d0000000e0000000f000000100000001100000012000000140000001500000016000000180000001a0000001b0000001d0000001f00000021000000230000002500000027000000
   healthLevel: 640000006e00000078000000840000008f0000009b000000a8000000b5000000c3000000d2000000e2000000f20000000301000015010000280100003c01000051010000660100007d01000095010000af010000c9010000e501000002020000
   warriorHealthLevel: 2c0100004a0100006a0100008b010000ad010000d2010000f8010000200200004a02000077020000a5020000d60200000a0300003f03000078030000b3030000f20300003304000078040000c00400000c0500005c050000af05000007060000
+  ability2UnlockCost: 500
+  ability3UnlockCost: 750
+  potionUnlockCost: 1000
   SceneCharacter:
     heroName: 
     characterTotalXP: 0
@@ -5856,8 +5980,13 @@ MonoBehaviour:
     health: 0
     atk: 0
     abilityPower: 0
+    autoAtkUnlock: 0
+    ability1Unlock: 0
+    ability2Unlock: 0
+    ability3Unlock: 0
+    potionUnlock: 0
     totalLevel: 0
-    AbilityUnlockList: []
+    AbilityUnlocks: []
 --- !u!114 &841717316
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6016,9 +6145,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Attack
-
-    Damage'
+  m_Text: Unlock Ability 3
 --- !u!222 &854712394
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6088,8 +6215,13 @@ MonoBehaviour:
     health: 0
     atk: 0
     abilityPower: 0
+    autoAtkUnlock: 0
+    ability1Unlock: 0
+    ability2Unlock: 0
+    ability3Unlock: 0
+    potionUnlock: 0
     totalLevel: 0
-    AbilityUnlockList: []
+    AbilityUnlocks: []
 --- !u!114 &865685914
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6544,9 +6676,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Ability
-
-    Power'
+  m_Text: Place holder
 --- !u!222 &998618203
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7020,8 +7150,13 @@ MonoBehaviour:
     health: 0
     atk: 0
     abilityPower: 0
+    autoAtkUnlock: 0
+    ability1Unlock: 0
+    ability2Unlock: 0
+    ability3Unlock: 0
+    potionUnlock: 0
     totalLevel: 0
-    AbilityUnlockList: []
+    AbilityUnlocks: []
 --- !u!114 &1036725854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7277,8 +7412,13 @@ MonoBehaviour:
     health: 0
     atk: 0
     abilityPower: 0
+    autoAtkUnlock: 0
+    ability1Unlock: 0
+    ability2Unlock: 0
+    ability3Unlock: 0
+    potionUnlock: 0
     totalLevel: 0
-    AbilityUnlockList: []
+    AbilityUnlocks: []
 --- !u!114 &1111550070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7657,6 +7797,9 @@ MonoBehaviour:
   abilityLevel: 090000000b0000000d0000000e0000000f000000100000001100000012000000140000001500000016000000180000001a0000001b0000001d0000001f00000021000000230000002500000027000000
   healthLevel: 640000006e00000078000000840000008f0000009b000000a8000000b5000000c3000000d2000000e2000000f20000000301000015010000280100003c01000051010000660100007d01000095010000af010000c9010000e501000002020000
   warriorHealthLevel: 2c0100004a0100006a0100008b010000ad010000d2010000f8010000200200004a02000077020000a5020000d60200000a0300003f03000078030000b3030000f20300003304000078040000c00400000c0500005c050000af05000007060000
+  ability2UnlockCost: 500
+  ability3UnlockCost: 750
+  potionUnlockCost: 1000
   SceneCharacter:
     heroName: 
     characterTotalXP: 0
@@ -7668,8 +7811,13 @@ MonoBehaviour:
     health: 0
     atk: 0
     abilityPower: 0
+    autoAtkUnlock: 0
+    ability1Unlock: 0
+    ability2Unlock: 0
+    ability3Unlock: 0
+    potionUnlock: 0
     totalLevel: 0
-    AbilityUnlockList: []
+    AbilityUnlocks: []
 --- !u!114 &1192410118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8810,7 +8958,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 79, y: -6}
+  m_AnchoredPosition: {x: 120, y: -6}
   m_SizeDelta: {x: 30, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1449522390
@@ -8835,6 +8983,9 @@ MonoBehaviour:
   abilityLevel: 090000000b0000000d0000000e0000000f000000100000001100000012000000140000001500000016000000180000001a0000001b0000001d0000001f00000021000000230000002500000027000000
   healthLevel: 640000006e00000078000000840000008f0000009b000000a8000000b5000000c3000000d2000000e2000000f20000000301000015010000280100003c01000051010000660100007d01000095010000af010000c9010000e501000002020000
   warriorHealthLevel: 2c0100004a0100006a0100008b010000ad010000d2010000f8010000200200004a02000077020000a5020000d60200000a0300003f03000078030000b3030000f20300003304000078040000c00400000c0500005c050000af05000007060000
+  ability2UnlockCost: 500
+  ability3UnlockCost: 750
+  potionUnlockCost: 1000
   SceneCharacter:
     heroName: 
     characterTotalXP: 0
@@ -8846,8 +8997,13 @@ MonoBehaviour:
     health: 0
     atk: 0
     abilityPower: 0
+    autoAtkUnlock: 0
+    ability1Unlock: 0
+    ability2Unlock: 0
+    ability3Unlock: 0
+    potionUnlock: 0
     totalLevel: 0
-    AbilityUnlockList: []
+    AbilityUnlocks: []
 --- !u!114 &1449522391
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9398,6 +9554,9 @@ MonoBehaviour:
   abilityLevel: 090000000b0000000d0000000e0000000f000000100000001100000012000000140000001500000016000000180000001a0000001b0000001d0000001f00000021000000230000002500000027000000
   healthLevel: 640000006e00000078000000840000008f0000009b000000a8000000b5000000c3000000d2000000e2000000f20000000301000015010000280100003c01000051010000660100007d01000095010000af010000c9010000e501000002020000
   warriorHealthLevel: 2c0100004a0100006a0100008b010000ad010000d2010000f8010000200200004a02000077020000a5020000d60200000a0300003f03000078030000b3030000f20300003304000078040000c00400000c0500005c050000af05000007060000
+  ability2UnlockCost: 500
+  ability3UnlockCost: 750
+  potionUnlockCost: 1000
   SceneCharacter:
     heroName: 
     characterTotalXP: 0
@@ -9409,8 +9568,13 @@ MonoBehaviour:
     health: 0
     atk: 0
     abilityPower: 0
+    autoAtkUnlock: 0
+    ability1Unlock: 0
+    ability2Unlock: 0
+    ability3Unlock: 0
+    potionUnlock: 0
     totalLevel: 0
-    AbilityUnlockList: []
+    AbilityUnlocks: []
 --- !u!114 &1493829734
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9640,6 +9804,9 @@ MonoBehaviour:
   abilityLevel: 090000000b0000000d0000000e0000000f000000100000001100000012000000140000001500000016000000180000001a0000001b0000001d0000001f00000021000000230000002500000027000000
   healthLevel: 640000006e00000078000000840000008f0000009b000000a8000000b5000000c3000000d2000000e2000000f20000000301000015010000280100003c01000051010000660100007d01000095010000af010000c9010000e501000002020000
   warriorHealthLevel: 2c0100004a0100006a0100008b010000ad010000d2010000f8010000200200004a02000077020000a5020000d60200000a0300003f03000078030000b3030000f20300003304000078040000c00400000c0500005c050000af05000007060000
+  ability2UnlockCost: 500
+  ability3UnlockCost: 750
+  potionUnlockCost: 1000
   SceneCharacter:
     heroName: 
     characterTotalXP: 0
@@ -9651,8 +9818,13 @@ MonoBehaviour:
     health: 0
     atk: 0
     abilityPower: 0
+    autoAtkUnlock: 0
+    ability1Unlock: 0
+    ability2Unlock: 0
+    ability3Unlock: 0
+    potionUnlock: 0
     totalLevel: 0
-    AbilityUnlockList: []
+    AbilityUnlocks: []
 --- !u!114 &1524966749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9881,7 +10053,7 @@ GameObject:
   - component: {fileID: 1551271527}
   - component: {fileID: 1551271526}
   m_Layer: 5
-  m_Name: Ability Power Button
+  m_Name: PotionButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9907,7 +10079,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 240, y: -150}
-  m_SizeDelta: {x: 100, y: 90}
+  m_SizeDelta: {x: 200, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1551271526
 MonoBehaviour:
@@ -9918,9 +10090,40 @@ MonoBehaviour:
   m_GameObject: {fileID: 1551271524}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5e84bac2373e9a43afbbf22081c8916, type: 3}
+  m_Script: {fileID: 11500000, guid: f9cd973e8afa0194ca7283e73847212d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  xpCosts: 640000006c000000740000007e00000088000000930000009f000000ab000000b9000000c8000000d8000000ea000000fd00000011010000270100003f010000590100007401000092010000b3010000
+  nextXPCost: 0
+  indexOfXpCosts: 0
+  healthArrayLevel: 0
+  atkArrayLevel: 0
+  abilityArrayLevel: 0
+  atkLevel: 050000000600000007000000090000000a0000000c0000000e00000010000000110000001200000013000000140000001600000017000000180000001a0000001b0000001d0000001f0000002000000022000000
+  abilityLevel: 090000000b0000000d0000000e0000000f000000100000001100000012000000140000001500000016000000180000001a0000001b0000001d0000001f00000021000000230000002500000027000000
+  healthLevel: 640000006e00000078000000840000008f0000009b000000a8000000b5000000c3000000d2000000e2000000f20000000301000015010000280100003c01000051010000660100007d01000095010000af010000c9010000e501000002020000
+  warriorHealthLevel: 2c0100004a0100006a0100008b010000ad010000d2010000f8010000200200004a02000077020000a5020000d60200000a0300003f03000078030000b3030000f20300003304000078040000c00400000c0500005c050000af05000007060000
+  ability2UnlockCost: 500
+  ability3UnlockCost: 750
+  potionUnlockCost: 1000
+  SceneCharacter:
+    heroName: 
+    characterTotalXP: 0
+    characterAvailableXP: 0
+    healthArrayLevel: 0
+    atkArrayLevel: 0
+    abilityArrayLevel: 0
+    nextXPCost: 0
+    health: 0
+    atk: 0
+    abilityPower: 0
+    autoAtkUnlock: 0
+    ability1Unlock: 0
+    ability2Unlock: 0
+    ability3Unlock: 0
+    potionUnlock: 0
+    totalLevel: 0
+    AbilityUnlocks: []
 --- !u!114 &1551271527
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9965,7 +10168,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1551271526}
-        m_MethodName: AdvanceScene
+        m_MethodName: PotionUnlockButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10371,6 +10574,9 @@ MonoBehaviour:
   abilityLevel: 090000000b0000000d0000000e0000000f000000100000001100000012000000140000001500000016000000180000001a0000001b0000001d0000001f00000021000000230000002500000027000000
   healthLevel: 640000006e00000078000000840000008f0000009b000000a8000000b5000000c3000000d2000000e2000000f20000000301000015010000280100003c01000051010000660100007d01000095010000af010000c9010000e501000002020000
   warriorHealthLevel: 2c0100004a0100006a0100008b010000ad010000d2010000f8010000200200004a02000077020000a5020000d60200000a0300003f03000078030000b3030000f20300003304000078040000c00400000c0500005c050000af05000007060000
+  ability2UnlockCost: 500
+  ability3UnlockCost: 750
+  potionUnlockCost: 1000
   SceneCharacter:
     heroName: 
     characterTotalXP: 0
@@ -10382,8 +10588,13 @@ MonoBehaviour:
     health: 0
     atk: 0
     abilityPower: 0
+    autoAtkUnlock: 0
+    ability1Unlock: 0
+    ability2Unlock: 0
+    ability3Unlock: 0
+    potionUnlock: 0
     totalLevel: 0
-    AbilityUnlockList: []
+    AbilityUnlocks: []
 --- !u!114 &1561551516
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11062,9 +11273,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Ability
-
-    Power'
+  m_Text: "Unlock Potion \n(Long cooldown buff)"
 --- !u!222 &1651038016
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -11450,7 +11659,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Health
+  m_Text: Unlock Ability 2
 --- !u!222 &1792400140
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -11521,6 +11730,9 @@ MonoBehaviour:
   abilityLevel: 090000000b0000000d0000000e0000000f000000100000001100000012000000140000001500000016000000180000001a0000001b0000001d0000001f00000021000000230000002500000027000000
   healthLevel: 640000006e00000078000000840000008f0000009b000000a8000000b5000000c3000000d2000000e2000000f20000000301000015010000280100003c01000051010000660100007d01000095010000af010000c9010000e501000002020000
   warriorHealthLevel: 2c0100004a0100006a0100008b010000ad010000d2010000f8010000200200004a02000077020000a5020000d60200000a0300003f03000078030000b3030000f20300003304000078040000c00400000c0500005c050000af05000007060000
+  ability2UnlockCost: 500
+  ability3UnlockCost: 750
+  potionUnlockCost: 1000
   SceneCharacter:
     heroName: 
     characterTotalXP: 0
@@ -11532,8 +11744,13 @@ MonoBehaviour:
     health: 0
     atk: 0
     abilityPower: 0
+    autoAtkUnlock: 0
+    ability1Unlock: 0
+    ability2Unlock: 0
+    ability3Unlock: 0
+    potionUnlock: 0
     totalLevel: 0
-    AbilityUnlockList: []
+    AbilityUnlocks: []
 --- !u!114 &1800104737
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11855,6 +12072,9 @@ MonoBehaviour:
   abilityLevel: 090000000b0000000d0000000e0000000f000000100000001100000012000000140000001500000016000000180000001a0000001b0000001d0000001f00000021000000230000002500000027000000
   healthLevel: 640000006e00000078000000840000008f0000009b000000a8000000b5000000c3000000d2000000e2000000f20000000301000015010000280100003c01000051010000660100007d01000095010000af010000c9010000e501000002020000
   warriorHealthLevel: 2c0100004a0100006a0100008b010000ad010000d2010000f8010000200200004a02000077020000a5020000d60200000a0300003f03000078030000b3030000f20300003304000078040000c00400000c0500005c050000af05000007060000
+  ability2UnlockCost: 500
+  ability3UnlockCost: 750
+  potionUnlockCost: 1000
   SceneCharacter:
     heroName: 
     characterTotalXP: 0
@@ -11866,8 +12086,13 @@ MonoBehaviour:
     health: 0
     atk: 0
     abilityPower: 0
+    autoAtkUnlock: 0
+    ability1Unlock: 0
+    ability2Unlock: 0
+    ability3Unlock: 0
+    potionUnlock: 0
     totalLevel: 0
-    AbilityUnlockList: []
+    AbilityUnlocks: []
 --- !u!1 &1836512365
 GameObject:
   m_ObjectHideFlags: 0
@@ -12091,6 +12316,9 @@ MonoBehaviour:
   abilityLevel: 090000000b0000000d0000000e0000000f000000100000001100000012000000140000001500000016000000180000001a0000001b0000001d0000001f00000021000000230000002500000027000000
   healthLevel: 640000006e00000078000000840000008f0000009b000000a8000000b5000000c3000000d2000000e2000000f20000000301000015010000280100003c01000051010000660100007d01000095010000af010000c9010000e501000002020000
   warriorHealthLevel: 2c0100004a0100006a0100008b010000ad010000d2010000f8010000200200004a02000077020000a5020000d60200000a0300003f03000078030000b3030000f20300003304000078040000c00400000c0500005c050000af05000007060000
+  ability2UnlockCost: 500
+  ability3UnlockCost: 750
+  potionUnlockCost: 1000
   SceneCharacter:
     heroName: 
     characterTotalXP: 0
@@ -12102,8 +12330,13 @@ MonoBehaviour:
     health: 0
     atk: 0
     abilityPower: 0
+    autoAtkUnlock: 0
+    ability1Unlock: 0
+    ability2Unlock: 0
+    ability3Unlock: 0
+    potionUnlock: 0
     totalLevel: 0
-    AbilityUnlockList: []
+    AbilityUnlocks: []
 --- !u!114 &1867129828
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12504,6 +12737,9 @@ MonoBehaviour:
   abilityLevel: 090000000b0000000d0000000e0000000f000000100000001100000012000000140000001500000016000000180000001a0000001b0000001d0000001f00000021000000230000002500000027000000
   healthLevel: 640000006e00000078000000840000008f0000009b000000a8000000b5000000c3000000d2000000e2000000f20000000301000015010000280100003c01000051010000660100007d01000095010000af010000c9010000e501000002020000
   warriorHealthLevel: 2c0100004a0100006a0100008b010000ad010000d2010000f8010000200200004a02000077020000a5020000d60200000a0300003f03000078030000b3030000f20300003304000078040000c00400000c0500005c050000af05000007060000
+  ability2UnlockCost: 500
+  ability3UnlockCost: 750
+  potionUnlockCost: 1000
   SceneCharacter:
     heroName: 
     characterTotalXP: 0
@@ -12515,8 +12751,13 @@ MonoBehaviour:
     health: 0
     atk: 0
     abilityPower: 0
+    autoAtkUnlock: 0
+    ability1Unlock: 0
+    ability2Unlock: 0
+    ability3Unlock: 0
+    potionUnlock: 0
     totalLevel: 0
-    AbilityUnlockList: []
+    AbilityUnlocks: []
 --- !u!1 &1927691109
 GameObject:
   m_ObjectHideFlags: 0
