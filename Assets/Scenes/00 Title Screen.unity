@@ -2202,5 +2202,77 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: mageHero.autoAtk
+      value: 
+      objectReference: {fileID: 11400000, guid: f4d8cad2a9a2b02449420d6832502937,
+        type: 2}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: warriorHero.autoAtk
+      value: 
+      objectReference: {fileID: 11400000, guid: 2bebe808ca503864c9cc1f842b32a7d1,
+        type: 2}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: mageHero.ability1
+      value: 
+      objectReference: {fileID: 11400000, guid: 6bf2c15b44422ec41a09da5e79a3a2e2,
+        type: 2}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: mageHero.ability2
+      value: 
+      objectReference: {fileID: 11400000, guid: 01700505b760dd543957348427264b4c,
+        type: 2}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: warriorHero.ability1
+      value: 
+      objectReference: {fileID: 11400000, guid: eed78b34608a1014da24262aa2df7b67,
+        type: 2}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: warriorHero.ability2
+      value: 
+      objectReference: {fileID: 11400000, guid: e0e64450ef3e11b4ea011125f457e545,
+        type: 2}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: priestHero.ability1
+      value: 
+      objectReference: {fileID: 11400000, guid: f81ca7937fe240e4aaf8657be5ce1c02,
+        type: 2}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: priestHero.ability2
+      value: 
+      objectReference: {fileID: 11400000, guid: 2767b24bdb91e4845ac391337bf3b166,
+        type: 2}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: priestHero.autoAtk
+      value: 
+      objectReference: {fileID: 11400000, guid: f4d8cad2a9a2b02449420d6832502937,
+        type: 2}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: rogueHero.ability1
+      value: 
+      objectReference: {fileID: 11400000, guid: ce80ff9f4cf65b14e82502bfb80dcb0b,
+        type: 2}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: rogueHero.autoAtk
+      value: 
+      objectReference: {fileID: 11400000, guid: 2bebe808ca503864c9cc1f842b32a7d1,
+        type: 2}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: rogueHero.ability2
+      value: 
+      objectReference: {fileID: 11400000, guid: 0967b2b18fb4f4a42a194cde27ae3704,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db534adf8c82c12469f782d9128fd3f1, type: 3}

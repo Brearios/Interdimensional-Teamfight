@@ -12,17 +12,6 @@ public class PlayerProfile : MonoBehaviour
     public CharacterProfile rogueHero;
     public int currentEditingInteger;
     public int nextBattleScene;
-    public ScriptableAbility autoAtk;
-    public ScriptableAbility ability1;
-    public ScriptableAbility ability2;
-    public ScriptableAbility ability3;
-    public ScriptableAbility potion;
-    //public AbilityUnlock autoAtkUnlock;
-    //public AbilityUnlock ability1Unlock;
-    //public AbilityUnlock ability2Unlock;
-    //public AbilityUnlock ability3Unlock;
-    //public AbilityUnlock potionUnlock;
-
 
 
     // public Dictionary<ScriptableUnit, CharacterProfile> characterProfiles;

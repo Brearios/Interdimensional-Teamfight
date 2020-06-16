@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class CharacterProfile
+public class CharacterProfile 
 {
     // public static CharacterProfile Instance;
     public string heroName;
@@ -24,11 +24,12 @@ public class CharacterProfile
     public bool potionUnlock;
     // public Sprite characterSprite;
     public int totalLevel;
-    //public AbilityUnlock autoatk;
-    //public AbilityUnlock ability1;
-    //public AbilityUnlock ability2;
-    //public AbilityUnlock ability3;
-    //public AbilityUnlock potion;
+    public ScriptableAbility autoAtk;
+    public ScriptableAbility ability1;
+    public ScriptableAbility ability2;
+    public ScriptableAbility ability3;
+    public ScriptableAbility potion;
+
     //public List<AbilityUnlock> AbilityUnlocks = new List<AbilityUnlock>(){ autoAtk, ability1, ability2, ability3, potion };
     public List<AbilityUnlock> AbilityUnlocks;
     // Each character should have autoAtk and their first ability unlocked by default, but will need to unlock abilities 2 & 3 and their potion.
