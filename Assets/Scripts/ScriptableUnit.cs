@@ -19,9 +19,4 @@ public class ScriptableUnit : ScriptableObject
     public float targetCheckFrequency;
     public string abilityAnimationType;
     public float dmgVariance;
-    public ScriptableAbility autoAtk;
-    public ScriptableAbility ability1;
-    public ScriptableAbility ability2;
-    public ScriptableAbility ability3;
-    public ScriptableAbility potion;
 }
