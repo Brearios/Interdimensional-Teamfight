@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class UIMenuControl : MonoBehaviour
+public class MenuControl : MonoBehaviour
 {
     public GameObject rootMenuCanvas;
     public GameObject statUpgradeCanvas;

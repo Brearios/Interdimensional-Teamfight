@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UIAbilityUnlockButtonTextController : MonoBehaviour
+public class UIAbilityUnlockButtonNameController : MonoBehaviour
 {
     CharacterProfile EditingCharacter;
     // Start is called before the first frame update
