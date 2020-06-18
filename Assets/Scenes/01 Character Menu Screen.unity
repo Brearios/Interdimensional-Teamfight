@@ -404,33 +404,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 48700302}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a106efd345494449a9295a28b47acca, type: 3}
+  m_Script: {fileID: 11500000, guid: 94a26b700b9470b4aad2923806631b7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentlyEditingProfile:
-    heroName: 
-    characterTotalXP: 0
-    characterAvailableXP: 0
-    healthArrayLevel: 0
-    atkArrayLevel: 0
-    abilityArrayLevel: 0
-    nextXPCost: 0
-    health: 0
-    atk: 0
-    abilityPower: 0
-    autoAtkUnlock: 0
-    ability1Unlock: 0
-    ability2Unlock: 0
-    ability3Unlock: 0
-    potionUnlock: 0
-    totalLevel: 0
-    autoAtk: {fileID: 0}
-    ability1: {fileID: 0}
-    ability2: {fileID: 0}
-    ability3: {fileID: 0}
-    potion: {fileID: 0}
-    AbilityUnlocks: []
-  currentDetailAbility: {fileID: 0}
 --- !u!114 &48700305
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -475,7 +451,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 48700304}
-        m_MethodName: ShowAbility3Details
+        m_MethodName: Button3DataUpdate
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1775,9 +1751,45 @@ MonoBehaviour:
   m_GameObject: {fileID: 214496165}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5e84bac2373e9a43afbbf22081c8916, type: 3}
+  m_Script: {fileID: 11500000, guid: f9cd973e8afa0194ca7283e73847212d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  xpCosts: 640000006c000000740000007e00000088000000930000009f000000ab000000b9000000c8000000d8000000ea000000fd00000011010000270100003f010000590100007401000092010000b3010000
+  nextXPCost: 0
+  indexOfXpCosts: 0
+  healthArrayLevel: 0
+  atkArrayLevel: 0
+  abilityArrayLevel: 0
+  atkLevel: 050000000600000007000000090000000a0000000c0000000e00000010000000110000001200000013000000140000001600000017000000180000001a0000001b0000001d0000001f0000002000000022000000
+  abilityLevel: 090000000b0000000d0000000e0000000f000000100000001100000012000000140000001500000016000000180000001a0000001b0000001d0000001f00000021000000230000002500000027000000
+  healthLevel: 640000006e00000078000000840000008f0000009b000000a8000000b5000000c3000000d2000000e2000000f20000000301000015010000280100003c01000051010000660100007d01000095010000af010000c9010000e501000002020000
+  warriorHealthLevel: 2c0100004a0100006a0100008b010000ad010000d2010000f8010000200200004a02000077020000a5020000d60200000a0300003f03000078030000b3030000f20300003304000078040000c00400000c0500005c050000af05000007060000
+  ability2UnlockCost: 500
+  ability3UnlockCost: 750
+  potionUnlockCost: 1000
+  SceneCharacter:
+    heroName: 
+    characterTotalXP: 0
+    characterAvailableXP: 0
+    healthArrayLevel: 0
+    atkArrayLevel: 0
+    abilityArrayLevel: 0
+    nextXPCost: 0
+    health: 0
+    atk: 0
+    abilityPower: 0
+    autoAtkUnlock: 0
+    ability1Unlock: 0
+    ability2Unlock: 0
+    ability3Unlock: 0
+    potionUnlock: 0
+    totalLevel: 0
+    autoAtk: {fileID: 0}
+    ability1: {fileID: 0}
+    ability2: {fileID: 0}
+    ability3: {fileID: 0}
+    potion: {fileID: 0}
+    AbilityUnlocks: []
 --- !u!114 &214496168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1822,7 +1834,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 214496167}
-        m_MethodName: AdvanceScene
+        m_MethodName: IncrementAtk
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5529,33 +5541,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 762591595}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a106efd345494449a9295a28b47acca, type: 3}
+  m_Script: {fileID: 11500000, guid: 94a26b700b9470b4aad2923806631b7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentlyEditingProfile:
-    heroName: 
-    characterTotalXP: 0
-    characterAvailableXP: 0
-    healthArrayLevel: 0
-    atkArrayLevel: 0
-    abilityArrayLevel: 0
-    nextXPCost: 0
-    health: 0
-    atk: 0
-    abilityPower: 0
-    autoAtkUnlock: 0
-    ability1Unlock: 0
-    ability2Unlock: 0
-    ability3Unlock: 0
-    potionUnlock: 0
-    totalLevel: 0
-    autoAtk: {fileID: 0}
-    ability1: {fileID: 0}
-    ability2: {fileID: 0}
-    ability3: {fileID: 0}
-    potion: {fileID: 0}
-    AbilityUnlocks: []
-  currentDetailAbility: {fileID: 0}
 --- !u!114 &762591598
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5600,7 +5588,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 762591597}
-        m_MethodName: ShowAbility2Details
+        m_MethodName: Button2DataUpdate
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8087,9 +8075,45 @@ MonoBehaviour:
   m_GameObject: {fileID: 1299136387}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5e84bac2373e9a43afbbf22081c8916, type: 3}
+  m_Script: {fileID: 11500000, guid: f9cd973e8afa0194ca7283e73847212d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  xpCosts: 640000006c000000740000007e00000088000000930000009f000000ab000000b9000000c8000000d8000000ea000000fd00000011010000270100003f010000590100007401000092010000b3010000
+  nextXPCost: 0
+  indexOfXpCosts: 0
+  healthArrayLevel: 0
+  atkArrayLevel: 0
+  abilityArrayLevel: 0
+  atkLevel: 050000000600000007000000090000000a0000000c0000000e00000010000000110000001200000013000000140000001600000017000000180000001a0000001b0000001d0000001f0000002000000022000000
+  abilityLevel: 090000000b0000000d0000000e0000000f000000100000001100000012000000140000001500000016000000180000001a0000001b0000001d0000001f00000021000000230000002500000027000000
+  healthLevel: 640000006e00000078000000840000008f0000009b000000a8000000b5000000c3000000d2000000e2000000f20000000301000015010000280100003c01000051010000660100007d01000095010000af010000c9010000e501000002020000
+  warriorHealthLevel: 2c0100004a0100006a0100008b010000ad010000d2010000f8010000200200004a02000077020000a5020000d60200000a0300003f03000078030000b3030000f20300003304000078040000c00400000c0500005c050000af05000007060000
+  ability2UnlockCost: 500
+  ability3UnlockCost: 750
+  potionUnlockCost: 1000
+  SceneCharacter:
+    heroName: 
+    characterTotalXP: 0
+    characterAvailableXP: 0
+    healthArrayLevel: 0
+    atkArrayLevel: 0
+    abilityArrayLevel: 0
+    nextXPCost: 0
+    health: 0
+    atk: 0
+    abilityPower: 0
+    autoAtkUnlock: 0
+    ability1Unlock: 0
+    ability2Unlock: 0
+    ability3Unlock: 0
+    potionUnlock: 0
+    totalLevel: 0
+    autoAtk: {fileID: 0}
+    ability1: {fileID: 0}
+    ability2: {fileID: 0}
+    ability3: {fileID: 0}
+    potion: {fileID: 0}
+    AbilityUnlocks: []
 --- !u!114 &1299136390
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8134,7 +8158,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1299136389}
-        m_MethodName: AdvanceScene
+        m_MethodName: IncrementHealth
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8191,6 +8215,7 @@ GameObject:
   - component: {fileID: 1319499795}
   - component: {fileID: 1319499798}
   - component: {fileID: 1319499797}
+  - component: {fileID: 1319499796}
   m_Layer: 5
   m_Name: InstructionText
   m_TagString: Untagged
@@ -8217,6 +8242,19 @@ RectTransform:
   m_AnchoredPosition: {x: -6, y: -38}
   m_SizeDelta: {x: 227.5, y: 158.3}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1319499796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1319499794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a106efd345494449a9295a28b47acca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentDetailAbility: {fileID: 0}
 --- !u!114 &1319499797
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8674,7 +8712,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -242, y: 28}
+  m_AnchoredPosition: {x: -250, y: 28}
   m_SizeDelta: {x: 200, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1373503224
@@ -8825,6 +8863,7 @@ GameObject:
   - component: {fileID: 1421896608}
   - component: {fileID: 1421896610}
   - component: {fileID: 1421896609}
+  - component: {fileID: 1421896611}
   m_Layer: 5
   m_Name: InstructionText
   m_TagString: Untagged
@@ -8848,7 +8887,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -6, y: -38}
+  m_AnchoredPosition: {x: 0, y: -66}
   m_SizeDelta: {x: 227.5, y: 158.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1421896609
@@ -8892,6 +8931,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1421896607}
   m_CullTransparentMesh: 0
+--- !u!114 &1421896611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1421896607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a106efd345494449a9295a28b47acca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentDetailAbility: {fileID: 0}
 --- !u!1 &1435664529
 GameObject:
   m_ObjectHideFlags: 0
@@ -9344,9 +9396,45 @@ MonoBehaviour:
   m_GameObject: {fileID: 1456036590}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5e84bac2373e9a43afbbf22081c8916, type: 3}
+  m_Script: {fileID: 11500000, guid: f9cd973e8afa0194ca7283e73847212d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  xpCosts: 640000006c000000740000007e00000088000000930000009f000000ab000000b9000000c8000000d8000000ea000000fd00000011010000270100003f010000590100007401000092010000b3010000
+  nextXPCost: 0
+  indexOfXpCosts: 0
+  healthArrayLevel: 0
+  atkArrayLevel: 0
+  abilityArrayLevel: 0
+  atkLevel: 050000000600000007000000090000000a0000000c0000000e00000010000000110000001200000013000000140000001600000017000000180000001a0000001b0000001d0000001f0000002000000022000000
+  abilityLevel: 090000000b0000000d0000000e0000000f000000100000001100000012000000140000001500000016000000180000001a0000001b0000001d0000001f00000021000000230000002500000027000000
+  healthLevel: 640000006e00000078000000840000008f0000009b000000a8000000b5000000c3000000d2000000e2000000f20000000301000015010000280100003c01000051010000660100007d01000095010000af010000c9010000e501000002020000
+  warriorHealthLevel: 2c0100004a0100006a0100008b010000ad010000d2010000f8010000200200004a02000077020000a5020000d60200000a0300003f03000078030000b3030000f20300003304000078040000c00400000c0500005c050000af05000007060000
+  ability2UnlockCost: 500
+  ability3UnlockCost: 750
+  potionUnlockCost: 1000
+  SceneCharacter:
+    heroName: 
+    characterTotalXP: 0
+    characterAvailableXP: 0
+    healthArrayLevel: 0
+    atkArrayLevel: 0
+    abilityArrayLevel: 0
+    nextXPCost: 0
+    health: 0
+    atk: 0
+    abilityPower: 0
+    autoAtkUnlock: 0
+    ability1Unlock: 0
+    ability2Unlock: 0
+    ability3Unlock: 0
+    potionUnlock: 0
+    totalLevel: 0
+    autoAtk: {fileID: 0}
+    ability1: {fileID: 0}
+    ability2: {fileID: 0}
+    ability3: {fileID: 0}
+    potion: {fileID: 0}
+    AbilityUnlocks: []
 --- !u!114 &1456036593
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9391,7 +9479,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1456036592}
-        m_MethodName: AdvanceScene
+        m_MethodName: IncrementAbility
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10153,33 +10241,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1551271524}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a106efd345494449a9295a28b47acca, type: 3}
+  m_Script: {fileID: 11500000, guid: 94a26b700b9470b4aad2923806631b7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentlyEditingProfile:
-    heroName: 
-    characterTotalXP: 0
-    characterAvailableXP: 0
-    healthArrayLevel: 0
-    atkArrayLevel: 0
-    abilityArrayLevel: 0
-    nextXPCost: 0
-    health: 0
-    atk: 0
-    abilityPower: 0
-    autoAtkUnlock: 0
-    ability1Unlock: 0
-    ability2Unlock: 0
-    ability3Unlock: 0
-    potionUnlock: 0
-    totalLevel: 0
-    autoAtk: {fileID: 0}
-    ability1: {fileID: 0}
-    ability2: {fileID: 0}
-    ability3: {fileID: 0}
-    potion: {fileID: 0}
-    AbilityUnlocks: []
-  currentDetailAbility: {fileID: 0}
 --- !u!114 &1551271527
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10224,7 +10288,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1551271526}
-        m_MethodName: ShowPotionDetails
+        m_MethodName: ButtonPotionDataUpdate
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -11,6 +11,7 @@ public class PlayerProfile : MonoBehaviour
     public CharacterProfile priestHero;
     public CharacterProfile rogueHero;
     public int currentEditingInteger;
+    public ScriptableAbility currentDetailAbility;
     public int nextBattleScene;
 
 
@@ -68,6 +69,7 @@ public class PlayerProfile : MonoBehaviour
         characterProfiles.Add(rogueHero);
 
         currentEditingInteger = 0;
+        currentDetailAbility = CurrentEditingCharacter.ability2;
         // Sets the current editing character to the first one at the start of the script
         CurrentEditingCharacter = characterProfiles[currentEditingInteger];
 

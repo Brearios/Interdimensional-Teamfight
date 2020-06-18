@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class UIAbilityUnlockButtonNameController : MonoBehaviour
 {
-    CharacterProfile EditingCharacter;
+    public CharacterProfile EditingCharacter;
     // Start is called before the first frame update
     void Start()
     {
