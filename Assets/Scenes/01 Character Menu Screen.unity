@@ -8182,7 +8182,6 @@ GameObject:
   - component: {fileID: 1319499795}
   - component: {fileID: 1319499798}
   - component: {fileID: 1319499797}
-  - component: {fileID: 1319499796}
   m_Layer: 5
   m_Name: InstructionText
   m_TagString: Untagged
@@ -8209,19 +8208,6 @@ RectTransform:
   m_AnchoredPosition: {x: -6, y: -38}
   m_SizeDelta: {x: 227.5, y: 158.3}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1319499796
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1319499794}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a106efd345494449a9295a28b47acca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentDetailAbility: {fileID: 0}
 --- !u!114 &1319499797
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12668,11 +12654,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Spend XP to
-
-    Upgrade
-
-    Your Character'
+  m_Text: Crafting is not implemented yet.
 --- !u!222 &1893298803
 CanvasRenderer:
   m_ObjectHideFlags: 0

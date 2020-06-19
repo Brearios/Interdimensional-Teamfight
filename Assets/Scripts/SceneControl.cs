@@ -65,6 +65,7 @@ public class SceneControl : MonoBehaviour
         else
         {
             PlayerProfile.Instance.currentEditingInteger = (PlayerProfile.Instance.characterProfiles.Count - 1);
+            SceneManager.LoadScene(1);
         }
 
     }
@@ -81,6 +82,7 @@ public class SceneControl : MonoBehaviour
         else
         {
             PlayerProfile.Instance.currentEditingInteger = 0;
+            SceneManager.LoadScene(1);
         }
     }
 

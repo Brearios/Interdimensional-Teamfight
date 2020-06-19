@@ -16,7 +16,8 @@ public class AbilityDetailText : MonoBehaviour
         text = GetComponent<Text>();
         // currentlyEditingProfile = PlayerProfile.Instance.CurrentEditingCharacter;
         // text.text = "Click an ability's name for details on that ability.     Click + to unlock that ability.";
-        currentDetailAbility = PlayerProfile.Instance.currentDetailAbility;
+        currentDetailAbility = PlayerProfile.Instance.CurrentEditingCharacter.ability2;
+        PlayerProfile.Instance.currentDetailAbility = currentDetailAbility;
         //buttonAbility currentAbility = buttonAbility.Two;
     }
 
@@ -24,7 +25,8 @@ public class AbilityDetailText : MonoBehaviour
     void Update()
     {
         currentDetailAbility = PlayerProfile.Instance.currentDetailAbility;
-        text.text = $"Ability: {currentDetailAbility.name} \n Description: {currentDetailAbility.description} \n XP Cost {currentDetailAbility.unlockCost}";
+
+        text.text = $"Ability: {currentDetailAbility.abilityName} \n Description: {currentDetailAbility.description} \n XP Cost {currentDetailAbility.unlockCost}";
         //text.text = "This is text test to see where the issue is.";
     }
 }
