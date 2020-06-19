@@ -236,7 +236,8 @@ public class GameManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.F))
         {
-            gameSpeed += timeIncrement;
+            gameSpeed *= 2;
+            //gameSpeed += timeIncrement;
         }
 
         if (Input.GetKeyDown(KeyCode.S))
@@ -248,7 +249,8 @@ public class GameManager : MonoBehaviour
 
             else
             {
-                gameSpeed -= timeIncrement;
+                gameSpeed /= 2;
+                //gameSpeed /= timeIncrement;
             }
         }
 
