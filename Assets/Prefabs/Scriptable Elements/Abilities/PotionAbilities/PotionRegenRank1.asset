@@ -13,14 +13,14 @@ MonoBehaviour:
   m_Name: PotionRegenRank1
   m_EditorClassIdentifier: 
   targetType: 6
-  abilityName: Regen
+  abilityName: Potion
   hpDelta: 0
   abilityRange: 6
   aoeChancetoHit: 0
-  cooldown: 20
-  startsOnCooldown: 0
+  cooldown: 15
+  startsOnCooldown: 1
   isAutoAtk: 0
-  description: Use a potion to regenerate health temporarily.
+  description: Basic potion, used to regenerate health temporarily.
   effect: {fileID: 11400000, guid: a1af52d0fb6337b49b001d668e3fda3d, type: 2}
   abilityCharges: 0
   unlockCost: 800

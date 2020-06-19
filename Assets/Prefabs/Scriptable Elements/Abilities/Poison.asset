@@ -23,3 +23,4 @@ MonoBehaviour:
   description: Poisons an enemy, causing damage once per second.
   effect: {fileID: 11400000, guid: ebc4f922dcc1bc84ba1a2b092556cb96, type: 2}
   abilityCharges: 0
+  unlockCost: 300

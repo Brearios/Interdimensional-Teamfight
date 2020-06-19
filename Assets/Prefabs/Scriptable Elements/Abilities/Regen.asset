@@ -23,4 +23,4 @@ MonoBehaviour:
   description: Restore health to the friendly target each second.
   effect: {fileID: 11400000, guid: a1af52d0fb6337b49b001d668e3fda3d, type: 2}
   abilityCharges: 0
-  unlockCost: 0
+  unlockCost: 300

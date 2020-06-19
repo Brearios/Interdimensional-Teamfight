@@ -16,9 +16,11 @@ MonoBehaviour:
   abilityName: Stun
   hpDelta: 0
   abilityRange: 3
+  aoeChancetoHit: 0
   cooldown: 5
   startsOnCooldown: 0
   isAutoAtk: 0
   description: Stun an enemy for a period of time.
   effect: {fileID: 11400000, guid: 29a993dcc3153894cac4f4355982c7cb, type: 2}
   abilityCharges: 0
+  unlockCost: 300

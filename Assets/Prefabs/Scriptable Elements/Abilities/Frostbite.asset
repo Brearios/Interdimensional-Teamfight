@@ -18,7 +18,7 @@ MonoBehaviour:
   abilityRange: 5
   aoeChancetoHit: 0
   cooldown: 5
-  startsOnCooldown: 1
+  startsOnCooldown: 0
   isAutoAtk: 0
   description: Chills enemies, damaging them over time.
   effect: {fileID: 11400000, guid: ebc4f922dcc1bc84ba1a2b092556cb96, type: 2}

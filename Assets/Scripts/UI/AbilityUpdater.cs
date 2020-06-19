@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AbilityUpdater : MonoBehaviour
 {
@@ -29,21 +30,20 @@ public class AbilityUpdater : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        UpdateButtons();
     }
 
-    //void UpdateButtons()
-    //{
-    //    Button2DataUpdate();
-    //    Button3DataUpdate();
-    //    ButtonPotionDataUpdate();
-    //    ForceUpdateCanvases();
-    //}
+    void UpdateButtons()
+    {
+        GameObject.Find("Ability2UnlockButton").GetComponentInChildren<Text>().text = PlayerProfile.Instance.CurrentEditingCharacter.ability2.abilityName;
+        GameObject.Find("Ability3UnlockButton").GetComponentInChildren<Text>().text = PlayerProfile.Instance.CurrentEditingCharacter.ability3.abilityName;
+        GameObject.Find("PotionUnlockButton").GetComponentInChildren<Text>().text = PlayerProfile.Instance.CurrentEditingCharacter.potion.abilityName;
+        //ForceUpdateCanvases();
+    }
 
     public void Button2DataUpdate()
     {
         PlayerProfile.Instance.currentDetailAbility = PlayerProfile.Instance.CurrentEditingCharacter.ability2;
-
         //ability2Name = currentlyEditingProfile.ability2.abilityName;
         //ability2DescriptionText = currentlyEditingProfile.ability2.description;
         //ability2Cost = currentlyEditingProfile.ability2.unlockCost;
@@ -53,7 +53,6 @@ public class AbilityUpdater : MonoBehaviour
     public void Button3DataUpdate()
     {
         PlayerProfile.Instance.currentDetailAbility = PlayerProfile.Instance.CurrentEditingCharacter.ability3;
-
         //ability3Name = currentlyEditingProfile.ability3.abilityName;
         //ability3DescriptionText = currentlyEditingProfile.ability3.description;
         //ability3Cost = currentlyEditingProfile.ability3.unlockCost;
@@ -63,7 +62,6 @@ public class AbilityUpdater : MonoBehaviour
     public void ButtonPotionDataUpdate()
     {
         PlayerProfile.Instance.currentDetailAbility = PlayerProfile.Instance.CurrentEditingCharacter.potion;
-
         //abilityPotionName = currentlyEditingProfile.potion.abilityName;
         //abilityPotionDescriptionText = currentlyEditingProfile.potion.description;
         //abilityPotionCost = currentlyEditingProfile.potion.unlockCost;
