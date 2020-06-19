@@ -17,9 +17,9 @@ public class XpController : MonoBehaviour
     public int[] abilityLevel = { 9, 11, 13, 14, 15, 16, 17, 18, 20, 21, 22, 24, 26, 27, 29, 31, 33, 35, 37, 39 };
     public int[] healthLevel = { 100, 110, 120, 132, 143, 155, 168, 181, 195, 210, 226, 242, 259, 277, 296, 316, 337, 358, 381, 405, 431, 457, 485, 514 };
     public int[] warriorHealthLevel = { 300, 330, 362, 395, 429, 466, 504, 544, 586, 631, 677, 726, 778, 831, 888, 947, 1010, 1075, 1144, 1216, 1292, 1372, 1455, 1543 };
-    public int ability2UnlockCost = 500;
-    public int ability3UnlockCost = 750;
-    public int potionUnlockCost = 1000;
+    //public int ability2UnlockCost = 300;
+    //public int ability3UnlockCost = 500;
+    //public int potionUnlockCost = 800;
     // Eventually will need an index of character profiles:
     // public CharacterProfile[] characterProfiles = { PlayerProfile.Instance.mageHero, PlayerProfile.Instance.priestHero, PlayerProfile.Instance.warriorHero }
     public CharacterProfile SceneCharacter;
@@ -108,27 +108,27 @@ public class XpController : MonoBehaviour
 
     public void SecondAbilityUnlockButton()
     {
-        if (SceneCharacter.characterAvailableXP > ability2UnlockCost)
+        if ((SceneCharacter.characterAvailableXP > SceneCharacter.ability2.unlockCost) && !SceneCharacter.ability2Unlock)
         {
-            SceneCharacter.characterAvailableXP -= ability2UnlockCost;
+            SceneCharacter.characterAvailableXP -= SceneCharacter.ability2.unlockCost;
             SceneCharacter.ability2Unlock = true;
         }
     }
 
     public void ThirdAbilityUnlockButton()
     {
-        if (SceneCharacter.characterAvailableXP > ability3UnlockCost)
+        if ((SceneCharacter.characterAvailableXP > SceneCharacter.ability3.unlockCost) && !SceneCharacter.ability3Unlock)
         {
-            SceneCharacter.characterAvailableXP -= ability3UnlockCost;
+            SceneCharacter.characterAvailableXP -= SceneCharacter.ability3.unlockCost;
             SceneCharacter.ability3Unlock = true;
         }
     }
 
     public void PotionUnlockButton()
     {
-        if (SceneCharacter.characterAvailableXP > potionUnlockCost)
+        if ((SceneCharacter.characterAvailableXP > SceneCharacter.potion.unlockCost) && !SceneCharacter.potionUnlock)
         {
-            SceneCharacter.characterAvailableXP -= potionUnlockCost;
+            SceneCharacter.characterAvailableXP -= SceneCharacter.potion.unlockCost;
             SceneCharacter.potionUnlock = true;
         }
     }

@@ -629,7 +629,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 87404286}
-        m_MethodName: IncrementAtk
+        m_MethodName: ThirdAbilityUnlockButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3060,7 +3060,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 382936415}
-        m_MethodName: IncrementAbility
+        m_MethodName: PotionUnlockButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9153,7 +9153,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1449522390}
-        m_MethodName: IncrementHealth
+        m_MethodName: SecondAbilityUnlockButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -13977,7 +13977,19 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 1.5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4003694676353887171, guid: a2c9ea2b2e8596a49933853b78fdb524, type: 3}
+    - {fileID: -1640979970430958848, guid: a2c9ea2b2e8596a49933853b78fdb524, type: 3}
+    - {fileID: -5579843909478587745, guid: a2c9ea2b2e8596a49933853b78fdb524, type: 3}
+    - {fileID: -7391546522056551290, guid: a2c9ea2b2e8596a49933853b78fdb524, type: 3}
+    - {fileID: -6757291334992518772, guid: a2c9ea2b2e8596a49933853b78fdb524, type: 3}
+    - {fileID: -2840245833096172702, guid: a2c9ea2b2e8596a49933853b78fdb524, type: 3}
+    - {fileID: 3857764803361734263, guid: a2c9ea2b2e8596a49933853b78fdb524, type: 3}
+    - {fileID: -4940938041601849252, guid: a2c9ea2b2e8596a49933853b78fdb524, type: 3}
+    - {fileID: -497795090376130090, guid: a2c9ea2b2e8596a49933853b78fdb524, type: 3}
+    - {fileID: 264461856246139277, guid: a2c9ea2b2e8596a49933853b78fdb524, type: 3}
+    - {fileID: -3594016727403234314, guid: a2c9ea2b2e8596a49933853b78fdb524, type: 3}
+    - {fileID: -7065171947691437709, guid: a2c9ea2b2e8596a49933853b78fdb524, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a2c9ea2b2e8596a49933853b78fdb524, type: 3}
 --- !u!1 &2113773468 stripped
 GameObject:

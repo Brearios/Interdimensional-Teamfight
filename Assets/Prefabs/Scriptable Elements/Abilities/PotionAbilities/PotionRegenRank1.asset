@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eb4150d779a2b1143b0ae420b32688ed, type: 3}
-  m_Name: FillerAbility
+  m_Name: PotionRegenRank1
   m_EditorClassIdentifier: 
-  targetType: 0
-  abilityName: Filler
+  targetType: 6
+  abilityName: Regen
   hpDelta: 0
-  abilityRange: 0
+  abilityRange: 6
   aoeChancetoHit: 0
-  cooldown: 0
+  cooldown: 20
   startsOnCooldown: 0
   isAutoAtk: 0
-  description: Test words here. Literally no effect.
-  effect: {fileID: 0}
+  description: Use a potion to regenerate health temporarily.
+  effect: {fileID: 11400000, guid: a1af52d0fb6337b49b001d668e3fda3d, type: 2}
   abilityCharges: 0
-  unlockCost: 500
+  unlockCost: 800

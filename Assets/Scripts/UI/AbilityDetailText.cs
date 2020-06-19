@@ -24,6 +24,7 @@ public class AbilityDetailText : MonoBehaviour
     void Update()
     {
         currentDetailAbility = PlayerProfile.Instance.currentDetailAbility;
-        text.text = $"Ability: {currentDetailAbility.description} XP Cost: {currentDetailAbility.unlockCost}";
+        text.text = $"Ability: {currentDetailAbility.name} \n Description: {currentDetailAbility.description} \n XP Cost {currentDetailAbility.unlockCost}";
+        //text.text = "This is text test to see where the issue is.";
     }
 }

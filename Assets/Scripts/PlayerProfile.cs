@@ -69,9 +69,9 @@ public class PlayerProfile : MonoBehaviour
         characterProfiles.Add(rogueHero);
 
         currentEditingInteger = 0;
-        currentDetailAbility = CurrentEditingCharacter.ability2;
         // Sets the current editing character to the first one at the start of the script
         CurrentEditingCharacter = characterProfiles[currentEditingInteger];
+        currentDetailAbility = CurrentEditingCharacter.ability2;
 
         //foreach (CharacterProfile characterStartupProfile in characterProfiles)
         //{

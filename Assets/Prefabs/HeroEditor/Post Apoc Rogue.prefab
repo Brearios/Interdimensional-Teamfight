@@ -4491,8 +4491,8 @@ MonoBehaviour:
   autoAtk: {fileID: 11400000, guid: 2bebe808ca503864c9cc1f842b32a7d1, type: 2}
   ability1: {fileID: 11400000, guid: ce80ff9f4cf65b14e82502bfb80dcb0b, type: 2}
   ability2: {fileID: 11400000, guid: 0967b2b18fb4f4a42a194cde27ae3704, type: 2}
-  ability3: {fileID: 0}
-  potion: {fileID: 0}
+  ability3: {fileID: 11400000, guid: 9606f02bbe713c94489e085fb5cf05c9, type: 2}
+  potion: {fileID: 11400000, guid: 3325535cecac7e8459de80fb98690e19, type: 2}
   unitName: 
   maxHealth: 0
   currHealth: 0

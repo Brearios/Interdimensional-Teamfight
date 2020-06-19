@@ -2274,5 +2274,53 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 0967b2b18fb4f4a42a194cde27ae3704,
         type: 2}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: mageHero.ability3
+      value: 
+      objectReference: {fileID: 11400000, guid: 9606f02bbe713c94489e085fb5cf05c9,
+        type: 2}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: mageHero.potion
+      value: 
+      objectReference: {fileID: 11400000, guid: 3325535cecac7e8459de80fb98690e19,
+        type: 2}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: warriorHero.ability3
+      value: 
+      objectReference: {fileID: 11400000, guid: 9606f02bbe713c94489e085fb5cf05c9,
+        type: 2}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: warriorHero.potion
+      value: 
+      objectReference: {fileID: 11400000, guid: 3325535cecac7e8459de80fb98690e19,
+        type: 2}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: priestHero.ability3
+      value: 
+      objectReference: {fileID: 11400000, guid: 9606f02bbe713c94489e085fb5cf05c9,
+        type: 2}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: priestHero.potion
+      value: 
+      objectReference: {fileID: 11400000, guid: 3325535cecac7e8459de80fb98690e19,
+        type: 2}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: rogueHero.ability3
+      value: 
+      objectReference: {fileID: 11400000, guid: 9606f02bbe713c94489e085fb5cf05c9,
+        type: 2}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: rogueHero.potion
+      value: 
+      objectReference: {fileID: 11400000, guid: 3325535cecac7e8459de80fb98690e19,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db534adf8c82c12469f782d9128fd3f1, type: 3}

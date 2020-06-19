@@ -13107,9 +13107,9 @@ MonoBehaviour:
   team: {fileID: 11400000, guid: 50ec59c1cc1783e4fb6314d6f0d9fc40, type: 2}
   autoAtk: {fileID: 11400000, guid: 2bebe808ca503864c9cc1f842b32a7d1, type: 2}
   ability1: {fileID: 11400000, guid: eed78b34608a1014da24262aa2df7b67, type: 2}
-  ability2: {fileID: 0}
-  ability3: {fileID: 0}
-  potion: {fileID: 0}
+  ability2: {fileID: 11400000, guid: e0e64450ef3e11b4ea011125f457e545, type: 2}
+  ability3: {fileID: 11400000, guid: 9606f02bbe713c94489e085fb5cf05c9, type: 2}
+  potion: {fileID: 11400000, guid: 3325535cecac7e8459de80fb98690e19, type: 2}
   unitName: 
   maxHealth: 0
   currHealth: 0
@@ -13125,9 +13125,7 @@ MonoBehaviour:
   body: {fileID: 0}
   healthBar: {fileID: 6490861647910916877}
   healthBG: {fileID: 7869939795317510884}
-  MyAbilities: []
-  CurrentEffects: []
-  CurrentEffectsRemovalInts: 
+  CurrentEffectsRemovalIds: []
   isDead: 0
   ThreatScore: 0
   targetCheckCount: 0
