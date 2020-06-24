@@ -12,6 +12,8 @@ public class ScriptableUnit : ScriptableObject
     public int abilityPower;
     public int globalCooldown;
     public int xpWhenKilled;
+    public int crystalsWhenKilled;
+    public int goldWhenKilled;
     public string role;
     public string team;
     public float atkRange;

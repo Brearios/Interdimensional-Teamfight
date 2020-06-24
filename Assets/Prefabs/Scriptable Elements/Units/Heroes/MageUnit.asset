@@ -10,18 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2d9a75471d10e234095c808943749452, type: 3}
-  m_Name: Skeleton Rogue
+  m_Name: MageUnit
   m_EditorClassIdentifier: 
-  unitName: Skeleton Rogue
-  maxHealth: 40
-  attackDamage: 6
-  abilityPower: 4
-  globalCooldown: 2
-  xpWhenKilled: 100
-  role: MeleeDPS
+  unitName: Mage
+  maxHealth: 100
+  attackDamage: 5
+  abilityPower: 6
+  globalCooldown: 3
+  xpWhenKilled: 25
+  crystalsWhenKilled: 0
+  role: RangedDPS
   team: 
   atkRange: 3
-  moveSpeed: 1.5
+  moveSpeed: 1
   targetCheckFrequency: 2
-  abilityAnimationType: Slash
-  dmgVariance: 0.15
+  abilityAnimationType: Cast
+  dmgVariance: 0.25

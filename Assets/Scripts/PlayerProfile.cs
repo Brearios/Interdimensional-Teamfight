@@ -13,6 +13,11 @@ public class PlayerProfile : MonoBehaviour
     public int currentEditingInteger;
     public ScriptableAbility currentDetailAbility;
     public int nextBattleScene;
+    public int earnedCrystals;
+    public int currentCrystals;
+    public int totalGold;
+    public int currentGold;
+
 
 
     // public Dictionary<ScriptableUnit, CharacterProfile> characterProfiles;

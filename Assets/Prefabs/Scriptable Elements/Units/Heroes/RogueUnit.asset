@@ -10,23 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2d9a75471d10e234095c808943749452, type: 3}
-  m_Name: PriestUnit
+  m_Name: RogueUnit
   m_EditorClassIdentifier: 
-  unitName: Priest
+  unitName: Rogue
   maxHealth: 100
-  attackDamage: 5
-  abilityPower: 6
+  attackDamage: 15
+  abilityPower: 8
   globalCooldown: 2
-  xpWhenKilled: 100
-  role: Healer
+  xpWhenKilled: 25
+  crystalsWhenKilled: 0
+  role: MeleeDPS
   team: 
   atkRange: 2
-  moveSpeed: 1
+  moveSpeed: 1.5
   targetCheckFrequency: 2
-  abilityAnimationType: Cast
-  dmgVariance: 0.3
-  autoAtk: {fileID: 11400000, guid: f4d8cad2a9a2b02449420d6832502937, type: 2}
-  ability1: {fileID: 11400000, guid: f81ca7937fe240e4aaf8657be5ce1c02, type: 2}
-  ability2: {fileID: 11400000, guid: 2767b24bdb91e4845ac391337bf3b166, type: 2}
-  ability3: {fileID: 0}
-  potion: {fileID: 0}
+  abilityAnimationType: Slash
+  dmgVariance: 0.15

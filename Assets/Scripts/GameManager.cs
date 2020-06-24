@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     public bool DisplayHealth = true; // Shows or hides health bars
     public bool ShowTarget = true;
     public int earnedBattleXP;
+    public int earnedBattleCrystals;
+    public int earnedBattleGold;
     public float gameSpeed;
     public float deltaTime;
     public float timeIncrement = .5f;
@@ -24,6 +26,7 @@ public class GameManager : MonoBehaviour
     public int playerCharacterStartingCount;
     Actor[] allActors;
     public int activeScene;
+    public bool currencyDistributed;
     // public int nextBattleScene = 0;
     // public int[] nextBattle = new int[5] { 2, 3, 4, 5, 6 };
 
@@ -50,6 +53,7 @@ public class GameManager : MonoBehaviour
         xpCounted = false;
         xpDistributed = false;
         playerCharacterStartingCount = 0;
+        earnedBattleCrystals = 0;
 
         CountPlayers();
     }
@@ -102,6 +106,11 @@ public class GameManager : MonoBehaviour
                     DistributeXP();
                 }
                 xpDistributed = true;
+            }
+            if (currencyDistributed == false)
+            {
+                DistributeCurrencies();
+                currencyDistributed = true;
             }
             // Load Upgrade Screen?
             if (Input.GetKeyDown(KeyCode.M))
@@ -210,6 +219,22 @@ public class GameManager : MonoBehaviour
                 Debug.Log($"Adding {xpPerCharacter} to {xpProfile.heroName}'s available XP. They now have {xpProfile.characterAvailableXP} available XP.");
             }
         }
+    }
+
+    void DistributeCurrencies()
+    {
+        Actor[] allActors = GameObject.FindObjectsOfType<Actor>();
+        foreach (Actor Actor in allActors)
+            if (Actor.isDead == true && !Actor.isPlayer)
+            {
+                earnedBattleCrystals += Actor.crystalsWhenKilled;
+                earnedBattleGold += Actor.goldWhenKilled;
+            }
+
+        PlayerProfile.Instance.earnedCrystals += earnedBattleCrystals;
+        PlayerProfile.Instance.currentCrystals += earnedBattleCrystals;
+        PlayerProfile.Instance.totalGold += earnedBattleGold;
+        PlayerProfile.Instance.currentGold += earnedBattleGold;
     }
 
     void CountPlayers()

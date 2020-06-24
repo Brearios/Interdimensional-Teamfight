@@ -10,23 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2d9a75471d10e234095c808943749452, type: 3}
-  m_Name: MageUnit
+  m_Name: WarriorUnit
   m_EditorClassIdentifier: 
-  unitName: Mage
-  maxHealth: 100
+  unitName: Warrior
+  maxHealth: 300
   attackDamage: 5
-  abilityPower: 6
-  globalCooldown: 3
+  abilityPower: 8
+  globalCooldown: 2
   xpWhenKilled: 25
-  role: RangedDPS
+  crystalsWhenKilled: 0
+  role: Tank
   team: 
   atkRange: 3
   moveSpeed: 1
   targetCheckFrequency: 2
-  abilityAnimationType: Cast
-  dmgVariance: 0.25
-  autoAtk: {fileID: 11400000, guid: f4d8cad2a9a2b02449420d6832502937, type: 2}
-  ability1: {fileID: 11400000, guid: 6bf2c15b44422ec41a09da5e79a3a2e2, type: 2}
-  ability2: {fileID: 11400000, guid: 01700505b760dd543957348427264b4c, type: 2}
-  ability3: {fileID: 0}
-  potion: {fileID: 0}
+  abilityAnimationType: Slash
+  dmgVariance: 0.2

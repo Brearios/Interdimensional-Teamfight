@@ -18,6 +18,8 @@ MonoBehaviour:
   abilityPower: 8
   globalCooldown: 2
   xpWhenKilled: 100
+  crystalsWhenKilled: 2
+  goldWhenKilled: 25
   role: Tank
   team: 
   atkRange: 3

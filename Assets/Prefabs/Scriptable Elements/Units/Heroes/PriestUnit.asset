@@ -10,18 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2d9a75471d10e234095c808943749452, type: 3}
-  m_Name: BossUnit
+  m_Name: PriestUnit
   m_EditorClassIdentifier: 
-  unitName: Boss
-  maxHealth: 900
-  attackDamage: 60
-  abilityPower: 16
+  unitName: Priest
+  maxHealth: 100
+  attackDamage: 5
+  abilityPower: 6
   globalCooldown: 2
-  xpWhenKilled: 0
-  role: 
-  team: Red
-  atkRange: 4
-  moveSpeed: 2
+  xpWhenKilled: 100
+  crystalsWhenKilled: 0
+  role: Healer
+  team: 
+  atkRange: 2
+  moveSpeed: 1
   targetCheckFrequency: 2
-  abilityAnimationType: Slash
+  abilityAnimationType: Cast
   dmgVariance: 0.3

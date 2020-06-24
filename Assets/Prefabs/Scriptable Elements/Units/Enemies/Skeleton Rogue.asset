@@ -10,18 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2d9a75471d10e234095c808943749452, type: 3}
-  m_Name: BossRogue
+  m_Name: Skeleton Rogue
   m_EditorClassIdentifier: 
-  unitName: Small Rogue
-  maxHealth: 2500
-  attackDamage: 130
+  unitName: Skeleton Rogue
+  maxHealth: 40
+  attackDamage: 6
   abilityPower: 4
-  globalCooldown: 9
+  globalCooldown: 2
   xpWhenKilled: 100
+  crystalsWhenKilled: 1
+  goldWhenKilled: 20
   role: MeleeDPS
   team: 
   atkRange: 3
   moveSpeed: 1.5
   targetCheckFrequency: 2
   abilityAnimationType: Slash
-  dmgVariance: 0.2
+  dmgVariance: 0.15

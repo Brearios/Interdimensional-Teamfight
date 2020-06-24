@@ -33,6 +33,8 @@ public class Actor : MonoBehaviour
     public int attackDamage; // Later make this a random amount within a range
     public int abilityPower;
     public int xpWhenKilled;
+    public int crystalsWhenKilled;
+    public int goldWhenKilled;
     public string role;
     public float atkRange;
     public float moveSpeed;
@@ -153,6 +155,8 @@ public class Actor : MonoBehaviour
         currentColor = GetComponentInChildren<SpriteRenderer>().color;
         isDead = false;
         xpWhenKilled = unit.xpWhenKilled;
+        crystalsWhenKilled = unit.crystalsWhenKilled;
+        goldWhenKilled = unit.goldWhenKilled;
         targetCheckFrequency = unit.targetCheckFrequency;
         targetCheckCount = Random.Range(.4f, unit.targetCheckFrequency);
         // PlayerCheck();
