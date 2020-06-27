@@ -27,6 +27,9 @@ public class GameManager : MonoBehaviour
     Actor[] allActors;
     public int activeScene;
     public bool currencyDistributed;
+    public int heroDamageDone;
+    public int heroDamageTaken;
+    public int heroHealingDone;
     // public int nextBattleScene = 0;
     // public int[] nextBattle = new int[5] { 2, 3, 4, 5, 6 };
 
@@ -50,10 +53,14 @@ public class GameManager : MonoBehaviour
         gameSpeed = 1.0f;
         timeIncrement = .2f;
         earnedBattleXP = 0;
+        earnedBattleCrystals = 0;
+        earnedBattleGold = 0;
         xpCounted = false;
         xpDistributed = false;
         playerCharacterStartingCount = 0;
-        earnedBattleCrystals = 0;
+        heroDamageDone = 0;
+        heroDamageTaken = 0;
+        heroHealingDone = 0;
 
         CountPlayers();
     }
