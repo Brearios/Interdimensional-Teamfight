@@ -24,10 +24,13 @@ public class GameManager : MonoBehaviour
     public int xpPerCharacter;
     public bool xpCounted;
     public bool xpDistributed;
-    public int playerCharacterStartingCount;
+    public int totalHeroes;
+    public int totalEnemies;
     Actor[] allActors;
     public int activeScene;
     public bool currencyDistributed;
+    public int heroDeaths;
+    public int enemyDeaths;
     public float heroDamageDone;
     public float heroDamageTaken;
     public float heroHealingDone;
@@ -36,9 +39,6 @@ public class GameManager : MonoBehaviour
     public bool playerLoss;
     public string outcome;
     public int survivingHeroes;
-    public int totalHeroes;
-    public int defeatedEnemies;
-    public int totalEnemies;
     // public int nextBattleScene = 0;
     // public int[] nextBattle = new int[5] { 2, 3, 4, 5, 6 };
 
@@ -66,15 +66,19 @@ public class GameManager : MonoBehaviour
         earnedBattleGold = 0;
         xpCounted = false;
         xpDistributed = false;
-        playerCharacterStartingCount = 0;
+        totalHeroes = 0;
         heroDamageDone = 0;
         heroDamageTaken = 0;
         heroHealingDone = 0;
         enemyHealingDone = 0;
         playerVictory = false;
         playerLoss = false;
+        totalEnemies = 0;
+        heroDeaths = 0;
+        enemyDeaths = 0;
+        survivingHeroes = 0;
 
-        CountPlayers();
+        CountPlayersAndEnemies();
     }
 
     
@@ -206,6 +210,7 @@ public class GameManager : MonoBehaviour
             winningTeamColor = winCheckTeam.color;
             DetermineOutcome();
             IncrementNextBattleIfVictorious();
+            CountSurvivors();
             battleReportCanvas.SetActive(true);
             // winningTeamColor = allActors[0].GetComponentInChildren<Color>();
         }
@@ -261,21 +266,25 @@ public class GameManager : MonoBehaviour
         PlayerProfile.Instance.currentGold += earnedBattleGold;
     }
 
-    void CountPlayers()
+    void CountPlayersAndEnemies()
     {
         Actor[] allActors = GameObject.FindObjectsOfType<Actor>();
         foreach (Actor Actor in allActors)
         {
             if (Actor.isPlayer == true)
             {
-                playerCharacterStartingCount++;
+                totalHeroes++;
+            }
+            if (!Actor.isPlayer)
+            {
+                totalEnemies++;
             }
         }
     }
 
     void DivideExperience()
     {
-        xpPerCharacter = (earnedBattleXP / playerCharacterStartingCount);
+        xpPerCharacter = (earnedBattleXP / totalHeroes);
         // xpPerCharacter = ((xpPerCharacter / 3) + 1); // Clunky fix to this running 3 times for unknown reasons
     }
 
@@ -373,6 +382,12 @@ public class GameManager : MonoBehaviour
             playerLoss = true;
             // outcome = "DEFEAT!";
         }
+    }
+
+    void CountSurvivors()
+    {
+        survivingHeroes = totalHeroes - heroDeaths;
+        // defeatedEnemies = totalEnemies - enemyDeaths; Unneeded
     }
 
     //void ManageLayers()

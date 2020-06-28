@@ -929,6 +929,7 @@ public class Actor : MonoBehaviour
     public void Die()
     {
         isDead = true;
+        TeamDeathCounter();
         healthBar.canvasRenderer.SetAlpha(0);
         healthBG.canvasRenderer.SetAlpha(0);
         {
@@ -947,6 +948,17 @@ public class Actor : MonoBehaviour
         return;
     }
 
+    public void TeamDeathCounter()
+    {
+        if (isPlayer)
+        {
+            GameManager.Instance.heroDeaths++;
+        }
+        if (!isPlayer)
+        {
+            GameManager.Instance.enemyDeaths++;
+        }
+    }
     public void ApplyStatusEffect (Actor caster, Actor actor, ScriptableEffect effect)
     {
         EffectData effectData = new EffectData(effect, caster.abilityPower);

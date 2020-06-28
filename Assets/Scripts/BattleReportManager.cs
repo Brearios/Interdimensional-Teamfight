@@ -8,7 +8,7 @@ public class BattleReportManager : MonoBehaviour
     public static BattleReportManager Instance;
     public string outcome;
     public string details;
-    public string survivorsKills;
+    public string survivorsAndKills;
     public string currencyGains;
     public bool stringsBuilt;
     //public GameObject battleReportContainer;
@@ -90,8 +90,8 @@ public class BattleReportManager : MonoBehaviour
 
     void SurivorsAndKillsStringBuilder()
     {
-        survivorsKills = $"Heroes Survived: {GameManager.Instance.survivingHeroes} of {GameManager.Instance.totalHeroes} \n Enemies Defeated: {GameManager.Instance.defeatedEnemies} of {GameManager.Instance.totalEnemies}";
-        survivorsKillsText.text = survivorsKills;
+        survivorsAndKills = $"Heroes Survived: {GameManager.Instance.survivingHeroes} of {GameManager.Instance.totalHeroes} \n Enemies Defeated: {GameManager.Instance.enemyDeaths} of {GameManager.Instance.totalEnemies}";
+        survivorsKillsText.text = survivorsAndKills;
     }
     void CurrencyGainsStringBuilder()
     {

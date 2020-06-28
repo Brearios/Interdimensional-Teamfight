@@ -868,15 +868,18 @@ MonoBehaviour:
   gameSpeed: 0
   deltaTime: 0
   timeIncrement: 0.5
-  DeclareVictory: 0
+  BattleOver: 0
   winningTeam: {fileID: 0}
   winningTeamColor: {r: 0, g: 0, b: 0, a: 0}
   xpPerCharacter: 0
   xpCounted: 0
   xpDistributed: 0
-  playerCharacterStartingCount: 0
+  totalHeroes: 0
+  totalEnemies: 0
   activeScene: 0
   currencyDistributed: 0
+  heroDeaths: 0
+  enemyDeaths: 0
   heroDamageDone: 0
   heroDamageTaken: 0
   heroHealingDone: 0
@@ -885,9 +888,6 @@ MonoBehaviour:
   playerLoss: 0
   outcome: 
   survivingHeroes: 0
-  totalHeroes: 0
-  defeatedEnemies: 0
-  totalEnemies: 0
 --- !u!4 &951133640
 Transform:
   m_ObjectHideFlags: 0
@@ -1117,6 +1117,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8829905949552249025, guid: 9f1a129c51a40dd4692cb9024944990b,
+        type: 3}
+      propertyPath: unit
+      value: 
+      objectReference: {fileID: 11400000, guid: bf02687c5083c434eb366fc742b94b1a,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f1a129c51a40dd4692cb9024944990b, type: 3}
 --- !u!1 &1319499794

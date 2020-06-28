@@ -9,33 +9,33 @@ public class WinScreenText : MonoBehaviour
     public string WinningTeamString;
     Text text;
     // Start is called before the first frame update
-    void Start()
-    {
-        text = GetComponent<Text>();
-    }
+    //void Start()
+    //{
+    //    text = GetComponent<Text>();
+    //}
 
-    // Update is called once per frame
-    void Update()
-    {
-        // Convert winningTeam to String
-        WinningTeamString = GameManager.Instance.winningTeam.name;
+    //// Update is called once per frame
+    //void Update()
+    //{
+    //    // Convert winningTeam to String
+    //    WinningTeamString = GameManager.Instance.winningTeam.name;
 
-        // Set color to WinningTeam Color
-        // text.color = GameManager.Instance.winningTeamColor;
+    //    // Set color to WinningTeam Color
+    //    // text.color = GameManager.Instance.winningTeamColor;
 
-        // Enable the Text
-        if (GameManager.Instance.BattleOver)
-        {
-            // Set text to "The Winner is TeamName
-            text.text = $"{WinningTeamString} Wins! M for menu, N for next level, H for highest level available, or R to repeat.";
-            text.color = GameManager.Instance.winningTeamColor;
-            text.enabled = true;
-        }
-        else
-        {
-            text.enabled = false;
-        }
-    }
+    //    // Enable the Text
+    //    if (GameManager.Instance.BattleOver)
+    //    {
+    //        // Set text to "The Winner is TeamName
+    //        text.text = $"{WinningTeamString} Wins! M for menu, N for next level, H for highest level available, or R to repeat.";
+    //        text.color = GameManager.Instance.winningTeamColor;
+    //        text.enabled = true;
+    //    }
+    //    else
+    //    {
+    //        text.enabled = false;
+    //    }
+    //}
 
    /* Color GetColorForTeam (ScriptableTeam.Team team)
     {

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2029354982108646599}
   - component: {fileID: 6848232800219610292}
   m_Layer: 0
-  m_Name: SurvirorsKillsText
+  m_Name: SurvivorsKillsText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,11 +76,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Heroes Survived: 4/4
+  m_Text: 'Heroes Evacuated:
 
-    Enemies Defeated: 19/19
-
-'
+    Enemies Defeated:'
 --- !u!1 &1622052808971255116
 GameObject:
   m_ObjectHideFlags: 0
@@ -889,7 +887,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   outcome: 
   details: 
-  survivorsKills: 
+  survivorsAndKills: 
   currencyGains: 
   stringsBuilt: 0
   outcomeText: {fileID: 0}
