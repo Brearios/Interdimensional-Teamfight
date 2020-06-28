@@ -135,7 +135,7 @@ PrefabInstance:
     - target: {fileID: 6362281642564214172, guid: 81772a38151444e49abe9f001c409ba2,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6362281642564214160, guid: 81772a38151444e49abe9f001c409ba2,
         type: 3}
@@ -1069,6 +1069,14 @@ MonoBehaviour:
   heroDamageDone: 0
   heroDamageTaken: 0
   heroHealingDone: 0
+  enemyHealingDone: 0
+  playerVictory: 0
+  playerLoss: 0
+  outcome: 
+  survivingHeroes: 0
+  totalHeroes: 0
+  defeatedEnemies: 0
+  totalEnemies: 0
 --- !u!4 &951133640
 Transform:
   m_ObjectHideFlags: 0

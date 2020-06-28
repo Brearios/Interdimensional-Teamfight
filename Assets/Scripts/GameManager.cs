@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance; // <- reference link to GameManager
+    public GameObject battleReportCanvas;
     public bool IsRunning = false; // Allows pausing the game
     public bool DisplayHealth = true; // Shows or hides health bars
     public bool ShowTarget = true;
@@ -16,7 +17,7 @@ public class GameManager : MonoBehaviour
     public float gameSpeed;
     public float deltaTime;
     public float timeIncrement = .5f;
-    public bool DeclareVictory;
+    public bool BattleOver;
     public ScriptableTeam winningTeam;
     public Color winningTeamColor;
     // public int playersReceivingXP;
@@ -27,9 +28,17 @@ public class GameManager : MonoBehaviour
     Actor[] allActors;
     public int activeScene;
     public bool currencyDistributed;
-    public int heroDamageDone;
-    public int heroDamageTaken;
-    public int heroHealingDone;
+    public float heroDamageDone;
+    public float heroDamageTaken;
+    public float heroHealingDone;
+    public float enemyHealingDone;
+    public bool playerVictory;
+    public bool playerLoss;
+    public string outcome;
+    public int survivingHeroes;
+    public int totalHeroes;
+    public int defeatedEnemies;
+    public int totalEnemies;
     // public int nextBattleScene = 0;
     // public int[] nextBattle = new int[5] { 2, 3, 4, 5, 6 };
 
@@ -49,7 +58,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         activeScene = SceneManager.GetActiveScene().buildIndex;
-        DeclareVictory = false;
+        BattleOver = false;
         gameSpeed = 1.0f;
         timeIncrement = .2f;
         earnedBattleXP = 0;
@@ -61,6 +70,9 @@ public class GameManager : MonoBehaviour
         heroDamageDone = 0;
         heroDamageTaken = 0;
         heroHealingDone = 0;
+        enemyHealingDone = 0;
+        playerVictory = false;
+        playerLoss = false;
 
         CountPlayers();
     }
@@ -97,7 +109,7 @@ public class GameManager : MonoBehaviour
         {
             IsBattleOver();
         }
-        if (DeclareVictory == true)
+        if (BattleOver == true)
         {
             /* if (xpCounted == false)
             {
@@ -120,22 +132,24 @@ public class GameManager : MonoBehaviour
                 currencyDistributed = true;
             }
             // Load Upgrade Screen?
-            if (Input.GetKeyDown(KeyCode.M))
-            {
-                MenuScreen();
-            }
-            if (Input.GetKeyDown(KeyCode.N))
-            {
-                NextBattle();
-            }
-            if (Input.GetKeyDown(KeyCode.H))
-            {
-                HighestBattle();
-            }
-            if (Input.GetKeyDown(KeyCode.R))
-            {
-                RepeatBattle();
-            }
+            
+            // Unnecessary due to BattleReport:
+            //if (Input.GetKeyDown(KeyCode.M))
+            //{
+            //    MenuScreen();
+            //}
+            //if (Input.GetKeyDown(KeyCode.N))
+            //{
+            //    NextBattle();
+            //}
+            //if (Input.GetKeyDown(KeyCode.H))
+            //{
+            //    HighestBattle();
+            //}
+            //if (Input.GetKeyDown(KeyCode.R))
+            //{
+            //    RepeatBattle();
+            //}
         }
     }
 
@@ -154,10 +168,10 @@ public class GameManager : MonoBehaviour
 
 
         // Keep the script from running on menu screens
-        if (allActors.Length == 0)
-        {
-            return;
-        }
+        //if (allActors.Length == 0)
+        //{
+        //    return;
+        //}
 
         // Get Team of Any One (Alive) Unit
         int arrayPosition = 0;
@@ -179,17 +193,20 @@ public class GameManager : MonoBehaviour
 
             if (!Team.isDead && Team.team != winCheckTeam)
             {
-                DeclareVictory = false;
+                BattleOver = false;
                 break;
             }
             else if (!Team.isDead && Team.team == winCheckTeam)
             {
-                DeclareVictory = true;
+                BattleOver = true;
                 winningTeam = winCheckTeam;
             }
-        if (DeclareVictory == true)
+        if (BattleOver == true)
         {
             winningTeamColor = winCheckTeam.color;
+            DetermineOutcome();
+            IncrementNextBattleIfVictorious();
+            battleReportCanvas.SetActive(true);
             // winningTeamColor = allActors[0].GetComponentInChildren<Color>();
         }
         
@@ -291,6 +308,14 @@ public class GameManager : MonoBehaviour
             gameSpeed = 1.0f;
         }
     }
+
+    void IncrementNextBattleIfVictorious()
+    {
+        if (winningTeam.team == ScriptableTeam.Team.Blue && (activeScene == PlayerProfile.Instance.nextBattleScene))
+        {
+            PlayerProfile.Instance.nextBattleScene++;
+        }
+    }
     void MenuScreen()
     {
         if (winningTeam.team == ScriptableTeam.Team.Blue && (activeScene == PlayerProfile.Instance.nextBattleScene))
@@ -333,6 +358,21 @@ public class GameManager : MonoBehaviour
     void RepeatBattle()
     {
         SceneManager.LoadScene(PlayerProfile.Instance.nextBattleScene);
+    }
+
+    void DetermineOutcome()
+    {
+        // This is a holdover from having teams as shapes with colors. Blue = the player team.
+        if (winningTeam.team == ScriptableTeam.Team.Blue)
+        {
+            playerVictory = true;
+            // outcome = "VICTORY!";
+        }
+        if (winningTeam.team == ScriptableTeam.Team.Red)
+        {
+            playerLoss = true;
+            // outcome = "DEFEAT!";
+        }
     }
 
     //void ManageLayers()

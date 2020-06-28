@@ -1891,6 +1891,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 527a651b647d19540979dfd170996a04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  battleReportCanvas: {fileID: 1614209627}
   IsRunning: 0
   DisplayHealth: 1
   ShowTarget: 1
@@ -1912,6 +1913,14 @@ MonoBehaviour:
   heroDamageDone: 0
   heroDamageTaken: 0
   heroHealingDone: 0
+  enemyHealingDone: 0
+  playerVictory: 0
+  playerLoss: 0
+  outcome: 
+  survivingHeroes: 0
+  totalHeroes: 0
+  defeatedEnemies: 0
+  totalEnemies: 0
 --- !u!4 &951133640
 Transform:
   m_ObjectHideFlags: 0
@@ -3514,6 +3523,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 81772a38151444e49abe9f001c409ba2, type: 3}
+--- !u!1 &1614209627 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6362281642564214172, guid: 81772a38151444e49abe9f001c409ba2,
+    type: 3}
+  m_PrefabInstance: {fileID: 1614209626}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1706178950
 PrefabInstance:
   m_ObjectHideFlags: 0

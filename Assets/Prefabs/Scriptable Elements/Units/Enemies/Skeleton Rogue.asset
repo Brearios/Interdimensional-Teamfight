@@ -18,7 +18,7 @@ MonoBehaviour:
   abilityPower: 4
   globalCooldown: 2
   xpWhenKilled: 100
-  crystalsWhenKilled: 1
+  crystalsWhenKilled: 0
   goldWhenKilled: 20
   role: MeleeDPS
   team: 

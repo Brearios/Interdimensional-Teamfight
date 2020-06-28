@@ -203,7 +203,7 @@ public class Actor : MonoBehaviour
             Die();
         }
 
-        if (GameManager.Instance.DeclareVictory == true)
+        if (GameManager.Instance.BattleOver == true)
         {
             return;
         }
@@ -691,13 +691,35 @@ public class Actor : MonoBehaviour
         {
             currHealth = maxHealth;
         }
+
+        // Log Damage/Healing - Does not account for overkill/overhealing
+        if ((isPlayer) && (amount < 0)) 
+        {
+            GameManager.Instance.heroDamageTaken += Mathf.Abs(amount);
+        }
+
+        if ((isPlayer) && (amount > 0))
+        {
+            GameManager.Instance.heroHealingDone += amount;
+        }
+
+        if ((!isPlayer) && (amount < 0))
+        {
+            GameManager.Instance.heroDamageDone += Mathf.Abs(amount);
+        }
+
+        if ((!isPlayer) && (amount > 0))
+        {
+            GameManager.Instance.enemyHealingDone += amount;
+        }
+
         // Animation/Knockback
 
         // Floating Combat Text
 
         // if (abilitytarget != null)
         // {
-            if (FloatingTextPrefab)
+        if (FloatingTextPrefab)
             {
                 if (wantFloatingText == true)
                 {

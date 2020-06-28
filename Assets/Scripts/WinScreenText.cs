@@ -24,7 +24,7 @@ public class WinScreenText : MonoBehaviour
         // text.color = GameManager.Instance.winningTeamColor;
 
         // Enable the Text
-        if (GameManager.Instance.DeclareVictory)
+        if (GameManager.Instance.BattleOver)
         {
             // Set text to "The Winner is TeamName
             text.text = $"{WinningTeamString} Wins! M for menu, N for next level, H for highest level available, or R to repeat.";
