@@ -1130,7 +1130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.09803922}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1182,6 +1182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 527a651b647d19540979dfd170996a04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  battleReportCanvas: {fileID: 0}
   IsRunning: 0
   DisplayHealth: 1
   ShowTarget: 1
@@ -1191,15 +1192,26 @@ MonoBehaviour:
   gameSpeed: 0
   deltaTime: 0
   timeIncrement: 0.5
-  DeclareVictory: 0
+  BattleOver: 0
   winningTeam: {fileID: 0}
   winningTeamColor: {r: 0, g: 0, b: 0, a: 0}
   xpPerCharacter: 0
   xpCounted: 0
   xpDistributed: 0
-  playerCharacterStartingCount: 0
+  totalHeroes: 0
+  totalEnemies: 0
   activeScene: 0
   currencyDistributed: 0
+  heroDeaths: 0
+  enemyDeaths: 0
+  heroDamageDone: 0
+  heroDamageTaken: 0
+  heroHealingDone: 0
+  enemyHealingDone: 0
+  playerVictory: 0
+  playerLoss: 0
+  outcome: 
+  survivingHeroes: 0
 --- !u!4 &951133640
 Transform:
   m_ObjectHideFlags: 0

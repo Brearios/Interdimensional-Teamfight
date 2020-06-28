@@ -11,11 +11,15 @@ public class BattleReportManager : MonoBehaviour
     public string survivorsAndKills;
     public string currencyGains;
     public bool stringsBuilt;
+    public bool colorSet;
     //public GameObject battleReportContainer;
     public Text outcomeText;
     public Text detailsText;
     public Text survivorsKillsText;
     public Text currencyGainsText;
+    public GameObject outcomeBackground;
+    public Image outcomeBackgroundImage;
+    public Color outcomeBackgroundColor;
 
 
     public void Awake()
@@ -39,6 +43,7 @@ public class BattleReportManager : MonoBehaviour
         detailsText = GameObject.Find("DetailsText").GetComponent<Text>();
         survivorsKillsText = GameObject.Find("SurvivorsKillsText").GetComponent<Text>();
         currencyGainsText = GameObject.Find("CurrencyGainsText").GetComponent<Text>();
+        outcomeBackground = GameObject.Find("OutcomeBackground");
     }
 
     // Update is called once per frame
@@ -52,6 +57,11 @@ public class BattleReportManager : MonoBehaviour
                 BuildStrings();
                 stringsBuilt = true;
             }
+            if (!colorSet)
+            {
+                SetColor();
+                colorSet = true;
+            }
         }
     }
 
@@ -61,6 +71,19 @@ public class BattleReportManager : MonoBehaviour
         DetailsStringBuilder();
         SurivorsAndKillsStringBuilder();
         CurrencyGainsStringBuilder();
+    }
+
+    void SetColor()
+    {
+        if (GameManager.Instance.playerLoss)
+        {
+            outcomeBackgroundColor = new Color32(210, 30, 30, 150);
+        }
+        if (GameManager.Instance.playerVictory)
+        {
+            outcomeBackgroundColor = new Color32(30, 30, 210, 150);
+        }
+        outcomeBackground.GetComponent<Image>().color = outcomeBackgroundColor;
     }
 
     void DisplayBattleReport()
