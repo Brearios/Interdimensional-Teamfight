@@ -56,10 +56,6 @@ public class PlayerProfile : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(this);
-            //foreach (CharacterProfile newGameProfile in characterProfiles)
-            //{
-            //    LockHighLevelAbilities(newGameProfile);
-            //}
         }
         else
         {

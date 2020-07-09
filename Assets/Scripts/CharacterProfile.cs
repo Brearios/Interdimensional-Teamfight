@@ -17,6 +17,7 @@ public class CharacterProfile
     public int health;
     public int atk;
     public int abilityPower;
+    public bool charUnlock;
     public bool autoAtkUnlock;
     public bool ability1Unlock;
     public bool ability2Unlock;

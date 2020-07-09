@@ -5302,9 +5302,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b0ce10ba1de5194cb07dc56bd422a12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unit: {fileID: 0}
-  team: {fileID: 0}
-  ability: {fileID: 0}
+  unit: {fileID: 11400000, guid: c726bd5af39f0474089308f8ff682b54, type: 2}
+  team: {fileID: 11400000, guid: 50ec59c1cc1783e4fb6314d6f0d9fc40, type: 2}
+  autoAtk: {fileID: 11400000, guid: f4d8cad2a9a2b02449420d6832502937, type: 2}
+  ability1: {fileID: 11400000, guid: f81ca7937fe240e4aaf8657be5ce1c02, type: 2}
+  ability2: {fileID: 11400000, guid: 2767b24bdb91e4845ac391337bf3b166, type: 2}
+  ability3: {fileID: 11400000, guid: 9606f02bbe713c94489e085fb5cf05c9, type: 2}
+  potion: {fileID: 0}
   unitName: 
   maxHealth: 0
   currHealth: 0
@@ -5312,30 +5316,33 @@ MonoBehaviour:
   attackDamage: 0
   abilityPower: 0
   xpWhenKilled: 0
-  abilityHpDelta: 0
-  globalCooldown: 0
-  globalCooldownCount: 0
+  crystalsWhenKilled: 0
+  goldWhenKilled: 0
   role: 
   atkRange: 0
-  abilityRange: 0
-  abilityCooldown: 0
-  abilityCooldownCount: 0
   moveSpeed: 0
-  abilitySpeed: 0
+  highThreatTarget: {fileID: 0}
   currentState: 0
   body: {fileID: 0}
   healthBar: {fileID: 0}
   healthBG: {fileID: 0}
-  autoAtkTarget: {fileID: 0}
-  abilityTarget: {fileID: 0}
-  CurrentEffects: []
+  CurrentEffectsRemovalIds: []
   isDead: 0
   ThreatScore: 0
   targetCheckCount: 0
   targetCheckFrequency: 0
   hasTaunted: 0
-  tauntResetClock: 0
+  isTaunted: 0
+  isStunned: 0
+  threatResetClock: 0
   isPlayer: 0
+  beginAtkAnim: 0
+  isStealthed: 0
+  xpAdded: 0
+  abilityAnimationType: 
+  dmgVariance: 0
+  debuggingID: 0
+  debugShowTargetLines: 0
   FloatingTextPrefab: {fileID: 3012059549555167978, guid: 1e98c7aa83e776648ae16b3785ac6c38,
     type: 3}
 --- !u!114 &114665035978887628

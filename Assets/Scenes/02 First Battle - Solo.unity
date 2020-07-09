@@ -444,6 +444,7 @@ MonoBehaviour:
     health: 0
     atk: 0
     abilityPower: 0
+    charUnlock: 0
     autoAtkUnlock: 0
     ability1Unlock: 0
     ability2Unlock: 0
@@ -827,12 +828,12 @@ PrefabInstance:
     - target: {fileID: 8881565587964174519, guid: d976bd0383c6f25428c1855b09688f56,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.07
+      value: 0.55
       objectReference: {fileID: 0}
     - target: {fileID: 8881565587964174519, guid: d976bd0383c6f25428c1855b09688f56,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.7
+      value: -1.83
       objectReference: {fileID: 0}
     - target: {fileID: 8881565587964174519, guid: d976bd0383c6f25428c1855b09688f56,
         type: 3}
@@ -940,15 +941,18 @@ MonoBehaviour:
   gameSpeed: 0
   deltaTime: 0
   timeIncrement: 0.5
-  DeclareVictory: 0
+  BattleOver: 0
   winningTeam: {fileID: 0}
   winningTeamColor: {r: 0, g: 0, b: 0, a: 0}
   xpPerCharacter: 0
   xpCounted: 0
   xpDistributed: 0
-  playerCharacterStartingCount: 0
+  totalHeroes: 0
+  totalEnemies: 0
   activeScene: 0
   currencyDistributed: 0
+  heroDeaths: 0
+  enemyDeaths: 0
   heroDamageDone: 0
   heroDamageTaken: 0
   heroHealingDone: 0
@@ -957,9 +961,6 @@ MonoBehaviour:
   playerLoss: 0
   outcome: 
   survivingHeroes: 0
-  totalHeroes: 0
-  defeatedEnemies: 0
-  totalEnemies: 0
 --- !u!4 &951133640
 Transform:
   m_ObjectHideFlags: 0
@@ -1324,12 +1325,12 @@ PrefabInstance:
     - target: {fileID: 8881565587964174519, guid: d976bd0383c6f25428c1855b09688f56,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.2517471
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 8881565587964174519, guid: d976bd0383c6f25428c1855b09688f56,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.8779921
+      value: 0.57
       objectReference: {fileID: 0}
     - target: {fileID: 8881565587964174519, guid: d976bd0383c6f25428c1855b09688f56,
         type: 3}
