@@ -269,6 +269,7 @@ MonoBehaviour:
     health: 0
     atk: 0
     abilityPower: 0
+    charUnlock: 0
     autoAtkUnlock: 0
     ability1Unlock: 0
     ability2Unlock: 0
@@ -692,6 +693,49 @@ PrefabInstance:
         type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d161b1c5f3d84f46862d4e1712408eb, type: 3}
+--- !u!1 &738066622
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 738066624}
+  - component: {fileID: 738066623}
+  m_Layer: 0
+  m_Name: LevelManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &738066623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 738066622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c2af0a2a04918441a1f3283673ff54e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &738066624
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 738066622}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.5132654, y: 0.32914916, z: -2.9715405}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &753529492
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -980,15 +1024,18 @@ MonoBehaviour:
   gameSpeed: 0
   deltaTime: 0
   timeIncrement: 0.5
-  DeclareVictory: 0
+  BattleOver: 0
   winningTeam: {fileID: 0}
   winningTeamColor: {r: 0, g: 0, b: 0, a: 0}
   xpPerCharacter: 0
   xpCounted: 0
   xpDistributed: 0
-  playerCharacterStartingCount: 0
+  totalHeroes: 0
+  totalEnemies: 0
   activeScene: 0
   currencyDistributed: 0
+  heroDeaths: 0
+  enemyDeaths: 0
   heroDamageDone: 0
   heroDamageTaken: 0
   heroHealingDone: 0
@@ -997,9 +1044,6 @@ MonoBehaviour:
   playerLoss: 0
   outcome: 
   survivingHeroes: 0
-  totalHeroes: 0
-  defeatedEnemies: 0
-  totalEnemies: 0
 --- !u!4 &951133640
 Transform:
   m_ObjectHideFlags: 0

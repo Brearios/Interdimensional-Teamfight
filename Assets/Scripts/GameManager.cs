@@ -322,6 +322,7 @@ public class GameManager : MonoBehaviour
     {
         if (winningTeam.team == ScriptableTeam.Team.Blue && (activeScene == PlayerProfile.Instance.nextBattleScene))
         {
+            LevelManager.Instance.ProcessVictory();
             PlayerProfile.Instance.nextBattleScene++;
         }
     }

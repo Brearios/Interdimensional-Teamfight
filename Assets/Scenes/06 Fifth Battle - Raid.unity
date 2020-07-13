@@ -1472,15 +1472,18 @@ MonoBehaviour:
   gameSpeed: 0
   deltaTime: 0
   timeIncrement: 0.5
-  DeclareVictory: 0
+  BattleOver: 0
   winningTeam: {fileID: 0}
   winningTeamColor: {r: 0, g: 0, b: 0, a: 0}
   xpPerCharacter: 0
   xpCounted: 0
   xpDistributed: 0
-  playerCharacterStartingCount: 0
+  totalHeroes: 0
+  totalEnemies: 0
   activeScene: 0
   currencyDistributed: 0
+  heroDeaths: 0
+  enemyDeaths: 0
   heroDamageDone: 0
   heroDamageTaken: 0
   heroHealingDone: 0
@@ -1489,9 +1492,6 @@ MonoBehaviour:
   playerLoss: 0
   outcome: 
   survivingHeroes: 0
-  totalHeroes: 0
-  defeatedEnemies: 0
-  totalEnemies: 0
 --- !u!4 &951133640
 Transform:
   m_ObjectHideFlags: 0
@@ -2208,6 +2208,49 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2405017ca93a2a34d84bb34826e42042, type: 3}
+--- !u!1 &1606859630
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1606859632}
+  - component: {fileID: 1606859631}
+  m_Layer: 0
+  m_Name: LevelManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1606859631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1606859630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c2af0a2a04918441a1f3283673ff54e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1606859632
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1606859630}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.5132654, y: 0.32914916, z: -2.9715405}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 28
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1608166641
 PrefabInstance:
   m_ObjectHideFlags: 0
