@@ -39,6 +39,7 @@ public class GameManager : MonoBehaviour
     public bool playerLoss;
     public string outcome;
     public int survivingHeroes;
+    public int retreatCounter;
     // public int nextBattleScene = 0;
     // public int[] nextBattle = new int[5] { 2, 3, 4, 5, 6 };
 
@@ -77,6 +78,7 @@ public class GameManager : MonoBehaviour
         heroDeaths = 0;
         enemyDeaths = 0;
         survivingHeroes = 0;
+        retreatCounter = 0;
 
         CountPlayersAndEnemies();
     }
@@ -99,6 +101,14 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.T))
         {
             ShowTarget = !ShowTarget; // Toggles target lines when T is pressed
+        }
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            retreatCounter++;
+            if (retreatCounter == 3)
+            {
+                SceneManager.LoadScene(0);
+            }
         }
 
         TimeControls();

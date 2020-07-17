@@ -497,7 +497,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ddb7648f91a19c4e857b8f8dca2e155, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextBattleScene: 0
   mageHero:
     heroName: 
     characterTotalXP: 0
@@ -509,8 +508,19 @@ MonoBehaviour:
     health: 0
     atk: 0
     abilityPower: 0
-    characterSprite: {fileID: 21300000, guid: 0d7fd8eaf16c8ab4c95a33eada313975, type: 3}
+    charUnlock: 0
+    autoAtkUnlock: 0
+    ability1Unlock: 0
+    ability2Unlock: 0
+    ability3Unlock: 0
+    potionUnlock: 0
     totalLevel: 0
+    autoAtk: {fileID: 0}
+    ability1: {fileID: 0}
+    ability2: {fileID: 0}
+    ability3: {fileID: 0}
+    potion: {fileID: 0}
+    AbilityUnlocks: []
   warriorHero:
     heroName: 
     characterTotalXP: 0
@@ -522,8 +532,19 @@ MonoBehaviour:
     health: 0
     atk: 0
     abilityPower: 0
-    characterSprite: {fileID: 21300000, guid: 57bca9a794105ad4db0a13f8c10656cd, type: 3}
+    charUnlock: 0
+    autoAtkUnlock: 0
+    ability1Unlock: 0
+    ability2Unlock: 0
+    ability3Unlock: 0
+    potionUnlock: 0
     totalLevel: 0
+    autoAtk: {fileID: 0}
+    ability1: {fileID: 0}
+    ability2: {fileID: 0}
+    ability3: {fileID: 0}
+    potion: {fileID: 0}
+    AbilityUnlocks: []
   priestHero:
     heroName: 
     characterTotalXP: 0
@@ -535,8 +556,19 @@ MonoBehaviour:
     health: 0
     atk: 0
     abilityPower: 0
-    characterSprite: {fileID: 21300000, guid: bba5a53664e5a9c47af5ea232585662e, type: 3}
+    charUnlock: 0
+    autoAtkUnlock: 0
+    ability1Unlock: 0
+    ability2Unlock: 0
+    ability3Unlock: 0
+    potionUnlock: 0
     totalLevel: 0
+    autoAtk: {fileID: 0}
+    ability1: {fileID: 0}
+    ability2: {fileID: 0}
+    ability3: {fileID: 0}
+    potion: {fileID: 0}
+    AbilityUnlocks: []
   rogueHero:
     heroName: 
     characterTotalXP: 0
@@ -548,9 +580,26 @@ MonoBehaviour:
     health: 0
     atk: 0
     abilityPower: 0
-    characterSprite: {fileID: 21300000, guid: fc8f79f363d0c1f45854de024112e1cc, type: 3}
+    charUnlock: 0
+    autoAtkUnlock: 0
+    ability1Unlock: 0
+    ability2Unlock: 0
+    ability3Unlock: 0
+    potionUnlock: 0
     totalLevel: 0
+    autoAtk: {fileID: 0}
+    ability1: {fileID: 0}
+    ability2: {fileID: 0}
+    ability3: {fileID: 0}
+    potion: {fileID: 0}
+    AbilityUnlocks: []
   currentEditingInteger: 0
+  currentDetailAbility: {fileID: 0}
+  nextBattleScene: 0
+  earnedCrystals: 0
+  currentCrystals: 0
+  totalGold: 0
+  currentGold: 0
   characterProfiles: []
   CurrentEditingCharacter:
     heroName: 
@@ -563,8 +612,19 @@ MonoBehaviour:
     health: 0
     atk: 0
     abilityPower: 0
-    characterSprite: {fileID: 0}
+    charUnlock: 0
+    autoAtkUnlock: 0
+    ability1Unlock: 0
+    ability2Unlock: 0
+    ability3Unlock: 0
+    potionUnlock: 0
     totalLevel: 0
+    autoAtk: {fileID: 0}
+    ability1: {fileID: 0}
+    ability2: {fileID: 0}
+    ability3: {fileID: 0}
+    potion: {fileID: 0}
+    AbilityUnlocks: []
 --- !u!4 &450642976
 Transform:
   m_ObjectHideFlags: 0
@@ -998,22 +1058,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 527a651b647d19540979dfd170996a04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  battleReportCanvas: {fileID: 0}
   IsRunning: 0
   DisplayHealth: 1
   ShowTarget: 1
   earnedBattleXP: 0
+  earnedBattleCrystals: 0
+  earnedBattleGold: 0
   gameSpeed: 0
   deltaTime: 0
   timeIncrement: 0.5
-  DeclareVictory: 0
+  BattleOver: 0
   winningTeam: {fileID: 0}
   winningTeamColor: {r: 0, g: 0, b: 0, a: 0}
-  playersReceivingXP: 0
   xpPerCharacter: 0
   xpCounted: 0
   xpDistributed: 0
-  playerCharacterStartingCount: 0
+  totalHeroes: 0
+  totalEnemies: 0
   activeScene: 0
+  currencyDistributed: 0
+  heroDeaths: 0
+  enemyDeaths: 0
+  heroDamageDone: 0
+  heroDamageTaken: 0
+  heroHealingDone: 0
+  enemyHealingDone: 0
+  playerVictory: 0
+  playerLoss: 0
+  outcome: 
+  survivingHeroes: 0
+  retreatCounter: 0
 --- !u!4 &951133640
 Transform:
   m_ObjectHideFlags: 0
@@ -1252,7 +1327,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "If you've beaten each fight to here, that's the end. Let me know what you
-    think! \n\nThere's probably a lot that's broken or needs refining, and I welcome
+    think! \nThere's probably a lot that's broken or needs refining, and I welcome
     the feedback!"
 --- !u!222 &1319499798
 CanvasRenderer:

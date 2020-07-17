@@ -1492,6 +1492,7 @@ MonoBehaviour:
   playerLoss: 0
   outcome: 
   survivingHeroes: 0
+  retreatCounter: 0
 --- !u!4 &951133640
 Transform:
   m_ObjectHideFlags: 0
@@ -2026,7 +2027,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "Press Space to Pause/Unpause. Enable/Disable health bars with V. \n\nF
-    to resolve faster, S for slower. N for normal."
+    to resolve faster, S for slower. N for normal.\n\nPress R three times to retreat."
 --- !u!222 &1319499798
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2237,6 +2238,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c2af0a2a04918441a1f3283673ff54e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentLevel: 0
 --- !u!4 &1606859632
 Transform:
   m_ObjectHideFlags: 0

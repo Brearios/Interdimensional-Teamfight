@@ -15,12 +15,15 @@ MonoBehaviour:
   levelNumber: 1
   maxFriendlyCharacters: 0
   levelUnlocksCharacter: 0
-  characterUnlocked: 
-  EnemyType1: {fileID: 0}
-  EnemyType1Number: 0
-  EnemyType2: {fileID: 0}
-  EnemyType2Number: 0
-  EnemyType3: {fileID: 0}
-  EnemyType3Number: 0
-  EnemyType4: {fileID: 0}
-  EnemyType4Number: 0
+  charUnlockWithVictory: 
+  unitSpawnSettings:
+  - characterPrefab: {fileID: 8102634624511559635, guid: 594caef060026ff498458d790d7df964,
+      type: 3}
+    team: {fileID: 11400000, guid: 50ec59c1cc1783e4fb6314d6f0d9fc40, type: 2}
+    numberOfInstances: 1
+  - characterPrefab: {fileID: 8887474151139866053, guid: d976bd0383c6f25428c1855b09688f56,
+      type: 3}
+    team: {fileID: 11400000, guid: 5448075b66749f347a9d240d37ee5609, type: 2}
+    numberOfInstances: 4
+  heroSpawnPositions: []
+  enemySpawnPositions: []

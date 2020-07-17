@@ -600,6 +600,7 @@ public class Actor : MonoBehaviour
         //}
 
         {
+            // Auto Attack
             if ((ability.abilityData.targetType == ScriptableAbility.TargetType.Damage) && (ability.abilityData.isAutoAtk))
             {
                 GetComponent<Character>().Animator.SetBool("Slash", true);
@@ -607,6 +608,7 @@ public class Actor : MonoBehaviour
                 ability.currentTarget.ChangeHealth(hpChangeVaried, true);
                 Debug.Log($"{unitName} used {ability.abilityData.abilityName} on {ability.currentTarget} for {hpChangeVaried}");
             }
+            // Direct Damage Ability
             else if (ability.abilityData.targetType == ScriptableAbility.TargetType.Damage)
             {
                 GetComponent<Character>().Animator.SetBool("Slash", true);
@@ -614,15 +616,18 @@ public class Actor : MonoBehaviour
                 ability.currentTarget.ChangeHealth(hpChangeVaried, true);
                 Debug.Log($"{unitName} used {ability.abilityData.abilityName} on {ability.currentTarget} for {hpChangeVaried}");
             }
+            // Taunt
             else if (ability.abilityData.abilityName == "Taunt")
             {
                 ability.currentTarget.highThreatTarget = this;
                 ApplyStatusEffect(this, ability.currentTarget, ability.abilityData.effect);
             }
+            // Stun
             else if (ability.abilityData.abilityName == "Stun")
             {
                 ApplyStatusEffect(this, ability.currentTarget, ability.abilityData.effect);
             }
+            // Stealth
             else if ((ability.abilityData.targetType == ScriptableAbility.TargetType.Self) && ability.abilityData.name == "Stealth")
             {
                 // This should be moved to StatusEffectProcessor, but it also works
@@ -631,6 +636,7 @@ public class Actor : MonoBehaviour
 
                 threatResetClock = 3;
             }
+            // Heal
             else if (ability.abilityData.targetType == ScriptableAbility.TargetType.Heal)
             {               
                 GetComponent<Character>().Animator.SetBool("Slash", true);
@@ -641,14 +647,17 @@ public class Actor : MonoBehaviour
                 // abilityTarget.ChangeHealth(abilityHpDelta, true);
                 // Debug.Log($"{unitName} used {ability.abilityData.abilityName} on {ability.currentTarget} for {ability.abilityData.hpDelta}");
             }
+            // Heal over Time
             else if (ability.abilityData.targetType == ScriptableAbility.TargetType.Hot)
             {
                 ApplyStatusEffect(this, ability.currentTarget, ability.abilityData.effect);
             }
+            // Damage over Time
             else if (ability.abilityData.targetType == ScriptableAbility.TargetType.Dot)
             {
                 ApplyStatusEffect(this, ability.currentTarget, ability.abilityData.effect);
             }
+            // AoE damage typically from bosses
             else if (ability.abilityData.targetType == ScriptableAbility.TargetType.AoePercentDamage)
             {
                 Actor[] allActors = GameObject.FindObjectsOfType<Actor>();
@@ -669,6 +678,7 @@ public class Actor : MonoBehaviour
                     }
                 }
             }
+            // Other
             else
             {
                 GetComponent<Character>().Animator.SetBool("Slash", true);
