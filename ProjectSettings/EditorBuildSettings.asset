@@ -12,21 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/01 Character Menu Screen.unity
     guid: 74b18a85be6bba14cb6c303ef4adb98b
   - enabled: 1
-    path: Assets/Scenes/02 First Battle - Solo.unity
-    guid: 7947aa150a6e8a94abd868e1bf1ac8d0
+    path: Assets/Scenes/02 Levels from Data.unity
+    guid: 115c66c57cb2f0a4e999a94517e85187
   - enabled: 1
-    path: Assets/Scenes/03 Second Battle - Healer.unity
-    guid: 16fd3be963fd26b4a939161073f27d76
-  - enabled: 1
-    path: Assets/Scenes/04 Third Battle - Teamfight.unity
-    guid: 9a40d201f14a1e445a4255dde78eddc2
-  - enabled: 1
-    path: Assets/Scenes/05 Fourth Battle - Horde.unity
-    guid: 597a30cb9182ca14eaf83cc453bcbb0e
-  - enabled: 1
-    path: Assets/Scenes/06 Fifth Battle - Raid.unity
-    guid: 1cb420223cdf0954d86abaab56d5d739
-  - enabled: 1
-    path: Assets/Scenes/07 End Screen.unity
+    path: Assets/Scenes/03 End Screen.unity
     guid: e3171bc7da4b83841bc95b751961a557
   m_configObjects: {}

@@ -26,8 +26,10 @@ public class LevelManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // Setting level to real number, accounting for Title (0) and Character Menu (1)
-        currentLevelInt = PlayerProfile.Instance.nextBattleScene - 1; 
+        // Setting level to Index in levelList, accounting for Title (0) and Character Menu (1)
+        // Using  nextBattleScene instead of replacing it throughout code
+        currentLevelInt = PlayerProfile.Instance.nextBattleScene - 2;
+        currentLevel = levelList[currentLevelInt];
 
         // Code to select level in list that matches CurrentLevelInt and set to currentLevel;
         foreach (LevelPrefabData unitSpawnData in currentLevel.unitSpawnData)

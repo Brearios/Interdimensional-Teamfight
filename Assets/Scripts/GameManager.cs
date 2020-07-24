@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     public float deltaTime;
     public float timeIncrement = .5f;
     public bool BattleOver;
+    public bool BattleGainsCalculated;
     public ScriptableTeam winningTeam;
     public Color winningTeamColor;
     // public int playersReceivingXP;
@@ -62,6 +63,7 @@ public class GameManager : MonoBehaviour
     {
         activeScene = SceneManager.GetActiveScene().buildIndex;
         BattleOver = false;
+        BattleGainsCalculated = false;
         gameSpeed = 1.0f;
         timeIncrement = .2f;
         earnedBattleXP = 0;
@@ -147,25 +149,6 @@ public class GameManager : MonoBehaviour
                 DistributeCurrencies();
                 currencyDistributed = true;
             }
-            // Load Upgrade Screen?
-            
-            // Unnecessary due to BattleReport:
-            //if (Input.GetKeyDown(KeyCode.M))
-            //{
-            //    MenuScreen();
-            //}
-            //if (Input.GetKeyDown(KeyCode.N))
-            //{
-            //    NextBattle();
-            //}
-            //if (Input.GetKeyDown(KeyCode.H))
-            //{
-            //    HighestBattle();
-            //}
-            //if (Input.GetKeyDown(KeyCode.R))
-            //{
-            //    RepeatBattle();
-            //}
         }
     }
 
@@ -244,9 +227,13 @@ public class GameManager : MonoBehaviour
         {
             winningTeamColor = winCheckTeam.color;
             DetermineOutcome();
-            IncrementNextBattleIfVictorious();
+            if (BattleGainsCalculated == false)
+            {
+                IncrementNextBattleIfVictorious();
+            }
             CountSurvivors();
             battleReportCanvas.SetActive(true);
+            BattleGainsCalculated = true;
             // winningTeamColor = allActors[0].GetComponentInChildren<Color>();
         }
         
@@ -355,7 +342,7 @@ public class GameManager : MonoBehaviour
 
     void IncrementNextBattleIfVictorious()
     {
-        if (winningTeam.team == ScriptableTeam.Team.Blue && (activeScene == PlayerProfile.Instance.nextBattleScene))
+        if (winningTeam.team == ScriptableTeam.Team.Blue) //&& (activeScene == PlayerProfile.Instance.nextBattleScene))
         {
             LevelManager.Instance.ProcessVictory();
             PlayerProfile.Instance.nextBattleScene++;
