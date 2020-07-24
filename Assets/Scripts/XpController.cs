@@ -16,7 +16,14 @@ public class XpController : MonoBehaviour
     public int[] atkLevel = { 5, 6, 7, 9, 10, 12, 14, 16, 17, 18, 19, 20, 22, 23, 24, 26, 27, 29, 31, 32, 34 };
     public int[] abilityLevel = { 9, 11, 13, 14, 15, 16, 17, 18, 20, 21, 22, 24, 26, 27, 29, 31, 33, 35, 37, 39 };
     public int[] healthLevel = { 100, 110, 120, 132, 143, 155, 168, 181, 195, 210, 226, 242, 259, 277, 296, 316, 337, 358, 381, 405, 431, 457, 485, 514 };
-    public int[] tankHealthLevel = { 300, 330, 362, 395, 429, 466, 504, 544, 586, 631, 677, 726, 778, 831, 888, 947, 1010, 1075, 1144, 1216, 1292, 1372, 1455, 1543 };
+
+    public int[] enemyAtkLevel = { 5, 6, 7, 9, 10, 12, 14, 16, 17, 18, 19, 20, 22, 23, 24, 26, 27, 29, 31, 32, 34 };
+    public int[] enemyAbilityLevel = { 9, 11, 13, 14, 15, 16, 17, 18, 20, 21, 22, 24, 26, 27, 29, 31, 33, 35, 37, 39 };
+    public int[] enemyHealthLevel = { 100, 110, 120, 132, 143, 155, 168, 181, 195, 210, 226, 242, 259, 277, 296, 316, 337, 358, 381, 405, 431, 457, 485, 514 };
+
+    // Tank stats not in use - Actor.cs multiplies by 3 if tank role found
+    // public int[] tankHealthLevel = { 300, 330, 362, 395, 429, 466, 504, 544, 586, 631, 677, 726, 778, 831, 888, 947, 1010, 1075, 1144, 1216, 1292, 1372, 1455, 1543 };
+
     //public int ability2UnlockCost = 300;
     //public int ability3UnlockCost = 500;
     //public int potionUnlockCost = 800;

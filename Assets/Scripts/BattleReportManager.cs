@@ -49,7 +49,7 @@ public class BattleReportManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if ((GameManager.Instance.playerLoss) || (GameManager.Instance.playerVictory))
+        if ((GameManager.Instance.playerLoss) || (GameManager.Instance.playerVictory) || (GameManager.Instance.playerRetreat))
         {
             if (!stringsBuilt)
             {
@@ -83,6 +83,10 @@ public class BattleReportManager : MonoBehaviour
         {
             outcomeBackgroundColor = new Color32(30, 30, 210, 150);
         }
+        if (GameManager.Instance.playerRetreat)
+        {
+            outcomeBackgroundColor = new Color32(230, 245, 30, 150);
+        }
         outcomeBackground.GetComponent<Image>().color = outcomeBackgroundColor;
     }
 
@@ -94,6 +98,11 @@ public class BattleReportManager : MonoBehaviour
 
     void OutcomeStringBuilder()
     {
+        if (GameManager.Instance.playerRetreat)
+        {
+            outcome = "RETREAT!";
+        }
+
         if (GameManager.Instance.playerVictory)
         {
             outcome = "VICTORY!";

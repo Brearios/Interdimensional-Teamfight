@@ -1086,6 +1086,7 @@ MonoBehaviour:
   enemyHealingDone: 0
   playerVictory: 0
   playerLoss: 0
+  playerRetreat: 0
   outcome: 
   survivingHeroes: 0
   retreatCounter: 0
@@ -1199,7 +1200,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1309136038}
-        m_MethodName: StartBattles
+        m_MethodName: NewGamePlus
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1326,9 +1327,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "If you've beaten each fight to here, that's the end. Let me know what you
-    think! \nThere's probably a lot that's broken or needs refining, and I welcome
-    the feedback!"
+  m_Text: 'If you''ve beaten each fight to here, that''s the end. Let me know what
+    you think!
+
+    There''s probably a lot that''s broken or needs refining, and I welcome the feedback!'
 --- !u!222 &1319499798
 CanvasRenderer:
   m_ObjectHideFlags: 0

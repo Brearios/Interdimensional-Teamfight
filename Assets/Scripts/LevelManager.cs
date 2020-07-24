@@ -6,7 +6,10 @@ using UnityEngine;
 public class LevelManager : MonoBehaviour
 {
     public static LevelManager Instance;
-    public int currentLevel;
+    // public int currentLevel;
+    public ScriptableLevel currentLevel;
+    public int currentLevelInt;
+    public List<ScriptableLevel> levelList;
     // List of prefabs to instantiate - list for heroes and enemies?
 
     public void Awake()
@@ -24,13 +27,18 @@ public class LevelManager : MonoBehaviour
     void Start()
     {
         // Setting level to real number, accounting for Title (0) and Character Menu (1)
-        currentLevel = PlayerProfile.Instance.nextBattleScene - 1; 
-        foreach (CharacterProfile hero in PlayerProfile.Instance.characterProfiles)
+        currentLevelInt = PlayerProfile.Instance.nextBattleScene - 1; 
+
+        // Code to select level in list that matches CurrentLevelInt and set to currentLevel;
+        foreach (LevelPrefabData unitSpawnData in currentLevel.unitSpawnData)
         {
-            if (hero.charUnlock)
+            for (int i = 0; i < unitSpawnData.numberOfInstances; i++)
             {
-                SpawnHero(hero.heroName);
+                SpawnHero(unitSpawnData.characterPrefab, GenerateRandomPosition(unitSpawnData.spawn));
             }
+
+            // Instantiate character in correct region
+                       
         }
     }
 
@@ -40,18 +48,82 @@ public class LevelManager : MonoBehaviour
         
     }
 
-    void SpawnHero(string heroName)
+    public Vector3 GenerateRandomPosition(LevelPrefabData.SpawnRegion spawn)
     {
-        // Instantiate()
+        float minXPosition;
+        float maxXPosition;
+        float minYPosition;
+        float maxYPosition;
+        switch (spawn)
+        {
+            case LevelPrefabData.SpawnRegion.Anywhere: //Anywhere
+                minXPosition = -8;
+                maxXPosition = 8;
+                minYPosition = -4.7f;
+                maxYPosition = 2.9f;
+                Vector3 randomPositionAnywhere = new Vector3(UnityEngine.Random.Range(minXPosition, maxXPosition), UnityEngine.Random.Range(minYPosition, maxYPosition), 0.0f);
+                    return randomPositionAnywhere;
+            case LevelPrefabData.SpawnRegion.AlliedMelee: //AlliedMelee
+                minXPosition = -4;
+                maxXPosition = -0.75f;
+                minYPosition = -4.7f;
+                maxYPosition = 2.9f;
+                Vector3 randomPositionAlliedMelee = new Vector3(UnityEngine.Random.Range(minXPosition, maxXPosition), UnityEngine.Random.Range(minYPosition, maxYPosition), 0.0f);
+                    return randomPositionAlliedMelee;
+            case LevelPrefabData.SpawnRegion.AlliedRanged: //AlliedRanged
+                minXPosition = -8;
+                maxXPosition = -4;
+                minYPosition = -4.7f;
+                maxYPosition = 2.9f;
+                Vector3 randomPositionAlliedRanged = new Vector3(UnityEngine.Random.Range(minXPosition, maxXPosition), UnityEngine.Random.Range(minYPosition, maxYPosition), 0.0f);
+                    return randomPositionAlliedRanged;
+            case LevelPrefabData.SpawnRegion.AlliedSide: //AlliedSide
+                minXPosition = -8;
+                maxXPosition = 0.75f;
+                minYPosition = -4.7f;
+                maxYPosition = 2.9f;
+                Vector3 randomPositionAlliedSide = new Vector3(UnityEngine.Random.Range(minXPosition, maxXPosition), UnityEngine.Random.Range(minYPosition, maxYPosition), 0.0f);
+                    return randomPositionAlliedSide;
+            case LevelPrefabData.SpawnRegion.EnemyMelee: //EnemyMelee
+                minXPosition = 0.75f;
+                maxXPosition = 8;
+                minYPosition = -4.7f;
+                maxYPosition = 2.9f;
+                Vector3 randomPositionEnemyMelee = new Vector3(UnityEngine.Random.Range(minXPosition, maxXPosition), UnityEngine.Random.Range(minYPosition, maxYPosition), 0.0f);
+                    return randomPositionEnemyMelee;
+            case LevelPrefabData.SpawnRegion.EnemyRanged: //EnemyRanged
+                minXPosition = 4;
+                maxXPosition = 8;
+                minYPosition = -4.7f;
+                maxYPosition = 2.9f;
+                Vector3 randomPositionEnemyRanged = new Vector3(UnityEngine.Random.Range(minXPosition, maxXPosition), UnityEngine.Random.Range(minYPosition, maxYPosition), 0.0f);
+                    return randomPositionEnemyRanged;
+            case LevelPrefabData.SpawnRegion.EnemySide: //EnemySide
+                minXPosition = 0.75f;
+                maxXPosition = 8;
+                minYPosition = -4.7f;
+                maxYPosition = 2.9f;
+                Vector3 randomPositionEnemySide = new Vector3(UnityEngine.Random.Range(minXPosition, maxXPosition), UnityEngine.Random.Range(minYPosition, maxYPosition), 0.0f);
+                    return randomPositionEnemySide;
+        }
+        Vector3 randomBoundariesUndefined = new Vector3(0, 0, 0);
+        return randomBoundariesUndefined;
     }
 
-    void CharacterUnlock(int levelIndex)
+    void SpawnHero(GameObject characterPrefab, Vector3 randomSpawnPosition)
     {
-        
+        Instantiate(characterPrefab, randomSpawnPosition, characterPrefab.transform.rotation);
     }
+
+    //void CharacterUnlock(int levelIndex)
+    //{
+        
+    //}
 
     internal void ProcessVictory()
     {
-        CharacterUnlock(currentLevel);
+        Debug.Log("Victory");
+    //    currentLevel = levelList.IndexOf(currentLevelInt)
+    //    CharacterUnlock();
     }
 }

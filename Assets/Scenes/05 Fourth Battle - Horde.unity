@@ -1670,6 +1670,7 @@ MonoBehaviour:
   enemyHealingDone: 0
   playerVictory: 0
   playerLoss: 0
+  playerRetreat: 0
   outcome: 
   survivingHeroes: 0
   retreatCounter: 0
@@ -3058,6 +3059,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2332776968776797528, guid: 81772a38151444e49abe9f001c409ba2,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.8961748
+      objectReference: {fileID: 0}
+    - target: {fileID: 2332776968776797528, guid: 81772a38151444e49abe9f001c409ba2,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.9622642
+      objectReference: {fileID: 0}
+    - target: {fileID: 2332776968776797528, guid: 81772a38151444e49abe9f001c409ba2,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.12255252
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 81772a38151444e49abe9f001c409ba2, type: 3}

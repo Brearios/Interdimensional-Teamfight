@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -37,6 +38,7 @@ public class GameManager : MonoBehaviour
     public float enemyHealingDone;
     public bool playerVictory;
     public bool playerLoss;
+    public bool playerRetreat;
     public string outcome;
     public int survivingHeroes;
     public int retreatCounter;
@@ -106,8 +108,8 @@ public class GameManager : MonoBehaviour
         {
             retreatCounter++;
             if (retreatCounter == 3)
-            {
-                SceneManager.LoadScene(0);
+            { 
+                Retreat();
             }
         }
 
@@ -165,6 +167,29 @@ public class GameManager : MonoBehaviour
             //    RepeatBattle();
             //}
         }
+    }
+
+    void Retreat()
+    {
+
+        playerRetreat = true;
+        CountSurvivors();
+        if (xpDistributed == false)
+        {
+            TallyXP();
+            DivideExperience();
+            if (xpPerCharacter > 0)
+            {
+                DistributeXP();
+            }
+            xpDistributed = true;
+        }
+        if (currencyDistributed == false)
+        {
+            DistributeCurrencies();
+            currencyDistributed = true;
+        }
+        battleReportCanvas.SetActive(true);
     }
 
     //private void LateUpdate()
@@ -382,6 +407,12 @@ public class GameManager : MonoBehaviour
 
     void DetermineOutcome()
     {
+        
+        if (retreatCounter == 3)
+        {
+            playerRetreat = true;
+            return;
+        }
         // This is a holdover from having teams as shapes with colors. Blue = the player team.
         if (winningTeam.team == ScriptableTeam.Team.Blue)
         {

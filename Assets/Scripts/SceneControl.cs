@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneControl : MonoBehaviour
 {
-    
+
     public void StartBattles()
     {
         SceneManager.LoadScene(2);
@@ -84,6 +84,11 @@ public class SceneControl : MonoBehaviour
             PlayerProfile.Instance.currentEditingInteger = 0;
             SceneManager.LoadScene(1);
         }
+    }
+    public void NewGamePlus()
+    {
+        PlayerProfile.Instance.nextBattleScene = 2;
+        SceneManager.LoadScene(2);
     }
 
     public void ExitGame()
