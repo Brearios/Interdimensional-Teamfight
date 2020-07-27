@@ -5592,13 +5592,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b0ce10ba1de5194cb07dc56bd422a12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unit: {fileID: 0}
-  team: {fileID: 0}
-  autoAtk: {fileID: 0}
-  ability1: {fileID: 0}
-  ability2: {fileID: 0}
-  ability3: {fileID: 0}
-  potion: {fileID: 0}
+  unit: {fileID: 11400000, guid: 55157fe2a3f03ac449692032801bf8d5, type: 2}
+  team: {fileID: 11400000, guid: 50ec59c1cc1783e4fb6314d6f0d9fc40, type: 2}
+  autoAtk: {fileID: 11400000, guid: f4d8cad2a9a2b02449420d6832502937, type: 2}
+  ability1: {fileID: 11400000, guid: 0967b2b18fb4f4a42a194cde27ae3704, type: 2}
+  ability2: {fileID: 11400000, guid: 2767b24bdb91e4845ac391337bf3b166, type: 2}
+  ability3: {fileID: 11400000, guid: 9606f02bbe713c94489e085fb5cf05c9, type: 2}
+  potion: {fileID: 11400000, guid: 3325535cecac7e8459de80fb98690e19, type: 2}
   unitName: 
   maxHealth: 0
   currHealth: 0
@@ -5613,9 +5613,9 @@ MonoBehaviour:
   moveSpeed: 0
   highThreatTarget: {fileID: 0}
   currentState: 0
-  body: {fileID: 0}
-  healthBar: {fileID: 0}
-  healthBG: {fileID: 0}
+  body: {fileID: 1109987028385428}
+  healthBar: {fileID: 2968832436593336361}
+  healthBG: {fileID: 6090949845680531324}
   CurrentEffectsRemovalIds: []
   isDead: 0
   ThreatScore: 0

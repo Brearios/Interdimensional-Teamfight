@@ -15,41 +15,19 @@ MonoBehaviour:
   levelNumber: 3
   maxFriendlyCharacters: 0
   levelUnlocksCharacter: 0
-  charUnlockWithVictory: 
-  unitSpawnData:
-  - characterPrefab: {fileID: 8102634624511559635, guid: 594caef060026ff498458d790d7df964,
-      type: 3}
-    DefaultUnitData: 0
-    team: 0
-    numberOfInstances: 1
-    spawn: 2
-  - characterPrefab: {fileID: 5960741867934732086, guid: 2405017ca93a2a34d84bb34826e42042,
-      type: 3}
-    DefaultUnitData: 0
-    team: 0
-    numberOfInstances: 1
-    spawn: 2
-  - characterPrefab: {fileID: 1527356296647036081, guid: 385654249dfbbb244a30ec4537010837,
-      type: 3}
-    DefaultUnitData: 0
-    team: 0
-    numberOfInstances: 1
-    spawn: 1
-  - characterPrefab: {fileID: 6573559670356672983, guid: 8ed0d27a91e46274fbc4d185dd169e9c,
-      type: 3}
-    DefaultUnitData: 0
-    team: 0
-    numberOfInstances: 1
-    spawn: 1
+  heroUnlockIndex: 3
+  GameObject: 
+  nPCSpawnData:
   - characterPrefab: {fileID: 8887474151139866053, guid: d976bd0383c6f25428c1855b09688f56,
       type: 3}
     DefaultUnitData: 0
-    team: 0
-    numberOfInstances: 5
-    spawn: 6
+    team: 1
+    numberOfInstances: 6
+    spawn: 4
   - characterPrefab: {fileID: 1767414096115935, guid: 9f1a129c51a40dd4692cb9024944990b,
       type: 3}
     DefaultUnitData: 0
     team: 0
-    numberOfInstances: 1
+    numberOfInstances: 2
     spawn: 4
+  heroSpawnData: []

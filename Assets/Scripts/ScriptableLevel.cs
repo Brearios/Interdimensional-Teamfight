@@ -9,8 +9,12 @@ public class ScriptableLevel : ScriptableObject
     public int levelNumber;
     public int maxFriendlyCharacters;
     public bool levelUnlocksCharacter;
-    public string charUnlockWithVictory;
-    public List<LevelPrefabData> unitSpawnData;
+    public int heroUnlockIndex;
+    // This part would go in LevelManager
+    // public HeroData heroUnlockedWithVictory = PlayerProfile.Instance.heroes[heroUnlockIndex];
+    public string GameObject;
+    public List<LevelPrefabData> nPCSpawnData;
+    public List<HeroData> heroSpawnData = PlayerProfile.Instance.UnlockedHeroes;
     // Going with random positions in zones
     //public List<Transform> heroSpawnPositions;
     //public List<Transform> enemySpawnPositions;

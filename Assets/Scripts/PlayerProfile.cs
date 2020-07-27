@@ -10,13 +10,18 @@ public class PlayerProfile : MonoBehaviour
     public CharacterProfile warriorHero;
     public CharacterProfile priestHero;
     public CharacterProfile rogueHero;
+    public CharacterProfile plantHero;
+    public CharacterProfile steamHero;
     public int currentEditingInteger;
+    public List<HeroData> UnlockedHeroes;
     public ScriptableAbility currentDetailAbility;
     public int nextBattleScene;
     public int earnedCrystals;
     public int currentCrystals;
     public int totalGold;
     public int currentGold;
+    public HeroData startingHero;
+    public List<HeroData> heroes;
 
 
 
@@ -45,6 +50,12 @@ public class PlayerProfile : MonoBehaviour
             case "RogueUnit":
                 return rogueHero;
 
+            case "PlantUnit":
+                return plantHero;
+
+            case "SteamTankUnit":
+                return steamHero;
+
             default:
                 return null;
         }
@@ -62,12 +73,16 @@ public class PlayerProfile : MonoBehaviour
             Destroy(gameObject);
         }
 
-        nextBattleScene = 2;
+        nextBattleScene = 0;
+
+        UnlockedHeroes.Add(startingHero);
 
         characterProfiles.Add(mageHero);
         characterProfiles.Add(warriorHero);
         characterProfiles.Add(priestHero);
         characterProfiles.Add(rogueHero);
+        characterProfiles.Add(plantHero);
+        characterProfiles.Add(steamHero);
 
         currentEditingInteger = 0;
         // Sets the current editing character to the first one at the start of the script

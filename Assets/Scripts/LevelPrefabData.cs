@@ -22,15 +22,4 @@ public class LevelPrefabData
     public enum SpawnRegion { Anywhere, AlliedMelee, AlliedRanged, AlliedSide, EnemyMelee, EnemyRanged, EnemySide };
     public SpawnRegion spawn;
     
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

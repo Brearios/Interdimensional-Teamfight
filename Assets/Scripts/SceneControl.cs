@@ -18,7 +18,14 @@ public class SceneControl : MonoBehaviour
 
     public void SceneManagerNextBattle()
     {
-        SceneManager.LoadScene(2);
+        if (PlayerProfile.Instance.nextBattleScene >= LevelManager.Instance.levelList.Count)
+        {
+            SceneManager.LoadScene(3);
+        }
+        else
+        {
+            SceneManager.LoadScene(2);
+        }
         // Old system
         // SceneManager.LoadScene(PlayerProfile.Instance.nextBattleScene);
     }
@@ -89,7 +96,7 @@ public class SceneControl : MonoBehaviour
     }
     public void NewGamePlus()
     {
-        PlayerProfile.Instance.nextBattleScene = 2;
+        PlayerProfile.Instance.nextBattleScene = 0;
         SceneManager.LoadScene(2);
     }
 

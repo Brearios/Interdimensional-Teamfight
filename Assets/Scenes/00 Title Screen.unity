@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 89341997}
   - component: {fileID: 89342000}
   m_Layer: 5
-  m_Name: ClickToStart
+  m_Name: Fight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -472,7 +472,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Click to \nStart"
+  m_Text: Fight!
 --- !u!222 &331601804
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1273,6 +1273,7 @@ MonoBehaviour:
   deltaTime: 0
   timeIncrement: 0.5
   BattleOver: 0
+  BattleGainsCalculated: 0
   winningTeam: {fileID: 0}
   winningTeamColor: {r: 0, g: 0, b: 0, a: 0}
   xpPerCharacter: 0
@@ -1290,6 +1291,7 @@ MonoBehaviour:
   enemyHealingDone: 0
   playerVictory: 0
   playerLoss: 0
+  playerRetreat: 0
   outcome: 
   survivingHeroes: 0
   retreatCounter: 0
@@ -1605,7 +1607,7 @@ GameObject:
   - component: {fileID: 1309136039}
   - component: {fileID: 1309136038}
   m_Layer: 5
-  m_Name: ClickToContinue
+  m_Name: RestartBattles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1687,7 +1689,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1309136038}
-        m_MethodName: SceneManagerNextBattle
+        m_MethodName: NewGamePlus
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2051,7 +2053,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Click to Continue
+  m_Text: Restart Battles
 --- !u!222 &1764075249
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2517,6 +2519,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
         type: 3}
+      propertyPath: heroes.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
       propertyPath: mageHero.autoAtk
       value: 
       objectReference: {fileID: 11400000, guid: f4d8cad2a9a2b02449420d6832502937,
@@ -2632,6 +2639,193 @@ PrefabInstance:
     - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
         type: 3}
       propertyPath: rogueHero.potion
+      value: 
+      objectReference: {fileID: 11400000, guid: 3325535cecac7e8459de80fb98690e19,
+        type: 2}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: startingHero
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: heroes.Array.data[0].characterPrefab
+      value: 
+      objectReference: {fileID: 8102634624511559635, guid: 594caef060026ff498458d790d7df964,
+        type: 3}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: heroes.Array.data[0].spawn
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: heroes.Array.data[1].characterPrefab
+      value: 
+      objectReference: {fileID: 5960741867934732086, guid: 2405017ca93a2a34d84bb34826e42042,
+        type: 3}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: heroes.Array.data[1].spawn
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: heroes.Array.data[2].characterPrefab
+      value: 
+      objectReference: {fileID: 1527356296647036081, guid: 385654249dfbbb244a30ec4537010837,
+        type: 3}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: heroes.Array.data[2].spawn
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: heroes.Array.data[3].characterPrefab
+      value: 
+      objectReference: {fileID: 6573559670356672983, guid: 8ed0d27a91e46274fbc4d185dd169e9c,
+        type: 3}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: heroes.Array.data[3].spawn
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: heroes.Array.data[4].characterPrefab
+      value: 
+      objectReference: {fileID: 1338283891893459, guid: 2344f0cbcab414a458a3c12215cef4c1,
+        type: 3}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: heroes.Array.data[4].spawn
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: heroes.Array.data[5].characterPrefab
+      value: 
+      objectReference: {fileID: 1109987028385428, guid: 7c6d30d9e314a284f9e2fc4203efd99a,
+        type: 3}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: heroes.Array.data[5].spawn
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: heroes.Array.data[0].name
+      value: Thantasia
+      objectReference: {fileID: 0}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: heroes.Array.data[1].name
+      value: Cassandra
+      objectReference: {fileID: 0}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: heroes.Array.data[2].name
+      value: SpaceTank
+      objectReference: {fileID: 0}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: heroes.Array.data[3].name
+      value: PostApocRogue
+      objectReference: {fileID: 0}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: heroes.Array.data[4].name
+      value: SteamBot
+      objectReference: {fileID: 0}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: heroes.Array.data[5].name
+      value: Orchid
+      objectReference: {fileID: 0}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: startingHero.characterPrefab
+      value: 
+      objectReference: {fileID: 8102634624511559635, guid: 594caef060026ff498458d790d7df964,
+        type: 3}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: startingHero.name
+      value: Thantasia
+      objectReference: {fileID: 0}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: startingHero.spawn
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: plantHero.health
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: steamHero.health
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: plantHero.autoAtk
+      value: 
+      objectReference: {fileID: 11400000, guid: f4d8cad2a9a2b02449420d6832502937,
+        type: 2}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: plantHero.ability1
+      value: 
+      objectReference: {fileID: 11400000, guid: 0967b2b18fb4f4a42a194cde27ae3704,
+        type: 2}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: plantHero.ability2
+      value: 
+      objectReference: {fileID: 11400000, guid: 2767b24bdb91e4845ac391337bf3b166,
+        type: 2}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: plantHero.ability3
+      value: 
+      objectReference: {fileID: 11400000, guid: 9606f02bbe713c94489e085fb5cf05c9,
+        type: 2}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: plantHero.potion
+      value: 
+      objectReference: {fileID: 11400000, guid: 3325535cecac7e8459de80fb98690e19,
+        type: 2}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: steamHero.autoAtk
+      value: 
+      objectReference: {fileID: 11400000, guid: 2bebe808ca503864c9cc1f842b32a7d1,
+        type: 2}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: steamHero.ability1
+      value: 
+      objectReference: {fileID: 11400000, guid: eed78b34608a1014da24262aa2df7b67,
+        type: 2}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: steamHero.ability2
+      value: 
+      objectReference: {fileID: 11400000, guid: e0e64450ef3e11b4ea011125f457e545,
+        type: 2}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: steamHero.ability3
+      value: 
+      objectReference: {fileID: 11400000, guid: 9606f02bbe713c94489e085fb5cf05c9,
+        type: 2}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: steamHero.potion
       value: 
       objectReference: {fileID: 11400000, guid: 3325535cecac7e8459de80fb98690e19,
         type: 2}

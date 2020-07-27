@@ -753,11 +753,11 @@ MonoBehaviour:
   currentLevel: {fileID: 11400000, guid: a503dd744408a024986e4d5a5e72288b, type: 2}
   currentLevelInt: 0
   levelList:
-  - {fileID: 11400000, guid: a503dd744408a024986e4d5a5e72288b, type: 2}
+  - {fileID: 11400000, guid: ee287d30bdc15a240ba03bc7a4cdaac8, type: 2}
   - {fileID: 11400000, guid: 22958a664f8f95145b9dcaa27a1699ef, type: 2}
   - {fileID: 11400000, guid: 3c9972beaa244184296ebe551bbfb149, type: 2}
+  - {fileID: 11400000, guid: a503dd744408a024986e4d5a5e72288b, type: 2}
   - {fileID: 11400000, guid: a95c1b640a3fd0d4abd530b3070ee578, type: 2}
-  - {fileID: 11400000, guid: ee287d30bdc15a240ba03bc7a4cdaac8, type: 2}
 --- !u!4 &823988865
 Transform:
   m_ObjectHideFlags: 0
@@ -812,6 +812,7 @@ MonoBehaviour:
   deltaTime: 0
   timeIncrement: 0.5
   BattleOver: 0
+  BattleGainsCalculated: 0
   winningTeam: {fileID: 0}
   winningTeamColor: {r: 0, g: 0, b: 0, a: 0}
   xpPerCharacter: 0

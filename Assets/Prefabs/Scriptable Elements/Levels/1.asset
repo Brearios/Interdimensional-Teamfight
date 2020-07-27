@@ -15,17 +15,13 @@ MonoBehaviour:
   levelNumber: 1
   maxFriendlyCharacters: 0
   levelUnlocksCharacter: 0
-  charUnlockWithVictory: 
-  unitSpawnData:
-  - characterPrefab: {fileID: 8102634624511559635, guid: 594caef060026ff498458d790d7df964,
-      type: 3}
-    DefaultUnitData: 0
-    team: 0
-    numberOfInstances: 1
-    spawn: 2
+  heroUnlockIndex: 5
+  GameObject: 
+  nPCSpawnData:
   - characterPrefab: {fileID: 8887474151139866053, guid: d976bd0383c6f25428c1855b09688f56,
       type: 3}
-    DefaultUnitData: 0
+    DefaultUnitData: 1
     team: 1
     numberOfInstances: 4
     spawn: 6
+  heroSpawnData: []

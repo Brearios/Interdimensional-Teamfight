@@ -12,50 +12,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ba75e9d14853a8479e5aef08600430e, type: 3}
   m_Name: 5
   m_EditorClassIdentifier: 
-  levelNumber: 5
+  levelNumber: 4
   maxFriendlyCharacters: 0
   levelUnlocksCharacter: 0
-  charUnlockWithVictory: 
-  unitSpawnData:
-  - characterPrefab: {fileID: 8102634624511559635, guid: 594caef060026ff498458d790d7df964,
-      type: 3}
-    DefaultUnitData: 0
-    team: 0
-    numberOfInstances: 1
-    spawn: 2
-  - characterPrefab: {fileID: 5960741867934732086, guid: 2405017ca93a2a34d84bb34826e42042,
-      type: 3}
-    DefaultUnitData: 0
-    team: 0
-    numberOfInstances: 1
-    spawn: 2
-  - characterPrefab: {fileID: 1527356296647036081, guid: 385654249dfbbb244a30ec4537010837,
-      type: 3}
-    DefaultUnitData: 0
-    team: 0
-    numberOfInstances: 1
-    spawn: 1
-  - characterPrefab: {fileID: 6573559670356672983, guid: 8ed0d27a91e46274fbc4d185dd169e9c,
-      type: 3}
-    DefaultUnitData: 0
-    team: 0
-    numberOfInstances: 1
-    spawn: 1
-  - characterPrefab: {fileID: 8887474151139866053, guid: d976bd0383c6f25428c1855b09688f56,
+  heroUnlockIndex: 4
+  GameObject: 
+  nPCSpawnData:
+  - characterPrefab: {fileID: 6738371103545747026, guid: ccb0182f380f2574cbac818c78381a9d,
       type: 3}
     DefaultUnitData: 0
     team: 1
-    numberOfInstances: 12
-    spawn: 6
+    numberOfInstances: 1
+    spawn: 4
   - characterPrefab: {fileID: 1767414096115935, guid: 9f1a129c51a40dd4692cb9024944990b,
       type: 3}
     DefaultUnitData: 0
     team: 1
-    numberOfInstances: 4
+    numberOfInstances: 2
     spawn: 4
+  - characterPrefab: {fileID: 8887474151139866053, guid: d976bd0383c6f25428c1855b09688f56,
+      type: 3}
+    DefaultUnitData: 0
+    team: 1
+    numberOfInstances: 10
+    spawn: 6
   - characterPrefab: {fileID: 2111358518787767468, guid: 0d161b1c5f3d84f46862d4e1712408eb,
       type: 3}
     DefaultUnitData: 0
     team: 1
     numberOfInstances: 3
     spawn: 5
+  heroSpawnData: []
