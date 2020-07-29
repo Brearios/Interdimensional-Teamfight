@@ -13,7 +13,6 @@ public class PlayerProfile : MonoBehaviour
     public CharacterProfile plantHero;
     public CharacterProfile steamHero;
     public int currentEditingInteger;
-    public List<HeroData> UnlockedHeroes;
     public ScriptableAbility currentDetailAbility;
     public int nextBattleScene;
     public int earnedCrystals;
@@ -21,6 +20,7 @@ public class PlayerProfile : MonoBehaviour
     public int totalGold;
     public int currentGold;
     public HeroData startingHero;
+    public List<HeroData> UnlockedHeroes;
     public List<HeroData> heroes;
 
 
@@ -34,34 +34,7 @@ public class PlayerProfile : MonoBehaviour
     // Code to use the CurrentEditingCharacter on the menu screen, and re-load the menu screen
     // Code to display the CurrentEditingCharacter.Sprite
 
-    public CharacterProfile GetCharacterProfileForUnit (ScriptableUnit unit)
-    {
-        switch (unit.name)
-        {
-            case "MageUnit":
-                return mageHero;
-
-            case "PriestUnit":
-                return priestHero;
-
-            case "WarriorUnit":
-                return warriorHero;
-
-            case "RogueUnit":
-                return rogueHero;
-
-            case "PlantUnit":
-                return plantHero;
-
-            case "SteamTankUnit":
-                return steamHero;
-
-            default:
-                return null;
-        }
-    }
-
-    private void Awake()
+    public void Awake()
     {
         if (Instance == null)
         {
@@ -103,10 +76,15 @@ public class PlayerProfile : MonoBehaviour
     void Start()
     {
         // Sets the current editing character to the index determined by the buttons when the scene reloads
-        
+        //if (UnlockedHeroes.Contains(startingHero))
+        //{
+        //    return;
+        //}
+        //UnlockedHeroes.Add(startingHero);
+        //Debug.Log("Starting Hero Added.");
     }
 
-    
+
     void Update()
     {
         CurrentEditingCharacter = characterProfiles[currentEditingInteger];
@@ -118,6 +96,35 @@ public class PlayerProfile : MonoBehaviour
     //    AbilityUnlock unlockAbility = new AbilityUnlock(abilityName, ability);
     //    listProfile.AbilityUnlocks.Add(unlockAbility);
     //}
+
+    public CharacterProfile GetCharacterProfileForUnit(ScriptableUnit unit)
+    {
+        switch (unit.name)
+        {
+            case "MageUnit":
+                return mageHero;
+
+            case "PriestUnit":
+                return priestHero;
+
+            case "WarriorUnit":
+                return warriorHero;
+
+            case "RogueUnit":
+                return rogueHero;
+
+            case "PlantUnit":
+                return plantHero;
+
+            case "SteamTankUnit":
+                return steamHero;
+
+            default:
+                return null;
+        }
+    }
+
+
     void EnsureInitialUnlockedAbilities(CharacterProfile unlockProfile)
     {
         unlockProfile.autoAtkUnlock = true;

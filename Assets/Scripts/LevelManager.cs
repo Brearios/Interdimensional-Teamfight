@@ -10,6 +10,7 @@ public class LevelManager : MonoBehaviour
     public ScriptableLevel currentLevel;
     public int currentLevelInt;
     public List<ScriptableLevel> levelList;
+    public bool startingCharactersSpawned;
     // List of prefabs to instantiate - list for heroes and enemies?
 
     public void Awake()
@@ -28,6 +29,7 @@ public class LevelManager : MonoBehaviour
     {
         // Setting level to Index in levelList, accounting for Title (0) and Character Menu (1)
         // Using  nextBattleScene instead of replacing it throughout code
+        startingCharactersSpawned = false;
         currentLevelInt = PlayerProfile.Instance.nextBattleScene;
         currentLevel = levelList[currentLevelInt];
 
@@ -42,7 +44,9 @@ public class LevelManager : MonoBehaviour
         foreach (HeroData unlockedHeroSpawnData in PlayerProfile.Instance.UnlockedHeroes)
         {
             SpawnFighter(unlockedHeroSpawnData.characterPrefab, GenerateRandomPosition(unlockedHeroSpawnData.spawn));
+            Debug.Log($"Spawned hero { unlockedHeroSpawnData.characterPrefab.name}");
         }
+        startingCharactersSpawned = true;
     }
 
     // Update is called once per frame

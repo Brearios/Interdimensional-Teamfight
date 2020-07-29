@@ -2829,5 +2829,25 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 3325535cecac7e8459de80fb98690e19,
         type: 2}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: plantHero.atk
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: plantHero.abilityPower
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: steamHero.atk
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: steamHero.abilityPower
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db534adf8c82c12469f782d9128fd3f1, type: 3}

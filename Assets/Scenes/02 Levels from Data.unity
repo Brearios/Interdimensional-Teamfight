@@ -43,7 +43,7 @@ RenderSettings:
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 11
+  serializedVersion: 12
   m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
@@ -96,8 +96,10 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
+    m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_LightingSettings: {fileID: 4890085278179872738, guid: 6d3f392076caad64e81ca7bd1847b1f4,
+    type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -117,6 +119,8 @@ NavMeshSettings:
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
+    maxJobWorkers: 0
+    preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
@@ -127,14 +131,49 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6362281642564214172, guid: 81772a38151444e49abe9f001c409ba2,
+    - target: {fileID: 6362281641273685726, guid: 81772a38151444e49abe9f001c409ba2,
         type: 3}
-      propertyPath: m_Name
-      value: BattleReportCanvas
+      propertyPath: m_AnchorMin.y
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6362281642564214172, guid: 81772a38151444e49abe9f001c409ba2,
+    - target: {fileID: 6362281641273685726, guid: 81772a38151444e49abe9f001c409ba2,
         type: 3}
-      propertyPath: m_IsActive
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6362281641273685726, guid: 81772a38151444e49abe9f001c409ba2,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6362281641834734387, guid: 81772a38151444e49abe9f001c409ba2,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6362281641834734387, guid: 81772a38151444e49abe9f001c409ba2,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6362281641834734387, guid: 81772a38151444e49abe9f001c409ba2,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6362281642501857879, guid: 81772a38151444e49abe9f001c409ba2,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6362281642501857879, guid: 81772a38151444e49abe9f001c409ba2,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6362281642501857879, guid: 81772a38151444e49abe9f001c409ba2,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6362281642564214160, guid: 81772a38151444e49abe9f001c409ba2,
@@ -175,7 +214,7 @@ PrefabInstance:
     - target: {fileID: 6362281642564214160, guid: 81772a38151444e49abe9f001c409ba2,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6362281642564214160, guid: 81772a38151444e49abe9f001c409ba2,
         type: 3}
@@ -242,49 +281,14 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6362281642501857879, guid: 81772a38151444e49abe9f001c409ba2,
+    - target: {fileID: 6362281642564214172, guid: 81772a38151444e49abe9f001c409ba2,
         type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
+      propertyPath: m_Name
+      value: BattleReportCanvas
       objectReference: {fileID: 0}
-    - target: {fileID: 6362281642501857879, guid: 81772a38151444e49abe9f001c409ba2,
+    - target: {fileID: 6362281642564214172, guid: 81772a38151444e49abe9f001c409ba2,
         type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6362281642501857879, guid: 81772a38151444e49abe9f001c409ba2,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6362281641834734387, guid: 81772a38151444e49abe9f001c409ba2,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6362281641834734387, guid: 81772a38151444e49abe9f001c409ba2,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6362281641834734387, guid: 81772a38151444e49abe9f001c409ba2,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6362281641273685726, guid: 81772a38151444e49abe9f001c409ba2,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6362281641273685726, guid: 81772a38151444e49abe9f001c409ba2,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6362281641273685726, guid: 81772a38151444e49abe9f001c409ba2,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -471,7 +475,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &461565312
 GameObject:
@@ -758,6 +762,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3c9972beaa244184296ebe551bbfb149, type: 2}
   - {fileID: 11400000, guid: a503dd744408a024986e4d5a5e72288b, type: 2}
   - {fileID: 11400000, guid: a95c1b640a3fd0d4abd530b3070ee578, type: 2}
+  startingCharactersSpawned: 0
 --- !u!4 &823988865
 Transform:
   m_ObjectHideFlags: 0
@@ -770,7 +775,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &951133638
 GameObject:
@@ -811,12 +816,14 @@ MonoBehaviour:
   gameSpeed: 0
   deltaTime: 0
   timeIncrement: 0.5
+  startingCharactersSpawned: 0
+  ActorDiedTestIfBattleIsOver: 0
   BattleOver: 0
   BattleGainsCalculated: 0
   winningTeam: {fileID: 0}
+  winCheckTeam: {fileID: 0}
   winningTeamColor: {r: 0, g: 0, b: 0, a: 0}
   xpPerCharacter: 0
-  xpCounted: 0
   xpDistributed: 0
   totalHeroes: 0
   totalEnemies: 0
@@ -848,85 +855,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1140660545
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 611108803042512196, guid: db534adf8c82c12469f782d9128fd3f1,
-        type: 3}
-      propertyPath: m_Name
-      value: Starting PlayerProfile
-      objectReference: {fileID: 0}
-    - target: {fileID: 611108803042512250, guid: db534adf8c82c12469f782d9128fd3f1,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.050279744
-      objectReference: {fileID: 0}
-    - target: {fileID: 611108803042512250, guid: db534adf8c82c12469f782d9128fd3f1,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.17940551
-      objectReference: {fileID: 0}
-    - target: {fileID: 611108803042512250, guid: db534adf8c82c12469f782d9128fd3f1,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -1.9121094
-      objectReference: {fileID: 0}
-    - target: {fileID: 611108803042512250, guid: db534adf8c82c12469f782d9128fd3f1,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 611108803042512250, guid: db534adf8c82c12469f782d9128fd3f1,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 611108803042512250, guid: db534adf8c82c12469f782d9128fd3f1,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 611108803042512250, guid: db534adf8c82c12469f782d9128fd3f1,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 611108803042512250, guid: db534adf8c82c12469f782d9128fd3f1,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 611108803042512250, guid: db534adf8c82c12469f782d9128fd3f1,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 611108803042512250, guid: db534adf8c82c12469f782d9128fd3f1,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 611108803042512250, guid: db534adf8c82c12469f782d9128fd3f1,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
-        type: 3}
-      propertyPath: mageHero.atk
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
-        type: 3}
-      propertyPath: mageHero.abilityPower
-      value: 8
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: db534adf8c82c12469f782d9128fd3f1, type: 3}
 --- !u!1 &1225544692
 GameObject:
   m_ObjectHideFlags: 0
@@ -993,6 +921,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.09625311, g: 0.9716981, b: 0.15733069, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1083,6 +1013,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.089711644, g: 0.9056604, b: 0.14663832, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1229,6 +1161,8 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1253,6 +1187,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1836512368
 MeshFilter:
   m_ObjectHideFlags: 0

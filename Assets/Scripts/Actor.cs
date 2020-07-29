@@ -201,6 +201,7 @@ public class Actor : MonoBehaviour
         if (currHealth <= 0)
         {
             Die();
+            GameManager.Instance.ActorDiedTestIfBattleIsOver = true;
         }
 
         if (GameManager.Instance.BattleOver == true)

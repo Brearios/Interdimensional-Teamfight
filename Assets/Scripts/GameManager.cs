@@ -18,13 +18,15 @@ public class GameManager : MonoBehaviour
     public float gameSpeed;
     public float deltaTime;
     public float timeIncrement = .5f;
+    public bool startingCharactersSpawned;
+    public bool ActorDiedTestIfBattleIsOver;
     public bool BattleOver;
     public bool BattleGainsCalculated;
     public ScriptableTeam winningTeam;
+    public ScriptableTeam winCheckTeam;
     public Color winningTeamColor;
     // public int playersReceivingXP;
     public int xpPerCharacter;
-    public bool xpCounted;
     public bool xpDistributed;
     public int totalHeroes;
     public int totalEnemies;
@@ -69,7 +71,6 @@ public class GameManager : MonoBehaviour
         earnedBattleXP = 0;
         earnedBattleCrystals = 0;
         earnedBattleGold = 0;
-        xpCounted = false;
         xpDistributed = false;
         totalHeroes = 0;
         heroDamageDone = 0;
@@ -78,6 +79,7 @@ public class GameManager : MonoBehaviour
         enemyHealingDone = 0;
         playerVictory = false;
         playerLoss = false;
+        ActorDiedTestIfBattleIsOver = false;
         totalEnemies = 0;
         heroDeaths = 0;
         enemyDeaths = 0;
@@ -123,32 +125,14 @@ public class GameManager : MonoBehaviour
         {
             return;
         }
-        if (activeScene > 1)
+        if (ActorDiedTestIfBattleIsOver)
         {
             IsBattleOver();
         }
         if (BattleOver == true)
         {
-            /* if (xpCounted == false)
-            {
-                TallyXP();
-                xpCounted = true;
-            } */
-            if (xpDistributed == false)
-            {
-                TallyXP();
-                DivideExperience();
-                if (xpPerCharacter > 0)
-                {
-                    DistributeXP();
-                }
-                xpDistributed = true;
-            }
-            if (currencyDistributed == false)
-            {
-                DistributeCurrencies();
-                currencyDistributed = true;
-            }
+            ProcessRewards();
+            PrepareCanvas();
         }
     }
 
@@ -175,43 +159,22 @@ public class GameManager : MonoBehaviour
         battleReportCanvas.SetActive(true);
     }
 
-    //private void LateUpdate()
-    //{
-    //    ManageLayers();
-    //}
-
     void IsBattleOver()
     {
         // Identify Team of Actor
         // Look for Actors on !Team
-        // If none found, WinningTeam = Actor.Team 
-        // Prevent IsBattleOver from erroring on menu/title scenes
         Actor[] allActors = GameObject.FindObjectsOfType<Actor>();
 
-
-        // Keep the script from running on menu screens
-        //if (allActors.Length == 0)
-        //{
-        //    return;
-        //}
-
-        // Get Team of Any One (Alive) Unit
         int arrayPosition = 0;
         while (allActors[arrayPosition].isDead)
         {
             arrayPosition += 1;
         }
 
-        ScriptableTeam winCheckTeam = allActors[arrayPosition].team;
+        winCheckTeam = allActors[arrayPosition].team;
 
         // Compare Other Actors to that Team
         foreach (Actor Team in allActors)
-
-            // The dead are not relevant to our evaluation
-            //if (Team.isDead)
-            //{
-            //    continue;
-            //}
 
             if (!Team.isDead && Team.team != winCheckTeam)
             {
@@ -223,21 +186,7 @@ public class GameManager : MonoBehaviour
                 BattleOver = true;
                 winningTeam = winCheckTeam;
             }
-        if (BattleOver == true)
-        {
-            winningTeamColor = winCheckTeam.color;
-            DetermineOutcome();
-            if (BattleGainsCalculated == false)
-            {
-                IncrementNextBattleIfVictorious();
-            }
-            CountSurvivors();
-            battleReportCanvas.SetActive(true);
-            BattleGainsCalculated = true;
-            // winningTeamColor = allActors[0].GetComponentInChildren<Color>();
-        }
-        
-
+        ActorDiedTestIfBattleIsOver = false;
     }
 
     void TallyXP() // Not used - XP is added from Actor script, if not player and not previously added
@@ -385,8 +334,6 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(PlayerProfile.Instance.nextBattleScene);
     }
 
-    // Press B to load the boss fight
-
     void RepeatBattle()
     {
         SceneManager.LoadScene(PlayerProfile.Instance.nextBattleScene);
@@ -419,13 +366,38 @@ public class GameManager : MonoBehaviour
         // defeatedEnemies = totalEnemies - enemyDeaths; Unneeded
     }
 
-    //void ManageLayers()
-    //{
-    //    SpriteRenderer[] renderers = FindObjectsOfType<SpriteRenderer>();
+    void ProcessRewards()
+    {
+        if (xpDistributed == false)
+        {
+            TallyXP();
+            DivideExperience();
+            if (xpPerCharacter > 0)
+            {
+                DistributeXP();
+            }
+            xpDistributed = true;
+        }
+        if (currencyDistributed == false)
+        {
+            DistributeCurrencies();
+            currencyDistributed = true;
+        }
+    }
 
-    //    foreach(SpriteRenderer renderer in renderers)
-    //    {
-    //        renderer.sortingOrder = (int)(renderer.transform.position.y * -100);
-    //    }
-    //}
+    void PrepareCanvas()
+    {
+        if (BattleOver == true)
+        {
+            winningTeamColor = winCheckTeam.color;
+            DetermineOutcome();
+            if (BattleGainsCalculated == false)
+            {
+                IncrementNextBattleIfVictorious();
+            }
+            CountSurvivors();
+            battleReportCanvas.SetActive(true);
+            BattleGainsCalculated = true;
+        }
+    }
 }
