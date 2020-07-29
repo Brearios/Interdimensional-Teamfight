@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelNumber: 2
   maxFriendlyCharacters: 0
-  levelUnlocksCharacter: 0
+  levelUnlocksCharacter: 1
   heroUnlockIndex: 2
   GameObject: 
   nPCSpawnData:
@@ -30,4 +30,3 @@ MonoBehaviour:
     team: 1
     numberOfInstances: 1
     spawn: 5
-  heroSpawnData: []

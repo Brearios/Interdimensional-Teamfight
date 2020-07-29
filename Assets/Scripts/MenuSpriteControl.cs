@@ -8,6 +8,8 @@ public class MenuSpriteControl : MonoBehaviour
     public GameObject fantasyPriest;
     public GameObject spaceTank;
     public GameObject postApocRogue;
+    public GameObject steamBot;
+    public GameObject plantHero;
     
 
     // Start is called before the first frame update
@@ -17,6 +19,8 @@ public class MenuSpriteControl : MonoBehaviour
     fantasyPriest = GameObject.Find("/Fantasy Priest");
     spaceTank = GameObject.Find("/Space Tank");
     postApocRogue = GameObject.Find("/Post Apoc Rogue");
+    steamBot = GameObject.Find("SteamBot");
+    plantHero = GameObject.Find("Plantbassador");
     }
 
 
@@ -34,6 +38,8 @@ public class MenuSpriteControl : MonoBehaviour
                 fantasyPriest.SetActive(false);
                 spaceTank.SetActive(false);
                 postApocRogue.SetActive(false);
+                steamBot.SetActive(false);
+                plantHero.SetActive(false);
                 break;
 
 
@@ -41,7 +47,9 @@ public class MenuSpriteControl : MonoBehaviour
                 fantasyMage.SetActive(false);
                 fantasyPriest.SetActive(false);
                 spaceTank.SetActive(true);
-                postApocRogue.SetActive(false); 
+                postApocRogue.SetActive(false);
+                steamBot.SetActive(false);
+                plantHero.SetActive(false);
                 break;
 
             case 2:
@@ -49,6 +57,8 @@ public class MenuSpriteControl : MonoBehaviour
                 fantasyPriest.SetActive(true);
                 spaceTank.SetActive(false);
                 postApocRogue.SetActive(false);
+                steamBot.SetActive(false);
+                plantHero.SetActive(false);
                 break;
 
             case 3:
@@ -56,6 +66,26 @@ public class MenuSpriteControl : MonoBehaviour
                 fantasyPriest.SetActive(false);
                 spaceTank.SetActive(false);
                 postApocRogue.SetActive(true);
+                steamBot.SetActive(false);
+                plantHero.SetActive(false);
+                break;
+
+            case 4:
+                fantasyMage.SetActive(false);
+                fantasyPriest.SetActive(false);
+                spaceTank.SetActive(false);
+                postApocRogue.SetActive(false);
+                steamBot.SetActive(true);
+                plantHero.SetActive(false);
+                break;
+
+            case 5:
+                fantasyMage.SetActive(false);
+                fantasyPriest.SetActive(false);
+                spaceTank.SetActive(false);
+                postApocRogue.SetActive(false);
+                steamBot.SetActive(false);
+                plantHero.SetActive(true);
                 break;
         } 
     }

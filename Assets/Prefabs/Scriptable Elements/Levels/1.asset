@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelNumber: 1
   maxFriendlyCharacters: 0
-  levelUnlocksCharacter: 0
-  heroUnlockIndex: 5
+  levelUnlocksCharacter: 1
+  heroUnlockIndex: 1
   GameObject: 
   nPCSpawnData:
   - characterPrefab: {fileID: 8887474151139866053, guid: d976bd0383c6f25428c1855b09688f56,
@@ -24,4 +24,3 @@ MonoBehaviour:
     team: 1
     numberOfInstances: 4
     spawn: 6
-  heroSpawnData: []

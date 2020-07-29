@@ -8,7 +8,10 @@ public class ScriptableLevel : ScriptableObject
 {
     public int levelNumber;
     public int maxFriendlyCharacters;
+
+    // Currently unused, but will be necessary with more levels than heroes
     public bool levelUnlocksCharacter;
+
     public int heroUnlockIndex;
     // This part would go in LevelManager
     // public HeroData heroUnlockedWithVictory = PlayerProfile.Instance.heroes[heroUnlockIndex];

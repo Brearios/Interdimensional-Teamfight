@@ -194,7 +194,7 @@ public class LevelManager : MonoBehaviour
     internal void ProcessVictory()
     {
         Debug.Log("Victory");
-        if (!PlayerProfile.Instance.UnlockedHeroes.Contains(PlayerProfile.Instance.heroes[currentLevel.heroUnlockIndex]))
+        if ((!PlayerProfile.Instance.UnlockedHeroes.Contains(PlayerProfile.Instance.heroes[currentLevel.heroUnlockIndex]) && currentLevel.levelUnlocksCharacter))
         {
             PlayerProfile.Instance.UnlockedHeroes.Add(PlayerProfile.Instance.heroes[currentLevel.heroUnlockIndex]);
             Debug.Log($"Hero {PlayerProfile.Instance.heroes[currentLevel.heroUnlockIndex].name} Added");

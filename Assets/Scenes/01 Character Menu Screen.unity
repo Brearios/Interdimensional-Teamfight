@@ -43,7 +43,7 @@ RenderSettings:
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 11
+  serializedVersion: 12
   m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
@@ -96,8 +96,10 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
+    m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_LightingSettings: {fileID: 4890085278179872738, guid: 31b5cb135d902a346904a1322bd545c3,
+    type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -117,6 +119,8 @@ NavMeshSettings:
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
+    maxJobWorkers: 0
+    preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
@@ -172,6 +176,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -249,6 +255,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -328,6 +336,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -451,6 +461,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 48700304}
+        m_TargetAssemblyTypeName: 
         m_MethodName: Button3DataUpdate
         m_Mode: 1
         m_Arguments:
@@ -476,6 +487,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -558,7 +571,9 @@ MonoBehaviour:
   atkLevel: 050000000600000007000000090000000a0000000c0000000e00000010000000110000001200000013000000140000001600000017000000180000001a0000001b0000001d0000001f0000002000000022000000
   abilityLevel: 090000000b0000000d0000000e0000000f000000100000001100000012000000140000001500000016000000180000001a0000001b0000001d0000001f00000021000000230000002500000027000000
   healthLevel: 640000006e00000078000000840000008f0000009b000000a8000000b5000000c3000000d2000000e2000000f20000000301000015010000280100003c01000051010000660100007d01000095010000af010000c9010000e501000002020000
-  warriorHealthLevel: 2c0100004a0100006a0100008b010000ad010000d2010000f8010000200200004a02000077020000a5020000d60200000a0300003f03000078030000b3030000f20300003304000078040000c00400000c0500005c050000af05000007060000
+  enemyAtkLevel: 050000000600000007000000090000000a0000000c0000000e00000010000000110000001200000013000000140000001600000017000000180000001a0000001b0000001d0000001f0000002000000022000000
+  enemyAbilityLevel: 090000000b0000000d0000000e0000000f000000100000001100000012000000140000001500000016000000180000001a0000001b0000001d0000001f00000021000000230000002500000027000000
+  enemyHealthLevel: 640000006e00000078000000840000008f0000009b000000a8000000b5000000c3000000d2000000e2000000f20000000301000015010000280100003c01000051010000660100007d01000095010000af010000c9010000e501000002020000
   SceneCharacter:
     heroName: 
     characterTotalXP: 0
@@ -570,6 +585,7 @@ MonoBehaviour:
     health: 0
     atk: 0
     abilityPower: 0
+    charUnlock: 0
     autoAtkUnlock: 0
     ability1Unlock: 0
     ability2Unlock: 0
@@ -626,6 +642,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 87404286}
+        m_TargetAssemblyTypeName: 
         m_MethodName: ThirdAbilityUnlockButton
         m_Mode: 1
         m_Arguments:
@@ -651,6 +668,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -756,6 +775,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 89342000}
+        m_TargetAssemblyTypeName: 
         m_MethodName: AddXP
         m_Mode: 1
         m_Arguments:
@@ -781,6 +801,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -823,7 +845,9 @@ MonoBehaviour:
   atkLevel: 050000000600000007000000090000000a0000000c0000000e00000010000000110000001200000013000000140000001600000017000000180000001a0000001b0000001d0000001f0000002000000022000000
   abilityLevel: 090000000b0000000d0000000e0000000f000000100000001100000012000000140000001500000016000000180000001a0000001b0000001d0000001f00000021000000230000002500000027000000
   healthLevel: 640000006e00000078000000840000008f0000009b000000a8000000b5000000c3000000d2000000e2000000f20000000301000015010000280100003c01000051010000660100007d01000095010000af010000c9010000e501000002020000
-  warriorHealthLevel: 2c0100004a0100006a0100008b010000ad010000d2010000f8010000200200004a02000077020000a5020000d60200000a0300003f03000078030000b3030000f20300003304000078040000c00400000c0500005c050000af05000007060000
+  enemyAtkLevel: 050000000600000007000000090000000a0000000c0000000e00000010000000110000001200000013000000140000001600000017000000180000001a0000001b0000001d0000001f0000002000000022000000
+  enemyAbilityLevel: 090000000b0000000d0000000e0000000f000000100000001100000012000000140000001500000016000000180000001a0000001b0000001d0000001f00000021000000230000002500000027000000
+  enemyHealthLevel: 640000006e00000078000000840000008f0000009b000000a8000000b5000000c3000000d2000000e2000000f20000000301000015010000280100003c01000051010000660100007d01000095010000af010000c9010000e501000002020000
   SceneCharacter:
     heroName: 
     characterTotalXP: 0
@@ -835,6 +859,7 @@ MonoBehaviour:
     health: 0
     atk: 0
     abilityPower: 0
+    charUnlock: 0
     autoAtkUnlock: 0
     ability1Unlock: 0
     ability2Unlock: 0
@@ -899,6 +924,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1020,6 +1047,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 123417555}
+        m_TargetAssemblyTypeName: 
         m_MethodName: NextMenuCharacter
         m_Mode: 1
         m_Arguments:
@@ -1045,6 +1073,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1127,7 +1157,9 @@ MonoBehaviour:
   atkLevel: 050000000600000007000000090000000a0000000c0000000e00000010000000110000001200000013000000140000001600000017000000180000001a0000001b0000001d0000001f0000002000000022000000
   abilityLevel: 090000000b0000000d0000000e0000000f000000100000001100000012000000140000001500000016000000180000001a0000001b0000001d0000001f00000021000000230000002500000027000000
   healthLevel: 640000006e00000078000000840000008f0000009b000000a8000000b5000000c3000000d2000000e2000000f20000000301000015010000280100003c01000051010000660100007d01000095010000af010000c9010000e501000002020000
-  warriorHealthLevel: 2c0100004a0100006a0100008b010000ad010000d2010000f8010000200200004a02000077020000a5020000d60200000a0300003f03000078030000b3030000f20300003304000078040000c00400000c0500005c050000af05000007060000
+  enemyAtkLevel: 050000000600000007000000090000000a0000000c0000000e00000010000000110000001200000013000000140000001600000017000000180000001a0000001b0000001d0000001f0000002000000022000000
+  enemyAbilityLevel: 090000000b0000000d0000000e0000000f000000100000001100000012000000140000001500000016000000180000001a0000001b0000001d0000001f00000021000000230000002500000027000000
+  enemyHealthLevel: 640000006e00000078000000840000008f0000009b000000a8000000b5000000c3000000d2000000e2000000f20000000301000015010000280100003c01000051010000660100007d01000095010000af010000c9010000e501000002020000
   SceneCharacter:
     heroName: 
     characterTotalXP: 0
@@ -1139,6 +1171,7 @@ MonoBehaviour:
     health: 0
     atk: 0
     abilityPower: 0
+    charUnlock: 0
     autoAtkUnlock: 0
     ability1Unlock: 0
     ability2Unlock: 0
@@ -1195,6 +1228,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 142685210}
+        m_TargetAssemblyTypeName: 
         m_MethodName: IncrementAbility
         m_Mode: 1
         m_Arguments:
@@ -1220,6 +1254,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1293,6 +1329,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1415,6 +1453,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1520,6 +1560,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 182010045}
+        m_TargetAssemblyTypeName: 
         m_MethodName: IncrementHealth
         m_Mode: 1
         m_Arguments:
@@ -1545,6 +1586,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1587,7 +1630,9 @@ MonoBehaviour:
   atkLevel: 050000000600000007000000090000000a0000000c0000000e00000010000000110000001200000013000000140000001600000017000000180000001a0000001b0000001d0000001f0000002000000022000000
   abilityLevel: 090000000b0000000d0000000e0000000f000000100000001100000012000000140000001500000016000000180000001a0000001b0000001d0000001f00000021000000230000002500000027000000
   healthLevel: 640000006e00000078000000840000008f0000009b000000a8000000b5000000c3000000d2000000e2000000f20000000301000015010000280100003c01000051010000660100007d01000095010000af010000c9010000e501000002020000
-  warriorHealthLevel: 2c0100004a0100006a0100008b010000ad010000d2010000f8010000200200004a02000077020000a5020000d60200000a0300003f03000078030000b3030000f20300003304000078040000c00400000c0500005c050000af05000007060000
+  enemyAtkLevel: 050000000600000007000000090000000a0000000c0000000e00000010000000110000001200000013000000140000001600000017000000180000001a0000001b0000001d0000001f0000002000000022000000
+  enemyAbilityLevel: 090000000b0000000d0000000e0000000f000000100000001100000012000000140000001500000016000000180000001a0000001b0000001d0000001f00000021000000230000002500000027000000
+  enemyHealthLevel: 640000006e00000078000000840000008f0000009b000000a8000000b5000000c3000000d2000000e2000000f20000000301000015010000280100003c01000051010000660100007d01000095010000af010000c9010000e501000002020000
   SceneCharacter:
     heroName: 
     characterTotalXP: 0
@@ -1599,6 +1644,7 @@ MonoBehaviour:
     health: 0
     atk: 0
     abilityPower: 0
+    charUnlock: 0
     autoAtkUnlock: 0
     ability1Unlock: 0
     ability2Unlock: 0
@@ -1663,6 +1709,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1751,7 +1799,9 @@ MonoBehaviour:
   atkLevel: 050000000600000007000000090000000a0000000c0000000e00000010000000110000001200000013000000140000001600000017000000180000001a0000001b0000001d0000001f0000002000000022000000
   abilityLevel: 090000000b0000000d0000000e0000000f000000100000001100000012000000140000001500000016000000180000001a0000001b0000001d0000001f00000021000000230000002500000027000000
   healthLevel: 640000006e00000078000000840000008f0000009b000000a8000000b5000000c3000000d2000000e2000000f20000000301000015010000280100003c01000051010000660100007d01000095010000af010000c9010000e501000002020000
-  warriorHealthLevel: 2c0100004a0100006a0100008b010000ad010000d2010000f8010000200200004a02000077020000a5020000d60200000a0300003f03000078030000b3030000f20300003304000078040000c00400000c0500005c050000af05000007060000
+  enemyAtkLevel: 050000000600000007000000090000000a0000000c0000000e00000010000000110000001200000013000000140000001600000017000000180000001a0000001b0000001d0000001f0000002000000022000000
+  enemyAbilityLevel: 090000000b0000000d0000000e0000000f000000100000001100000012000000140000001500000016000000180000001a0000001b0000001d0000001f00000021000000230000002500000027000000
+  enemyHealthLevel: 640000006e00000078000000840000008f0000009b000000a8000000b5000000c3000000d2000000e2000000f20000000301000015010000280100003c01000051010000660100007d01000095010000af010000c9010000e501000002020000
   SceneCharacter:
     heroName: 
     characterTotalXP: 0
@@ -1763,6 +1813,7 @@ MonoBehaviour:
     health: 0
     atk: 0
     abilityPower: 0
+    charUnlock: 0
     autoAtkUnlock: 0
     ability1Unlock: 0
     ability2Unlock: 0
@@ -1819,6 +1870,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 214496167}
+        m_TargetAssemblyTypeName: 
         m_MethodName: IncrementAtk
         m_Mode: 1
         m_Arguments:
@@ -1844,6 +1896,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1917,6 +1971,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1994,6 +2050,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2116,6 +2174,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2237,6 +2297,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 295801337}
+        m_TargetAssemblyTypeName: 
         m_MethodName: CharacterAbilities
         m_Mode: 1
         m_Arguments:
@@ -2262,6 +2323,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2335,6 +2398,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2458,6 +2523,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 305831585}
+        m_TargetAssemblyTypeName: 
         m_MethodName: PrevMenuCharacter
         m_Mode: 1
         m_Arguments:
@@ -2483,6 +2549,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2565,7 +2633,9 @@ MonoBehaviour:
   atkLevel: 050000000600000007000000090000000a0000000c0000000e00000010000000110000001200000013000000140000001600000017000000180000001a0000001b0000001d0000001f0000002000000022000000
   abilityLevel: 090000000b0000000d0000000e0000000f000000100000001100000012000000140000001500000016000000180000001a0000001b0000001d0000001f00000021000000230000002500000027000000
   healthLevel: 640000006e00000078000000840000008f0000009b000000a8000000b5000000c3000000d2000000e2000000f20000000301000015010000280100003c01000051010000660100007d01000095010000af010000c9010000e501000002020000
-  warriorHealthLevel: 2c0100004a0100006a0100008b010000ad010000d2010000f8010000200200004a02000077020000a5020000d60200000a0300003f03000078030000b3030000f20300003304000078040000c00400000c0500005c050000af05000007060000
+  enemyAtkLevel: 050000000600000007000000090000000a0000000c0000000e00000010000000110000001200000013000000140000001600000017000000180000001a0000001b0000001d0000001f0000002000000022000000
+  enemyAbilityLevel: 090000000b0000000d0000000e0000000f000000100000001100000012000000140000001500000016000000180000001a0000001b0000001d0000001f00000021000000230000002500000027000000
+  enemyHealthLevel: 640000006e00000078000000840000008f0000009b000000a8000000b5000000c3000000d2000000e2000000f20000000301000015010000280100003c01000051010000660100007d01000095010000af010000c9010000e501000002020000
   SceneCharacter:
     heroName: 
     characterTotalXP: 0
@@ -2577,6 +2647,7 @@ MonoBehaviour:
     health: 0
     atk: 0
     abilityPower: 0
+    charUnlock: 0
     autoAtkUnlock: 0
     ability1Unlock: 0
     ability2Unlock: 0
@@ -2633,6 +2704,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 323592863}
+        m_TargetAssemblyTypeName: 
         m_MethodName: ResetXP
         m_Mode: 1
         m_Arguments:
@@ -2658,6 +2730,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2731,6 +2805,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2808,6 +2884,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2885,6 +2963,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2971,7 +3051,9 @@ MonoBehaviour:
   atkLevel: 050000000600000007000000090000000a0000000c0000000e00000010000000110000001200000013000000140000001600000017000000180000001a0000001b0000001d0000001f0000002000000022000000
   abilityLevel: 090000000b0000000d0000000e0000000f000000100000001100000012000000140000001500000016000000180000001a0000001b0000001d0000001f00000021000000230000002500000027000000
   healthLevel: 640000006e00000078000000840000008f0000009b000000a8000000b5000000c3000000d2000000e2000000f20000000301000015010000280100003c01000051010000660100007d01000095010000af010000c9010000e501000002020000
-  warriorHealthLevel: 2c0100004a0100006a0100008b010000ad010000d2010000f8010000200200004a02000077020000a5020000d60200000a0300003f03000078030000b3030000f20300003304000078040000c00400000c0500005c050000af05000007060000
+  enemyAtkLevel: 050000000600000007000000090000000a0000000c0000000e00000010000000110000001200000013000000140000001600000017000000180000001a0000001b0000001d0000001f0000002000000022000000
+  enemyAbilityLevel: 090000000b0000000d0000000e0000000f000000100000001100000012000000140000001500000016000000180000001a0000001b0000001d0000001f00000021000000230000002500000027000000
+  enemyHealthLevel: 640000006e00000078000000840000008f0000009b000000a8000000b5000000c3000000d2000000e2000000f20000000301000015010000280100003c01000051010000660100007d01000095010000af010000c9010000e501000002020000
   SceneCharacter:
     heroName: 
     characterTotalXP: 0
@@ -2983,6 +3065,7 @@ MonoBehaviour:
     health: 0
     atk: 0
     abilityPower: 0
+    charUnlock: 0
     autoAtkUnlock: 0
     ability1Unlock: 0
     ability2Unlock: 0
@@ -3039,6 +3122,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 382936415}
+        m_TargetAssemblyTypeName: 
         m_MethodName: PotionUnlockButton
         m_Mode: 1
         m_Arguments:
@@ -3064,6 +3148,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -3137,6 +3223,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -3258,6 +3346,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 412148378}
+        m_TargetAssemblyTypeName: 
         m_MethodName: TitleScene
         m_Mode: 1
         m_Arguments:
@@ -3283,6 +3372,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -3464,6 +3555,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -3587,6 +3680,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 442488662}
+        m_TargetAssemblyTypeName: 
         m_MethodName: AdvanceScene
         m_Mode: 1
         m_Arguments:
@@ -3612,6 +3706,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -3850,6 +3946,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -4010,6 +4108,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -4096,7 +4196,9 @@ MonoBehaviour:
   atkLevel: 050000000600000007000000090000000a0000000c0000000e00000010000000110000001200000013000000140000001600000017000000180000001a0000001b0000001d0000001f0000002000000022000000
   abilityLevel: 090000000b0000000d0000000e0000000f000000100000001100000012000000140000001500000016000000180000001a0000001b0000001d0000001f00000021000000230000002500000027000000
   healthLevel: 640000006e00000078000000840000008f0000009b000000a8000000b5000000c3000000d2000000e2000000f20000000301000015010000280100003c01000051010000660100007d01000095010000af010000c9010000e501000002020000
-  warriorHealthLevel: 2c0100004a0100006a0100008b010000ad010000d2010000f8010000200200004a02000077020000a5020000d60200000a0300003f03000078030000b3030000f20300003304000078040000c00400000c0500005c050000af05000007060000
+  enemyAtkLevel: 050000000600000007000000090000000a0000000c0000000e00000010000000110000001200000013000000140000001600000017000000180000001a0000001b0000001d0000001f0000002000000022000000
+  enemyAbilityLevel: 090000000b0000000d0000000e0000000f000000100000001100000012000000140000001500000016000000180000001a0000001b0000001d0000001f00000021000000230000002500000027000000
+  enemyHealthLevel: 640000006e00000078000000840000008f0000009b000000a8000000b5000000c3000000d2000000e2000000f20000000301000015010000280100003c01000051010000660100007d01000095010000af010000c9010000e501000002020000
   SceneCharacter:
     heroName: 
     characterTotalXP: 0
@@ -4108,6 +4210,7 @@ MonoBehaviour:
     health: 0
     atk: 0
     abilityPower: 0
+    charUnlock: 0
     autoAtkUnlock: 0
     ability1Unlock: 0
     ability2Unlock: 0
@@ -4164,6 +4267,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 522403489}
+        m_TargetAssemblyTypeName: 
         m_MethodName: ResetXP
         m_Mode: 1
         m_Arguments:
@@ -4189,6 +4293,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -4294,6 +4400,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 522660509}
+        m_TargetAssemblyTypeName: 
         m_MethodName: PrevMenuCharacter
         m_Mode: 1
         m_Arguments:
@@ -4319,6 +4426,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -4404,6 +4513,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -4526,6 +4637,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -4554,6 +4667,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -6640806074482149076, guid: 6e509a1cd62cddd4ea307775ab5a317e,
+        type: 3}
+      propertyPath: unit
+      value: 
+      objectReference: {fileID: 11400000, guid: 232edcf067fd9464cb71f28bd0a58dd9,
+        type: 2}
+    - target: {fileID: -6640806074482149076, guid: 6e509a1cd62cddd4ea307775ab5a317e,
+        type: 3}
+      propertyPath: isPlayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1338283891893459, guid: 6e509a1cd62cddd4ea307775ab5a317e, type: 3}
       propertyPath: m_Name
       value: Space Tank
@@ -4613,17 +4737,6 @@ PrefabInstance:
     - target: {fileID: 4730942062920463, guid: 6e509a1cd62cddd4ea307775ab5a317e, type: 3}
       propertyPath: m_LocalScale.y
       value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: -6640806074482149076, guid: 6e509a1cd62cddd4ea307775ab5a317e,
-        type: 3}
-      propertyPath: unit
-      value: 
-      objectReference: {fileID: 11400000, guid: 232edcf067fd9464cb71f28bd0a58dd9,
-        type: 2}
-    - target: {fileID: -6640806074482149076, guid: 6e509a1cd62cddd4ea307775ab5a317e,
-        type: 3}
-      propertyPath: isPlayer
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e509a1cd62cddd4ea307775ab5a317e, type: 3}
@@ -4730,6 +4843,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -4803,6 +4918,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -4880,6 +4997,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -4957,6 +5076,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -4982,6 +5103,71 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 687464119}
   m_CullTransparentMesh: 0
+--- !u!1001 &689244926
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1338283891893459, guid: 9a97c4c340a5038479aa3469c3b6a863, type: 3}
+      propertyPath: m_Name
+      value: SteamBot
+      objectReference: {fileID: 0}
+    - target: {fileID: 4730942062920463, guid: 9a97c4c340a5038479aa3469c3b6a863, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4730942062920463, guid: 9a97c4c340a5038479aa3469c3b6a863, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4730942062920463, guid: 9a97c4c340a5038479aa3469c3b6a863, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4730942062920463, guid: 9a97c4c340a5038479aa3469c3b6a863, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4730942062920463, guid: 9a97c4c340a5038479aa3469c3b6a863, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4730942062920463, guid: 9a97c4c340a5038479aa3469c3b6a863, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4730942062920463, guid: 9a97c4c340a5038479aa3469c3b6a863, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4730942062920463, guid: 9a97c4c340a5038479aa3469c3b6a863, type: 3}
+      propertyPath: m_RootOrder
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 4730942062920463, guid: 9a97c4c340a5038479aa3469c3b6a863, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4730942062920463, guid: 9a97c4c340a5038479aa3469c3b6a863, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4730942062920463, guid: 9a97c4c340a5038479aa3469c3b6a863, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4730942062920463, guid: 9a97c4c340a5038479aa3469c3b6a863, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4730942062920463, guid: 9a97c4c340a5038479aa3469c3b6a863, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9a97c4c340a5038479aa3469c3b6a863, type: 3}
 --- !u!1 &706580214
 GameObject:
   m_ObjectHideFlags: 0
@@ -5133,6 +5319,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -5255,6 +5443,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -5337,6 +5527,7 @@ MonoBehaviour:
     health: 0
     atk: 0
     abilityPower: 0
+    charUnlock: 0
     autoAtkUnlock: 0
     ability1Unlock: 0
     ability2Unlock: 0
@@ -5364,6 +5555,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.089711644, g: 0.9056604, b: 0.14663832, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -5441,6 +5634,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -5564,6 +5759,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 762591597}
+        m_TargetAssemblyTypeName: 
         m_MethodName: Button2DataUpdate
         m_Mode: 1
         m_Arguments:
@@ -5589,6 +5785,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -5706,6 +5904,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 782790257}
+        m_TargetAssemblyTypeName: 
         m_MethodName: PrevMenuCharacter
         m_Mode: 1
         m_Arguments:
@@ -5731,6 +5930,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -5836,6 +6037,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 840394678}
+        m_TargetAssemblyTypeName: 
         m_MethodName: NextMenuCharacter
         m_Mode: 1
         m_Arguments:
@@ -5861,6 +6063,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -5955,7 +6159,9 @@ MonoBehaviour:
   atkLevel: 050000000600000007000000090000000a0000000c0000000e00000010000000110000001200000013000000140000001600000017000000180000001a0000001b0000001d0000001f0000002000000022000000
   abilityLevel: 090000000b0000000d0000000e0000000f000000100000001100000012000000140000001500000016000000180000001a0000001b0000001d0000001f00000021000000230000002500000027000000
   healthLevel: 640000006e00000078000000840000008f0000009b000000a8000000b5000000c3000000d2000000e2000000f20000000301000015010000280100003c01000051010000660100007d01000095010000af010000c9010000e501000002020000
-  warriorHealthLevel: 2c0100004a0100006a0100008b010000ad010000d2010000f8010000200200004a02000077020000a5020000d60200000a0300003f03000078030000b3030000f20300003304000078040000c00400000c0500005c050000af05000007060000
+  enemyAtkLevel: 050000000600000007000000090000000a0000000c0000000e00000010000000110000001200000013000000140000001600000017000000180000001a0000001b0000001d0000001f0000002000000022000000
+  enemyAbilityLevel: 090000000b0000000d0000000e0000000f000000100000001100000012000000140000001500000016000000180000001a0000001b0000001d0000001f00000021000000230000002500000027000000
+  enemyHealthLevel: 640000006e00000078000000840000008f0000009b000000a8000000b5000000c3000000d2000000e2000000f20000000301000015010000280100003c01000051010000660100007d01000095010000af010000c9010000e501000002020000
   SceneCharacter:
     heroName: 
     characterTotalXP: 0
@@ -5967,6 +6173,7 @@ MonoBehaviour:
     health: 0
     atk: 0
     abilityPower: 0
+    charUnlock: 0
     autoAtkUnlock: 0
     ability1Unlock: 0
     ability2Unlock: 0
@@ -6023,6 +6230,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 841717315}
+        m_TargetAssemblyTypeName: 
         m_MethodName: AddXP
         m_Mode: 1
         m_Arguments:
@@ -6048,6 +6256,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -6121,6 +6331,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -6207,6 +6419,7 @@ MonoBehaviour:
     health: 0
     atk: 0
     abilityPower: 0
+    charUnlock: 0
     autoAtkUnlock: 0
     ability1Unlock: 0
     ability2Unlock: 0
@@ -6234,6 +6447,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.089711644, g: 0.9056604, b: 0.14663832, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -6359,6 +6574,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 946155070}
+        m_TargetAssemblyTypeName: 
         m_MethodName: RootMenu
         m_Mode: 1
         m_Arguments:
@@ -6384,6 +6600,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -6434,21 +6652,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 527a651b647d19540979dfd170996a04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  battleReportCanvas: {fileID: 0}
   IsRunning: 0
   DisplayHealth: 1
   ShowTarget: 1
   earnedBattleXP: 0
+  earnedBattleCrystals: 0
+  earnedBattleGold: 0
   gameSpeed: 0
   deltaTime: 0
   timeIncrement: 0.5
-  DeclareVictory: 0
+  startingCharactersSpawned: 0
+  ActorDiedTestIfBattleIsOver: 0
+  BattleOver: 0
+  BattleGainsCalculated: 0
   winningTeam: {fileID: 0}
+  winCheckTeam: {fileID: 0}
   winningTeamColor: {r: 0, g: 0, b: 0, a: 0}
   xpPerCharacter: 0
-  xpCounted: 0
   xpDistributed: 0
-  playerCharacterStartingCount: 0
+  totalHeroes: 0
+  totalEnemies: 0
   activeScene: 0
+  currencyDistributed: 0
+  heroDeaths: 0
+  enemyDeaths: 0
+  heroDamageDone: 0
+  heroDamageTaken: 0
+  heroHealingDone: 0
+  enemyHealingDone: 0
+  playerVictory: 0
+  playerLoss: 0
+  playerRetreat: 0
+  outcome: 
+  survivingHeroes: 0
+  retreatCounter: 0
 --- !u!4 &951133640
 Transform:
   m_ObjectHideFlags: 0
@@ -6559,6 +6797,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 983113680}
+        m_TargetAssemblyTypeName: 
         m_MethodName: NextMenuCharacter
         m_Mode: 1
         m_Arguments:
@@ -6584,6 +6823,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -6657,6 +6898,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -6779,6 +7022,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -6898,6 +7143,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1009569320}
+        m_TargetAssemblyTypeName: 
         m_MethodName: AdvanceScene
         m_Mode: 1
         m_Arguments:
@@ -6923,6 +7169,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -7040,6 +7288,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1022870783}
+        m_TargetAssemblyTypeName: 
         m_MethodName: PrevMenuCharacter
         m_Mode: 1
         m_Arguments:
@@ -7065,6 +7314,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -7147,6 +7398,7 @@ MonoBehaviour:
     health: 0
     atk: 0
     abilityPower: 0
+    charUnlock: 0
     autoAtkUnlock: 0
     ability1Unlock: 0
     ability2Unlock: 0
@@ -7174,6 +7426,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.089711644, g: 0.9056604, b: 0.14663832, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -7251,6 +7505,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -7328,6 +7584,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -7414,6 +7672,7 @@ MonoBehaviour:
     health: 0
     atk: 0
     abilityPower: 0
+    charUnlock: 0
     autoAtkUnlock: 0
     ability1Unlock: 0
     ability2Unlock: 0
@@ -7441,6 +7700,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.089711644, g: 0.9056604, b: 0.14663832, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -7803,7 +8064,9 @@ MonoBehaviour:
   atkLevel: 050000000600000007000000090000000a0000000c0000000e00000010000000110000001200000013000000140000001600000017000000180000001a0000001b0000001d0000001f0000002000000022000000
   abilityLevel: 090000000b0000000d0000000e0000000f000000100000001100000012000000140000001500000016000000180000001a0000001b0000001d0000001f00000021000000230000002500000027000000
   healthLevel: 640000006e00000078000000840000008f0000009b000000a8000000b5000000c3000000d2000000e2000000f20000000301000015010000280100003c01000051010000660100007d01000095010000af010000c9010000e501000002020000
-  warriorHealthLevel: 2c0100004a0100006a0100008b010000ad010000d2010000f8010000200200004a02000077020000a5020000d60200000a0300003f03000078030000b3030000f20300003304000078040000c00400000c0500005c050000af05000007060000
+  enemyAtkLevel: 050000000600000007000000090000000a0000000c0000000e00000010000000110000001200000013000000140000001600000017000000180000001a0000001b0000001d0000001f0000002000000022000000
+  enemyAbilityLevel: 090000000b0000000d0000000e0000000f000000100000001100000012000000140000001500000016000000180000001a0000001b0000001d0000001f00000021000000230000002500000027000000
+  enemyHealthLevel: 640000006e00000078000000840000008f0000009b000000a8000000b5000000c3000000d2000000e2000000f20000000301000015010000280100003c01000051010000660100007d01000095010000af010000c9010000e501000002020000
   SceneCharacter:
     heroName: 
     characterTotalXP: 0
@@ -7815,6 +8078,7 @@ MonoBehaviour:
     health: 0
     atk: 0
     abilityPower: 0
+    charUnlock: 0
     autoAtkUnlock: 0
     ability1Unlock: 0
     ability2Unlock: 0
@@ -7871,6 +8135,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1192410117}
+        m_TargetAssemblyTypeName: 
         m_MethodName: AddXP
         m_Mode: 1
         m_Arguments:
@@ -7896,6 +8161,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -7969,6 +8236,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -7994,6 +8263,75 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1201796595}
   m_CullTransparentMesh: 0
+--- !u!1001 &1266669856
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1109987028385428, guid: f6d1bdf6f2c0b6d4db88f93cff18a3ab, type: 3}
+      propertyPath: m_Name
+      value: Plantbassador
+      objectReference: {fileID: 0}
+    - target: {fileID: 4305107873441922, guid: f6d1bdf6f2c0b6d4db88f93cff18a3ab, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4305107873441922, guid: f6d1bdf6f2c0b6d4db88f93cff18a3ab, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4305107873441922, guid: f6d1bdf6f2c0b6d4db88f93cff18a3ab, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4305107873441922, guid: f6d1bdf6f2c0b6d4db88f93cff18a3ab, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4305107873441922, guid: f6d1bdf6f2c0b6d4db88f93cff18a3ab, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4305107873441922, guid: f6d1bdf6f2c0b6d4db88f93cff18a3ab, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4305107873441922, guid: f6d1bdf6f2c0b6d4db88f93cff18a3ab, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4305107873441922, guid: f6d1bdf6f2c0b6d4db88f93cff18a3ab, type: 3}
+      propertyPath: m_RootOrder
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 4305107873441922, guid: f6d1bdf6f2c0b6d4db88f93cff18a3ab, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4305107873441922, guid: f6d1bdf6f2c0b6d4db88f93cff18a3ab, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4305107873441922, guid: f6d1bdf6f2c0b6d4db88f93cff18a3ab, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4305107873441922, guid: f6d1bdf6f2c0b6d4db88f93cff18a3ab, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4305107873441922, guid: f6d1bdf6f2c0b6d4db88f93cff18a3ab, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4305107873441922, guid: f6d1bdf6f2c0b6d4db88f93cff18a3ab, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f6d1bdf6f2c0b6d4db88f93cff18a3ab, type: 3}
 --- !u!1 &1299136387
 GameObject:
   m_ObjectHideFlags: 0
@@ -8057,7 +8395,9 @@ MonoBehaviour:
   atkLevel: 050000000600000007000000090000000a0000000c0000000e00000010000000110000001200000013000000140000001600000017000000180000001a0000001b0000001d0000001f0000002000000022000000
   abilityLevel: 090000000b0000000d0000000e0000000f000000100000001100000012000000140000001500000016000000180000001a0000001b0000001d0000001f00000021000000230000002500000027000000
   healthLevel: 640000006e00000078000000840000008f0000009b000000a8000000b5000000c3000000d2000000e2000000f20000000301000015010000280100003c01000051010000660100007d01000095010000af010000c9010000e501000002020000
-  warriorHealthLevel: 2c0100004a0100006a0100008b010000ad010000d2010000f8010000200200004a02000077020000a5020000d60200000a0300003f03000078030000b3030000f20300003304000078040000c00400000c0500005c050000af05000007060000
+  enemyAtkLevel: 050000000600000007000000090000000a0000000c0000000e00000010000000110000001200000013000000140000001600000017000000180000001a0000001b0000001d0000001f0000002000000022000000
+  enemyAbilityLevel: 090000000b0000000d0000000e0000000f000000100000001100000012000000140000001500000016000000180000001a0000001b0000001d0000001f00000021000000230000002500000027000000
+  enemyHealthLevel: 640000006e00000078000000840000008f0000009b000000a8000000b5000000c3000000d2000000e2000000f20000000301000015010000280100003c01000051010000660100007d01000095010000af010000c9010000e501000002020000
   SceneCharacter:
     heroName: 
     characterTotalXP: 0
@@ -8069,6 +8409,7 @@ MonoBehaviour:
     health: 0
     atk: 0
     abilityPower: 0
+    charUnlock: 0
     autoAtkUnlock: 0
     ability1Unlock: 0
     ability2Unlock: 0
@@ -8125,6 +8466,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1299136389}
+        m_TargetAssemblyTypeName: 
         m_MethodName: IncrementHealth
         m_Mode: 1
         m_Arguments:
@@ -8150,6 +8492,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -8223,6 +8567,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.089711644, g: 0.9056604, b: 0.14663832, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -8304,6 +8650,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -8381,6 +8729,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -8458,6 +8808,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -8583,6 +8935,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1373419853}
+        m_TargetAssemblyTypeName: 
         m_MethodName: StatUpgrade
         m_Mode: 1
         m_Arguments:
@@ -8608,6 +8961,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -8780,6 +9135,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -8858,6 +9215,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.089711644, g: 0.9056604, b: 0.14663832, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -8949,6 +9308,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -9035,7 +9396,9 @@ MonoBehaviour:
   atkLevel: 050000000600000007000000090000000a0000000c0000000e00000010000000110000001200000013000000140000001600000017000000180000001a0000001b0000001d0000001f0000002000000022000000
   abilityLevel: 090000000b0000000d0000000e0000000f000000100000001100000012000000140000001500000016000000180000001a0000001b0000001d0000001f00000021000000230000002500000027000000
   healthLevel: 640000006e00000078000000840000008f0000009b000000a8000000b5000000c3000000d2000000e2000000f20000000301000015010000280100003c01000051010000660100007d01000095010000af010000c9010000e501000002020000
-  warriorHealthLevel: 2c0100004a0100006a0100008b010000ad010000d2010000f8010000200200004a02000077020000a5020000d60200000a0300003f03000078030000b3030000f20300003304000078040000c00400000c0500005c050000af05000007060000
+  enemyAtkLevel: 050000000600000007000000090000000a0000000c0000000e00000010000000110000001200000013000000140000001600000017000000180000001a0000001b0000001d0000001f0000002000000022000000
+  enemyAbilityLevel: 090000000b0000000d0000000e0000000f000000100000001100000012000000140000001500000016000000180000001a0000001b0000001d0000001f00000021000000230000002500000027000000
+  enemyHealthLevel: 640000006e00000078000000840000008f0000009b000000a8000000b5000000c3000000d2000000e2000000f20000000301000015010000280100003c01000051010000660100007d01000095010000af010000c9010000e501000002020000
   SceneCharacter:
     heroName: 
     characterTotalXP: 0
@@ -9047,6 +9410,7 @@ MonoBehaviour:
     health: 0
     atk: 0
     abilityPower: 0
+    charUnlock: 0
     autoAtkUnlock: 0
     ability1Unlock: 0
     ability2Unlock: 0
@@ -9103,6 +9467,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1449522390}
+        m_TargetAssemblyTypeName: 
         m_MethodName: SecondAbilityUnlockButton
         m_Mode: 1
         m_Arguments:
@@ -9128,6 +9493,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -9249,6 +9616,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1454158679}
+        m_TargetAssemblyTypeName: 
         m_MethodName: RootMenu
         m_Mode: 1
         m_Arguments:
@@ -9274,6 +9642,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -9358,7 +9728,9 @@ MonoBehaviour:
   atkLevel: 050000000600000007000000090000000a0000000c0000000e00000010000000110000001200000013000000140000001600000017000000180000001a0000001b0000001d0000001f0000002000000022000000
   abilityLevel: 090000000b0000000d0000000e0000000f000000100000001100000012000000140000001500000016000000180000001a0000001b0000001d0000001f00000021000000230000002500000027000000
   healthLevel: 640000006e00000078000000840000008f0000009b000000a8000000b5000000c3000000d2000000e2000000f20000000301000015010000280100003c01000051010000660100007d01000095010000af010000c9010000e501000002020000
-  warriorHealthLevel: 2c0100004a0100006a0100008b010000ad010000d2010000f8010000200200004a02000077020000a5020000d60200000a0300003f03000078030000b3030000f20300003304000078040000c00400000c0500005c050000af05000007060000
+  enemyAtkLevel: 050000000600000007000000090000000a0000000c0000000e00000010000000110000001200000013000000140000001600000017000000180000001a0000001b0000001d0000001f0000002000000022000000
+  enemyAbilityLevel: 090000000b0000000d0000000e0000000f000000100000001100000012000000140000001500000016000000180000001a0000001b0000001d0000001f00000021000000230000002500000027000000
+  enemyHealthLevel: 640000006e00000078000000840000008f0000009b000000a8000000b5000000c3000000d2000000e2000000f20000000301000015010000280100003c01000051010000660100007d01000095010000af010000c9010000e501000002020000
   SceneCharacter:
     heroName: 
     characterTotalXP: 0
@@ -9370,6 +9742,7 @@ MonoBehaviour:
     health: 0
     atk: 0
     abilityPower: 0
+    charUnlock: 0
     autoAtkUnlock: 0
     ability1Unlock: 0
     ability2Unlock: 0
@@ -9426,6 +9799,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1456036592}
+        m_TargetAssemblyTypeName: 
         m_MethodName: IncrementAbility
         m_Mode: 1
         m_Arguments:
@@ -9451,6 +9825,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -9654,7 +10030,9 @@ MonoBehaviour:
   atkLevel: 050000000600000007000000090000000a0000000c0000000e00000010000000110000001200000013000000140000001600000017000000180000001a0000001b0000001d0000001f0000002000000022000000
   abilityLevel: 090000000b0000000d0000000e0000000f000000100000001100000012000000140000001500000016000000180000001a0000001b0000001d0000001f00000021000000230000002500000027000000
   healthLevel: 640000006e00000078000000840000008f0000009b000000a8000000b5000000c3000000d2000000e2000000f20000000301000015010000280100003c01000051010000660100007d01000095010000af010000c9010000e501000002020000
-  warriorHealthLevel: 2c0100004a0100006a0100008b010000ad010000d2010000f8010000200200004a02000077020000a5020000d60200000a0300003f03000078030000b3030000f20300003304000078040000c00400000c0500005c050000af05000007060000
+  enemyAtkLevel: 050000000600000007000000090000000a0000000c0000000e00000010000000110000001200000013000000140000001600000017000000180000001a0000001b0000001d0000001f0000002000000022000000
+  enemyAbilityLevel: 090000000b0000000d0000000e0000000f000000100000001100000012000000140000001500000016000000180000001a0000001b0000001d0000001f00000021000000230000002500000027000000
+  enemyHealthLevel: 640000006e00000078000000840000008f0000009b000000a8000000b5000000c3000000d2000000e2000000f20000000301000015010000280100003c01000051010000660100007d01000095010000af010000c9010000e501000002020000
   SceneCharacter:
     heroName: 
     characterTotalXP: 0
@@ -9666,6 +10044,7 @@ MonoBehaviour:
     health: 0
     atk: 0
     abilityPower: 0
+    charUnlock: 0
     autoAtkUnlock: 0
     ability1Unlock: 0
     ability2Unlock: 0
@@ -9722,6 +10101,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1493829733}
+        m_TargetAssemblyTypeName: 
         m_MethodName: AddXP
         m_Mode: 1
         m_Arguments:
@@ -9747,6 +10127,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -9820,6 +10202,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -9906,7 +10290,9 @@ MonoBehaviour:
   atkLevel: 050000000600000007000000090000000a0000000c0000000e00000010000000110000001200000013000000140000001600000017000000180000001a0000001b0000001d0000001f0000002000000022000000
   abilityLevel: 090000000b0000000d0000000e0000000f000000100000001100000012000000140000001500000016000000180000001a0000001b0000001d0000001f00000021000000230000002500000027000000
   healthLevel: 640000006e00000078000000840000008f0000009b000000a8000000b5000000c3000000d2000000e2000000f20000000301000015010000280100003c01000051010000660100007d01000095010000af010000c9010000e501000002020000
-  warriorHealthLevel: 2c0100004a0100006a0100008b010000ad010000d2010000f8010000200200004a02000077020000a5020000d60200000a0300003f03000078030000b3030000f20300003304000078040000c00400000c0500005c050000af05000007060000
+  enemyAtkLevel: 050000000600000007000000090000000a0000000c0000000e00000010000000110000001200000013000000140000001600000017000000180000001a0000001b0000001d0000001f0000002000000022000000
+  enemyAbilityLevel: 090000000b0000000d0000000e0000000f000000100000001100000012000000140000001500000016000000180000001a0000001b0000001d0000001f00000021000000230000002500000027000000
+  enemyHealthLevel: 640000006e00000078000000840000008f0000009b000000a8000000b5000000c3000000d2000000e2000000f20000000301000015010000280100003c01000051010000660100007d01000095010000af010000c9010000e501000002020000
   SceneCharacter:
     heroName: 
     characterTotalXP: 0
@@ -9918,6 +10304,7 @@ MonoBehaviour:
     health: 0
     atk: 0
     abilityPower: 0
+    charUnlock: 0
     autoAtkUnlock: 0
     ability1Unlock: 0
     ability2Unlock: 0
@@ -9974,6 +10361,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1524966748}
+        m_TargetAssemblyTypeName: 
         m_MethodName: IncrementHealth
         m_Mode: 1
         m_Arguments:
@@ -9999,6 +10387,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -10072,6 +10462,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -10144,6 +10536,8 @@ MonoBehaviour:
   fantasyPriest: {fileID: 1616793792}
   spaceTank: {fileID: 588242139}
   postApocRogue: {fileID: 1772013618}
+  steamBot: {fileID: 1338283891893459, guid: 9a97c4c340a5038479aa3469c3b6a863, type: 3}
+  plantHero: {fileID: 1109987028385428, guid: f6d1bdf6f2c0b6d4db88f93cff18a3ab, type: 3}
 --- !u!1 &1551271524
 GameObject:
   m_ObjectHideFlags: 0
@@ -10242,6 +10636,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1551271526}
+        m_TargetAssemblyTypeName: 
         m_MethodName: ButtonPotionDataUpdate
         m_Mode: 1
         m_Arguments:
@@ -10267,6 +10662,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -10340,6 +10737,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -10417,6 +10816,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -10540,6 +10941,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1561149427}
+        m_TargetAssemblyTypeName: 
         m_MethodName: AdvanceScene
         m_Mode: 1
         m_Arguments:
@@ -10565,6 +10967,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -10647,7 +11051,9 @@ MonoBehaviour:
   atkLevel: 050000000600000007000000090000000a0000000c0000000e00000010000000110000001200000013000000140000001600000017000000180000001a0000001b0000001d0000001f0000002000000022000000
   abilityLevel: 090000000b0000000d0000000e0000000f000000100000001100000012000000140000001500000016000000180000001a0000001b0000001d0000001f00000021000000230000002500000027000000
   healthLevel: 640000006e00000078000000840000008f0000009b000000a8000000b5000000c3000000d2000000e2000000f20000000301000015010000280100003c01000051010000660100007d01000095010000af010000c9010000e501000002020000
-  warriorHealthLevel: 2c0100004a0100006a0100008b010000ad010000d2010000f8010000200200004a02000077020000a5020000d60200000a0300003f03000078030000b3030000f20300003304000078040000c00400000c0500005c050000af05000007060000
+  enemyAtkLevel: 050000000600000007000000090000000a0000000c0000000e00000010000000110000001200000013000000140000001600000017000000180000001a0000001b0000001d0000001f0000002000000022000000
+  enemyAbilityLevel: 090000000b0000000d0000000e0000000f000000100000001100000012000000140000001500000016000000180000001a0000001b0000001d0000001f00000021000000230000002500000027000000
+  enemyHealthLevel: 640000006e00000078000000840000008f0000009b000000a8000000b5000000c3000000d2000000e2000000f20000000301000015010000280100003c01000051010000660100007d01000095010000af010000c9010000e501000002020000
   SceneCharacter:
     heroName: 
     characterTotalXP: 0
@@ -10659,6 +11065,7 @@ MonoBehaviour:
     health: 0
     atk: 0
     abilityPower: 0
+    charUnlock: 0
     autoAtkUnlock: 0
     ability1Unlock: 0
     ability2Unlock: 0
@@ -10715,6 +11122,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1561551515}
+        m_TargetAssemblyTypeName: 
         m_MethodName: ResetXP
         m_Mode: 1
         m_Arguments:
@@ -10740,6 +11148,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -10813,6 +11223,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.089711644, g: 0.9056604, b: 0.14663832, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -10890,6 +11302,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -10969,6 +11383,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -11046,6 +11462,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -11078,6 +11496,23 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -1996997978074904657, guid: 9bfff2ff6c2c0cb49b20b8305d08405c,
+        type: 3}
+      propertyPath: unit
+      value: 
+      objectReference: {fileID: 11400000, guid: c726bd5af39f0474089308f8ff682b54,
+        type: 2}
+    - target: {fileID: -1996997978074904657, guid: 9bfff2ff6c2c0cb49b20b8305d08405c,
+        type: 3}
+      propertyPath: ability
+      value: 
+      objectReference: {fileID: 11400000, guid: f81ca7937fe240e4aaf8657be5ce1c02,
+        type: 2}
+    - target: {fileID: -1996997978074904657, guid: 9bfff2ff6c2c0cb49b20b8305d08405c,
+        type: 3}
+      propertyPath: isPlayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1109987028385428, guid: 9bfff2ff6c2c0cb49b20b8305d08405c, type: 3}
       propertyPath: m_Name
       value: Fantasy Priest
@@ -11137,23 +11572,6 @@ PrefabInstance:
     - target: {fileID: 4305107873441922, guid: 9bfff2ff6c2c0cb49b20b8305d08405c, type: 3}
       propertyPath: m_LocalScale.y
       value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: -1996997978074904657, guid: 9bfff2ff6c2c0cb49b20b8305d08405c,
-        type: 3}
-      propertyPath: unit
-      value: 
-      objectReference: {fileID: 11400000, guid: c726bd5af39f0474089308f8ff682b54,
-        type: 2}
-    - target: {fileID: -1996997978074904657, guid: 9bfff2ff6c2c0cb49b20b8305d08405c,
-        type: 3}
-      propertyPath: ability
-      value: 
-      objectReference: {fileID: 11400000, guid: f81ca7937fe240e4aaf8657be5ce1c02,
-        type: 2}
-    - target: {fileID: -1996997978074904657, guid: 9bfff2ff6c2c0cb49b20b8305d08405c,
-        type: 3}
-      propertyPath: isPlayer
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9bfff2ff6c2c0cb49b20b8305d08405c, type: 3}
@@ -11260,6 +11678,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -11333,6 +11753,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -11410,6 +11832,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -11535,6 +11959,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1741321002}
+        m_TargetAssemblyTypeName: 
         m_MethodName: RootMenu
         m_Mode: 1
         m_Arguments:
@@ -11560,6 +11985,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -11719,6 +12146,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -11805,7 +12234,9 @@ MonoBehaviour:
   atkLevel: 050000000600000007000000090000000a0000000c0000000e00000010000000110000001200000013000000140000001600000017000000180000001a0000001b0000001d0000001f0000002000000022000000
   abilityLevel: 090000000b0000000d0000000e0000000f000000100000001100000012000000140000001500000016000000180000001a0000001b0000001d0000001f00000021000000230000002500000027000000
   healthLevel: 640000006e00000078000000840000008f0000009b000000a8000000b5000000c3000000d2000000e2000000f20000000301000015010000280100003c01000051010000660100007d01000095010000af010000c9010000e501000002020000
-  warriorHealthLevel: 2c0100004a0100006a0100008b010000ad010000d2010000f8010000200200004a02000077020000a5020000d60200000a0300003f03000078030000b3030000f20300003304000078040000c00400000c0500005c050000af05000007060000
+  enemyAtkLevel: 050000000600000007000000090000000a0000000c0000000e00000010000000110000001200000013000000140000001600000017000000180000001a0000001b0000001d0000001f0000002000000022000000
+  enemyAbilityLevel: 090000000b0000000d0000000e0000000f000000100000001100000012000000140000001500000016000000180000001a0000001b0000001d0000001f00000021000000230000002500000027000000
+  enemyHealthLevel: 640000006e00000078000000840000008f0000009b000000a8000000b5000000c3000000d2000000e2000000f20000000301000015010000280100003c01000051010000660100007d01000095010000af010000c9010000e501000002020000
   SceneCharacter:
     heroName: 
     characterTotalXP: 0
@@ -11817,6 +12248,7 @@ MonoBehaviour:
     health: 0
     atk: 0
     abilityPower: 0
+    charUnlock: 0
     autoAtkUnlock: 0
     ability1Unlock: 0
     ability2Unlock: 0
@@ -11873,6 +12305,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1800104736}
+        m_TargetAssemblyTypeName: 
         m_MethodName: IncrementAtk
         m_Mode: 1
         m_Arguments:
@@ -11898,6 +12331,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -11971,6 +12406,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -12082,6 +12519,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1833377132}
+        m_TargetAssemblyTypeName: 
         m_MethodName: IncrementAtk
         m_Mode: 1
         m_Arguments:
@@ -12107,6 +12545,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -12149,7 +12589,9 @@ MonoBehaviour:
   atkLevel: 050000000600000007000000090000000a0000000c0000000e00000010000000110000001200000013000000140000001600000017000000180000001a0000001b0000001d0000001f0000002000000022000000
   abilityLevel: 090000000b0000000d0000000e0000000f000000100000001100000012000000140000001500000016000000180000001a0000001b0000001d0000001f00000021000000230000002500000027000000
   healthLevel: 640000006e00000078000000840000008f0000009b000000a8000000b5000000c3000000d2000000e2000000f20000000301000015010000280100003c01000051010000660100007d01000095010000af010000c9010000e501000002020000
-  warriorHealthLevel: 2c0100004a0100006a0100008b010000ad010000d2010000f8010000200200004a02000077020000a5020000d60200000a0300003f03000078030000b3030000f20300003304000078040000c00400000c0500005c050000af05000007060000
+  enemyAtkLevel: 050000000600000007000000090000000a0000000c0000000e00000010000000110000001200000013000000140000001600000017000000180000001a0000001b0000001d0000001f0000002000000022000000
+  enemyAbilityLevel: 090000000b0000000d0000000e0000000f000000100000001100000012000000140000001500000016000000180000001a0000001b0000001d0000001f00000021000000230000002500000027000000
+  enemyHealthLevel: 640000006e00000078000000840000008f0000009b000000a8000000b5000000c3000000d2000000e2000000f20000000301000015010000280100003c01000051010000660100007d01000095010000af010000c9010000e501000002020000
   SceneCharacter:
     heroName: 
     characterTotalXP: 0
@@ -12161,6 +12603,7 @@ MonoBehaviour:
     health: 0
     atk: 0
     abilityPower: 0
+    charUnlock: 0
     autoAtkUnlock: 0
     ability1Unlock: 0
     ability2Unlock: 0
@@ -12219,6 +12662,8 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -12243,6 +12688,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1836512368
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -12395,7 +12841,9 @@ MonoBehaviour:
   atkLevel: 050000000600000007000000090000000a0000000c0000000e00000010000000110000001200000013000000140000001600000017000000180000001a0000001b0000001d0000001f0000002000000022000000
   abilityLevel: 090000000b0000000d0000000e0000000f000000100000001100000012000000140000001500000016000000180000001a0000001b0000001d0000001f00000021000000230000002500000027000000
   healthLevel: 640000006e00000078000000840000008f0000009b000000a8000000b5000000c3000000d2000000e2000000f20000000301000015010000280100003c01000051010000660100007d01000095010000af010000c9010000e501000002020000
-  warriorHealthLevel: 2c0100004a0100006a0100008b010000ad010000d2010000f8010000200200004a02000077020000a5020000d60200000a0300003f03000078030000b3030000f20300003304000078040000c00400000c0500005c050000af05000007060000
+  enemyAtkLevel: 050000000600000007000000090000000a0000000c0000000e00000010000000110000001200000013000000140000001600000017000000180000001a0000001b0000001d0000001f0000002000000022000000
+  enemyAbilityLevel: 090000000b0000000d0000000e0000000f000000100000001100000012000000140000001500000016000000180000001a0000001b0000001d0000001f00000021000000230000002500000027000000
+  enemyHealthLevel: 640000006e00000078000000840000008f0000009b000000a8000000b5000000c3000000d2000000e2000000f20000000301000015010000280100003c01000051010000660100007d01000095010000af010000c9010000e501000002020000
   SceneCharacter:
     heroName: 
     characterTotalXP: 0
@@ -12407,6 +12855,7 @@ MonoBehaviour:
     health: 0
     atk: 0
     abilityPower: 0
+    charUnlock: 0
     autoAtkUnlock: 0
     ability1Unlock: 0
     ability2Unlock: 0
@@ -12463,6 +12912,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1867129827}
+        m_TargetAssemblyTypeName: 
         m_MethodName: ResetXP
         m_Mode: 1
         m_Arguments:
@@ -12488,6 +12938,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -12561,6 +13013,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -12638,6 +13092,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.089711644, g: 0.9056604, b: 0.14663832, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -12747,6 +13203,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1910240902}
+        m_TargetAssemblyTypeName: 
         m_MethodName: IncrementAbility
         m_Mode: 1
         m_Arguments:
@@ -12772,6 +13229,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -12814,7 +13273,9 @@ MonoBehaviour:
   atkLevel: 050000000600000007000000090000000a0000000c0000000e00000010000000110000001200000013000000140000001600000017000000180000001a0000001b0000001d0000001f0000002000000022000000
   abilityLevel: 090000000b0000000d0000000e0000000f000000100000001100000012000000140000001500000016000000180000001a0000001b0000001d0000001f00000021000000230000002500000027000000
   healthLevel: 640000006e00000078000000840000008f0000009b000000a8000000b5000000c3000000d2000000e2000000f20000000301000015010000280100003c01000051010000660100007d01000095010000af010000c9010000e501000002020000
-  warriorHealthLevel: 2c0100004a0100006a0100008b010000ad010000d2010000f8010000200200004a02000077020000a5020000d60200000a0300003f03000078030000b3030000f20300003304000078040000c00400000c0500005c050000af05000007060000
+  enemyAtkLevel: 050000000600000007000000090000000a0000000c0000000e00000010000000110000001200000013000000140000001600000017000000180000001a0000001b0000001d0000001f0000002000000022000000
+  enemyAbilityLevel: 090000000b0000000d0000000e0000000f000000100000001100000012000000140000001500000016000000180000001a0000001b0000001d0000001f00000021000000230000002500000027000000
+  enemyHealthLevel: 640000006e00000078000000840000008f0000009b000000a8000000b5000000c3000000d2000000e2000000f20000000301000015010000280100003c01000051010000660100007d01000095010000af010000c9010000e501000002020000
   SceneCharacter:
     heroName: 
     characterTotalXP: 0
@@ -12826,6 +13287,7 @@ MonoBehaviour:
     health: 0
     atk: 0
     abilityPower: 0
+    charUnlock: 0
     autoAtkUnlock: 0
     ability1Unlock: 0
     ability2Unlock: 0
@@ -12935,6 +13397,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -13008,6 +13472,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -13087,6 +13553,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -13208,6 +13676,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2018036305}
+        m_TargetAssemblyTypeName: 
         m_MethodName: NextMenuCharacter
         m_Mode: 1
         m_Arguments:
@@ -13233,6 +13702,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -13354,6 +13825,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2025728412}
+        m_TargetAssemblyTypeName: 
         m_MethodName: CraftedUpgrades
         m_Mode: 1
         m_Arguments:
@@ -13379,6 +13851,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -13452,6 +13926,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -13706,6 +14182,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -13828,6 +14306,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -13984,6 +14464,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -14063,6 +14545,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []

@@ -760,6 +760,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ee287d30bdc15a240ba03bc7a4cdaac8, type: 2}
   - {fileID: 11400000, guid: 22958a664f8f95145b9dcaa27a1699ef, type: 2}
   - {fileID: 11400000, guid: 3c9972beaa244184296ebe551bbfb149, type: 2}
+  - {fileID: 11400000, guid: 75d1770002941744494d57fc9309e493, type: 2}
   - {fileID: 11400000, guid: a503dd744408a024986e4d5a5e72288b, type: 2}
   - {fileID: 11400000, guid: a95c1b640a3fd0d4abd530b3070ee578, type: 2}
   startingCharactersSpawned: 0
