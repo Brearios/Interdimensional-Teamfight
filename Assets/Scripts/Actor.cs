@@ -599,7 +599,7 @@ public class Actor : MonoBehaviour
         //{
         //    FindAbilityTarget();
         //}
-
+        Debug.Log($"{unitName} is attempting {ability.abilityData.abilityName} on {ability.currentTarget}");
         {
             // Auto Attack
             if ((ability.abilityData.targetType == ScriptableAbility.TargetType.Damage) && (ability.abilityData.isAutoAtk))
@@ -622,11 +622,13 @@ public class Actor : MonoBehaviour
             {
                 ability.currentTarget.highThreatTarget = this;
                 ApplyStatusEffect(this, ability.currentTarget, ability.abilityData.effect);
+                Debug.Log($"{unitName} is using {ability.abilityData.abilityName} on {ability.currentTarget}");
             }
             // Stun
             else if (ability.abilityData.abilityName == "Stun")
             {
                 ApplyStatusEffect(this, ability.currentTarget, ability.abilityData.effect);
+                Debug.Log($"{unitName} is using {ability.abilityData.abilityName} on {ability.currentTarget}");
             }
             // Stealth
             else if ((ability.abilityData.targetType == ScriptableAbility.TargetType.Self) && ability.abilityData.name == "Stealth")
@@ -636,6 +638,7 @@ public class Actor : MonoBehaviour
                 isStealthed = true;
 
                 threatResetClock = 3;
+                Debug.Log($"{unitName} is using {ability.abilityData.abilityName} on {ability.currentTarget}");
             }
             // Heal
             else if (ability.abilityData.targetType == ScriptableAbility.TargetType.Heal)
@@ -652,11 +655,13 @@ public class Actor : MonoBehaviour
             else if (ability.abilityData.targetType == ScriptableAbility.TargetType.Hot)
             {
                 ApplyStatusEffect(this, ability.currentTarget, ability.abilityData.effect);
+                Debug.Log($"{unitName} is using {ability.abilityData.abilityName} on {ability.currentTarget}");
             }
             // Damage over Time
             else if (ability.abilityData.targetType == ScriptableAbility.TargetType.Dot)
             {
                 ApplyStatusEffect(this, ability.currentTarget, ability.abilityData.effect);
+                Debug.Log($"{unitName} is using {ability.abilityData.abilityName} on {ability.currentTarget}");
             }
             // AoE damage typically from bosses
             else if (ability.abilityData.targetType == ScriptableAbility.TargetType.AoePercentDamage)
@@ -980,7 +985,7 @@ public class Actor : MonoBehaviour
     {
         effect.remainingDuration += GameManager.Instance.deltaTime;
 
-        if (effect.effectSettings.effect == ScriptableEffect.Effect.Stun)
+        if (effect.effectSettings.effect == ScriptableEffect.Effect.Taunt)
         {
             isTaunted = true;
             if (effect.remainingDuration >= effect.effectSettings.totalDuration)
