@@ -51,11 +51,11 @@ public class PlayerProfile : MonoBehaviour
         UnlockedHeroes.Add(startingHero);
 
         characterProfiles.Add(mageHero);
-        characterProfiles.Add(warriorHero);
         characterProfiles.Add(priestHero);
+        characterProfiles.Add(warriorHero);
         characterProfiles.Add(rogueHero);
-        characterProfiles.Add(plantHero);
         characterProfiles.Add(steamHero);
+        characterProfiles.Add(plantHero);
 
         currentEditingInteger = 0;
         // Sets the current editing character to the first one at the start of the script

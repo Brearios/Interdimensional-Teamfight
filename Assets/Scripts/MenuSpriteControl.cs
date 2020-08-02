@@ -45,8 +45,8 @@ public class MenuSpriteControl : MonoBehaviour
 
             case 1:
                 fantasyMage.SetActive(false);
-                fantasyPriest.SetActive(false);
-                spaceTank.SetActive(true);
+                fantasyPriest.SetActive(true);
+                spaceTank.SetActive(false);
                 postApocRogue.SetActive(false);
                 steamBot.SetActive(false);
                 plantHero.SetActive(false);
@@ -54,8 +54,8 @@ public class MenuSpriteControl : MonoBehaviour
 
             case 2:
                 fantasyMage.SetActive(false);
-                fantasyPriest.SetActive(true);
-                spaceTank.SetActive(false);
+                fantasyPriest.SetActive(false);
+                spaceTank.SetActive(true);
                 postApocRogue.SetActive(false);
                 steamBot.SetActive(false);
                 plantHero.SetActive(false);
