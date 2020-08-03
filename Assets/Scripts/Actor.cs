@@ -804,7 +804,7 @@ public class Actor : MonoBehaviour
             }
             else if (unit.role == "Tank")
             {
-                ThreatScore = ((maxHealth / currHealth) * (attackDamage + abilityPower));
+                ThreatScore = (((maxHealth / currHealth) * (attackDamage + abilityPower)) - (currHealth / 15));
                 ThreatScore += Mathf.Abs((ThreatScore * tankBonusThreat));
             }
             else
