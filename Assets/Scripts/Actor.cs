@@ -53,6 +53,8 @@ public class Actor : MonoBehaviour
     public bool isDead;
     // public CharacterProfile MageStats;
     public float ThreatScore;
+    public float tankBonusThreat;
+    public float tankBonusThreatIterator;
     public float targetCheckCount;
     public float targetCheckFrequency;
     public bool hasTaunted;
@@ -79,6 +81,7 @@ public class Actor : MonoBehaviour
         maxHealth = unit.maxHealth;
         attackDamage = unit.attackDamage;
         abilityPower = unit.abilityPower;
+        tankBonusThreatIterator = 0.25f;
         // MageStats = GameObject.FindObjectOfType<CharacterProfile>();
 
         CharacterProfile currentProfile = PlayerProfile.Instance.GetCharacterProfileForUnit(unit);
@@ -620,6 +623,7 @@ public class Actor : MonoBehaviour
             // Taunt
             else if (ability.abilityData.abilityName == "Taunt")
             {
+                tankBonusThreat += tankBonusThreatIterator;
                 ability.currentTarget.highThreatTarget = this;
                 ApplyStatusEffect(this, ability.currentTarget, ability.abilityData.effect);
                 Debug.Log($"{unitName} is using {ability.abilityData.abilityName} on {ability.currentTarget}");
@@ -797,6 +801,11 @@ public class Actor : MonoBehaviour
             if (isDead)
             {
                 ThreatScore = Mathf.NegativeInfinity;
+            }
+            else if (unit.role == "Tank")
+            {
+                ThreatScore = ((maxHealth / currHealth) * (attackDamage + abilityPower));
+                ThreatScore += Mathf.Abs((ThreatScore * tankBonusThreat));
             }
             else
             {
