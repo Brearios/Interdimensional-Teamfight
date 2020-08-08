@@ -22,7 +22,7 @@ MonoBehaviour:
       type: 3}
     DefaultUnitData: 0
     team: 1
-    numberOfInstances: 16
+    numberOfInstances: 13
     spawn: 0
   - characterPrefab: {fileID: 2111358518787767468, guid: 0d161b1c5f3d84f46862d4e1712408eb,
       type: 3}

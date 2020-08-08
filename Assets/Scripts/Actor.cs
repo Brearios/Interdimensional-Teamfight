@@ -40,6 +40,9 @@ public class Actor : MonoBehaviour
     public float moveSpeed;
 
     public Actor highThreatTarget;
+    public Actor ability1Target;
+    public Actor ability2Target;
+    public Actor ability3Target;
     public State currentState = State.Idle;
     Color currentColor;
     Color alphaColor;
@@ -224,6 +227,7 @@ public class Actor : MonoBehaviour
         }
 
         UpdateThreatScore();
+        UpdateAbilityTargets();
 
         if (isStunned)
         {
@@ -298,25 +302,22 @@ public class Actor : MonoBehaviour
     // Fully broken right now
     void TargetLineDisplay()
     {
-        foreach (AbilityProcessor currentProcessor in AbilityProcessors)
-        {
-            if ((currentProcessor.abilityData.targetType == ScriptableAbility.TargetType.Damage) && (currentProcessor.currentTarget != null))
+            if (highThreatTarget)
             {
-                Debug.DrawLine(transform.position, currentProcessor.currentTarget.transform.position);
+                Debug.DrawLine(transform.position, highThreatTarget.transform.position);
             }
-            if ((currentProcessor.abilityData.targetType == ScriptableAbility.TargetType.Debuff) && (currentProcessor.currentTarget != null))
+            if (ability1Target)
             {
-                Debug.DrawLine(transform.position, currentProcessor.currentTarget.transform.position, Color.red);
+                Debug.DrawLine(transform.position, ability1Target.transform.position, Color.red);
             }
-            if ((currentProcessor.abilityData.targetType == ScriptableAbility.TargetType.Buff) && (currentProcessor.currentTarget != null))
+            if (ability2Target)
             {
-                Debug.DrawLine(transform.position, currentProcessor.currentTarget.transform.position, Color.blue);
+                Debug.DrawLine(transform.position, ability2Target.transform.position, Color.blue);
             }
-            if ((currentProcessor.abilityData.targetType == ScriptableAbility.TargetType.Heal) && (currentProcessor.currentTarget != null))
+            if (ability3Target)
             {
-                Debug.DrawLine(transform.position, currentProcessor.currentTarget.transform.position, Color.green);
+                Debug.DrawLine(transform.position, ability3Target.transform.position, Color.green);
             }
-        }
     }
 
     void UpdateAlpha() // Set Opacity based on status
@@ -884,7 +885,7 @@ public class Actor : MonoBehaviour
     }
     */
 
-    // Unnecessary due to ability list change
+    // Unnecessary due to ability change
 
     void TargetCheckLoop()
     {
@@ -893,9 +894,9 @@ public class Actor : MonoBehaviour
         {
             FindPriorityEnemy();
             foreach (AbilityProcessor ability in AbilityProcessors)
-        {
-            FindAbilityTarget(ability);
-        }
+            {
+                FindAbilityTarget(ability);
+            }
             targetCheckCount = 0;
         }
     }
@@ -1046,5 +1047,21 @@ public class Actor : MonoBehaviour
     {
         // Find the removal Id and remove that item from the list
         CurrentEffects.Remove(CurrentEffects.Find(effectToRemove => effectToRemove.id == effectId));
+    }
+
+    public void UpdateAbilityTargets()
+    {
+        if (AbilityProcessors.Count >= 2)
+        {
+            ability1Target = AbilityProcessors[1].currentTarget;
+        }
+        if (AbilityProcessors.Count >= 3)
+        {
+            ability1Target = AbilityProcessors[2].currentTarget;
+        }
+        if (AbilityProcessors.Count >= 4)
+        {
+            ability1Target = AbilityProcessors[3].currentTarget;
+        }
     }
 }

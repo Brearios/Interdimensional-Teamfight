@@ -189,7 +189,7 @@ public class GameManager : MonoBehaviour
         ActorDiedTestIfBattleIsOver = false;
     }
 
-    void TallyXP() // Not used - XP is added from Actor script, if not player and not previously added
+    void TallyXP()
     {
         Actor[] allActors = GameObject.FindObjectsOfType<Actor>();
         foreach (Actor Actor in allActors)
