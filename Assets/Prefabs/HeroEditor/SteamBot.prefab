@@ -7738,6 +7738,7 @@ GameObject:
   - component: {fileID: 114417265666857191}
   - component: {fileID: 114680776657980673}
   - component: {fileID: 5786678136355704691}
+  - component: {fileID: 9176781261486117165}
   m_Layer: 0
   m_Name: SteamBot
   m_TagString: Untagged
@@ -8082,6 +8083,9 @@ MonoBehaviour:
   atkRange: 0
   moveSpeed: 0
   highThreatTarget: {fileID: 0}
+  ability1Target: {fileID: 0}
+  ability2Target: {fileID: 0}
+  ability3Target: {fileID: 0}
   currentState: 0
   body: {fileID: 1338283891893459}
   healthBar: {fileID: 1531359251120272346}
@@ -8106,6 +8110,22 @@ MonoBehaviour:
   debuggingID: 0
   debugShowTargetLines: 0
   FloatingTextPrefab: {fileID: 0}
+--- !u!70 &9176781261486117165
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1338283891893459}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.06760065, y: 1.1449404}
+  m_Size: {x: 0.63520133, y: 2.133162}
+  m_Direction: 0
 --- !u!1 &1345665705015001
 GameObject:
   m_ObjectHideFlags: 0

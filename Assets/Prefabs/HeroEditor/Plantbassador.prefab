@@ -5340,6 +5340,7 @@ GameObject:
   - component: {fileID: 114839934136365652}
   - component: {fileID: 114576218883810672}
   - component: {fileID: 3946942285521633783}
+  - component: {fileID: 8162077720594488770}
   m_Layer: 0
   m_Name: Plantbassador
   m_TagString: Untagged
@@ -5684,6 +5685,9 @@ MonoBehaviour:
   atkRange: 0
   moveSpeed: 0
   highThreatTarget: {fileID: 0}
+  ability1Target: {fileID: 0}
+  ability2Target: {fileID: 0}
+  ability3Target: {fileID: 0}
   currentState: 0
   body: {fileID: 1109987028385428}
   healthBar: {fileID: 2968832436593336361}
@@ -5708,6 +5712,22 @@ MonoBehaviour:
   debuggingID: 0
   debugShowTargetLines: 0
   FloatingTextPrefab: {fileID: 0}
+--- !u!70 &8162077720594488770
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1109987028385428}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.06760065, y: 1.1449404}
+  m_Size: {x: 0.63520133, y: 2.133162}
+  m_Direction: 0
 --- !u!1 &1142964113064948
 GameObject:
   m_ObjectHideFlags: 0
