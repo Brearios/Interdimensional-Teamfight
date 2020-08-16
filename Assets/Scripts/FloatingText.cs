@@ -26,7 +26,7 @@ public class FloatingText : MonoBehaviour
         {
             return;
         }
-        transform.position += (driftRate / GameManager.Instance.gameSpeed);
+        transform.position += (driftRate * GameManager.Instance.gameSpeed);
         
     }
 }

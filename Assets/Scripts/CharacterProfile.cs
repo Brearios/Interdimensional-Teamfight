@@ -23,6 +23,8 @@ public class CharacterProfile
     public bool ability2Unlock;
     public bool ability3Unlock;
     public bool potionUnlock;
+    public enum PotionType { Regen, AtkPower, AbilityPower };
+    public PotionType selectedPotionType;
     // public Sprite characterSprite;
     public int totalLevel;
     public ScriptableAbility autoAtk;

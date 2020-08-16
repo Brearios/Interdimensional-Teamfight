@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class XpController : MonoBehaviour
 {
     // 20 levels of XP costs
-    public int[] xpCosts = { 100, 108, 116, 126, 136, 147, 159, 171, 185, 200, 216, 234, 253, 273, 295, 319, 345, 372, 402, 435 };
+    public int[] xpCosts = { 100, 108, 116, 126, 136, 147, 159, 171, 185, 200, 216, 234, 253, 273, 295, 319, 345, 372, 402, 435, 470, 508, 549, 593, 641, 692, 748, 808, 873, 944, 1020, 1102, 1191, 1287, 1390, 1502, 1623, 1754, 1895, 2048, 2213, 2391, 2583, 2791, 3016, 3259, 3521, 3805, 4111, 4442, 4799, 5186, 5603, 6054, 6542, 7069, 7638, 8253, 8917, 9635, 10410 };
     public int nextXPCost;
     public int indexOfXpCosts;
     // _Index variables to track position in array for each
@@ -137,6 +137,9 @@ public class XpController : MonoBehaviour
         {
             SceneCharacter.characterAvailableXP -= SceneCharacter.potion.unlockCost;
             SceneCharacter.potionUnlock = true;
+            
+            
+            // SceneCharacter.selectedPotionType = SceneCharacter.Reg
         }
     }
 }

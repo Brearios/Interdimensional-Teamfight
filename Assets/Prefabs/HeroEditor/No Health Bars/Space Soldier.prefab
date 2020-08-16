@@ -7793,6 +7793,9 @@ MonoBehaviour:
   atkRange: 0
   moveSpeed: 0
   highThreatTarget: {fileID: 0}
+  ability1Target: {fileID: 0}
+  ability2Target: {fileID: 0}
+  ability3Target: {fileID: 0}
   currentState: 0
   body: {fileID: 0}
   healthBar: {fileID: 0}
@@ -7800,6 +7803,8 @@ MonoBehaviour:
   CurrentEffectsRemovalIds: []
   isDead: 0
   ThreatScore: 0
+  tankBonusThreat: 0
+  tankBonusThreatIterator: 0
   targetCheckCount: 0
   targetCheckFrequency: 0
   hasTaunted: 0

@@ -645,6 +645,13 @@ public class Actor : MonoBehaviour
                 threatResetClock = 3;
                 Debug.Log($"{unitName} is using {ability.abilityData.abilityName} on {ability.currentTarget}");
             }
+
+            // Potion
+            else if ((ability.abilityData.targetType == ScriptableAbility.TargetType.Self) && ability.abilityData.name == "Potion")
+            {
+                // Potion Logic Here
+                UsePotion();
+            }
             // Heal
             else if (ability.abilityData.targetType == ScriptableAbility.TargetType.Heal)
             {               
@@ -1063,5 +1070,10 @@ public class Actor : MonoBehaviour
         {
             ability1Target = AbilityProcessors[3].currentTarget;
         }
+    }
+
+    public void UsePotion()
+    {
+
     }
 }
