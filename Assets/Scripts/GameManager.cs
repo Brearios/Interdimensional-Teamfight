@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     public int earnedBattleGold;
     public float gameSpeed;
     public float deltaTime;
-    public float timeIncrement = .5f;
+    public float timeIncrement = .2f;
     public bool startingCharactersSpawned;
     public bool ActorDiedTestIfBattleIsOver;
     public bool BattleOver;
@@ -265,8 +265,15 @@ public class GameManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.F))
         {
-            gameSpeed *= 2;
-            //gameSpeed += timeIncrement;
+            if (gameSpeed > 0)
+            {
+                gameSpeed *= 2;
+                //gameSpeed += timeIncrement;
+            }
+            else if (gameSpeed >= 0)
+            {
+                gameSpeed += 0.1f;
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.S))
