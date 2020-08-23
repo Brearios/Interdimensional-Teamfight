@@ -12,9 +12,6 @@ GameObject:
   - component: {fileID: 5139081625498227961}
   - component: {fileID: 702359855044681938}
   - component: {fileID: 7859124391947728924}
-  - component: {fileID: 907115714941245718}
-  - component: {fileID: 7216341166309061767}
-  - component: {fileID: 4326408553741644530}
   m_Layer: 0
   m_Name: FantasyMage
   m_TagString: Untagged
@@ -139,13 +136,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7655dbdbae96492abedad7bdc555301d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &907115714941245718
+--- !u!114 &7292663156411590224
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 799906902406495628}
+  m_GameObject: {fileID: 3101480962365445438}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aa07006f64294964b84f79497751e149, type: 3}
@@ -299,13 +296,13 @@ MonoBehaviour:
   Firearm: {fileID: 3071199183401393090}
   BowShooting: {fileID: 3071306840780201548}
   LayerManager: {fileID: 0}
---- !u!114 &7216341166309061767
+--- !u!114 &6825454922167627212
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 799906902406495628}
+  m_GameObject: {fileID: 3101480962365445438}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2cfe3e6f36484a49b6292e8d0b75f6c4, type: 3}
@@ -317,13 +314,13 @@ MonoBehaviour:
   FireButton: 324
   ReloadButton: 114
   FixHorizontal: 0
---- !u!114 &4326408553741644530
+--- !u!114 &1879220889228662903
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 799906902406495628}
+  m_GameObject: {fileID: 3101480962365445438}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e6dbda98e8614ec8a935809c1a0ace8a, type: 3}
@@ -521,6 +518,12 @@ PrefabInstance:
     - {fileID: 8207344728651909907, guid: 594caef060026ff498458d790d7df964, type: 3}
     - {fileID: 8207432857111764023, guid: 594caef060026ff498458d790d7df964, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 594caef060026ff498458d790d7df964, type: 3}
+--- !u!4 &3100190129422189352 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8106177775817642437, guid: 594caef060026ff498458d790d7df964,
+    type: 3}
+  m_PrefabInstance: {fileID: 6591294866735960813}
+  m_PrefabAsset: {fileID: 0}
 --- !u!95 &3051984978957793544 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 8152130954463046629, guid: 594caef060026ff498458d790d7df964,
@@ -947,9 +950,9 @@ SpriteRenderer:
     type: 3}
   m_PrefabInstance: {fileID: 6591294866735960813}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &3100190129422189352 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8106177775817642437, guid: 594caef060026ff498458d790d7df964,
+--- !u!1 &3101480962365445438 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8102634624511559635, guid: 594caef060026ff498458d790d7df964,
     type: 3}
   m_PrefabInstance: {fileID: 6591294866735960813}
   m_PrefabAsset: {fileID: 0}
