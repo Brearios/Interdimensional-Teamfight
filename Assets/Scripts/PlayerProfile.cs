@@ -12,6 +12,7 @@ public class PlayerProfile : MonoBehaviour
     public CharacterProfile rogueHero;
     public CharacterProfile plantHero;
     public CharacterProfile steamHero;
+    public CharacterProfile spaceRifle;
     public int currentEditingInteger;
     public ScriptableAbility currentDetailAbility;
     public int nextBattleScene;
@@ -56,6 +57,7 @@ public class PlayerProfile : MonoBehaviour
         characterProfiles.Add(rogueHero);
         characterProfiles.Add(steamHero);
         characterProfiles.Add(plantHero);
+        characterProfiles.Add(spaceRifle);
 
         currentEditingInteger = 0;
         // Sets the current editing character to the first one at the start of the script
@@ -118,6 +120,9 @@ public class PlayerProfile : MonoBehaviour
 
             case "SteamTankUnit":
                 return steamHero;
+
+            case "SpaceRifle":
+                return spaceRifle;
 
             default:
                 return null;
