@@ -12,7 +12,7 @@ public class ScriptableLevel : ScriptableObject
     // Currently unused, but will be necessary with more levels than heroes
     public bool levelUnlocksCharacter;
 
-    public int heroUnlockIndex;
+    public int heroUnlockedOnVictoryIndex;
     // This part would go in LevelManager
     // public HeroData heroUnlockedWithVictory = PlayerProfile.Instance.heroes[heroUnlockIndex];
     public string GameObject;

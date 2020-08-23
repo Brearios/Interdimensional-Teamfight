@@ -11,6 +11,11 @@ public class LevelManager : MonoBehaviour
     public int currentLevelInt;
     public List<ScriptableLevel> levelList;
     public bool startingCharactersSpawned;
+    public int battleParticipants;
+    public float battleParticipantsScaling;
+    public enum BattleSize { skirmish, brawl, raid, battle };
+    public BattleSize battleSize;
+
     // List of prefabs to instantiate - list for heroes and enemies?
 
     public void Awake()
@@ -32,21 +37,60 @@ public class LevelManager : MonoBehaviour
         startingCharactersSpawned = false;
         currentLevelInt = PlayerProfile.Instance.nextBattleScene;
         currentLevel = levelList[currentLevelInt];
+        battleParticipants = 0;
 
+        // Count total Participants for Scaling
+        foreach (LevelPrefabData unitSpawnData in currentLevel.nPCSpawnData)
+        {
+            for (int i = 0; i < unitSpawnData.numberOfInstances; i++)
+            {
+                battleParticipants++;
+            }
+        }
+        foreach (HeroData unlockedHeroSpawnData in PlayerProfile.Instance.UnlockedHeroes)
+        {
+            battleParticipants++;
+        }
+
+        SetScalingThreshold();
+        
         // Code to select level in list that matches CurrentLevelInt and set to currentLevel;
         foreach (LevelPrefabData unitSpawnData in currentLevel.nPCSpawnData)
         {
             for (int i = 0; i < unitSpawnData.numberOfInstances; i++)
             {
-                SpawnFighter(unitSpawnData.characterPrefab, GenerateRandomPosition(unitSpawnData.spawn));
+                SpawnAndScaleFighter(unitSpawnData.characterPrefab, GenerateRandomPosition(unitSpawnData.spawn), (int)unitSpawnData.size);
             }                       
         }
         foreach (HeroData unlockedHeroSpawnData in PlayerProfile.Instance.UnlockedHeroes)
         {
-            SpawnFighter(unlockedHeroSpawnData.characterPrefab, GenerateRandomPosition(unlockedHeroSpawnData.spawn));
+            SpawnAndScaleFighter(unlockedHeroSpawnData.characterPrefab, GenerateRandomPosition(unlockedHeroSpawnData.spawn), 1);
             Debug.Log($"Spawned hero { unlockedHeroSpawnData.characterPrefab.name}");
         }
         startingCharactersSpawned = true;
+    }
+
+    private void SetScalingThreshold()
+    {
+        if (battleParticipants <= MagicNumbers.Instance.skirmishScalingParticipantThreshold)
+        {
+            battleSize = BattleSize.skirmish;
+        }
+
+        else if (battleParticipants <= MagicNumbers.Instance.brawlScalingParticipantThreshold)
+        {
+            battleSize = BattleSize.brawl;
+        }
+
+        else if (battleParticipants <= MagicNumbers.Instance.raidScalingParticipantThreshold)
+        {
+            battleSize = BattleSize.raid;
+        }
+
+        else
+        {
+            battleSize = BattleSize.battle;
+        }
     }
 
     // Update is called once per frame
@@ -181,23 +225,103 @@ public class LevelManager : MonoBehaviour
         return randomBoundariesUndefined;
     }
 
-    void SpawnFighter(GameObject characterPrefab, Vector3 randomSpawnPosition)
+    void SpawnAndScaleFighter(GameObject characterPrefab, Vector3 randomSpawnPosition, int spawnSize)
     {
-        Instantiate(characterPrefab, randomSpawnPosition, characterPrefab.transform.rotation);
+        GameObject Fighter = Instantiate(characterPrefab, randomSpawnPosition, characterPrefab.transform.rotation);
+        FighterScaler(battleSize, spawnSize);
+        Fighter.transform.localScale = new Vector3(battleParticipantsScaling, battleParticipantsScaling, battleParticipantsScaling);
+    }
+
+    private void FighterScaler(BattleSize battleSize, int spawnSize)
+    {
+        // The larger the battle, the smaller each unit needs to be
+        // Default sizes are based on the largest battle, then multiplied by 1.5, 2, & 3 as the number of combatants shrinks
+        if (battleSize == BattleSize.skirmish)
+        {
+            switch (spawnSize)
+            {
+                case 0:
+                    battleParticipantsScaling = 0.6f;
+                    break;
+                case 1:
+                    battleParticipantsScaling = 0.84f;
+                    break;
+                case 2:
+                    battleParticipantsScaling = 1.2f;
+                    break;
+                case 3:
+                    battleParticipantsScaling = 1.65f;
+                    break;
+            }
+        }
+        if (battleSize == BattleSize.brawl)
+        {
+            switch (spawnSize)
+            {
+                case 0:
+                    battleParticipantsScaling = 0.4f;
+                    break;
+                case 1:
+                    battleParticipantsScaling = 0.56f;
+                    break;
+                case 2:
+                    battleParticipantsScaling = 0.8f;
+                    break;
+                case 3:
+                    battleParticipantsScaling = 1.1f;
+                    break;
+            }
+        }
+        if (battleSize == BattleSize.raid)
+        {
+            switch (spawnSize)
+            {
+                case 0:
+                    battleParticipantsScaling = 0.3f;
+                    break;
+                case 1:
+                    battleParticipantsScaling = 0.42f;
+                    break;
+                case 2:
+                    battleParticipantsScaling = 0.6f;
+                    break;
+                case 3:
+                    battleParticipantsScaling = 0.825f;
+                    break;
+                }
+            }
+        if (battleSize == BattleSize.battle)
+        {
+            switch (spawnSize)
+            {
+            case 0:
+                battleParticipantsScaling = 0.2f;
+                break;
+            case 1:
+                battleParticipantsScaling = 0.28f;
+                break;
+            case 2:
+                battleParticipantsScaling = 0.4f;
+                break;
+            case 3:
+                battleParticipantsScaling = 0.55f;
+                break;
+            }
+        }
     }
 
     //void CharacterUnlock(int levelIndex)
     //{
-        
+
     //}
 
     internal void ProcessVictory()
     {
         Debug.Log("Victory");
-        if ((!PlayerProfile.Instance.UnlockedHeroes.Contains(PlayerProfile.Instance.heroes[currentLevel.heroUnlockIndex]) && currentLevel.levelUnlocksCharacter))
+        if ((!PlayerProfile.Instance.UnlockedHeroes.Contains(PlayerProfile.Instance.heroes[currentLevel.heroUnlockedOnVictoryIndex]) && currentLevel.levelUnlocksCharacter))
         {
-            PlayerProfile.Instance.UnlockedHeroes.Add(PlayerProfile.Instance.heroes[currentLevel.heroUnlockIndex]);
-            Debug.Log($"Hero {PlayerProfile.Instance.heroes[currentLevel.heroUnlockIndex].name} Added");
+            PlayerProfile.Instance.UnlockedHeroes.Add(PlayerProfile.Instance.heroes[currentLevel.heroUnlockedOnVictoryIndex]);
+            Debug.Log($"Hero {PlayerProfile.Instance.heroes[currentLevel.heroUnlockedOnVictoryIndex].name} Added");
         }
         Debug.Log("Potential Hero Unlock Processed.");
         //    currentLevel = levelList.IndexOf(currentLevelInt)

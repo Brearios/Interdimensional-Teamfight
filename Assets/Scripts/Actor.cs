@@ -74,6 +74,8 @@ public class Actor : MonoBehaviour
     // public int hpChangeVaried; Moved to a local variable
     public int debuggingID;
     public bool debugShowTargetLines;
+    public float distanceToHighThreatTarget;
+    public float highThreatTargetPlusDistance;
 
     public GameObject FloatingTextPrefab;
 
@@ -390,13 +392,15 @@ public class Actor : MonoBehaviour
             }
             else
             {
-                float distanceToActor = (currentActor.transform.position - transform.position).sqrMagnitude;
+                float distanceToActor = Vector3.Distance(transform.position, currentActor.transform.position);
                 float enemyThreat = currentActor.ThreatScore;
                 float threatWithDistance = (enemyThreat - (distanceToActor / 5));
                 if (threatWithDistance > highestThreatEnemy)
                 {
                     highestThreatEnemy = threatWithDistance;
                     highThreatTarget = currentActor;
+                    distanceToHighThreatTarget = distanceToActor;
+                    highThreatTargetPlusDistance = threatWithDistance;
                 }
             }
         }

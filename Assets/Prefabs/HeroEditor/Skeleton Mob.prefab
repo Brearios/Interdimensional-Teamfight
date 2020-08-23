@@ -17011,6 +17011,7 @@ GameObject:
   - component: {fileID: 8846557027628132401}
   - component: {fileID: 8847184520479192873}
   - component: {fileID: 3754914823888482483}
+  - component: {fileID: 7466921619302877463}
   m_Layer: 0
   m_Name: Skeleton Mob
   m_TagString: Untagged
@@ -17399,6 +17400,34 @@ CapsuleCollider2D:
   m_Offset: {x: 0.06760065, y: 1.1449404}
   m_Size: {x: 0.63520133, y: 2.133162}
   m_Direction: 0
+--- !u!114 &7466921619302877463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8887474151139866053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 373b52eb9bf8c40f785bb6947a1aee66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  drawGizmos: 1
+  detailedGizmos: 0
+  startEndModifier:
+    addPoints: 0
+    exactStartPoint: 3
+    exactEndPoint: 3
+    useRaycasting: 0
+    mask:
+      serializedVersion: 2
+      m_Bits: 4294967295
+    useGraphRaycasting: 0
+  traversableTags: -1
+  tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  graphMask:
+    value: -1
 --- !u!1 &8887494197096414679
 GameObject:
   m_ObjectHideFlags: 0

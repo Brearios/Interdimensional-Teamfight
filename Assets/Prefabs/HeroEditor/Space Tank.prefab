@@ -13273,6 +13273,7 @@ GameObject:
   - component: {fileID: 1486467948642627717}
   - component: {fileID: 1486731945632441699}
   - component: {fileID: 5943423380167815398}
+  - component: {fileID: 4623970849246644864}
   m_Layer: 0
   m_Name: Space Tank
   m_TagString: Untagged
@@ -13661,6 +13662,34 @@ CapsuleCollider2D:
   m_Offset: {x: 0.06760065, y: 1.1449404}
   m_Size: {x: 0.63520133, y: 2.133162}
   m_Direction: 0
+--- !u!114 &4623970849246644864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1527356296647036081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 373b52eb9bf8c40f785bb6947a1aee66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  drawGizmos: 1
+  detailedGizmos: 0
+  startEndModifier:
+    addPoints: 0
+    exactStartPoint: 3
+    exactEndPoint: 3
+    useRaycasting: 0
+    mask:
+      serializedVersion: 2
+      m_Bits: 4294967295
+    useGraphRaycasting: 0
+  traversableTags: -1
+  tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  graphMask:
+    value: -1
 --- !u!1 &1527358801814167227
 GameObject:
   m_ObjectHideFlags: 0

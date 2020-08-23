@@ -24261,6 +24261,7 @@ GameObject:
   - component: {fileID: 5111083533815845401}
   - component: {fileID: 5110713811209593219}
   - component: {fileID: 5027931088689222786}
+  - component: {fileID: -1129542687925849152}
   m_Layer: 0
   m_Name: Modern Medic
   m_TagString: Untagged
@@ -24656,6 +24657,34 @@ CapsuleCollider2D:
   m_Offset: {x: 0.06760065, y: 1.1449404}
   m_Size: {x: 0.63520133, y: 2.133162}
   m_Direction: 0
+--- !u!114 &-1129542687925849152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5151841602031801781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 373b52eb9bf8c40f785bb6947a1aee66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  drawGizmos: 1
+  detailedGizmos: 0
+  startEndModifier:
+    addPoints: 0
+    exactStartPoint: 3
+    exactEndPoint: 3
+    useRaycasting: 0
+    mask:
+      serializedVersion: 2
+      m_Bits: 4294967295
+    useGraphRaycasting: 0
+  traversableTags: -1
+  tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  graphMask:
+    value: -1
 --- !u!1 &5151844278403363121
 GameObject:
   m_ObjectHideFlags: 0

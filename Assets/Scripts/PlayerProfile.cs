@@ -141,10 +141,4 @@ public class PlayerProfile : MonoBehaviour
         lockProfile.ability3Unlock = false;
         lockProfile.potionUnlock = false;
     }
-
-
-
-
-
-
 }
