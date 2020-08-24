@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb4150d779a2b1143b0ae420b32688ed, type: 3}
+  m_Name: Headshot
+  m_EditorClassIdentifier: 
+  targetType: 0
+  abilityName: Headshot
+  hpDelta: -3
+  abilityRange: 5
+  aoeChancetoHit: 0
+  cooldown: 5
+  startsOnCooldown: 0
+  isAutoAtk: 0
+  description: Aim carefully for the head
+  effect: {fileID: 0}
+  abilityCharges: 0
+  unlockCost: 0

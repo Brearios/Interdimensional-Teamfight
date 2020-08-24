@@ -2754,7 +2754,7 @@ PrefabInstance:
         type: 3}
       propertyPath: heroes.Array.data[0].characterPrefab
       value: 
-      objectReference: {fileID: 799906902406495628, guid: c630bcc0bc4a4894292832dda4427226,
+      objectReference: {fileID: 8102634624511559635, guid: 594caef060026ff498458d790d7df964,
         type: 3}
     - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
         type: 3}
@@ -2765,7 +2765,7 @@ PrefabInstance:
         type: 3}
       propertyPath: heroes.Array.data[1].characterPrefab
       value: 
-      objectReference: {fileID: 4854776755025963095, guid: 052cf59c60266e5469b26c1f6df051d0,
+      objectReference: {fileID: 5960741867934732086, guid: 2405017ca93a2a34d84bb34826e42042,
         type: 3}
     - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
         type: 3}
@@ -2776,7 +2776,7 @@ PrefabInstance:
         type: 3}
       propertyPath: heroes.Array.data[2].characterPrefab
       value: 
-      objectReference: {fileID: 1571930095031237810, guid: ec7d0ec2dd573524e92b0dba5ecd868f,
+      objectReference: {fileID: 1527356296647036081, guid: 385654249dfbbb244a30ec4537010837,
         type: 3}
     - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
         type: 3}
@@ -2787,7 +2787,7 @@ PrefabInstance:
         type: 3}
       propertyPath: heroes.Array.data[3].characterPrefab
       value: 
-      objectReference: {fileID: 2202943273773223233, guid: d2ddffd415596ef4c85cbe6124dd54b0,
+      objectReference: {fileID: 6573559670356672983, guid: 8ed0d27a91e46274fbc4d185dd169e9c,
         type: 3}
     - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
         type: 3}
@@ -2798,7 +2798,7 @@ PrefabInstance:
         type: 3}
       propertyPath: heroes.Array.data[4].characterPrefab
       value: 
-      objectReference: {fileID: 9176432904490514298, guid: 92079bc4f6bf8e64db60dcc1b5b7cce4,
+      objectReference: {fileID: 1338283891893459, guid: 2344f0cbcab414a458a3c12215cef4c1,
         type: 3}
     - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
         type: 3}
@@ -2809,7 +2809,7 @@ PrefabInstance:
         type: 3}
       propertyPath: heroes.Array.data[5].characterPrefab
       value: 
-      objectReference: {fileID: 511953982555338242, guid: 9208a68472fd15b4487b7c6ebb3bf187,
+      objectReference: {fileID: 1109987028385428, guid: 7c6d30d9e314a284f9e2fc4203efd99a,
         type: 3}
     - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
         type: 3}
@@ -2850,7 +2850,7 @@ PrefabInstance:
         type: 3}
       propertyPath: startingHero.characterPrefab
       value: 
-      objectReference: {fileID: 799906902406495628, guid: c630bcc0bc4a4894292832dda4427226,
+      objectReference: {fileID: 8102634624511559635, guid: 594caef060026ff498458d790d7df964,
         type: 3}
     - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
         type: 3}
@@ -2956,12 +2956,12 @@ PrefabInstance:
         type: 3}
       propertyPath: heroes.Array.data[6].characterPrefab
       value: 
-      objectReference: {fileID: 4771555217904429309, guid: e05fd93c2f820124fbf7fd46e9e978bb,
+      objectReference: {fileID: 6672321985025395352, guid: 91a83eef7c7d9a440a1beff7180e7ef5,
         type: 3}
     - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
         type: 3}
       propertyPath: heroes.Array.data[6].name
-      value: Wanda
+      value: SpaceSoldier
       objectReference: {fileID: 0}
     - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
         type: 3}
