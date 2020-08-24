@@ -44,5 +44,5 @@ MonoBehaviour:
     DefaultUnitData: 0
     team: 1
     size: 0
-    numberOfInstances: 4
+    numberOfInstances: 2
     spawn: 5

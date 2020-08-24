@@ -7819,6 +7819,8 @@ MonoBehaviour:
   dmgVariance: 0
   debuggingID: 0
   debugShowTargetLines: 0
+  distanceToHighThreatTarget: 0
+  highThreatTargetPlusDistance: 0
   FloatingTextPrefab: {fileID: 3012059549555167978, guid: 1e98c7aa83e776648ae16b3785ac6c38,
     type: 3}
 --- !u!114 &114006644524632173

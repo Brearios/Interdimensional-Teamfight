@@ -591,6 +591,7 @@ MonoBehaviour:
     ability2Unlock: 0
     ability3Unlock: 0
     potionUnlock: 0
+    selectedPotionType: 0
     totalLevel: 0
     autoAtk: {fileID: 0}
     ability1: {fileID: 0}
@@ -865,6 +866,7 @@ MonoBehaviour:
     ability2Unlock: 0
     ability3Unlock: 0
     potionUnlock: 0
+    selectedPotionType: 0
     totalLevel: 0
     autoAtk: {fileID: 0}
     ability1: {fileID: 0}
@@ -1177,6 +1179,7 @@ MonoBehaviour:
     ability2Unlock: 0
     ability3Unlock: 0
     potionUnlock: 0
+    selectedPotionType: 0
     totalLevel: 0
     autoAtk: {fileID: 0}
     ability1: {fileID: 0}
@@ -1650,6 +1653,7 @@ MonoBehaviour:
     ability2Unlock: 0
     ability3Unlock: 0
     potionUnlock: 0
+    selectedPotionType: 0
     totalLevel: 0
     autoAtk: {fileID: 0}
     ability1: {fileID: 0}
@@ -1819,6 +1823,7 @@ MonoBehaviour:
     ability2Unlock: 0
     ability3Unlock: 0
     potionUnlock: 0
+    selectedPotionType: 0
     totalLevel: 0
     autoAtk: {fileID: 0}
     ability1: {fileID: 0}
@@ -2653,6 +2658,7 @@ MonoBehaviour:
     ability2Unlock: 0
     ability3Unlock: 0
     potionUnlock: 0
+    selectedPotionType: 0
     totalLevel: 0
     autoAtk: {fileID: 0}
     ability1: {fileID: 0}
@@ -3071,6 +3077,7 @@ MonoBehaviour:
     ability2Unlock: 0
     ability3Unlock: 0
     potionUnlock: 0
+    selectedPotionType: 0
     totalLevel: 0
     autoAtk: {fileID: 0}
     ability1: {fileID: 0}
@@ -4216,6 +4223,7 @@ MonoBehaviour:
     ability2Unlock: 0
     ability3Unlock: 0
     potionUnlock: 0
+    selectedPotionType: 0
     totalLevel: 0
     autoAtk: {fileID: 0}
     ability1: {fileID: 0}
@@ -5533,6 +5541,7 @@ MonoBehaviour:
     ability2Unlock: 0
     ability3Unlock: 0
     potionUnlock: 0
+    selectedPotionType: 0
     totalLevel: 0
     autoAtk: {fileID: 0}
     ability1: {fileID: 0}
@@ -6179,6 +6188,7 @@ MonoBehaviour:
     ability2Unlock: 0
     ability3Unlock: 0
     potionUnlock: 0
+    selectedPotionType: 0
     totalLevel: 0
     autoAtk: {fileID: 0}
     ability1: {fileID: 0}
@@ -6425,6 +6435,7 @@ MonoBehaviour:
     ability2Unlock: 0
     ability3Unlock: 0
     potionUnlock: 0
+    selectedPotionType: 0
     totalLevel: 0
     autoAtk: {fileID: 0}
     ability1: {fileID: 0}
@@ -6474,6 +6485,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 865685911}
   m_CullTransparentMesh: 0
+--- !u!1 &924764744 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1338283891893459, guid: 4c487360eaeb5f24ea9a8a86b5e2359b,
+    type: 3}
+  m_PrefabInstance: {fileID: 2063399525}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &946155068
 GameObject:
   m_ObjectHideFlags: 0
@@ -7404,6 +7421,7 @@ MonoBehaviour:
     ability2Unlock: 0
     ability3Unlock: 0
     potionUnlock: 0
+    selectedPotionType: 0
     totalLevel: 0
     autoAtk: {fileID: 0}
     ability1: {fileID: 0}
@@ -7678,6 +7696,7 @@ MonoBehaviour:
     ability2Unlock: 0
     ability3Unlock: 0
     potionUnlock: 0
+    selectedPotionType: 0
     totalLevel: 0
     autoAtk: {fileID: 0}
     ability1: {fileID: 0}
@@ -8084,6 +8103,7 @@ MonoBehaviour:
     ability2Unlock: 0
     ability3Unlock: 0
     potionUnlock: 0
+    selectedPotionType: 0
     totalLevel: 0
     autoAtk: {fileID: 0}
     ability1: {fileID: 0}
@@ -8415,6 +8435,7 @@ MonoBehaviour:
     ability2Unlock: 0
     ability3Unlock: 0
     potionUnlock: 0
+    selectedPotionType: 0
     totalLevel: 0
     autoAtk: {fileID: 0}
     ability1: {fileID: 0}
@@ -9416,6 +9437,7 @@ MonoBehaviour:
     ability2Unlock: 0
     ability3Unlock: 0
     potionUnlock: 0
+    selectedPotionType: 0
     totalLevel: 0
     autoAtk: {fileID: 0}
     ability1: {fileID: 0}
@@ -9748,6 +9770,7 @@ MonoBehaviour:
     ability2Unlock: 0
     ability3Unlock: 0
     potionUnlock: 0
+    selectedPotionType: 0
     totalLevel: 0
     autoAtk: {fileID: 0}
     ability1: {fileID: 0}
@@ -10050,6 +10073,7 @@ MonoBehaviour:
     ability2Unlock: 0
     ability3Unlock: 0
     potionUnlock: 0
+    selectedPotionType: 0
     totalLevel: 0
     autoAtk: {fileID: 0}
     ability1: {fileID: 0}
@@ -10310,6 +10334,7 @@ MonoBehaviour:
     ability2Unlock: 0
     ability3Unlock: 0
     potionUnlock: 0
+    selectedPotionType: 0
     totalLevel: 0
     autoAtk: {fileID: 0}
     ability1: {fileID: 0}
@@ -10538,6 +10563,8 @@ MonoBehaviour:
   postApocRogue: {fileID: 1772013618}
   steamBot: {fileID: 1338283891893459, guid: 9a97c4c340a5038479aa3469c3b6a863, type: 3}
   plantHero: {fileID: 1109987028385428, guid: f6d1bdf6f2c0b6d4db88f93cff18a3ab, type: 3}
+  spaceSoldier: {fileID: 924764744}
+  heroSprites: []
 --- !u!1 &1551271524
 GameObject:
   m_ObjectHideFlags: 0
@@ -11071,6 +11098,7 @@ MonoBehaviour:
     ability2Unlock: 0
     ability3Unlock: 0
     potionUnlock: 0
+    selectedPotionType: 0
     totalLevel: 0
     autoAtk: {fileID: 0}
     ability1: {fileID: 0}
@@ -12254,6 +12282,7 @@ MonoBehaviour:
     ability2Unlock: 0
     ability3Unlock: 0
     potionUnlock: 0
+    selectedPotionType: 0
     totalLevel: 0
     autoAtk: {fileID: 0}
     ability1: {fileID: 0}
@@ -12609,6 +12638,7 @@ MonoBehaviour:
     ability2Unlock: 0
     ability3Unlock: 0
     potionUnlock: 0
+    selectedPotionType: 0
     totalLevel: 0
     autoAtk: {fileID: 0}
     ability1: {fileID: 0}
@@ -12861,6 +12891,7 @@ MonoBehaviour:
     ability2Unlock: 0
     ability3Unlock: 0
     potionUnlock: 0
+    selectedPotionType: 0
     totalLevel: 0
     autoAtk: {fileID: 0}
     ability1: {fileID: 0}
@@ -13293,6 +13324,7 @@ MonoBehaviour:
     ability2Unlock: 0
     ability3Unlock: 0
     potionUnlock: 0
+    selectedPotionType: 0
     totalLevel: 0
     autoAtk: {fileID: 0}
     ability1: {fileID: 0}
@@ -13960,13 +13992,19 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -5179800124285111839, guid: 4c487360eaeb5f24ea9a8a86b5e2359b,
+        type: 3}
+      propertyPath: unit
+      value: 
+      objectReference: {fileID: 11400000, guid: 43b820836c1dc83408b4e0810d7c74c2,
+        type: 2}
     - target: {fileID: 1338283891893459, guid: 4c487360eaeb5f24ea9a8a86b5e2359b, type: 3}
       propertyPath: m_Name
       value: Space Soldier
       objectReference: {fileID: 0}
     - target: {fileID: 1338283891893459, guid: 4c487360eaeb5f24ea9a8a86b5e2359b, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4730942062920463, guid: 4c487360eaeb5f24ea9a8a86b5e2359b, type: 3}
       propertyPath: m_LocalPosition.x

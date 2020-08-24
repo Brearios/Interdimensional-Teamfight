@@ -10,6 +10,8 @@ public class MenuSpriteControl : MonoBehaviour
     public GameObject postApocRogue;
     public GameObject steamBot;
     public GameObject plantHero;
+    public GameObject spaceSoldier;
+    public List<GameObject> heroSprites;
     
 
     // Start is called before the first frame update
@@ -21,6 +23,17 @@ public class MenuSpriteControl : MonoBehaviour
     postApocRogue = GameObject.Find("/Post Apoc Rogue");
     steamBot = GameObject.Find("SteamBot");
     plantHero = GameObject.Find("Plantbassador");
+    spaceSoldier = GameObject.Find("Space Soldier");
+
+
+    heroSprites.Add(fantasyMage);
+    heroSprites.Add(fantasyPriest);
+    heroSprites.Add(spaceTank);
+    heroSprites.Add(postApocRogue);
+    heroSprites.Add(steamBot);
+    heroSprites.Add(plantHero);
+    heroSprites.Add(spaceSoldier);
+
     }
 
 
@@ -40,6 +53,7 @@ public class MenuSpriteControl : MonoBehaviour
                 postApocRogue.SetActive(false);
                 steamBot.SetActive(false);
                 plantHero.SetActive(false);
+                spaceSoldier.SetActive(false);
                 break;
 
 
@@ -50,6 +64,7 @@ public class MenuSpriteControl : MonoBehaviour
                 postApocRogue.SetActive(false);
                 steamBot.SetActive(false);
                 plantHero.SetActive(false);
+                spaceSoldier.SetActive(false);
                 break;
 
             case 2:
@@ -59,6 +74,7 @@ public class MenuSpriteControl : MonoBehaviour
                 postApocRogue.SetActive(false);
                 steamBot.SetActive(false);
                 plantHero.SetActive(false);
+                spaceSoldier.SetActive(false);
                 break;
 
             case 3:
@@ -68,6 +84,7 @@ public class MenuSpriteControl : MonoBehaviour
                 postApocRogue.SetActive(true);
                 steamBot.SetActive(false);
                 plantHero.SetActive(false);
+                spaceSoldier.SetActive(false);
                 break;
 
             case 4:
@@ -77,6 +94,7 @@ public class MenuSpriteControl : MonoBehaviour
                 postApocRogue.SetActive(false);
                 steamBot.SetActive(true);
                 plantHero.SetActive(false);
+                spaceSoldier.SetActive(false);
                 break;
 
             case 5:
@@ -86,7 +104,76 @@ public class MenuSpriteControl : MonoBehaviour
                 postApocRogue.SetActive(false);
                 steamBot.SetActive(false);
                 plantHero.SetActive(true);
+                spaceSoldier.SetActive(false);
+                break;
+
+            case 6:
+                fantasyMage.SetActive(false);
+                fantasyPriest.SetActive(false);
+                spaceTank.SetActive(false);
+                postApocRogue.SetActive(false);
+                steamBot.SetActive(false);
+                plantHero.SetActive(false);
+                spaceSoldier.SetActive(true);
                 break;
         } 
     }
 }
+
+
+//            case 0:
+//                foreach (GameObject hero in heroSprites)
+//                { 
+//                    hero.SetActive(false);
+//                }
+//                fantasyMage.SetActive(true);
+//                break;
+
+
+//            case 1:
+//                foreach (GameObject hero in heroSprites)
+//                {
+//                    hero.SetActive(false);
+//                }
+//                fantasyPriest.SetActive(true);
+//                break;
+
+//            case 2:
+//                foreach (GameObject hero in heroSprites)
+//                {
+//                    hero.SetActive(false);
+//                }
+//                spaceTank.SetActive(true);
+//                break;
+
+//            case 3:
+//                foreach (GameObject hero in heroSprites)
+//                {
+//                    hero.SetActive(false);
+//                }
+//                postApocRogue.SetActive(true);
+//                break;
+
+//            case 4:
+//                foreach (GameObject hero in heroSprites)
+//                {
+//                    hero.SetActive(false);
+//                }
+//                steamBot.SetActive(true);
+//                break;
+
+//            case 5:
+//                foreach (GameObject hero in heroSprites)
+//                {
+//                    hero.SetActive(false);
+//                }
+//                plantHero.SetActive(true);
+//                break;
+
+//            case 6:
+//                foreach (GameObject hero in heroSprites)
+//                {
+//                    hero.SetActive(false);
+//                }
+//                spaceSoldier.SetActive(true);
+//                break;
