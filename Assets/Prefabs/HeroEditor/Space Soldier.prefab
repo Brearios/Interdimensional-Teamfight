@@ -36,7 +36,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -10.289059, y: -3.786671}
+  m_AnchoredPosition: {x: 0, y: 3}
   m_SizeDelta: {x: 35, y: 35}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &542339525898568606
@@ -209,7 +209,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 5.000004}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &600622375440087207
@@ -11822,8 +11822,7 @@ MonoBehaviour:
   CurrentEffectsRemovalIds: []
   isDead: 0
   ThreatScore: 0
-  tankBonusThreat: 0
-  tankBonusThreatIterator: 0
+  totalCurrentTankThreatMultiplier: 0
   targetCheckCount: 0
   targetCheckFrequency: 0
   hasTaunted: 0

@@ -20,7 +20,8 @@ MonoBehaviour:
   cooldown: 15
   startsOnCooldown: 1
   isAutoAtk: 0
-  description: Basic potion, used to regenerate health temporarily.
+  isPotion: 1
+  description: Temporarily Increases Ability Power
   effect: {fileID: 11400000, guid: a1af52d0fb6337b49b001d668e3fda3d, type: 2}
   abilityCharges: 0
   unlockCost: 800

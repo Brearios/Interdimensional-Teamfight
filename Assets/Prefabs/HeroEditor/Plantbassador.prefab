@@ -5673,7 +5673,7 @@ MonoBehaviour:
   ability2: {fileID: 11400000, guid: 2767b24bdb91e4845ac391337bf3b166, type: 2}
   ability3: {fileID: 11400000, guid: 9606f02bbe713c94489e085fb5cf05c9, type: 2}
   potion: {fileID: 11400000, guid: 3325535cecac7e8459de80fb98690e19, type: 2}
-  unitName: 
+  unitName: Orchid
   maxHealth: 0
   currHealth: 0
   healthPercent: 0
@@ -5696,8 +5696,7 @@ MonoBehaviour:
   CurrentEffectsRemovalIds: []
   isDead: 0
   ThreatScore: 0
-  tankBonusThreat: 0
-  tankBonusThreatIterator: 0
+  totalCurrentTankThreatMultiplier: 0
   targetCheckCount: 0
   targetCheckFrequency: 0
   hasTaunted: 0
@@ -5712,6 +5711,8 @@ MonoBehaviour:
   dmgVariance: 0
   debuggingID: 0
   debugShowTargetLines: 0
+  distanceToHighThreatTarget: 0
+  highThreatTargetPlusDistance: 0
   FloatingTextPrefab: {fileID: 0}
 --- !u!70 &8162077720594488770
 CapsuleCollider2D:

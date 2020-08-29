@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   effect: 6
   effectTickDuration: 0
-  totalDuration: 0
+  totalDuration: 5
   canStack: 0
   totalHpDelta: 0
   effectPerStack: 0

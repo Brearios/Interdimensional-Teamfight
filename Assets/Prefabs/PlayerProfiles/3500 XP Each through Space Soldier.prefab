@@ -1,0 +1,469 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2794829992643496001
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2794829992643496063}
+  - component: {fileID: 2794829992643496000}
+  m_Layer: 0
+  m_Name: PlayerProfile
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2794829992643496063
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2794829992643496001}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.050279744, y: -0.17940551, z: -1.9121094}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2794829992643496000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2794829992643496001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ddb7648f91a19c4e857b8f8dca2e155, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mageHero:
+    heroName: 
+    characterTotalXP: 0
+    characterAvailableXP: 162
+    healthArrayLevel: 2
+    atkArrayLevel: 7
+    abilityArrayLevel: 7
+    nextXPCost: 0
+    health: 120
+    atk: 16
+    abilityPower: 18
+    charUnlock: 0
+    autoAtkUnlock: 1
+    ability1Unlock: 1
+    ability2Unlock: 1
+    ability3Unlock: 0
+    potionUnlock: 0
+    selectedPotionType: 0
+    totalLevel: 16
+    autoAtk: {fileID: 11400000, guid: f4d8cad2a9a2b02449420d6832502937, type: 2}
+    ability1: {fileID: 11400000, guid: 6bf2c15b44422ec41a09da5e79a3a2e2, type: 2}
+    ability2: {fileID: 11400000, guid: 01700505b760dd543957348427264b4c, type: 2}
+    ability3: {fileID: 11400000, guid: 9606f02bbe713c94489e085fb5cf05c9, type: 2}
+    potion: {fileID: 11400000, guid: 3325535cecac7e8459de80fb98690e19, type: 2}
+    AbilityUnlocks: []
+  warriorHero:
+    heroName: 
+    characterTotalXP: 0
+    characterAvailableXP: 162
+    healthArrayLevel: 7
+    atkArrayLevel: 5
+    abilityArrayLevel: 4
+    nextXPCost: 0
+    health: 181
+    atk: 12
+    abilityPower: 15
+    charUnlock: 0
+    autoAtkUnlock: 1
+    ability1Unlock: 1
+    ability2Unlock: 1
+    ability3Unlock: 0
+    potionUnlock: 0
+    selectedPotionType: 0
+    totalLevel: 16
+    autoAtk: {fileID: 11400000, guid: 2bebe808ca503864c9cc1f842b32a7d1, type: 2}
+    ability1: {fileID: 11400000, guid: eed78b34608a1014da24262aa2df7b67, type: 2}
+    ability2: {fileID: 11400000, guid: e0e64450ef3e11b4ea011125f457e545, type: 2}
+    ability3: {fileID: 11400000, guid: 9606f02bbe713c94489e085fb5cf05c9, type: 2}
+    potion: {fileID: 11400000, guid: 3325535cecac7e8459de80fb98690e19, type: 2}
+    AbilityUnlocks: []
+  priestHero:
+    heroName: 
+    characterTotalXP: 0
+    characterAvailableXP: 162
+    healthArrayLevel: 1
+    atkArrayLevel: 6
+    abilityArrayLevel: 9
+    nextXPCost: 0
+    health: 110
+    atk: 14
+    abilityPower: 21
+    charUnlock: 0
+    autoAtkUnlock: 1
+    ability1Unlock: 1
+    ability2Unlock: 1
+    ability3Unlock: 0
+    potionUnlock: 0
+    selectedPotionType: 0
+    totalLevel: 16
+    autoAtk: {fileID: 11400000, guid: f4d8cad2a9a2b02449420d6832502937, type: 2}
+    ability1: {fileID: 11400000, guid: f81ca7937fe240e4aaf8657be5ce1c02, type: 2}
+    ability2: {fileID: 11400000, guid: 2767b24bdb91e4845ac391337bf3b166, type: 2}
+    ability3: {fileID: 11400000, guid: 9606f02bbe713c94489e085fb5cf05c9, type: 2}
+    potion: {fileID: 11400000, guid: 3325535cecac7e8459de80fb98690e19, type: 2}
+    AbilityUnlocks: []
+  rogueHero:
+    heroName: 
+    characterTotalXP: 0
+    characterAvailableXP: 162
+    healthArrayLevel: 3
+    atkArrayLevel: 7
+    abilityArrayLevel: 6
+    nextXPCost: 0
+    health: 132
+    atk: 16
+    abilityPower: 17
+    charUnlock: 0
+    autoAtkUnlock: 1
+    ability1Unlock: 1
+    ability2Unlock: 1
+    ability3Unlock: 0
+    potionUnlock: 0
+    selectedPotionType: 0
+    totalLevel: 16
+    autoAtk: {fileID: 11400000, guid: 2bebe808ca503864c9cc1f842b32a7d1, type: 2}
+    ability1: {fileID: 11400000, guid: ce80ff9f4cf65b14e82502bfb80dcb0b, type: 2}
+    ability2: {fileID: 11400000, guid: 0967b2b18fb4f4a42a194cde27ae3704, type: 2}
+    ability3: {fileID: 11400000, guid: 9606f02bbe713c94489e085fb5cf05c9, type: 2}
+    potion: {fileID: 11400000, guid: 3325535cecac7e8459de80fb98690e19, type: 2}
+    AbilityUnlocks: []
+  plantHero:
+    heroName: 
+    characterTotalXP: 0
+    characterAvailableXP: 43
+    healthArrayLevel: 6
+    atkArrayLevel: 6
+    abilityArrayLevel: 7
+    nextXPCost: 0
+    health: 168
+    atk: 14
+    abilityPower: 18
+    charUnlock: 0
+    autoAtkUnlock: 1
+    ability1Unlock: 1
+    ability2Unlock: 1
+    ability3Unlock: 0
+    potionUnlock: 0
+    selectedPotionType: 0
+    totalLevel: 19
+    autoAtk: {fileID: 11400000, guid: f4d8cad2a9a2b02449420d6832502937, type: 2}
+    ability1: {fileID: 11400000, guid: 0967b2b18fb4f4a42a194cde27ae3704, type: 2}
+    ability2: {fileID: 11400000, guid: 2767b24bdb91e4845ac391337bf3b166, type: 2}
+    ability3: {fileID: 11400000, guid: 9606f02bbe713c94489e085fb5cf05c9, type: 2}
+    potion: {fileID: 11400000, guid: 3325535cecac7e8459de80fb98690e19, type: 2}
+    AbilityUnlocks: []
+  steamHero:
+    heroName: 
+    characterTotalXP: 0
+    characterAvailableXP: 162
+    healthArrayLevel: 7
+    atkArrayLevel: 6
+    abilityArrayLevel: 3
+    nextXPCost: 0
+    health: 181
+    atk: 14
+    abilityPower: 14
+    charUnlock: 0
+    autoAtkUnlock: 1
+    ability1Unlock: 1
+    ability2Unlock: 1
+    ability3Unlock: 0
+    potionUnlock: 0
+    selectedPotionType: 0
+    totalLevel: 16
+    autoAtk: {fileID: 11400000, guid: 2bebe808ca503864c9cc1f842b32a7d1, type: 2}
+    ability1: {fileID: 11400000, guid: eed78b34608a1014da24262aa2df7b67, type: 2}
+    ability2: {fileID: 11400000, guid: e0e64450ef3e11b4ea011125f457e545, type: 2}
+    ability3: {fileID: 11400000, guid: 9606f02bbe713c94489e085fb5cf05c9, type: 2}
+    potion: {fileID: 11400000, guid: 3325535cecac7e8459de80fb98690e19, type: 2}
+    AbilityUnlocks: []
+  spaceSoldier:
+    heroName: 
+    characterTotalXP: 0
+    characterAvailableXP: 245
+    healthArrayLevel: 1
+    atkArrayLevel: 12
+    abilityArrayLevel: 5
+    nextXPCost: 0
+    health: 110
+    atk: 22
+    abilityPower: 16
+    charUnlock: 0
+    autoAtkUnlock: 1
+    ability1Unlock: 1
+    ability2Unlock: 0
+    ability3Unlock: 0
+    potionUnlock: 0
+    selectedPotionType: 0
+    totalLevel: 18
+    autoAtk: {fileID: 0}
+    ability1: {fileID: 0}
+    ability2: {fileID: 0}
+    ability3: {fileID: 0}
+    potion: {fileID: 0}
+    AbilityUnlocks: []
+  currentEditingInteger: 6
+  currentDetailAbility: {fileID: 0}
+  nextBattleScene: 0
+  earnedCrystals: 0
+  currentCrystals: 0
+  totalGold: 0
+  currentGold: 0
+  startingHero:
+    characterPrefab: {fileID: 8102634624511559635, guid: 594caef060026ff498458d790d7df964,
+      type: 3}
+    name: Thantasia
+    team: 0
+    spawn: 2
+  UnlockedHeroes:
+  - characterPrefab: {fileID: 8102634624511559635, guid: 594caef060026ff498458d790d7df964,
+      type: 3}
+    name: Thantasia
+    team: 0
+    spawn: 2
+  heroes:
+  - characterPrefab: {fileID: 8102634624511559635, guid: 594caef060026ff498458d790d7df964,
+      type: 3}
+    name: Thantasia
+    team: 0
+    spawn: 2
+  - characterPrefab: {fileID: 5960741867934732086, guid: 2405017ca93a2a34d84bb34826e42042,
+      type: 3}
+    name: Cassandra
+    team: 0
+    spawn: 2
+  - characterPrefab: {fileID: 1527356296647036081, guid: 385654249dfbbb244a30ec4537010837,
+      type: 3}
+    name: SpaceTank
+    team: 0
+    spawn: 1
+  - characterPrefab: {fileID: 6573559670356672983, guid: 8ed0d27a91e46274fbc4d185dd169e9c,
+      type: 3}
+    name: PostApocRogue
+    team: 0
+    spawn: 1
+  - characterPrefab: {fileID: 1338283891893459, guid: 2344f0cbcab414a458a3c12215cef4c1,
+      type: 3}
+    name: SteamBot
+    team: 0
+    spawn: 1
+  - characterPrefab: {fileID: 1109987028385428, guid: 7c6d30d9e314a284f9e2fc4203efd99a,
+      type: 3}
+    name: Orchid
+    team: 0
+    spawn: 2
+  - characterPrefab: {fileID: 6672321985025395352, guid: 91a83eef7c7d9a440a1beff7180e7ef5,
+      type: 3}
+    name: SpaceSoldier
+    team: 0
+    spawn: 2
+  characterProfiles:
+  - heroName: 
+    characterTotalXP: 0
+    characterAvailableXP: 162
+    healthArrayLevel: 2
+    atkArrayLevel: 7
+    abilityArrayLevel: 7
+    nextXPCost: 0
+    health: 120
+    atk: 16
+    abilityPower: 18
+    charUnlock: 0
+    autoAtkUnlock: 1
+    ability1Unlock: 1
+    ability2Unlock: 1
+    ability3Unlock: 0
+    potionUnlock: 0
+    selectedPotionType: 0
+    totalLevel: 16
+    autoAtk: {fileID: 11400000, guid: f4d8cad2a9a2b02449420d6832502937, type: 2}
+    ability1: {fileID: 11400000, guid: 6bf2c15b44422ec41a09da5e79a3a2e2, type: 2}
+    ability2: {fileID: 11400000, guid: 01700505b760dd543957348427264b4c, type: 2}
+    ability3: {fileID: 11400000, guid: 9606f02bbe713c94489e085fb5cf05c9, type: 2}
+    potion: {fileID: 11400000, guid: 3325535cecac7e8459de80fb98690e19, type: 2}
+    AbilityUnlocks: []
+  - heroName: 
+    characterTotalXP: 0
+    characterAvailableXP: 162
+    healthArrayLevel: 1
+    atkArrayLevel: 6
+    abilityArrayLevel: 9
+    nextXPCost: 0
+    health: 110
+    atk: 14
+    abilityPower: 21
+    charUnlock: 0
+    autoAtkUnlock: 1
+    ability1Unlock: 1
+    ability2Unlock: 1
+    ability3Unlock: 0
+    potionUnlock: 0
+    selectedPotionType: 0
+    totalLevel: 16
+    autoAtk: {fileID: 11400000, guid: f4d8cad2a9a2b02449420d6832502937, type: 2}
+    ability1: {fileID: 11400000, guid: f81ca7937fe240e4aaf8657be5ce1c02, type: 2}
+    ability2: {fileID: 11400000, guid: 2767b24bdb91e4845ac391337bf3b166, type: 2}
+    ability3: {fileID: 11400000, guid: 9606f02bbe713c94489e085fb5cf05c9, type: 2}
+    potion: {fileID: 11400000, guid: 3325535cecac7e8459de80fb98690e19, type: 2}
+    AbilityUnlocks: []
+  - heroName: 
+    characterTotalXP: 0
+    characterAvailableXP: 162
+    healthArrayLevel: 7
+    atkArrayLevel: 5
+    abilityArrayLevel: 4
+    nextXPCost: 0
+    health: 181
+    atk: 12
+    abilityPower: 15
+    charUnlock: 0
+    autoAtkUnlock: 1
+    ability1Unlock: 1
+    ability2Unlock: 1
+    ability3Unlock: 0
+    potionUnlock: 0
+    selectedPotionType: 0
+    totalLevel: 16
+    autoAtk: {fileID: 11400000, guid: 2bebe808ca503864c9cc1f842b32a7d1, type: 2}
+    ability1: {fileID: 11400000, guid: eed78b34608a1014da24262aa2df7b67, type: 2}
+    ability2: {fileID: 11400000, guid: e0e64450ef3e11b4ea011125f457e545, type: 2}
+    ability3: {fileID: 11400000, guid: 9606f02bbe713c94489e085fb5cf05c9, type: 2}
+    potion: {fileID: 11400000, guid: 3325535cecac7e8459de80fb98690e19, type: 2}
+    AbilityUnlocks: []
+  - heroName: 
+    characterTotalXP: 0
+    characterAvailableXP: 162
+    healthArrayLevel: 3
+    atkArrayLevel: 7
+    abilityArrayLevel: 6
+    nextXPCost: 0
+    health: 132
+    atk: 16
+    abilityPower: 17
+    charUnlock: 0
+    autoAtkUnlock: 1
+    ability1Unlock: 1
+    ability2Unlock: 1
+    ability3Unlock: 0
+    potionUnlock: 0
+    selectedPotionType: 0
+    totalLevel: 16
+    autoAtk: {fileID: 11400000, guid: 2bebe808ca503864c9cc1f842b32a7d1, type: 2}
+    ability1: {fileID: 11400000, guid: ce80ff9f4cf65b14e82502bfb80dcb0b, type: 2}
+    ability2: {fileID: 11400000, guid: 0967b2b18fb4f4a42a194cde27ae3704, type: 2}
+    ability3: {fileID: 11400000, guid: 9606f02bbe713c94489e085fb5cf05c9, type: 2}
+    potion: {fileID: 11400000, guid: 3325535cecac7e8459de80fb98690e19, type: 2}
+    AbilityUnlocks: []
+  - heroName: 
+    characterTotalXP: 0
+    characterAvailableXP: 162
+    healthArrayLevel: 7
+    atkArrayLevel: 6
+    abilityArrayLevel: 3
+    nextXPCost: 0
+    health: 181
+    atk: 14
+    abilityPower: 14
+    charUnlock: 0
+    autoAtkUnlock: 1
+    ability1Unlock: 1
+    ability2Unlock: 1
+    ability3Unlock: 0
+    potionUnlock: 0
+    selectedPotionType: 0
+    totalLevel: 16
+    autoAtk: {fileID: 11400000, guid: 2bebe808ca503864c9cc1f842b32a7d1, type: 2}
+    ability1: {fileID: 11400000, guid: eed78b34608a1014da24262aa2df7b67, type: 2}
+    ability2: {fileID: 11400000, guid: e0e64450ef3e11b4ea011125f457e545, type: 2}
+    ability3: {fileID: 11400000, guid: 9606f02bbe713c94489e085fb5cf05c9, type: 2}
+    potion: {fileID: 11400000, guid: 3325535cecac7e8459de80fb98690e19, type: 2}
+    AbilityUnlocks: []
+  - heroName: 
+    characterTotalXP: 0
+    characterAvailableXP: 43
+    healthArrayLevel: 6
+    atkArrayLevel: 6
+    abilityArrayLevel: 7
+    nextXPCost: 0
+    health: 168
+    atk: 14
+    abilityPower: 18
+    charUnlock: 0
+    autoAtkUnlock: 1
+    ability1Unlock: 1
+    ability2Unlock: 1
+    ability3Unlock: 0
+    potionUnlock: 0
+    selectedPotionType: 0
+    totalLevel: 19
+    autoAtk: {fileID: 11400000, guid: f4d8cad2a9a2b02449420d6832502937, type: 2}
+    ability1: {fileID: 11400000, guid: 0967b2b18fb4f4a42a194cde27ae3704, type: 2}
+    ability2: {fileID: 11400000, guid: 2767b24bdb91e4845ac391337bf3b166, type: 2}
+    ability3: {fileID: 11400000, guid: 9606f02bbe713c94489e085fb5cf05c9, type: 2}
+    potion: {fileID: 11400000, guid: 3325535cecac7e8459de80fb98690e19, type: 2}
+    AbilityUnlocks: []
+  - heroName: 
+    characterTotalXP: 0
+    characterAvailableXP: 245
+    healthArrayLevel: 1
+    atkArrayLevel: 12
+    abilityArrayLevel: 5
+    nextXPCost: 0
+    health: 110
+    atk: 22
+    abilityPower: 16
+    charUnlock: 0
+    autoAtkUnlock: 1
+    ability1Unlock: 1
+    ability2Unlock: 0
+    ability3Unlock: 0
+    potionUnlock: 0
+    selectedPotionType: 0
+    totalLevel: 18
+    autoAtk: {fileID: 0}
+    ability1: {fileID: 0}
+    ability2: {fileID: 0}
+    ability3: {fileID: 0}
+    potion: {fileID: 0}
+    AbilityUnlocks: []
+  CurrentEditingCharacter:
+    heroName: 
+    characterTotalXP: 0
+    characterAvailableXP: 245
+    healthArrayLevel: 1
+    atkArrayLevel: 12
+    abilityArrayLevel: 5
+    nextXPCost: 0
+    health: 110
+    atk: 22
+    abilityPower: 16
+    charUnlock: 0
+    autoAtkUnlock: 1
+    ability1Unlock: 1
+    ability2Unlock: 0
+    ability3Unlock: 0
+    potionUnlock: 0
+    selectedPotionType: 0
+    totalLevel: 18
+    autoAtk: {fileID: 0}
+    ability1: {fileID: 0}
+    ability2: {fileID: 0}
+    ability3: {fileID: 0}
+    potion: {fileID: 0}
+    AbilityUnlocks: []

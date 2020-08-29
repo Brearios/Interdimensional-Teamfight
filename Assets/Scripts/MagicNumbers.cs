@@ -7,6 +7,10 @@ public class MagicNumbers : MonoBehaviour
     public int brawlScalingParticipantThreshold;
     public int raidScalingParticipantThreshold;
     public int epicBattleMaxScalingParticipantThreshold;
+    public float tankBonusThreatIterator; // Originally set to 0.25f
+    public float tankHealthMultiplier;
+    public float newGamePlusEnemyDamageIncrease;
+    public float newGamePlusEnemyHealthIncrease;
     //public float epicBattleSmallEnemy;
     //public float epicBattleNormalEnemy;
     //public float epicBattleLargeEnemy;

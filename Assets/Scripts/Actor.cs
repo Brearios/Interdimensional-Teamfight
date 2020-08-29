@@ -56,8 +56,8 @@ public class Actor : MonoBehaviour
     public bool isDead;
     // public CharacterProfile MageStats;
     public float ThreatScore;
-    public float tankBonusThreat;
-    public float tankBonusThreatIterator;
+    public float totalCurrentTankThreatMultiplier;
+    // public float tankBonusThreatIterator;
     public float targetCheckCount;
     public float targetCheckFrequency;
     public bool hasTaunted;
@@ -86,7 +86,6 @@ public class Actor : MonoBehaviour
         maxHealth = unit.maxHealth;
         attackDamage = unit.attackDamage;
         abilityPower = unit.abilityPower;
-        tankBonusThreatIterator = 0.25f;
         // MageStats = GameObject.FindObjectOfType<CharacterProfile>();
 
         CharacterProfile currentProfile = PlayerProfile.Instance.GetCharacterProfileForUnit(unit);
@@ -153,7 +152,7 @@ public class Actor : MonoBehaviour
         }
 
         role = unit.role;
-        atkRange = unit.atkRange;
+        atkRange = autoAtk.abilityRange;
         
         abilityAnimationType = unit.abilityAnimationType;
         // teamName = Team.Neutral;
@@ -304,6 +303,8 @@ public class Actor : MonoBehaviour
     // Fully broken right now
     void TargetLineDisplay()
     {
+        // Not working, have not been able to isolate reason
+
             if (highThreatTarget)
             {
                 Debug.DrawLine(transform.position, highThreatTarget.transform.position);
@@ -628,7 +629,7 @@ public class Actor : MonoBehaviour
             // Taunt
             else if (ability.abilityData.abilityName == "Taunt")
             {
-                tankBonusThreat += tankBonusThreatIterator;
+                totalCurrentTankThreatMultiplier += MagicNumbers.Instance.tankBonusThreatIterator;
                 ability.currentTarget.highThreatTarget = this;
                 ApplyStatusEffect(this, ability.currentTarget, ability.abilityData.effect);
                 Debug.Log($"{unitName} is using {ability.abilityData.abilityName} on {ability.currentTarget}");
@@ -651,10 +652,10 @@ public class Actor : MonoBehaviour
             }
 
             // Potion
-            else if ((ability.abilityData.targetType == ScriptableAbility.TargetType.Self) && ability.abilityData.name == "Potion")
+            else if ((ability.abilityData.targetType == ScriptableAbility.TargetType.Self) && ability.abilityData.isPotion)
             {
                 // Potion Logic Here
-                UsePotion();
+                UsePotion(ability);
             }
             // Heal
             else if (ability.abilityData.targetType == ScriptableAbility.TargetType.Heal)
@@ -817,7 +818,8 @@ public class Actor : MonoBehaviour
             else if (unit.role == "Tank")
             {
                 ThreatScore = (((maxHealth / currHealth) * (attackDamage + abilityPower)) - (currHealth / 15));
-                ThreatScore += Mathf.Abs((ThreatScore * tankBonusThreat));
+                // Mathf.Abs keeps the number positive no matter the value of ThreatScore
+                ThreatScore += Mathf.Abs((ThreatScore * totalCurrentTankThreatMultiplier));
             }
             else
             {
@@ -842,7 +844,7 @@ public class Actor : MonoBehaviour
         {
             if (unit.role == "Tank")
             {
-                maxHealth = (3 * currentProfile.health);
+                maxHealth = (MagicNumbers.Instance.tankHealthMultiplier * currentProfile.health);
             }
             else
             {
@@ -996,10 +998,10 @@ public class Actor : MonoBehaviour
             GameManager.Instance.enemyDeaths++;
         }
     }
-    public void ApplyStatusEffect (Actor caster, Actor actor, ScriptableEffect effect)
+    public void ApplyStatusEffect (Actor caster, Actor target, ScriptableEffect effect)
     {
         EffectData effectData = new EffectData(effect, caster.abilityPower);
-        actor.CurrentEffects.Add(effectData);
+        target.CurrentEffects.Add(effectData);
     }
 
     public void ProcessStatusEffect (EffectData effect)
@@ -1033,6 +1035,7 @@ public class Actor : MonoBehaviour
             {
                 ApplyOverTimeEffect(effect.hpDeltaPerTickInt, effect.effectSettings.effectName);
                 effect.effectTickDurationCount -= effect.effectSettings.effectTickDuration;
+                Debug.Log($"{this.unitName} is healed for {effect.hpDeltaPerTick} by {effect.effectSettings.effectName}.");
             }
             if (effect.remainingDuration >= effect.effectSettings.totalDuration)
             {
@@ -1076,8 +1079,25 @@ public class Actor : MonoBehaviour
         }
     }
 
-    public void UsePotion()
+    public void UsePotion(AbilityProcessor ability)
     {
+        if (ability.abilityData.abilityName == "Regen Potion")
+        {
+            ApplyPotionEffect(this, ability.abilityData, ability.abilityData.effect);
+            Debug.Log($"{unitName} is using {ability.abilityData.abilityName}, which should heal for {(ability.abilityData.potionAbilityPower * 10)} percent health over time.");
+        }
 
+        // else if for each potion type
+
+        else
+        {
+            Debug.Log($"{unitName} is using a potion which has not yet been implemented. It has no effect.");
+        }
+    }
+
+    public void ApplyPotionEffect(Actor user, ScriptableAbility ability, ScriptableEffect effect)
+    {
+        EffectData potionEffectData = new EffectData(user, effect, ability.potionAbilityPower);
+        user.CurrentEffects.Add(potionEffectData);
     }
 }

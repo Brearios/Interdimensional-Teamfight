@@ -22,6 +22,7 @@ public class ScriptableAbility : ScriptableObject
     // public float cooldownCount;
     public bool startsOnCooldown;
     public bool isAutoAtk;
+    public bool isPotion;
     public string description;
     // public Actor currentTarget;
     public ScriptableEffect effect;
@@ -29,4 +30,5 @@ public class ScriptableAbility : ScriptableObject
     // public bool isTauntable; Unnecessary due to use of TargetType - only EnemyDamage is tauntable
     // public int rank; Do I want ranks?
     public int unlockCost;
+    public int potionAbilityPower;
 }

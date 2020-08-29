@@ -2035,6 +2035,8 @@ MonoBehaviour:
   brawlScalingParticipantThreshold: 20
   raidScalingParticipantThreshold: 30
   epicBattleMaxScalingParticipantThreshold: 50
+  tankBonusThreatIterator: 0.25
+  tankHealthMultiplier: 3
 --- !u!4 &1413114752
 Transform:
   m_ObjectHideFlags: 0
