@@ -40,7 +40,7 @@ public class EffectData
         // Setting total of healing potion to X% of max health - 3 = 30%, 4 = 40%
         effectHpDelta = (((int)user.maxHealth * potionAbilityPower) / 10);
         // Determining HoT/DoT effect - planning for 100% of direct damage/heal
-        hpDeltaPerTick = ((effectHpDelta * potionAbilityPower) * (effect.effectTickDuration / effect.totalDuration));
+        hpDeltaPerTick = ((effectHpDelta) * (effect.effectTickDuration / effect.totalDuration));
 
         hpDeltaPerTickInt = (int)hpDeltaPerTick;
     }
