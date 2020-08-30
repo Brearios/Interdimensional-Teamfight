@@ -2037,6 +2037,8 @@ MonoBehaviour:
   epicBattleMaxScalingParticipantThreshold: 50
   tankBonusThreatIterator: 0.25
   tankHealthMultiplier: 3
+  newGamePlusEnemyDamageIncrease: 0
+  newGamePlusEnemyHealthIncrease: 0
 --- !u!4 &1413114752
 Transform:
   m_ObjectHideFlags: 0
@@ -2626,6 +2628,11 @@ PrefabInstance:
         type: 3}
       propertyPath: heroes.Array.size
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: UnlockedHeroes.Array.size
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
         type: 3}

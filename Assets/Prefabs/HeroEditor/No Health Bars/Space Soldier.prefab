@@ -7803,8 +7803,7 @@ MonoBehaviour:
   CurrentEffectsRemovalIds: []
   isDead: 0
   ThreatScore: 0
-  tankBonusThreat: 0
-  tankBonusThreatIterator: 0
+  totalCurrentTankThreatMultiplier: 0
   targetCheckCount: 0
   targetCheckFrequency: 0
   hasTaunted: 0
