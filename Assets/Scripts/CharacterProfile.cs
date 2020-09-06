@@ -15,7 +15,7 @@ public class CharacterProfile
     public int abilityArrayLevel;
     public int nextXPCost;
     public int health;
-    public int atk;
+    public int attackPower;
     public int abilityPower;
     public bool charUnlock;
     public bool autoAtkUnlock;

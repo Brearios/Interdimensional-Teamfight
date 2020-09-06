@@ -7,8 +7,8 @@ public class PlayerProfile : MonoBehaviour
 {
     public static PlayerProfile Instance;
     public CharacterProfile mageHero;
-    public CharacterProfile warriorHero;
     public CharacterProfile priestHero;
+    public CharacterProfile warriorHero;
     public CharacterProfile rogueHero;
     public CharacterProfile plantHero;
     public CharacterProfile steamHero;

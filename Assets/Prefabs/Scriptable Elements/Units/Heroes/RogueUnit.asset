@@ -14,11 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitName: Rogue
   maxHealth: 100
-  attackDamage: 15
-  abilityPower: 8
+  attackDamage: 5
+  abilityPower: 6
   globalCooldown: 2
   xpWhenKilled: 25
   crystalsWhenKilled: 0
+  goldWhenKilled: 0
   role: MeleeDPS
   team: 
   atkRange: 2

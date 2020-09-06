@@ -25,5 +25,5 @@ MonoBehaviour:
   atkRange: 3
   moveSpeed: 1
   targetCheckFrequency: 2
-  abilityAnimationType: Cast
+  abilityAnimationType: Shoot
   dmgVariance: 0.25

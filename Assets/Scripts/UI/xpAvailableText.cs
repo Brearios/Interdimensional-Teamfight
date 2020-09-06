@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -18,6 +19,10 @@ public class xpAvailableText : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        text.text = $"{SceneCharacter.characterAvailableXP} XP Remaining";
+        text.text = $"Current Level: {SceneCharacter.totalLevel +1}{Environment.NewLine} " +
+            $"Health: {SceneCharacter.health} {Environment.NewLine} " +
+            $"Attack Damage: {SceneCharacter.attackPower} {Environment.NewLine} " +
+            $"Ability Power: {SceneCharacter.abilityPower} {Environment.NewLine} " +
+            $"{SceneCharacter.characterAvailableXP} XP Remaining";
     }
 }

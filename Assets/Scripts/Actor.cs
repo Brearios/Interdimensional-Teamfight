@@ -834,7 +834,7 @@ public class Actor : MonoBehaviour
         CharacterProfile currentProfile = PlayerProfile.Instance.GetCharacterProfileForUnit(unit);
         if (currentProfile.atkArrayLevel > 0)
         {
-            attackDamage = currentProfile.atk;
+            attackDamage = currentProfile.attackPower;
         }
         if (currentProfile.abilityArrayLevel > 0)
         {

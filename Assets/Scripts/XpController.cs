@@ -75,7 +75,7 @@ public class XpController : MonoBehaviour
             // i++;
             nextXPCost = xpCosts[indexOfXpCosts];
             // atkIndex++;
-            SceneCharacter.atk = atkLevel[SceneCharacter.atkArrayLevel];
+            SceneCharacter.attackPower = atkLevel[SceneCharacter.atkArrayLevel];
             IncrementLevel();
         }
     }

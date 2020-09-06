@@ -3007,6 +3007,51 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 9606f02bbe713c94489e085fb5cf05c9,
         type: 2}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: mageHero.attackPower
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: priestHero.attackPower
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: warriorHero.attackPower
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: rogueHero.attackPower
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: plantHero.attackPower
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: steamHero.attackPower
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: spaceSoldier.health
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: spaceSoldier.attackPower
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: spaceSoldier.abilityPower
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 611108803042512250, guid: db534adf8c82c12469f782d9128fd3f1,
         type: 3}
       propertyPath: m_LocalPosition.x

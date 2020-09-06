@@ -26,7 +26,9 @@ public class ScriptableAbility : ScriptableObject
     public string description;
     // public Actor currentTarget;
     public ScriptableEffect effect;
-    public float abilityCharges; // Not sure if we'll do this
+    public bool storesCharges; // Not sure if we'll do this, only seems necessary for taunts
+    public int currentAbilityCharges; 
+    public int maxAbilityCharges;
     // public bool isTauntable; Unnecessary due to use of TargetType - only EnemyDamage is tauntable
     // public int rank; Do I want ranks?
     public int unlockCost;

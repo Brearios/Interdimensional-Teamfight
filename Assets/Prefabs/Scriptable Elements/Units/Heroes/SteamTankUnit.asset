@@ -15,7 +15,7 @@ MonoBehaviour:
   unitName: SteamBot
   maxHealth: 300
   attackDamage: 5
-  abilityPower: 8
+  abilityPower: 6
   globalCooldown: 2
   xpWhenKilled: 25
   crystalsWhenKilled: 0

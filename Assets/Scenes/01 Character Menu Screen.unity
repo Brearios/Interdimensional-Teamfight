@@ -583,7 +583,7 @@ MonoBehaviour:
     abilityArrayLevel: 0
     nextXPCost: 0
     health: 0
-    atk: 0
+    attackPower: 0
     abilityPower: 0
     charUnlock: 0
     autoAtkUnlock: 0
@@ -858,7 +858,7 @@ MonoBehaviour:
     abilityArrayLevel: 0
     nextXPCost: 0
     health: 0
-    atk: 0
+    attackPower: 0
     abilityPower: 0
     charUnlock: 0
     autoAtkUnlock: 0
@@ -1171,7 +1171,7 @@ MonoBehaviour:
     abilityArrayLevel: 0
     nextXPCost: 0
     health: 0
-    atk: 0
+    attackPower: 0
     abilityPower: 0
     charUnlock: 0
     autoAtkUnlock: 0
@@ -1734,7 +1734,7 @@ MonoBehaviour:
     abilityArrayLevel: 0
     nextXPCost: 0
     health: 0
-    atk: 0
+    attackPower: 0
     abilityPower: 0
     charUnlock: 0
     autoAtkUnlock: 0
@@ -1904,7 +1904,7 @@ MonoBehaviour:
     abilityArrayLevel: 0
     nextXPCost: 0
     health: 0
-    atk: 0
+    attackPower: 0
     abilityPower: 0
     charUnlock: 0
     autoAtkUnlock: 0
@@ -2739,7 +2739,7 @@ MonoBehaviour:
     abilityArrayLevel: 0
     nextXPCost: 0
     health: 0
-    atk: 0
+    attackPower: 0
     abilityPower: 0
     charUnlock: 0
     autoAtkUnlock: 0
@@ -3158,7 +3158,7 @@ MonoBehaviour:
     abilityArrayLevel: 0
     nextXPCost: 0
     health: 0
-    atk: 0
+    attackPower: 0
     abilityPower: 0
     charUnlock: 0
     autoAtkUnlock: 0
@@ -3921,7 +3921,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -242, y: 28}
+  m_AnchoredPosition: {x: -242, y: 0}
   m_SizeDelta: {x: 200, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &467154030
@@ -4304,7 +4304,7 @@ MonoBehaviour:
     abilityArrayLevel: 0
     nextXPCost: 0
     health: 0
-    atk: 0
+    attackPower: 0
     abilityPower: 0
     charUnlock: 0
     autoAtkUnlock: 0
@@ -5304,7 +5304,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -242, y: 28}
+  m_AnchoredPosition: {x: -242, y: 0}
   m_SizeDelta: {x: 200, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &706580216
@@ -5601,7 +5601,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -250, y: 65}
+  m_AnchoredPosition: {x: -250, y: 115}
   m_SizeDelta: {x: 227.5, y: 158.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &731640861
@@ -5625,7 +5625,7 @@ MonoBehaviour:
     abilityArrayLevel: 0
     nextXPCost: 0
     health: 0
-    atk: 0
+    attackPower: 0
     abilityPower: 0
     charUnlock: 0
     autoAtkUnlock: 0
@@ -6272,7 +6272,7 @@ MonoBehaviour:
     abilityArrayLevel: 0
     nextXPCost: 0
     health: 0
-    atk: 0
+    attackPower: 0
     abilityPower: 0
     charUnlock: 0
     autoAtkUnlock: 0
@@ -6495,7 +6495,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -250, y: 65}
+  m_AnchoredPosition: {x: -250, y: 115}
   m_SizeDelta: {x: 227.5, y: 158.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &865685913
@@ -6519,7 +6519,7 @@ MonoBehaviour:
     abilityArrayLevel: 0
     nextXPCost: 0
     health: 0
-    atk: 0
+    attackPower: 0
     abilityPower: 0
     charUnlock: 0
     autoAtkUnlock: 0
@@ -7475,7 +7475,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -250, y: 65}
+  m_AnchoredPosition: {x: -250, y: 115}
   m_SizeDelta: {x: 227.5, y: 158.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1036725853
@@ -7499,7 +7499,7 @@ MonoBehaviour:
     abilityArrayLevel: 0
     nextXPCost: 0
     health: 0
-    atk: 0
+    attackPower: 0
     abilityPower: 0
     charUnlock: 0
     autoAtkUnlock: 0
@@ -7548,7 +7548,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "250 XP \nRemaining"
+  m_Text: "Current Level: 1\nHealth: 100\nAttak Power: 5\nAbility Power: 8\n250 XP
+    \nRemaining\n"
 --- !u!222 &1036725855
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7839,7 +7840,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -250, y: 65}
+  m_AnchoredPosition: {x: -250, y: 115}
   m_SizeDelta: {x: 227.5, y: 158.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1111550069
@@ -7863,7 +7864,7 @@ MonoBehaviour:
     abilityArrayLevel: 0
     nextXPCost: 0
     health: 0
-    atk: 0
+    attackPower: 0
     abilityPower: 0
     charUnlock: 0
     autoAtkUnlock: 0
@@ -8134,7 +8135,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -242, y: 28}
+  m_AnchoredPosition: {x: -242, y: 0}
   m_SizeDelta: {x: 200, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1182767070
@@ -8270,7 +8271,7 @@ MonoBehaviour:
     abilityArrayLevel: 0
     nextXPCost: 0
     health: 0
-    atk: 0
+    attackPower: 0
     abilityPower: 0
     charUnlock: 0
     autoAtkUnlock: 0
@@ -8602,7 +8603,7 @@ MonoBehaviour:
     abilityArrayLevel: 0
     nextXPCost: 0
     health: 0
-    atk: 0
+    attackPower: 0
     abilityPower: 0
     charUnlock: 0
     autoAtkUnlock: 0
@@ -9216,7 +9217,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -250, y: 28}
+  m_AnchoredPosition: {x: -250, y: 0}
   m_SizeDelta: {x: 200, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1373503224
@@ -9604,7 +9605,7 @@ MonoBehaviour:
     abilityArrayLevel: 0
     nextXPCost: 0
     health: 0
-    atk: 0
+    attackPower: 0
     abilityPower: 0
     charUnlock: 0
     autoAtkUnlock: 0
@@ -9937,7 +9938,7 @@ MonoBehaviour:
     abilityArrayLevel: 0
     nextXPCost: 0
     health: 0
-    atk: 0
+    attackPower: 0
     abilityPower: 0
     charUnlock: 0
     autoAtkUnlock: 0
@@ -10240,7 +10241,7 @@ MonoBehaviour:
     abilityArrayLevel: 0
     nextXPCost: 0
     health: 0
-    atk: 0
+    attackPower: 0
     abilityPower: 0
     charUnlock: 0
     autoAtkUnlock: 0
@@ -10501,7 +10502,7 @@ MonoBehaviour:
     abilityArrayLevel: 0
     nextXPCost: 0
     health: 0
-    atk: 0
+    attackPower: 0
     abilityPower: 0
     charUnlock: 0
     autoAtkUnlock: 0
@@ -11265,7 +11266,7 @@ MonoBehaviour:
     abilityArrayLevel: 0
     nextXPCost: 0
     health: 0
-    atk: 0
+    attackPower: 0
     abilityPower: 0
     charUnlock: 0
     autoAtkUnlock: 0
@@ -12363,7 +12364,7 @@ MonoBehaviour:
     abilityArrayLevel: 0
     nextXPCost: 0
     health: 0
-    atk: 0
+    attackPower: 0
     abilityPower: 0
     charUnlock: 0
     autoAtkUnlock: 0
@@ -12719,7 +12720,7 @@ MonoBehaviour:
     abilityArrayLevel: 0
     nextXPCost: 0
     health: 0
-    atk: 0
+    attackPower: 0
     abilityPower: 0
     charUnlock: 0
     autoAtkUnlock: 0
@@ -12972,7 +12973,7 @@ MonoBehaviour:
     abilityArrayLevel: 0
     nextXPCost: 0
     health: 0
-    atk: 0
+    attackPower: 0
     abilityPower: 0
     charUnlock: 0
     autoAtkUnlock: 0
@@ -13405,7 +13406,7 @@ MonoBehaviour:
     abilityArrayLevel: 0
     nextXPCost: 0
     health: 0
-    atk: 0
+    attackPower: 0
     abilityPower: 0
     charUnlock: 0
     autoAtkUnlock: 0
