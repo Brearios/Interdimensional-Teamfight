@@ -2977,6 +2977,36 @@ PrefabInstance:
       propertyPath: heroes.Array.data[6].spawn
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: spaceSoldier.potion
+      value: 
+      objectReference: {fileID: 11400000, guid: 3325535cecac7e8459de80fb98690e19,
+        type: 2}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: spaceSoldier.autoAtk
+      value: 
+      objectReference: {fileID: 11400000, guid: f4d8cad2a9a2b02449420d6832502937,
+        type: 2}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: spaceSoldier.ability1
+      value: 
+      objectReference: {fileID: 11400000, guid: 7b72295f36858f049bdc3c20a93bd0d8,
+        type: 2}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: spaceSoldier.ability2
+      value: 
+      objectReference: {fileID: 11400000, guid: e0e64450ef3e11b4ea011125f457e545,
+        type: 2}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: spaceSoldier.ability3
+      value: 
+      objectReference: {fileID: 11400000, guid: 9606f02bbe713c94489e085fb5cf05c9,
+        type: 2}
     - target: {fileID: 611108803042512250, guid: db534adf8c82c12469f782d9128fd3f1,
         type: 3}
       propertyPath: m_LocalPosition.x
