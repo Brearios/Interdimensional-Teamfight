@@ -44,7 +44,7 @@ public class XpController : MonoBehaviour
     {
         if (SceneCharacter != null)
         indexOfXpCosts = (SceneCharacter.healthArrayLevel + SceneCharacter.atkArrayLevel + SceneCharacter.abilityArrayLevel);
-        nextXPCost = xpCosts[indexOfXpCosts];
+        SceneCharacter.nextXPCost = xpCosts[indexOfXpCosts];
     }
     public void IncrementHealth()
     {
