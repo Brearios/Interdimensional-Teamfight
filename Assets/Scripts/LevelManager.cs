@@ -239,7 +239,6 @@ public class LevelManager : MonoBehaviour
         }
         else if (newGamePlusActive)
         {
-
             GameObject Fighter = Instantiate(characterPrefab, randomSpawnPosition, characterPrefab.transform.rotation);
             NewGamePlusStatScaler(Fighter);
             FighterScaler(battleSize, spawnSize);
