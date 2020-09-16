@@ -7,6 +7,8 @@ using UnityEngine;
 public class ScriptableLevel : ScriptableObject
 {
     public int levelNumber;
+
+    // Unused, but might want limits
     public int maxFriendlyCharacters;
 
     // Currently unused, but will be necessary with more levels than heroes

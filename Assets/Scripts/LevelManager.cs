@@ -15,6 +15,9 @@ public class LevelManager : MonoBehaviour
     public float battleParticipantsScaling;
     public enum BattleSize { skirmish, brawl, raid, battle };
     public BattleSize battleSize;
+    public float npcHealthScalingNewGamePlus;
+    public float npcAttackPowerScalingNewGamePlus;
+    public float npcAbilityPowerScalingNewGamePlus;
 
     // List of prefabs to instantiate - list for heroes and enemies?
 
@@ -53,14 +56,14 @@ public class LevelManager : MonoBehaviour
         }
 
         SetScalingThreshold();
-        
+
         // Code to select level in list that matches CurrentLevelInt and set to currentLevel;
         foreach (LevelPrefabData unitSpawnData in currentLevel.nPCSpawnData)
         {
             for (int i = 0; i < unitSpawnData.numberOfInstances; i++)
             {
-                SpawnAndScaleFighter(unitSpawnData.characterPrefab, GenerateRandomPosition(unitSpawnData.spawn), (int)unitSpawnData.size);
-            }                       
+                SpawnAndScaleFighter(unitSpawnData.characterPrefab, GenerateRandomPosition(unitSpawnData.spawn), (int)unitSpawnData.size, PlayerProfile.Instance.newGamePlusActive, PlayerProfile.Instance.newGamePlusIterator);
+            }
         }
         foreach (HeroData unlockedHeroSpawnData in PlayerProfile.Instance.UnlockedHeroes)
         {
@@ -96,7 +99,7 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
 
@@ -115,49 +118,49 @@ public class LevelManager : MonoBehaviour
                 minYPosition = -4.7f;
                 maxYPosition = 2.9f;
                 Vector3 randomPositionAnywhere = new Vector3(UnityEngine.Random.Range(minXPosition, maxXPosition), UnityEngine.Random.Range(minYPosition, maxYPosition), 0.0f);
-                    return randomPositionAnywhere;
+                return randomPositionAnywhere;
             case LevelPrefabData.SpawnRegion.AlliedMelee: //AlliedMelee
                 minXPosition = -4;
                 maxXPosition = -0.75f;
                 minYPosition = -4.7f;
                 maxYPosition = 2.9f;
                 Vector3 randomPositionAlliedMelee = new Vector3(UnityEngine.Random.Range(minXPosition, maxXPosition), UnityEngine.Random.Range(minYPosition, maxYPosition), 0.0f);
-                    return randomPositionAlliedMelee;
+                return randomPositionAlliedMelee;
             case LevelPrefabData.SpawnRegion.AlliedRanged: //AlliedRanged
                 minXPosition = -8;
                 maxXPosition = -4;
                 minYPosition = -4.7f;
                 maxYPosition = 2.9f;
                 Vector3 randomPositionAlliedRanged = new Vector3(UnityEngine.Random.Range(minXPosition, maxXPosition), UnityEngine.Random.Range(minYPosition, maxYPosition), 0.0f);
-                    return randomPositionAlliedRanged;
+                return randomPositionAlliedRanged;
             case LevelPrefabData.SpawnRegion.AlliedSide: //AlliedSide
                 minXPosition = -8;
                 maxXPosition = 0.75f;
                 minYPosition = -4.7f;
                 maxYPosition = 2.9f;
                 Vector3 randomPositionAlliedSide = new Vector3(UnityEngine.Random.Range(minXPosition, maxXPosition), UnityEngine.Random.Range(minYPosition, maxYPosition), 0.0f);
-                    return randomPositionAlliedSide;
+                return randomPositionAlliedSide;
             case LevelPrefabData.SpawnRegion.EnemyMelee: //EnemyMelee
                 minXPosition = 0.75f;
                 maxXPosition = 8;
                 minYPosition = -4.7f;
                 maxYPosition = 2.9f;
                 Vector3 randomPositionEnemyMelee = new Vector3(UnityEngine.Random.Range(minXPosition, maxXPosition), UnityEngine.Random.Range(minYPosition, maxYPosition), 0.0f);
-                    return randomPositionEnemyMelee;
+                return randomPositionEnemyMelee;
             case LevelPrefabData.SpawnRegion.EnemyRanged: //EnemyRanged
                 minXPosition = 4;
                 maxXPosition = 8;
                 minYPosition = -4.7f;
                 maxYPosition = 2.9f;
                 Vector3 randomPositionEnemyRanged = new Vector3(UnityEngine.Random.Range(minXPosition, maxXPosition), UnityEngine.Random.Range(minYPosition, maxYPosition), 0.0f);
-                    return randomPositionEnemyRanged;
+                return randomPositionEnemyRanged;
             case LevelPrefabData.SpawnRegion.EnemySide: //EnemySide
                 minXPosition = 0.75f;
                 maxXPosition = 8;
                 minYPosition = -4.7f;
                 maxYPosition = 2.9f;
                 Vector3 randomPositionEnemySide = new Vector3(UnityEngine.Random.Range(minXPosition, maxXPosition), UnityEngine.Random.Range(minYPosition, maxYPosition), 0.0f);
-                    return randomPositionEnemySide;
+                return randomPositionEnemySide;
         }
         Vector3 randomBoundariesUndefined = new Vector3(0, 0, 0);
         return randomBoundariesUndefined;
@@ -225,6 +228,26 @@ public class LevelManager : MonoBehaviour
         return randomBoundariesUndefined;
     }
 
+    // NPC Version
+    void SpawnAndScaleFighter(GameObject characterPrefab, Vector3 randomSpawnPosition, int spawnSize, bool newGamePlusActive, int newGamePlusIterator)
+    {
+        if (!newGamePlusActive)
+        {
+            GameObject Fighter = Instantiate(characterPrefab, randomSpawnPosition, characterPrefab.transform.rotation);
+            FighterScaler(battleSize, spawnSize);
+            Fighter.transform.localScale = new Vector3(battleParticipantsScaling, battleParticipantsScaling, battleParticipantsScaling);
+        }
+        else if (newGamePlusActive)
+        {
+
+            GameObject Fighter = Instantiate(characterPrefab, randomSpawnPosition, characterPrefab.transform.rotation);
+            NewGamePlusStatScaler(Fighter);
+            FighterScaler(battleSize, spawnSize);
+            Fighter.transform.localScale = new Vector3(battleParticipantsScaling, battleParticipantsScaling, battleParticipantsScaling);
+        }
+    }
+
+    // Hero Version
     void SpawnAndScaleFighter(GameObject characterPrefab, Vector3 randomSpawnPosition, int spawnSize)
     {
         GameObject Fighter = Instantiate(characterPrefab, randomSpawnPosition, characterPrefab.transform.rotation);
@@ -288,24 +311,24 @@ public class LevelManager : MonoBehaviour
                 case 3:
                     battleParticipantsScaling = 0.825f;
                     break;
-                }
             }
+        }
         if (battleSize == BattleSize.battle)
         {
             switch (spawnSize)
             {
-            case 0:
-                battleParticipantsScaling = 0.2f;
-                break;
-            case 1:
-                battleParticipantsScaling = 0.28f;
-                break;
-            case 2:
-                battleParticipantsScaling = 0.4f;
-                break;
-            case 3:
-                battleParticipantsScaling = 0.55f;
-                break;
+                case 0:
+                    battleParticipantsScaling = 0.2f;
+                    break;
+                case 1:
+                    battleParticipantsScaling = 0.28f;
+                    break;
+                case 2:
+                    battleParticipantsScaling = 0.4f;
+                    break;
+                case 3:
+                    battleParticipantsScaling = 0.55f;
+                    break;
             }
         }
     }
@@ -314,6 +337,15 @@ public class LevelManager : MonoBehaviour
     //{
 
     //}
+
+    void NewGamePlusStatScaler(GameObject Fighter)
+    {
+        Actor ScaledStats = Fighter.GetComponentInChildren<Actor>();
+        ScaledStats.maxHealth *= MagicNumbers.Instance.newGamePlusEnemyHealthMultiplier[PlayerProfile.Instance.newGamePlusIterator];
+        ScaledStats.attackDamage = (int)((float)ScaledStats.attackDamage * MagicNumbers.Instance.newGamePlusEnemyAutoAtkDamageMultiplier[PlayerProfile.Instance.newGamePlusIterator]);
+        ScaledStats.abilityPower = (int)((float)ScaledStats.abilityPower * MagicNumbers.Instance.newGamePlusEnemyHealthMultiplier[PlayerProfile.Instance.newGamePlusIterator]);
+    }
+
 
     internal void ProcessVictory()
     {

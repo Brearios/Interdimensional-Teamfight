@@ -16,6 +16,8 @@ public class PlayerProfile : MonoBehaviour
     public int currentEditingInteger;
     public ScriptableAbility currentDetailAbility;
     public int nextBattleScene;
+    public int newGamePlusIterator;
+    public bool newGamePlusActive;
     public int earnedCrystals;
     public int currentCrystals;
     public int totalGold;
@@ -48,6 +50,7 @@ public class PlayerProfile : MonoBehaviour
         }
 
         nextBattleScene = 0;
+        newGamePlusIterator = 0;
 
         UnlockedHeroes.Add(startingHero);
 

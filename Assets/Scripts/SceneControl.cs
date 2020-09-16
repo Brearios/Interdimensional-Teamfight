@@ -97,6 +97,10 @@ public class SceneControl : MonoBehaviour
     public void NewGamePlus()
     {
         PlayerProfile.Instance.nextBattleScene = 0;
+        PlayerProfile.Instance.newGamePlusActive = true;
+        Debug.Log($"New Game Plus Active = {PlayerProfile.Instance.newGamePlusActive}");
+        PlayerProfile.Instance.newGamePlusIterator += 1;
+        Debug.Log($"New Game Plus level = {PlayerProfile.Instance.newGamePlusIterator}");
         SceneManager.LoadScene(2);
     }
 
