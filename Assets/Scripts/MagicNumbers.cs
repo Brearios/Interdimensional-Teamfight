@@ -9,10 +9,14 @@ public class MagicNumbers : MonoBehaviour
     public int epicBattleMaxScalingParticipantThreshold;
     public float tankBonusThreatIterator; // Originally set to 0.25f
     public float tankHealthMultiplier;
-    public float[] newGamePlusEnemyHealthMultiplier = { 1.8f, 2.6f, 4.2f };
+    public float targetCheckRandomRangeLowerBound;
+    // public float[] newGamePlusEnemyHealthMultiplier = { 1.8f, 2.6f, 4.2f };
+    public float[] newGamePlusEnemyHealthMultiplier;
     // No rhyme or reason to these amounts
-    public float[] newGamePlusEnemyAutoAtkDamageMultiplier = { 2f, 3.5f, 4.5f };
-    public float[] newGamePlusEnemyAbilityPowerMultiplier = { 2f, 3.5f, 4.5f };
+    // public float[] newGamePlusEnemyAutoAtkDamageMultiplier = { 2f, 3.5f, 4.5f };
+    public float[] newGamePlusEnemyAutoAtkDamageMultiplier;
+    // public float[] newGamePlusEnemyAbilityPowerMultiplier = { 2f, 3.5f, 4.5f };
+    public float[] newGamePlusEnemyAbilityPowerMultiplier;
     //public float epicBattleSmallEnemy;
     //public float epicBattleNormalEnemy;
     //public float epicBattleLargeEnemy;

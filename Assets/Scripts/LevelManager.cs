@@ -240,7 +240,8 @@ public class LevelManager : MonoBehaviour
         else if (newGamePlusActive)
         {
             GameObject Fighter = Instantiate(characterPrefab, randomSpawnPosition, characterPrefab.transform.rotation);
-            NewGamePlusStatScaler(Fighter);
+            // Moved to Actor.Start
+            // NewGamePlusStatScaler(Fighter);
             FighterScaler(battleSize, spawnSize);
             Fighter.transform.localScale = new Vector3(battleParticipantsScaling, battleParticipantsScaling, battleParticipantsScaling);
         }
@@ -337,13 +338,15 @@ public class LevelManager : MonoBehaviour
 
     //}
 
-    void NewGamePlusStatScaler(GameObject Fighter)
-    {
-        Actor ScaledStats = Fighter.GetComponentInChildren<Actor>();
-        ScaledStats.maxHealth *= MagicNumbers.Instance.newGamePlusEnemyHealthMultiplier[PlayerProfile.Instance.newGamePlusIterator];
-        ScaledStats.attackDamage = (int)((float)ScaledStats.attackDamage * MagicNumbers.Instance.newGamePlusEnemyAutoAtkDamageMultiplier[PlayerProfile.Instance.newGamePlusIterator]);
-        ScaledStats.abilityPower = (int)((float)ScaledStats.abilityPower * MagicNumbers.Instance.newGamePlusEnemyHealthMultiplier[PlayerProfile.Instance.newGamePlusIterator]);
-    }
+
+    // Moved to Actor.Start
+    //void NewGamePlusStatScaler(GameObject Fighter)
+    //{
+    //    Actor ScaledStats = Fighter.GetComponentInChildren<Actor>();
+    //    ScaledStats.maxHealth *= MagicNumbers.Instance.newGamePlusEnemyHealthMultiplier[PlayerProfile.Instance.newGamePlusIterator];
+    //    ScaledStats.attackDamage = (int)((float)ScaledStats.attackDamage * MagicNumbers.Instance.newGamePlusEnemyAutoAtkDamageMultiplier[PlayerProfile.Instance.newGamePlusIterator]);
+    //    ScaledStats.abilityPower = (int)((float)ScaledStats.abilityPower * MagicNumbers.Instance.newGamePlusEnemyHealthMultiplier[PlayerProfile.Instance.newGamePlusIterator]);
+    //}
 
 
     internal void ProcessVictory()

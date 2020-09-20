@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Assets.HeroEditor.Common.CharacterScripts;
+using System;
 
 public class Actor : MonoBehaviour
 {
@@ -90,6 +91,12 @@ public class Actor : MonoBehaviour
 
         CharacterProfile currentProfile = PlayerProfile.Instance.GetCharacterProfileForUnit(unit);
 
+        if (!isPlayer && PlayerProfile.Instance.newGamePlusActive)
+        {
+            NewGamePlusStatScaler();
+        }
+
+
         // Check that abilities exist/are defined and that they're unlocked before running them
     if (isPlayer)
         {
@@ -165,7 +172,7 @@ public class Actor : MonoBehaviour
         crystalsWhenKilled = unit.crystalsWhenKilled;
         goldWhenKilled = unit.goldWhenKilled;
         targetCheckFrequency = unit.targetCheckFrequency;
-        targetCheckCount = Random.Range(.4f, unit.targetCheckFrequency);
+        targetCheckCount = UnityEngine.Random.Range(MagicNumbers.Instance.targetCheckRandomRangeLowerBound, unit.targetCheckFrequency);
         // PlayerCheck();
         if (isPlayer)
         {
@@ -177,6 +184,13 @@ public class Actor : MonoBehaviour
         beginAtkAnim = false;
         xpAdded = false;
         dmgVariance = unit.dmgVariance;
+    }
+
+    private void NewGamePlusStatScaler()
+    {
+        maxHealth *= MagicNumbers.Instance.newGamePlusEnemyHealthMultiplier[PlayerProfile.Instance.newGamePlusIterator];
+        attackDamage = (int)((float)attackDamage * MagicNumbers.Instance.newGamePlusEnemyAutoAtkDamageMultiplier[PlayerProfile.Instance.newGamePlusIterator]);
+        abilityPower = (int)((float)abilityPower * MagicNumbers.Instance.newGamePlusEnemyHealthMultiplier[PlayerProfile.Instance.newGamePlusIterator]);
     }
 
     // Update is called once per frame
@@ -689,7 +703,7 @@ public class Actor : MonoBehaviour
                 {
                     if (AoePotentialTarget.team != team)
                     {
-                        int roll = Random.Range(1, 100);
+                        int roll = UnityEngine.Random.Range(1, 100);
                         // The ability should hit "Chance to Hit" percent of the time, so if the roll is less than that percent, it should hit.
                         if (roll < ability.abilityData.aoeChancetoHit)
                         {
@@ -932,7 +946,7 @@ public class Actor : MonoBehaviour
             Debug.LogWarning($"{unitName}'s Damage Variance is set to 0.");
         }
         // Random chane from 0 to unit.DmgVariance
-        float randomChange = Random.Range(0, (hpToVary * dmgVariance));
+        float randomChange = UnityEngine.Random.Range(0, (hpToVary * dmgVariance));
         Debug.Log($"{unitName}'s attack or ability will vary by {randomChange}.");
 
         // randomChange to int, rounded to the Nearest Whole Number
@@ -940,7 +954,7 @@ public class Actor : MonoBehaviour
         Debug.Log($"Rounding, {unitName}'s attack or ability will vary by {randomIntChange}.");
 
         // Randomly negative or positive
-        int posOrNeg = Random.Range(1, 2);
+        int posOrNeg = UnityEngine.Random.Range(1, 2);
         if (posOrNeg == 1) // negative if 1
         {
             randomIntChange *= -1;
