@@ -142,4 +142,27 @@ public class XpController : MonoBehaviour
             // SceneCharacter.selectedPotionType = SceneCharacter.Reg
         }
     }
+
+    public void XpCostCalculator()
+    {
+        //double levelUpMultiplier = 1.0805;
+        //double levelUpStat = levelOneStat * levelUpMultiplier;
+        //ApplyLogic(levelUpLevel, levelUpStat, levelUpMultiplier, loopCount);
+    }
+
+    public void StatLevelCalculator()
+    {
+        // Do I need one of these for each stat? Should all be able to run the same variables.
+
+        //nextLevelIncrease = ((startingIncrease + (nextLevelStat * .1)) / 2);
+        //// Make the minimum value of a level 1.
+        //if (nextLevelIncrease < 1)
+        //{
+        //    nextLevelIncrease += 1;
+        //}
+        //nextLevelStat += nextLevelIncrease;
+        //nextLevelInt = Convert.ToInt32(nextLevelStat);
+        //// This essentially needs to be (10 + nextLevelStat / 2)
+        //levelUpLevel++;
+    }
 }
