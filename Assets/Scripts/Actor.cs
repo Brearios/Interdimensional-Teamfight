@@ -846,15 +846,15 @@ public class Actor : MonoBehaviour
     {
         // Identify whether player character
         CharacterProfile currentProfile = PlayerProfile.Instance.GetCharacterProfileForUnit(unit);
-        if (currentProfile.atkArrayLevel > 0)
+        if (currentProfile.atkListLevel > 0)
         {
             attackDamage = currentProfile.attackPower;
         }
-        if (currentProfile.abilityArrayLevel > 0)
+        if (currentProfile.abilityListLevel > 0)
         {
             abilityPower = currentProfile.abilityPower;
         }
-        if (currentProfile.healthArrayLevel > 0)
+        if (currentProfile.healthListLevel > 0)
         {
             if (unit.role == "Tank")
             {

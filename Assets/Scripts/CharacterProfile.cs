@@ -9,11 +9,12 @@ public class CharacterProfile
     public string heroName;
     public int characterTotalXP;
     public int characterAvailableXP;
+    public int nextXpCost;
     // _ArrayLevel variables are to count XP cost increments
-    public int healthArrayLevel;
-    public int atkArrayLevel;
-    public int abilityArrayLevel;
-    public int nextXPCost;
+    public int healthListLevel;
+    public int atkListLevel;
+    public int abilityListLevel;
+    
     public int health;
     public int attackPower;
     public int abilityPower;

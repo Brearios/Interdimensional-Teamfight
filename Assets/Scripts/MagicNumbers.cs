@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
+
 
 public class MagicNumbers : MonoBehaviour
 {
@@ -10,6 +12,20 @@ public class MagicNumbers : MonoBehaviour
     public float tankBonusThreatIterator; // Originally set to 0.25f
     public float tankHealthMultiplier;
     public float targetCheckRandomRangeLowerBound;
+
+    public List<double> xpCosts = new List<double>();
+    public List<int> atkPowerLevels = new List<int>();
+    public List<int> abilityPowerLevels = new List<int>();
+    public List<int> healthLevels = new List<int>();
+
+    public int startingXpCost = 100;
+    public int startingAtkPower = 5;
+    public int startingAbilityPower = 8;
+    public int startingHealth = 100;
+
+    // This rate will double the number every ten levels
+    public double NextXpCostMultiplier = 1.0805;
+
     // public float[] newGamePlusEnemyHealthMultiplier = { 1.8f, 2.6f, 4.2f };
     public float[] newGamePlusEnemyHealthMultiplier;
     // No rhyme or reason to these amounts
@@ -32,6 +48,11 @@ public class MagicNumbers : MonoBehaviour
             {
                 Destroy(gameObject);
             }
+
+        xpCosts.Add(startingXpCost);
+        atkPowerLevels.Add(startingAtkPower);
+        abilityPowerLevels.Add(startingAbilityPower);
+        healthLevels.Add(startingHealth);
         }
     public void Start()
     {
