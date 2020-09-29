@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class XpController : MonoBehaviour
 {
-    public static XpController Instance;
     // 20 levels of XP costs
     // public int[] xpCosts = { 100, 108, 116, 126, 136, 147, 159, 171, 185, 200, 216, 234, 253, 273, 295, 319, 345, 372, 402, 435, 470, 508, 549, 593, 641, 692, 748, 808, 873, 944, 1020, 1102, 1191, 1287, 1390, 1502, 1623, 1754, 1895, 2048, 2213, 2391, 2583, 2791, 3016, 3259, 3521, 3805, 4111, 4442, 4799, 5186, 5603, 6054, 6542, 7069, 7638, 8253, 8917, 9635, 10410 };
     // public int startingXpCost; Moved to MagicNumbers.cs
@@ -23,9 +22,9 @@ public class XpController : MonoBehaviour
     //public int[] abilityLevel = { 8, 9, 11, 13, 14, 15, 16, 17, 18, 20, 21, 22, 24, 26, 27, 29, 31, 33, 35, 37, 39 };
     //public int[] healthLevel = { 100, 110, 120, 132, 143, 155, 168, 181, 195, 210, 226, 242, 259, 277, 296, 316, 337, 358, 381, 405, 431, 457, 485, 514 };
 
-    public List<int> atkLevel = new List<int>();
-    public List<int> abilityLevel = new List<int>();
-    public List<int> healthLevel = new List<int>();
+    //public List<int> atkLevel = new List<int>();
+    //public List<int> abilityLevel = new List<int>();
+    //public List<int> healthLevel = new List<int>();
 
     public double startingAtkIncrease;
     public double startingAbilityIncrease;
@@ -35,20 +34,6 @@ public class XpController : MonoBehaviour
     //public int ability3UnlockCost = 500;
     //public int potionUnlockCost = 800;
     public CharacterProfile SceneCharacter;
-
-    // Start is called before the first frame update
-
-    public void Awake()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
 
     void Start()
     {
@@ -64,7 +49,7 @@ public class XpController : MonoBehaviour
         if (SceneCharacter != null)
         indexOfXpCosts = (SceneCharacter.healthListLevel + SceneCharacter.atkListLevel + SceneCharacter.abilityListLevel);
         SceneCharacter.nextXpCost = (int)MagicNumbers.Instance.xpCosts[indexOfXpCosts];
-        if (indexOfXpCosts == MagicNumbers.Instance.xpCosts.Count)
+        if (indexOfXpCosts >= MagicNumbers.Instance.xpCosts.Count -1)
         {
             GenerateMoreXpCosts(); // indexOfXpCosts, SceneCharacter.nextXpCost);
         }
@@ -78,14 +63,15 @@ public class XpController : MonoBehaviour
         if (SceneCharacter.characterAvailableXP >= SceneCharacter.nextXpCost)
         {
             SceneCharacter.characterAvailableXP -= SceneCharacter.nextXpCost;
-            SceneCharacter.healthListLevel++;
 
-            if (SceneCharacter.healthListLevel == MagicNumbers.Instance.healthLevels.Count)
+            if (SceneCharacter.healthListLevel >= MagicNumbers.Instance.healthLevels.Count)
             {
-                GenerateMoreHealthStats(MagicNumbers.Instance.healthLevels[MagicNumbers.Instance.abilityPowerLevels.Count], MagicNumbers.Instance.healthLevels[(MagicNumbers.Instance.healthLevels.Count - 1)]);
+                    GenerateMoreHealthStats(MagicNumbers.Instance.healthLevels[SceneCharacter.healthListLevel], MagicNumbers.Instance.healthLevels[SceneCharacter.healthListLevel -1]);
             }
 
-            SceneCharacter.health = healthLevel[SceneCharacter.healthListLevel];
+            SceneCharacter.healthListLevel++;          
+
+            SceneCharacter.health = MagicNumbers.Instance.healthLevels[SceneCharacter.healthListLevel];
             IncrementLevel();
         }
 
@@ -102,12 +88,12 @@ public class XpController : MonoBehaviour
             SceneCharacter.atkListLevel++;
             // i++;
 
-            if (SceneCharacter.atkListLevel == MagicNumbers.Instance.atkPowerLevels.Count)
+            if (SceneCharacter.atkListLevel >= MagicNumbers.Instance.atkPowerLevels.Count)
             {
-                GenerateMoreAtkStats(MagicNumbers.Instance.atkPowerLevels[MagicNumbers.Instance.atkPowerLevels.Count], MagicNumbers.Instance.abilityPowerLevels[(MagicNumbers.Instance.atkPowerLevels.Count - 1)]);
+                    GenerateMoreAtkStats(MagicNumbers.Instance.atkPowerLevels[SceneCharacter.atkListLevel], MagicNumbers.Instance.abilityPowerLevels[SceneCharacter.atkListLevel - 1]);
             }
 
-            SceneCharacter.attackPower = atkLevel[SceneCharacter.atkListLevel];
+            SceneCharacter.attackPower = MagicNumbers.Instance.atkPowerLevels[SceneCharacter.atkListLevel];
             IncrementLevel();
         }
     }
@@ -124,10 +110,10 @@ public class XpController : MonoBehaviour
             SceneCharacter.abilityListLevel++;
             // i++;
 
-            if (SceneCharacter.abilityListLevel == MagicNumbers.Instance.abilityPowerLevels.Count)
-                {
-                    GenerateMoreAbilityStats(MagicNumbers.Instance.abilityPowerLevels[MagicNumbers.Instance.abilityPowerLevels.Count], MagicNumbers.Instance.abilityPowerLevels[(MagicNumbers.Instance.abilityPowerLevels.Count - 1)]);
-                }
+            if (SceneCharacter.abilityListLevel >= MagicNumbers.Instance.abilityPowerLevels.Count)
+            {
+                    GenerateMoreAbilityStats(MagicNumbers.Instance.abilityPowerLevels[SceneCharacter.abilityListLevel], MagicNumbers.Instance.abilityPowerLevels[SceneCharacter.abilityListLevel -1]);
+            }
 
             // abilityIndex++;
             SceneCharacter.abilityPower = MagicNumbers.Instance.abilityPowerLevels[SceneCharacter.abilityListLevel];
@@ -183,14 +169,12 @@ public class XpController : MonoBehaviour
     public void GenerateMoreXpCosts()
     {
         //Calculate XP cost as double
-        for (int i = 0; i < 10; i++)
-        {
-            double calculatedNextXpCost = MagicNumbers.Instance.xpCosts[MagicNumbers.Instance.xpCosts.Count];
-            calculatedNextXpCost *= MagicNumbers.Instance.NextXpCostMultiplier;
+        
+        double calculatedNextXpCost = MagicNumbers.Instance.xpCosts[MagicNumbers.Instance.xpCosts.Count -1];
+        calculatedNextXpCost *= MagicNumbers.Instance.NextXpCostMultiplier;
 
-            //Add to list as double
-            MagicNumbers.Instance.xpCosts.Add(calculatedNextXpCost);
-        }
+        //Add to list as double
+        MagicNumbers.Instance.xpCosts.Add(calculatedNextXpCost);        
     }
 
     public void GenerateMoreAbilityStats(int highestAbilityPowerLevel, int previousAbilityPowerLevel)
@@ -199,19 +183,16 @@ public class XpController : MonoBehaviour
         int nextAbilityPower;
         double nextAbilityPowerIncrease;
 
-        for (int i = 0; i < 10; i++)
+        nextAbilityPowerIncrease = ((startingAbilityIncrease + (lastAbilityPowerIncrease * .1)) / 2);
+        if (nextAbilityPowerIncrease < 1)
         {
-            nextAbilityPowerIncrease = ((startingAbilityIncrease + (lastAbilityPowerIncrease * .1)) / 2);
-            if (nextAbilityPowerIncrease < 1)
-            {
-                nextAbilityPowerIncrease = 1;
-            }
-
-            nextAbilityPower = Convert.ToInt32(previousAbilityPowerLevel + nextAbilityPowerIncrease);
-            
-            //Add to list as double
-            MagicNumbers.Instance.abilityPowerLevels.Add(nextAbilityPower);
+            nextAbilityPowerIncrease = 1;
         }
+
+        nextAbilityPower = Convert.ToInt32(previousAbilityPowerLevel + nextAbilityPowerIncrease);
+            
+        //Add to list as double
+        MagicNumbers.Instance.abilityPowerLevels.Add(nextAbilityPower);
     }
 
     public void GenerateMoreAtkStats(int highestAtkPowerLevel, int previousAtkPowerLevel)
@@ -220,19 +201,16 @@ public class XpController : MonoBehaviour
         int nextAtkPower;
         double nextAtkPowerIncrease;
 
-        for (int i = 0; i < 10; i++)
+        nextAtkPowerIncrease = ((startingAtkIncrease + (lastAtkPowerIncrease * .1)) / 2);
+        if (nextAtkPowerIncrease < 1)
         {
-            nextAtkPowerIncrease = ((startingAtkIncrease + (lastAtkPowerIncrease * .1)) / 2);
-            if (nextAtkPowerIncrease < 1)
-            {
-                nextAtkPowerIncrease = 1;
-            }
-
-            nextAtkPower = Convert.ToInt32(previousAtkPowerLevel + nextAtkPowerIncrease);
-
-            //Add to list as double
-            MagicNumbers.Instance.atkPowerLevels.Add(nextAtkPower);
+            nextAtkPowerIncrease = 1;
         }
+
+        nextAtkPower = Convert.ToInt32(previousAtkPowerLevel + nextAtkPowerIncrease);
+
+        //Add to list as double
+        MagicNumbers.Instance.atkPowerLevels.Add(nextAtkPower);
     }
 
     public void GenerateMoreHealthStats(int highestHealthLevel, int previousHealthLevel)
@@ -241,18 +219,15 @@ public class XpController : MonoBehaviour
         int nextHealthAmount;
         double nextHealthIncrease;
 
-        for (int i = 0; i < 10; i++)
+        nextHealthIncrease = ((startingHealthIncrease + (lastHealthIncrease * .1)) / 2);
+        if (nextHealthIncrease < 1)
         {
-            nextHealthIncrease = ((startingHealthIncrease + (lastHealthIncrease * .1)) / 2);
-            if (nextHealthIncrease < 1)
-            {
-                nextHealthIncrease = 1;
-            }
-
-            nextHealthAmount = Convert.ToInt32(previousHealthLevel + nextHealthIncrease);
-
-            //Add to list as double
-            MagicNumbers.Instance.abilityPowerLevels.Add(nextHealthAmount);
+            nextHealthIncrease = 1;
         }
+
+        nextHealthAmount = Convert.ToInt32(previousHealthLevel + nextHealthIncrease);
+
+        //Add to list as double
+        MagicNumbers.Instance.abilityPowerLevels.Add(nextHealthAmount);
     }
 }

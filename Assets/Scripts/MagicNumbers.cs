@@ -23,6 +23,11 @@ public class MagicNumbers : MonoBehaviour
     public int startingAbilityPower = 8;
     public int startingHealth = 100;
 
+    public int nextXpCost = 108;
+    public int nextAtkPower = 6;
+    public int nextAbilityPower = 9;
+    public int nextHealth = 110;
+
     // This rate will double the number every ten levels
     public double NextXpCostMultiplier = 1.0805;
 
@@ -50,10 +55,14 @@ public class MagicNumbers : MonoBehaviour
             }
 
         xpCosts.Add(startingXpCost);
+        xpCosts.Add(nextXpCost);
         atkPowerLevels.Add(startingAtkPower);
+        atkPowerLevels.Add(nextAtkPower);
         abilityPowerLevels.Add(startingAbilityPower);
+        abilityPowerLevels.Add(nextAbilityPower);
         healthLevels.Add(startingHealth);
-        }
+        healthLevels.Add(nextHealth);
+    }
     public void Start()
     {
         

@@ -368,7 +368,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &421265383
 GameObject:
@@ -469,156 +469,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1 &436278122
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 436278124}
-  - component: {fileID: 436278123}
-  m_Layer: 0
-  m_Name: XP Controller
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &436278123
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 436278122}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9cd973e8afa0194ca7283e73847212d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  indexOfXpCosts: 0
-  atkLevel: 050000000600000007000000090000000a0000000c0000000e00000010000000110000001200000013000000140000001600000017000000180000001a0000001b0000001d0000001f0000002000000022000000
-  abilityLevel: 090000000b0000000d0000000e0000000f000000100000001100000012000000140000001500000016000000180000001a0000001b0000001d0000001f00000021000000230000002500000027000000
-  healthLevel: 640000006e00000078000000840000008f0000009b000000a8000000b5000000c3000000d2000000e2000000f20000000301000015010000280100003c01000051010000660100007d01000095010000af010000c9010000e501000002020000
-  startingAtkIncrease: 0
-  startingAbilityIncrease: 0
-  startingHealthIncrease: 0
-  SceneCharacter:
-    heroName: 
-    characterTotalXP: 0
-    characterAvailableXP: 0
-    nextXpCost: 0
-    healthListLevel: 0
-    atkListLevel: 0
-    abilityListLevel: 0
-    health: 0
-    attackPower: 0
-    abilityPower: 0
-    charUnlock: 0
-    autoAtkUnlock: 0
-    ability1Unlock: 0
-    ability2Unlock: 0
-    ability3Unlock: 0
-    potionUnlock: 0
-    selectedPotionType: 0
-    totalLevel: 0
-    autoAtk: {fileID: 0}
-    ability1: {fileID: 0}
-    ability2: {fileID: 0}
-    ability3: {fileID: 0}
-    potion: {fileID: 0}
-    AbilityUnlocks: []
---- !u!4 &436278124
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 436278122}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.050279744, y: -0.17940551, z: -1.9121094}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &443839271
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 443839273}
-  - component: {fileID: 443839272}
-  m_Layer: 0
-  m_Name: XpController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &443839272
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 443839271}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9cd973e8afa0194ca7283e73847212d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  indexOfXpCosts: 0
-  atkLevel: 
-  abilityLevel: 
-  healthLevel: 
-  startingAtkIncrease: 0
-  startingAbilityIncrease: 0
-  startingHealthIncrease: 0
-  SceneCharacter:
-    heroName: 
-    characterTotalXP: 0
-    characterAvailableXP: 0
-    nextXpCost: 0
-    healthListLevel: 0
-    atkListLevel: 0
-    abilityListLevel: 0
-    health: 0
-    attackPower: 0
-    abilityPower: 0
-    charUnlock: 0
-    autoAtkUnlock: 0
-    ability1Unlock: 0
-    ability2Unlock: 0
-    ability3Unlock: 0
-    potionUnlock: 0
-    selectedPotionType: 0
-    totalLevel: 0
-    autoAtk: {fileID: 0}
-    ability1: {fileID: 0}
-    ability2: {fileID: 0}
-    ability3: {fileID: 0}
-    potion: {fileID: 0}
-    AbilityUnlocks: []
---- !u!4 &443839273
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 443839271}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.428802, y: -1.5656731, z: -1781.5018}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 14
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &461565312
 GameObject:
   m_ObjectHideFlags: 0
@@ -925,7 +775,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &951133638
 GameObject:
@@ -1182,7 +1032,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1277587265
 GameObject:
@@ -1278,7 +1128,7 @@ Transform:
   m_LocalScale: {x: 1.8879215, y: 1, z: 1.3157076}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 90, y: 180, z: 0}
 --- !u!1 &1319499794
 GameObject:
@@ -1632,5 +1482,5 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: -20, y: -15, z: 0}
