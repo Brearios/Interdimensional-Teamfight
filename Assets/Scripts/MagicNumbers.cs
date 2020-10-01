@@ -13,6 +13,13 @@ public class MagicNumbers : MonoBehaviour
     public float tankHealthMultiplier;
     public float targetCheckRandomRangeLowerBound;
 
+    public int previousHighHealth;
+    public int currentHighHealth;
+    public int previousHighAbilityPower;
+    public int currentHighAbilityPower;
+    public int previousHighAtkPower;
+    public int currentHighAtkPower;
+
     public List<double> xpCosts = new List<double>();
     public List<int> atkPowerLevels = new List<int>();
     public List<int> abilityPowerLevels = new List<int>();
@@ -54,15 +61,23 @@ public class MagicNumbers : MonoBehaviour
                 Destroy(gameObject);
             }
 
-        xpCosts.Add(startingXpCost);
-        xpCosts.Add(nextXpCost);
-        atkPowerLevels.Add(startingAtkPower);
-        atkPowerLevels.Add(nextAtkPower);
-        abilityPowerLevels.Add(startingAbilityPower);
-        abilityPowerLevels.Add(nextAbilityPower);
-        healthLevels.Add(startingHealth);
-        healthLevels.Add(nextHealth);
-    }
+    xpCosts.Add(startingXpCost);
+    xpCosts.Add(nextXpCost);
+    atkPowerLevels.Add(startingAtkPower);
+    atkPowerLevels.Add(nextAtkPower);
+    abilityPowerLevels.Add(startingAbilityPower);
+    abilityPowerLevels.Add(nextAbilityPower);
+    healthLevels.Add(startingHealth);
+    healthLevels.Add(nextHealth);
+
+    previousHighHealth = startingHealth;
+    currentHighHealth = nextHealth;
+    previousHighAbilityPower = startingAbilityPower;
+    currentHighAbilityPower = nextAbilityPower;
+    previousHighAtkPower = startingAtkPower;
+    currentHighAtkPower = nextAtkPower;
+
+}
     public void Start()
     {
         

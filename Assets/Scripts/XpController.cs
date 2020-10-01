@@ -66,7 +66,7 @@ public class XpController : MonoBehaviour
 
             if (SceneCharacter.healthListLevel >= MagicNumbers.Instance.healthLevels.Count)
             {
-                    GenerateMoreHealthStats(MagicNumbers.Instance.healthLevels[SceneCharacter.healthListLevel], MagicNumbers.Instance.healthLevels[SceneCharacter.healthListLevel -1]);
+                    GenerateMoreHealthStats(MagicNumbers.Instance.currentHighHealth, MagicNumbers.Instance.previousHighHealth);
             }
 
             SceneCharacter.healthListLevel++;          
@@ -90,7 +90,7 @@ public class XpController : MonoBehaviour
 
             if (SceneCharacter.atkListLevel >= MagicNumbers.Instance.atkPowerLevels.Count)
             {
-                    GenerateMoreAtkStats(MagicNumbers.Instance.atkPowerLevels[SceneCharacter.atkListLevel], MagicNumbers.Instance.abilityPowerLevels[SceneCharacter.atkListLevel - 1]);
+                    GenerateMoreAtkStats(MagicNumbers.Instance.currentHighAtkPower, MagicNumbers.Instance.previousHighAbilityPower);
             }
 
             SceneCharacter.attackPower = MagicNumbers.Instance.atkPowerLevels[SceneCharacter.atkListLevel];
@@ -112,7 +112,7 @@ public class XpController : MonoBehaviour
 
             if (SceneCharacter.abilityListLevel >= MagicNumbers.Instance.abilityPowerLevels.Count)
             {
-                    GenerateMoreAbilityStats(MagicNumbers.Instance.abilityPowerLevels[SceneCharacter.abilityListLevel], MagicNumbers.Instance.abilityPowerLevels[SceneCharacter.abilityListLevel -1]);
+                    GenerateMoreAbilityStats(MagicNumbers.Instance.currentHighAbilityPower, MagicNumbers.Instance.previousHighAbilityPower);
             }
 
             // abilityIndex++;
@@ -183,13 +183,16 @@ public class XpController : MonoBehaviour
         int nextAbilityPower;
         double nextAbilityPowerIncrease;
 
-        nextAbilityPowerIncrease = ((startingAbilityIncrease + (lastAbilityPowerIncrease * .1)) / 2);
+        nextAbilityPowerIncrease = ((startingAbilityIncrease + (lastAbilityPowerIncrease * .1) / 2));
         if (nextAbilityPowerIncrease < 1)
         {
             nextAbilityPowerIncrease = 1;
         }
 
-        nextAbilityPower = Convert.ToInt32(previousAbilityPowerLevel + nextAbilityPowerIncrease);
+        nextAbilityPower = Convert.ToInt32(highestAbilityPowerLevel + nextAbilityPowerIncrease);
+        MagicNumbers.Instance.previousHighAbilityPower = MagicNumbers.Instance.currentHighAbilityPower;
+
+        MagicNumbers.Instance.currentHighAbilityPower = nextAbilityPower;
             
         //Add to list as double
         MagicNumbers.Instance.abilityPowerLevels.Add(nextAbilityPower);
@@ -201,13 +204,16 @@ public class XpController : MonoBehaviour
         int nextAtkPower;
         double nextAtkPowerIncrease;
 
-        nextAtkPowerIncrease = ((startingAtkIncrease + (lastAtkPowerIncrease * .1)) / 2);
+        nextAtkPowerIncrease = ((startingAtkIncrease + (lastAtkPowerIncrease * .1) / 2));
         if (nextAtkPowerIncrease < 1)
         {
             nextAtkPowerIncrease = 1;
         }
 
-        nextAtkPower = Convert.ToInt32(previousAtkPowerLevel + nextAtkPowerIncrease);
+        nextAtkPower = Convert.ToInt32(highestAtkPowerLevel + nextAtkPowerIncrease);
+        MagicNumbers.Instance.previousHighAtkPower = MagicNumbers.Instance.currentHighAtkPower;
+
+        MagicNumbers.Instance.currentHighAbilityPower = nextAtkPower;
 
         //Add to list as double
         MagicNumbers.Instance.atkPowerLevels.Add(nextAtkPower);
@@ -219,13 +225,16 @@ public class XpController : MonoBehaviour
         int nextHealthAmount;
         double nextHealthIncrease;
 
-        nextHealthIncrease = ((startingHealthIncrease + (lastHealthIncrease * .1)) / 2);
+        nextHealthIncrease = ((startingHealthIncrease + (lastHealthIncrease * .1) / 2));
         if (nextHealthIncrease < 1)
         {
             nextHealthIncrease = 1;
         }
 
-        nextHealthAmount = Convert.ToInt32(previousHealthLevel + nextHealthIncrease);
+        nextHealthAmount = Convert.ToInt32(highestHealthLevel + nextHealthIncrease);
+        MagicNumbers.Instance.previousHighHealth = MagicNumbers.Instance.currentHighHealth;
+
+        MagicNumbers.Instance.currentHighAbilityPower = nextHealthAmount;
 
         //Add to list as double
         MagicNumbers.Instance.abilityPowerLevels.Add(nextHealthAmount);
