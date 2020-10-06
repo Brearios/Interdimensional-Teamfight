@@ -48,8 +48,8 @@ public class XpController : MonoBehaviour
     {
         if (SceneCharacter != null)
         indexOfXpCosts = (SceneCharacter.healthListLevel + SceneCharacter.atkListLevel + SceneCharacter.abilityListLevel);
-        SceneCharacter.nextXpCost = (int)MagicNumbers.Instance.xpCosts[indexOfXpCosts];
-        if (indexOfXpCosts >= MagicNumbers.Instance.xpCosts.Count -1)
+        SceneCharacter.nextXpCost = (int)StatCalculator.Instance.xpCosts[indexOfXpCosts];
+        if (indexOfXpCosts >= StatCalculator.Instance.xpCosts.Count -1)
         {
             GenerateMoreXpCosts(); // indexOfXpCosts, SceneCharacter.nextXpCost);
         }
@@ -64,14 +64,14 @@ public class XpController : MonoBehaviour
         {
             SceneCharacter.characterAvailableXP -= SceneCharacter.nextXpCost;
 
-            if ((SceneCharacter.healthListLevel)>= MagicNumbers.Instance.healthLevels.Count)
+            if (SceneCharacter.healthListLevel >= StatCalculator.Instance.healthLevels.Count -1)
             {
-                    GenerateMoreHealthStats(MagicNumbers.Instance.currentHighHealth, MagicNumbers.Instance.previousHighHealth);
+                GenerateMoreHealthStats(StatCalculator.Instance.healthLevels[StatCalculator.Instance.healthLevels.Count -1]);
             }
 
             SceneCharacter.healthListLevel++;          
 
-            SceneCharacter.health = MagicNumbers.Instance.healthLevels[SceneCharacter.healthListLevel];
+            SceneCharacter.health = (int)StatCalculator.Instance.healthLevels[SceneCharacter.healthListLevel];
             IncrementLevel();
         }
     }
@@ -84,15 +84,17 @@ public class XpController : MonoBehaviour
         if (SceneCharacter.characterAvailableXP >= SceneCharacter.nextXpCost)
         {
             SceneCharacter.characterAvailableXP -= SceneCharacter.nextXpCost;
-            SceneCharacter.atkListLevel++;
+            
             // i++;
 
-            if (SceneCharacter.atkListLevel >= MagicNumbers.Instance.atkPowerLevels.Count)
+            if (SceneCharacter.atkListLevel >= StatCalculator.Instance.atkPowerLevels.Count -1)
             {
-                    GenerateMoreAtkStats(MagicNumbers.Instance.currentHighAtkPower, MagicNumbers.Instance.previousHighAbilityPower);
+                GenerateMoreAtkStats(StatCalculator.Instance.atkPowerLevels[StatCalculator.Instance.atkPowerLevels.Count - 1]);
             }
 
-            SceneCharacter.attackPower = MagicNumbers.Instance.atkPowerLevels[SceneCharacter.atkListLevel];
+            SceneCharacter.atkListLevel++;
+
+            SceneCharacter.attackPower = (int)StatCalculator.Instance.atkPowerLevels[SceneCharacter.atkListLevel];
             IncrementLevel();
         }
     }
@@ -106,16 +108,16 @@ public class XpController : MonoBehaviour
         if (SceneCharacter.characterAvailableXP >= SceneCharacter.nextXpCost)
         {
             SceneCharacter.characterAvailableXP -= SceneCharacter.nextXpCost;
+
+            if (SceneCharacter.abilityListLevel >= StatCalculator.Instance.abilityPowerLevels.Count -1)
+            {
+                    GenerateMoreAbilityStats(StatCalculator.Instance.abilityPowerLevels[StatCalculator.Instance.abilityPowerLevels.Count -1]);
+            }
             SceneCharacter.abilityListLevel++;
             // i++;
 
-            if (SceneCharacter.abilityListLevel >= MagicNumbers.Instance.abilityPowerLevels.Count)
-            {
-                    GenerateMoreAbilityStats(MagicNumbers.Instance.currentHighAbilityPower, MagicNumbers.Instance.previousHighAbilityPower);
-            }
-
             // abilityIndex++;
-            SceneCharacter.abilityPower = MagicNumbers.Instance.abilityPowerLevels[SceneCharacter.abilityListLevel];
+            SceneCharacter.abilityPower = (int)StatCalculator.Instance.abilityPowerLevels[SceneCharacter.abilityListLevel];
             IncrementLevel();
         }
     }
@@ -169,74 +171,43 @@ public class XpController : MonoBehaviour
     {
         //Calculate XP cost as double
         
-        double calculatedNextXpCost = MagicNumbers.Instance.xpCosts[MagicNumbers.Instance.xpCosts.Count -1];
+        double calculatedNextXpCost = StatCalculator.Instance.xpCosts[StatCalculator.Instance.xpCosts.Count -1];
         calculatedNextXpCost *= MagicNumbers.Instance.NextXpCostMultiplier;
 
         //Add to list as double
-        MagicNumbers.Instance.xpCosts.Add(calculatedNextXpCost);        
+        StatCalculator.Instance.xpCosts.Add(calculatedNextXpCost);        
     }
 
-    public void GenerateMoreAbilityStats(int currentHighAbilityPower, int previousHighAbilityPower)
+    public void GenerateMoreAbilityStats(double currentHighAbilityPower)
     {
-        int lastAbilityPowerIncrease = currentHighAbilityPower - previousHighAbilityPower;
-        int nextAbilityPower;
-        double nextAbilityPowerIncrease;
-
-        nextAbilityPowerIncrease = ((startingAbilityIncrease + (lastAbilityPowerIncrease * .1) / 2));
-        if (nextAbilityPowerIncrease < 1)
+        double nextAbilityPower = currentHighAbilityPower * MagicNumbers.Instance.statScalingFactor;
+        if ((nextAbilityPower - currentHighAbilityPower) < 1)
         {
-            nextAbilityPowerIncrease = 1;
+            nextAbilityPower += 1;
         }
-
-        nextAbilityPower = Convert.ToInt32(currentHighAbilityPower + nextAbilityPowerIncrease);
-        MagicNumbers.Instance.previousHighAbilityPower = MagicNumbers.Instance.currentHighAbilityPower;
-
-        MagicNumbers.Instance.currentHighAbilityPower = nextAbilityPower;
-            
-        //Add to list as double
-        MagicNumbers.Instance.abilityPowerLevels.Add(nextAbilityPower);
+        StatCalculator.Instance.currentHighAbilityPower = nextAbilityPower;
+        StatCalculator.Instance.abilityPowerLevels.Add(nextAbilityPower);   
     }
 
-    public void GenerateMoreAtkStats(int currentHighAtkPower, int previousHighAtkPower)
+    public void GenerateMoreAtkStats(double currentHighAtkPower)
     {
-        int lastAtkPowerIncrease = currentHighAtkPower - previousHighAtkPower;
-        int nextAtkPower;
-        double nextAtkPowerIncrease;
-
-        nextAtkPowerIncrease = ((startingAtkIncrease + (lastAtkPowerIncrease * .1) / 2));
-        if (nextAtkPowerIncrease < 1)
+        double nextAtkPower = currentHighAtkPower * MagicNumbers.Instance.statScalingFactor;
+        if ((nextAtkPower - currentHighAtkPower) < 1)
         {
-            nextAtkPowerIncrease = 1;
+            nextAtkPower += 1;
         }
-
-        nextAtkPower = Convert.ToInt32(currentHighAtkPower + nextAtkPowerIncrease);
-        MagicNumbers.Instance.previousHighAtkPower = MagicNumbers.Instance.currentHighAtkPower;
-
-        MagicNumbers.Instance.currentHighAtkPower = nextAtkPower;
-
-        //Add to list as double
-        MagicNumbers.Instance.atkPowerLevels.Add(nextAtkPower);
+        StatCalculator.Instance.currentHighAtkPower = nextAtkPower;
+        StatCalculator.Instance.atkPowerLevels.Add(nextAtkPower);
     }
 
-    public void GenerateMoreHealthStats(int currentHighHealth, int previousHighHealth)
+    public void GenerateMoreHealthStats(double currentHighHealth)
     {
-        int lastHealthIncrease = currentHighHealth - previousHighHealth;
-        int nextHealthAmount;
-        double nextHealthIncrease;
-
-        nextHealthIncrease = ((startingHealthIncrease + (lastHealthIncrease * .1) / 2));
-        Debug.Log("Next Health Increase equals " + nextHealthIncrease);
-        if (nextHealthIncrease < 1)
+        double nextHealth = currentHighHealth * MagicNumbers.Instance.statScalingFactor;
+        if ((nextHealth - currentHighHealth) < 1)
         {
-            nextHealthIncrease = 1;
+            nextHealth += 1;
         }
-
-        nextHealthAmount = Convert.ToInt32(currentHighHealth + nextHealthIncrease);
-        MagicNumbers.Instance.previousHighHealth = MagicNumbers.Instance.currentHighHealth;
-
-        MagicNumbers.Instance.currentHighHealth = nextHealthAmount;
-
-        //Add to list as double
-        MagicNumbers.Instance.healthLevels.Add(nextHealthAmount);
+        StatCalculator.Instance.currentHighHealth = nextHealth;
+        StatCalculator.Instance.healthLevels.Add(nextHealth);
     }
 }

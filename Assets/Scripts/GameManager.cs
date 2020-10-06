@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     public int earnedBattleGold;
     public float gameSpeed;
     public float deltaTime;
-    public float timeIncrement = .2f;
+    public float timeIncrement;
     public bool startingCharactersSpawned;
     public bool ActorDiedTestIfBattleIsOver;
     public bool BattleOver;

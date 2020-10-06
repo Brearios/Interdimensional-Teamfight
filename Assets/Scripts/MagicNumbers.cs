@@ -13,22 +13,13 @@ public class MagicNumbers : MonoBehaviour
     public float tankHealthMultiplier;
     public float targetCheckRandomRangeLowerBound;
 
-    public int previousHighHealth;
-    public int currentHighHealth;
-    public int previousHighAbilityPower;
-    public int currentHighAbilityPower;
-    public int previousHighAtkPower;
-    public int currentHighAtkPower;
-
-    public List<double> xpCosts = new List<double>();
-    public List<int> atkPowerLevels = new List<int>();
-    public List<int> abilityPowerLevels = new List<int>();
-    public List<int> healthLevels = new List<int>();
-
     public int startingXpCost = 100;
     public int startingAtkPower = 5;
     public int startingAbilityPower = 8;
     public int startingHealth = 100;
+    // 1.5x by level 10 is 1.0461, 2x is 1.0805, 2.5x is 1.1072, 5x is 1.1959, 10x is 1.2916, 20x is 1.395
+    // Choosing 1.5x initially so that Xp cost growth outpaces power increase
+    public double statScalingFactor = 1.0461;
 
     public int nextXpCost = 108;
     public int nextAtkPower = 6;
@@ -60,24 +51,8 @@ public class MagicNumbers : MonoBehaviour
             {
                 Destroy(gameObject);
             }
+    }
 
-    xpCosts.Add(startingXpCost);
-    xpCosts.Add(nextXpCost);
-    atkPowerLevels.Add(startingAtkPower);
-    atkPowerLevels.Add(nextAtkPower);
-    abilityPowerLevels.Add(startingAbilityPower);
-    abilityPowerLevels.Add(nextAbilityPower);
-    healthLevels.Add(startingHealth);
-    healthLevels.Add(nextHealth);
-
-    previousHighHealth = startingHealth;
-    currentHighHealth = nextHealth;
-    previousHighAbilityPower = startingAbilityPower;
-    currentHighAbilityPower = nextAbilityPower;
-    previousHighAtkPower = startingAtkPower;
-    currentHighAtkPower = nextAtkPower;
-
-}
     public void Start()
     {
         
