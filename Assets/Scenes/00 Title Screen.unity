@@ -684,10 +684,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 917a9253135f64e48a13523869a26fa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skirmishScalingParticipantThreshold: 0
-  brawlScalingParticipantThreshold: 0
-  raidScalingParticipantThreshold: 0
-  epicBattleMaxScalingParticipantThreshold: 0
+  skirmishScalingParticipantThreshold: 7
+  brawlScalingParticipantThreshold: 12
+  raidScalingParticipantThreshold: 20
+  epicBattleMaxScalingParticipantThreshold: 28
   tankBonusThreatIterator: 0
   tankHealthMultiplier: 0
   targetCheckRandomRangeLowerBound: 0
