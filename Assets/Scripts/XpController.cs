@@ -17,7 +17,7 @@ public class XpController : MonoBehaviour
     //public int healthArrayLevel;
     //public int atkArrayLevel;
     //public int abilityArrayLevel;
-    
+
     //public int[] atkLevel = { 5, 6, 7, 9, 10, 12, 14, 16, 17, 18, 19, 20, 22, 23, 24, 26, 27, 29, 31, 32, 34 };
     //public int[] abilityLevel = { 8, 9, 11, 13, 14, 15, 16, 17, 18, 20, 21, 22, 24, 26, 27, 29, 31, 33, 35, 37, 39 };
     //public int[] healthLevel = { 100, 110, 120, 132, 143, 155, 168, 181, 195, 210, 226, 242, 259, 277, 296, 316, 337, 358, 381, 405, 431, 457, 485, 514 };
@@ -47,9 +47,9 @@ public class XpController : MonoBehaviour
     void Update()
     {
         if (SceneCharacter != null)
-        indexOfXpCosts = (SceneCharacter.healthListLevel + SceneCharacter.atkListLevel + SceneCharacter.abilityListLevel);
+            indexOfXpCosts = (SceneCharacter.healthListLevel + SceneCharacter.atkListLevel + SceneCharacter.abilityListLevel);
         SceneCharacter.nextXpCost = (int)StatCalculator.Instance.xpCosts[indexOfXpCosts];
-        if (indexOfXpCosts >= StatCalculator.Instance.xpCosts.Count -1)
+        if (indexOfXpCosts >= StatCalculator.Instance.xpCosts.Count - 1)
         {
             GenerateMoreXpCosts(); // indexOfXpCosts, SceneCharacter.nextXpCost);
         }
@@ -64,12 +64,12 @@ public class XpController : MonoBehaviour
         {
             SceneCharacter.characterAvailableXP -= SceneCharacter.nextXpCost;
 
-            if (SceneCharacter.healthListLevel >= StatCalculator.Instance.healthLevels.Count -1)
+            if (SceneCharacter.healthListLevel >= StatCalculator.Instance.healthLevels.Count - 1)
             {
-                GenerateMoreHealthStats(StatCalculator.Instance.healthLevels[StatCalculator.Instance.healthLevels.Count -1]);
+                GenerateMoreHealthStats(StatCalculator.Instance.healthLevels[StatCalculator.Instance.healthLevels.Count - 1]);
             }
 
-            SceneCharacter.healthListLevel++;          
+            SceneCharacter.healthListLevel++;
 
             SceneCharacter.health = (int)StatCalculator.Instance.healthLevels[SceneCharacter.healthListLevel];
             IncrementLevel();
@@ -84,10 +84,10 @@ public class XpController : MonoBehaviour
         if (SceneCharacter.characterAvailableXP >= SceneCharacter.nextXpCost)
         {
             SceneCharacter.characterAvailableXP -= SceneCharacter.nextXpCost;
-            
+
             // i++;
 
-            if (SceneCharacter.atkListLevel >= StatCalculator.Instance.atkPowerLevels.Count -1)
+            if (SceneCharacter.atkListLevel >= StatCalculator.Instance.atkPowerLevels.Count - 1)
             {
                 GenerateMoreAtkStats(StatCalculator.Instance.atkPowerLevels[StatCalculator.Instance.atkPowerLevels.Count - 1]);
             }
@@ -109,9 +109,9 @@ public class XpController : MonoBehaviour
         {
             SceneCharacter.characterAvailableXP -= SceneCharacter.nextXpCost;
 
-            if (SceneCharacter.abilityListLevel >= StatCalculator.Instance.abilityPowerLevels.Count -1)
+            if (SceneCharacter.abilityListLevel >= StatCalculator.Instance.abilityPowerLevels.Count - 1)
             {
-                    GenerateMoreAbilityStats(StatCalculator.Instance.abilityPowerLevels[StatCalculator.Instance.abilityPowerLevels.Count -1]);
+                GenerateMoreAbilityStats(StatCalculator.Instance.abilityPowerLevels[StatCalculator.Instance.abilityPowerLevels.Count - 1]);
             }
             SceneCharacter.abilityListLevel++;
             // i++;
@@ -161,8 +161,8 @@ public class XpController : MonoBehaviour
         {
             SceneCharacter.characterAvailableXP -= SceneCharacter.potion.unlockCost;
             SceneCharacter.potionUnlock = true;
-            
-            
+
+
             // SceneCharacter.selectedPotionType = SceneCharacter.Reg
         }
     }
@@ -170,12 +170,12 @@ public class XpController : MonoBehaviour
     public void GenerateMoreXpCosts()
     {
         //Calculate XP cost as double
-        
-        double calculatedNextXpCost = StatCalculator.Instance.xpCosts[StatCalculator.Instance.xpCosts.Count -1];
+
+        double calculatedNextXpCost = StatCalculator.Instance.xpCosts[StatCalculator.Instance.xpCosts.Count - 1];
         calculatedNextXpCost *= MagicNumbers.Instance.NextXpCostMultiplier;
 
         //Add to list as double
-        StatCalculator.Instance.xpCosts.Add(calculatedNextXpCost);        
+        StatCalculator.Instance.xpCosts.Add(calculatedNextXpCost);
     }
 
     public void GenerateMoreAbilityStats(double currentHighAbilityPower)
@@ -186,7 +186,7 @@ public class XpController : MonoBehaviour
             nextAbilityPower += 1;
         }
         StatCalculator.Instance.currentHighAbilityPower = nextAbilityPower;
-        StatCalculator.Instance.abilityPowerLevels.Add(nextAbilityPower);   
+        StatCalculator.Instance.abilityPowerLevels.Add(nextAbilityPower);
     }
 
     public void GenerateMoreAtkStats(double currentHighAtkPower)

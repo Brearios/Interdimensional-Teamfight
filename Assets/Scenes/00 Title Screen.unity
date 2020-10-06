@@ -653,6 +653,135 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &422259693
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 422259697}
+  - component: {fileID: 422259696}
+  - component: {fileID: 422259695}
+  - component: {fileID: 422259694}
+  m_Layer: 0
+  m_Name: XpAndStatManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &422259694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 422259693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 917a9253135f64e48a13523869a26fa5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skirmishScalingParticipantThreshold: 0
+  brawlScalingParticipantThreshold: 0
+  raidScalingParticipantThreshold: 0
+  epicBattleMaxScalingParticipantThreshold: 0
+  tankBonusThreatIterator: 0
+  tankHealthMultiplier: 0
+  targetCheckRandomRangeLowerBound: 0
+  startingXpCost: 100
+  startingAtkPower: 5
+  startingAbilityPower: 8
+  startingHealth: 100
+  statScalingFactor: 1.0461
+  nextXpCost: 108
+  nextAtkPower: 6
+  nextAbilityPower: 9
+  nextHealth: 110
+  NextXpCostMultiplier: 1.0805
+  newGamePlusEnemyHealthMultiplier: []
+  newGamePlusEnemyAutoAtkDamageMultiplier: []
+  newGamePlusEnemyAbilityPowerMultiplier: []
+--- !u!114 &422259695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 422259693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2592f9a606fa484baf304a517266441, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ListsInitialized: 0
+  previousHighHealth: 0
+  currentHighHealth: 0
+  previousHighAbilityPower: 0
+  currentHighAbilityPower: 0
+  previousHighAtkPower: 0
+  currentHighAtkPower: 0
+  xpCosts: []
+  atkPowerLevels: []
+  abilityPowerLevels: []
+  healthLevels: []
+--- !u!114 &422259696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 422259693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9cd973e8afa0194ca7283e73847212d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  indexOfXpCosts: 0
+  startingAtkIncrease: 0
+  startingAbilityIncrease: 0
+  startingHealthIncrease: 0
+  SceneCharacter:
+    heroName: 
+    characterTotalXP: 0
+    characterAvailableXP: 0
+    nextXpCost: 0
+    healthListLevel: 0
+    atkListLevel: 0
+    abilityListLevel: 0
+    health: 0
+    attackPower: 0
+    abilityPower: 0
+    charUnlock: 0
+    autoAtkUnlock: 0
+    ability1Unlock: 0
+    ability2Unlock: 0
+    ability3Unlock: 0
+    potionUnlock: 0
+    selectedPotionType: 0
+    totalLevel: 0
+    autoAtk: {fileID: 0}
+    ability1: {fileID: 0}
+    ability2: {fileID: 0}
+    ability3: {fileID: 0}
+    potion: {fileID: 0}
+    AbilityUnlocks: []
+--- !u!4 &422259697
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 422259693}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.050279744, y: -0.17940551, z: -1.9121094}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &461565312
 GameObject:
   m_ObjectHideFlags: 0
@@ -2002,77 +2131,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1363010543}
   m_CullTransparentMesh: 0
---- !u!1 &1413114750
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1413114752}
-  - component: {fileID: 1413114751}
-  m_Layer: 0
-  m_Name: MagicNumbers
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1413114751
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1413114750}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 917a9253135f64e48a13523869a26fa5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skirmishScalingParticipantThreshold: 5
-  brawlScalingParticipantThreshold: 20
-  raidScalingParticipantThreshold: 30
-  epicBattleMaxScalingParticipantThreshold: 50
-  tankBonusThreatIterator: 0.25
-  tankHealthMultiplier: 3
-  targetCheckRandomRangeLowerBound: 0
-  xpCosts: []
-  atkPowerLevels: 
-  abilityPowerLevels: 
-  healthLevels: 
-  startingXpCost: 100
-  startingAtkPower: 5
-  startingAbilityPower: 8
-  startingHealth: 100
-  NextXpCostMultiplier: 1.0805
-  newGamePlusEnemyHealthMultiplier:
-  - 1.8
-  - 2.6
-  - 4.2
-  newGamePlusEnemyAutoAtkDamageMultiplier:
-  - 2
-  - 3.5
-  - 4.5
-  newGamePlusEnemyAbilityPowerMultiplier:
-  - 2
-  - 3.5
-  - 4.5
---- !u!4 &1413114752
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1413114750}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.428802, y: -1.5656731, z: -1781.5018}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1548506529
 GameObject:
   m_ObjectHideFlags: 0
