@@ -190,7 +190,7 @@ public class Actor : MonoBehaviour
     {
         maxHealth *= MagicNumbers.Instance.newGamePlusEnemyHealthMultiplier[PlayerProfile.Instance.newGamePlusIterator];
         attackDamage = (int)((float)attackDamage * MagicNumbers.Instance.newGamePlusEnemyAutoAtkDamageMultiplier[PlayerProfile.Instance.newGamePlusIterator]);
-        abilityPower = (int)((float)abilityPower * MagicNumbers.Instance.newGamePlusEnemyHealthMultiplier[PlayerProfile.Instance.newGamePlusIterator]);
+        abilityPower = (int)((float)abilityPower * MagicNumbers.Instance.newGamePlusEnemyAbilityPowerMultiplier[PlayerProfile.Instance.newGamePlusIterator]);
     }
 
     // Update is called once per frame

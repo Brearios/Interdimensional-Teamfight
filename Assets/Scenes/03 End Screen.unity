@@ -386,14 +386,15 @@ MonoBehaviour:
   tankBonusThreatIterator: 0.25
   tankHealthMultiplier: 3
   targetCheckRandomRangeLowerBound: 0
-  xpCosts: []
-  atkPowerLevels: 
-  abilityPowerLevels: 
-  healthLevels: 
   startingXpCost: 100
   startingAtkPower: 5
   startingAbilityPower: 8
   startingHealth: 100
+  statScalingFactor: 1.0461
+  nextXpCost: 108
+  nextAtkPower: 6
+  nextAbilityPower: 9
+  nextHealth: 110
   NextXpCostMultiplier: 1.0805
   newGamePlusEnemyHealthMultiplier:
   - 1.8
@@ -1508,11 +1509,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'If you''ve beaten each fight to here, that''s the end. Let me know what
-    you think!
-
-    There''s probably a lot that''s broken or needs refining, and
-    I welcome the feedback!'
+  m_Text: If you've gotten here, that's the end so far. You can take your heroes
+    against upgraded enemies in NewGame+, or you've unlocked the Exit button. Let
+    me know if you have feedback!
 --- !u!222 &1319499798
 CanvasRenderer:
   m_ObjectHideFlags: 0
