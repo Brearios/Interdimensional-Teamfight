@@ -19,6 +19,7 @@ public class xpAvailableText : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // if (SceneCharacter.) <- different text for tank health
         text.text = $"Current Level: {SceneCharacter.totalLevel +1}{Environment.NewLine} " +
             $"Upgrade Cost: {SceneCharacter.nextXpCost} {Environment.NewLine}" +
             $"Health: {SceneCharacter.health} {Environment.NewLine} " +

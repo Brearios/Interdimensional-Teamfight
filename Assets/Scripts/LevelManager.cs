@@ -30,6 +30,7 @@ public class LevelManager : MonoBehaviour
         else
         {
             Destroy(gameObject);
+            return;
         }
     }
     // Start is called before the first frame update
