@@ -1535,7 +1535,6 @@ GameObject:
   - component: {fileID: 1034136599}
   - component: {fileID: 1034136598}
   - component: {fileID: 1034136597}
-  - component: {fileID: 1034136601}
   m_Layer: 5
   m_Name: Save
   m_TagString: Untagged
@@ -1668,19 +1667,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1034136595}
   m_CullTransparentMesh: 0
---- !u!114 &1034136601
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1034136595}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ad6de1dad656ee4ead4115fea10a2e0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sound: {fileID: 8300000, guid: 6388f08d8622ad248a62dfd3486ed367, type: 3}
 --- !u!1 &1071950962
 GameObject:
   m_ObjectHideFlags: 0
@@ -2189,33 +2175,39 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - name: Button Click
+  - name: Click
     clip: {fileID: 8300000, guid: 6388f08d8622ad248a62dfd3486ed367, type: 3}
-    volume: 0
+    volume: 1
     pitch: 0
     loop: 0
     source: {fileID: 0}
   - name: MageAtk
     clip: {fileID: 8300000, guid: 3f6692f38c746454ea301ffb085be645, type: 3}
-    volume: 0
+    volume: 1
     pitch: 0
     loop: 0
     source: {fileID: 0}
-  - name: Button Click
-    clip: {fileID: 8300000, guid: 6388f08d8622ad248a62dfd3486ed367, type: 3}
-    volume: 0
+  - name: MageIcecicle
+    clip: {fileID: 8300000, guid: 1a559e24fd4cf3b48a8cdd72d648a387, type: 3}
+    volume: 1
     pitch: 0
     loop: 0
     source: {fileID: 0}
   - name: Heal
     clip: {fileID: 8300000, guid: 62ec7b960d807664facdc730d7dfc356, type: 3}
-    volume: 0
+    volume: 1
     pitch: 0
     loop: 0
     source: {fileID: 0}
   - name: Hot
     clip: {fileID: 8300000, guid: aee9bb0cb6cf81940ac88b7c5026d94c, type: 3}
-    volume: 0
+    volume: 1
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: MageFrostbite
+    clip: {fileID: 8300000, guid: 454354ecc998c8d40b78e2fd82a94fe6, type: 3}
+    volume: 1
     pitch: 0
     loop: 0
     source: {fileID: 0}

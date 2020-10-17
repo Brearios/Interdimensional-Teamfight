@@ -15,6 +15,7 @@ public class SaveLoad : MonoBehaviour
 
     public void SavePlayerProfile()
     {
+        AudioManager.instance.Play("Click");
         string json = JsonUtility.ToJson(PlayerProfile.Instance, true);
         Debug.Log("Saving as JSON" + json);
         File.WriteAllText(SavePath, json);
@@ -22,6 +23,7 @@ public class SaveLoad : MonoBehaviour
 
     public void LoadPlayerProfile()
     {
+        AudioManager.instance.Play("Click");
         string json = File.ReadAllText(SavePath);
         Debug.Log("Loading JSON" + json);
         JsonUtility.FromJsonOverwrite(json, PlayerProfile.Instance);
