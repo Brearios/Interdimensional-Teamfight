@@ -17,7 +17,7 @@ public class PlayerProfile : MonoBehaviour
     public ScriptableAbility currentDetailAbility;
     public int nextBattleScene;
     public int newGamePlusIterator;
-    public bool newGamePlusActive;
+    // public bool newGamePlusActive; - Unnecessary due to setting 0 index for multiplier to 1
     public int earnedCrystals;
     public int currentCrystals;
     public int totalGold;

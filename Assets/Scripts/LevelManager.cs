@@ -63,7 +63,7 @@ public class LevelManager : MonoBehaviour
         {
             for (int i = 0; i < unitSpawnData.numberOfInstances; i++)
             {
-                SpawnAndScaleFighter(unitSpawnData.characterPrefab, GenerateRandomPosition(unitSpawnData.spawn), (int)unitSpawnData.size, PlayerProfile.Instance.newGamePlusActive, PlayerProfile.Instance.newGamePlusIterator);
+                SpawnAndScaleFighter(unitSpawnData.characterPrefab, GenerateRandomPosition(unitSpawnData.spawn), (int)unitSpawnData.size, PlayerProfile.Instance.newGamePlusIterator);
             }
         }
         foreach (HeroData unlockedHeroSpawnData in PlayerProfile.Instance.UnlockedHeroes)
@@ -230,23 +230,33 @@ public class LevelManager : MonoBehaviour
     }
 
     // NPC Version
-    void SpawnAndScaleFighter(GameObject characterPrefab, Vector3 randomSpawnPosition, int spawnSize, bool newGamePlusActive, int newGamePlusIterator)
+    void SpawnAndScaleFighter(GameObject characterPrefab, Vector3 randomSpawnPosition, int spawnSize, int newGamePlusIterator)
     {
-        if (!newGamePlusActive)
-        {
-            GameObject Fighter = Instantiate(characterPrefab, randomSpawnPosition, characterPrefab.transform.rotation);
-            FighterScaler(battleSize, spawnSize);
-            Fighter.transform.localScale = new Vector3(battleParticipantsScaling, battleParticipantsScaling, battleParticipantsScaling);
-        }
-        else if (newGamePlusActive)
-        {
             GameObject Fighter = Instantiate(characterPrefab, randomSpawnPosition, characterPrefab.transform.rotation);
             // Moved to Actor.Start
             // NewGamePlusStatScaler(Fighter);
             FighterScaler(battleSize, spawnSize);
             Fighter.transform.localScale = new Vector3(battleParticipantsScaling, battleParticipantsScaling, battleParticipantsScaling);
-        }
     }
+
+    // Removed NewGamePlusActive bool due to adding 1 to multiplier index
+    //void SpawnAndScaleFighter(GameObject characterPrefab, Vector3 randomSpawnPosition, int spawnSize, bool newGamePlusActive, int newGamePlusIterator)
+    //{
+    //    if (!newGamePlusActive)
+    //    {
+    //        GameObject Fighter = Instantiate(characterPrefab, randomSpawnPosition, characterPrefab.transform.rotation);
+    //        FighterScaler(battleSize, spawnSize);
+    //        Fighter.transform.localScale = new Vector3(battleParticipantsScaling, battleParticipantsScaling, battleParticipantsScaling);
+    //    }
+    //    else if (newGamePlusActive)
+    //    {
+    //        GameObject Fighter = Instantiate(characterPrefab, randomSpawnPosition, characterPrefab.transform.rotation);
+    //        // Moved to Actor.Start
+    //        // NewGamePlusStatScaler(Fighter);
+    //        FighterScaler(battleSize, spawnSize);
+    //        Fighter.transform.localScale = new Vector3(battleParticipantsScaling, battleParticipantsScaling, battleParticipantsScaling);
+    //    }
+    //}
 
     // Hero Version
     void SpawnAndScaleFighter(GameObject characterPrefab, Vector3 randomSpawnPosition, int spawnSize)

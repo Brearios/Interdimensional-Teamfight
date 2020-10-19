@@ -91,7 +91,7 @@ public class Actor : MonoBehaviour
 
         CharacterProfile currentProfile = PlayerProfile.Instance.GetCharacterProfileForUnit(unit);
 
-        if (!isPlayer && PlayerProfile.Instance.newGamePlusActive)
+        if (!isPlayer)
         {
             NewGamePlusStatScaler();
         }
