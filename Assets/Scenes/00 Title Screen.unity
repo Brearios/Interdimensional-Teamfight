@@ -2186,7 +2186,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d117944be7b1b60498ebb8b5809d7b16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mixerGroup: {fileID: 0}
   sounds:
   - name: Click
     clip: {fileID: 8300000, guid: 6388f08d8622ad248a62dfd3486ed367, type: 3}
@@ -2195,7 +2194,6 @@ MonoBehaviour:
     pitch: 0
     pitchVariance: 0.1
     loop: 0
-    mixerGroup: {fileID: 0}
     source: {fileID: 0}
   - name: MageAtk
     clip: {fileID: 8300000, guid: 3f6692f38c746454ea301ffb085be645, type: 3}
@@ -2204,7 +2202,6 @@ MonoBehaviour:
     pitch: 0
     pitchVariance: 0.1
     loop: 0
-    mixerGroup: {fileID: 0}
     source: {fileID: 0}
   - name: MageIcecicle
     clip: {fileID: 8300000, guid: 1a559e24fd4cf3b48a8cdd72d648a387, type: 3}
@@ -2213,7 +2210,6 @@ MonoBehaviour:
     pitch: 0
     pitchVariance: 0.1
     loop: 0
-    mixerGroup: {fileID: 0}
     source: {fileID: 0}
   - name: Heal
     clip: {fileID: 8300000, guid: 62ec7b960d807664facdc730d7dfc356, type: 3}
@@ -2222,7 +2218,6 @@ MonoBehaviour:
     pitch: 0
     pitchVariance: 0.1
     loop: 0
-    mixerGroup: {fileID: 0}
     source: {fileID: 0}
   - name: Hot
     clip: {fileID: 8300000, guid: aee9bb0cb6cf81940ac88b7c5026d94c, type: 3}
@@ -2231,7 +2226,6 @@ MonoBehaviour:
     pitch: 0
     pitchVariance: 0.1
     loop: 0
-    mixerGroup: {fileID: 0}
     source: {fileID: 0}
   - name: MageFrostbite
     clip: {fileID: 8300000, guid: 454354ecc998c8d40b78e2fd82a94fe6, type: 3}
@@ -2240,7 +2234,14 @@ MonoBehaviour:
     pitch: 0
     pitchVariance: 0.1
     loop: 0
-    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: TempTheme
+    clip: {fileID: 8300000, guid: 43efb438812afbe4ba8ee154acf9baf9, type: 3}
+    volume: 0.2
+    volumeVariance: 0.1
+    pitch: 0
+    pitchVariance: 0.1
+    loop: 1
     source: {fileID: 0}
 --- !u!1 &1548506529
 GameObject:

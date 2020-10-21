@@ -22,8 +22,6 @@ public class Sound
 
     public bool loop = false;
 
-    public AudioMixerGroup mixerGroup;
-
     [HideInInspector]
     public AudioSource source;
 }

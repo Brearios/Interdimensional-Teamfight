@@ -425,11 +425,14 @@ public class Actor : MonoBehaviour
     {
         Actor[] allActors = GameObject.FindObjectsOfType<Actor>();
 
+        // In a perfect world, DoT would be 1) highest health enemy that 2) didn't have this DoT.
         if ((abilityProcessor.abilityData.targetType == ScriptableAbility.TargetType.Damage) || (abilityProcessor.abilityData.targetType == ScriptableAbility.TargetType.Dot))
         {
             // Target is determined in FindPriorityEnemy to set who we move toward if out of range
             abilityProcessor.currentTarget = highThreatTarget;
         }
+
+        // Debuff the enemy with the highest output
         else if (abilityProcessor.abilityData.targetType == ScriptableAbility.TargetType.Debuff)
         {
             float highestDamageEnemy = Mathf.NegativeInfinity;
@@ -458,7 +461,7 @@ public class Actor : MonoBehaviour
         else if ((abilityProcessor.abilityData.targetType == ScriptableAbility.TargetType.Heal) || (abilityProcessor.abilityData.targetType == ScriptableAbility.TargetType.Hot))
         {
             abilityProcessor.currentTarget = this;
-            float lowestHealthPercent = 1;
+            float lowestHealthPercent = 0.1f;
 
             foreach (Actor currentActor in allActors)
             {
@@ -481,6 +484,8 @@ public class Actor : MonoBehaviour
                 }
             }
         }
+
+        // Ally with highest output
         else if (abilityProcessor.abilityData.targetType == ScriptableAbility.TargetType.Buff)
         {
             float highestDamageAlly = Mathf.NegativeInfinity;
@@ -622,7 +627,14 @@ public class Actor : MonoBehaviour
         //{
         //    FindAbilityTarget();
         //}
-        Debug.Log($"{unitName} is attempting {ability.abilityData.abilityName} on {ability.currentTarget}");
+        if (ability.currentTarget)
+        {
+            Debug.Log($"{unitName} is attempting {ability.abilityData.abilityName} on {ability.currentTarget}");
+        }
+        else
+        {
+            Debug.Log($"{unitName} is attempting {ability.abilityData.abilityName} on {unitName}");
+        }
         {
             // Auto Attack
             if ((ability.abilityData.targetType == ScriptableAbility.TargetType.Damage) && (ability.abilityData.isAutoAtk))
@@ -800,6 +812,11 @@ public class Actor : MonoBehaviour
 
     void UpdateThreatScore()
     {
+        if (isDead)
+        {
+            ThreatScore = Mathf.NegativeInfinity;
+        }
+
         // MaxHealth over CurrHealth (so as health decreases, priority increases)
         // multiplied by sum of atk & ability power
         // over maxHealth, so that 
@@ -825,12 +842,10 @@ public class Actor : MonoBehaviour
         }
         else
         {
-            if (isDead)
+            
+            if (unit.role == "Tank")
             {
-                ThreatScore = Mathf.NegativeInfinity;
-            }
-            else if (unit.role == "Tank")
-            {
+                // 1 * 11 - 20
                 ThreatScore = (((maxHealth / currHealth) * (attackDamage + abilityPower)) - (currHealth / 15));
                 // Mathf.Abs keeps the number positive no matter the value of ThreatScore
                 ThreatScore += Mathf.Abs((ThreatScore * totalCurrentTankThreatMultiplier));
@@ -1085,11 +1100,11 @@ public class Actor : MonoBehaviour
         }
         if (AbilityProcessors.Count >= 3)
         {
-            ability1Target = AbilityProcessors[2].currentTarget;
+            ability2Target = AbilityProcessors[2].currentTarget;
         }
         if (AbilityProcessors.Count >= 4)
         {
-            ability1Target = AbilityProcessors[3].currentTarget;
+            ability3Target = AbilityProcessors[3].currentTarget;
         }
     }
 
