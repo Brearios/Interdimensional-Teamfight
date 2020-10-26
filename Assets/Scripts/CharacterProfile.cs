@@ -14,6 +14,7 @@ public class CharacterProfile
     public int healthListLevel;
     public int atkListLevel;
     public int abilityListLevel;
+    public bool isTank;
     
     public int health;
     public int attackPower;

@@ -8,7 +8,7 @@ public class PlayerProfile : MonoBehaviour
     public static PlayerProfile Instance;
     public CharacterProfile mageHero;
     public CharacterProfile priestHero;
-    public CharacterProfile warriorHero;
+    public CharacterProfile spaceTank;
     public CharacterProfile rogueHero;
     public CharacterProfile plantHero;
     public CharacterProfile steamHero;
@@ -56,7 +56,7 @@ public class PlayerProfile : MonoBehaviour
 
         characterProfiles.Add(mageHero);
         characterProfiles.Add(priestHero);
-        characterProfiles.Add(warriorHero);
+        characterProfiles.Add(spaceTank);
         characterProfiles.Add(rogueHero);
         characterProfiles.Add(steamHero);
         characterProfiles.Add(plantHero);
@@ -112,8 +112,8 @@ public class PlayerProfile : MonoBehaviour
             case "PriestUnit":
                 return priestHero;
 
-            case "WarriorUnit":
-                return warriorHero;
+            case "SpaceTank":
+                return spaceTank;
 
             case "RogueUnit":
                 return rogueHero;

@@ -15,7 +15,7 @@ public class SaveLoad : MonoBehaviour
 
     public void SavePlayerProfile()
     {
-        AudioManager.Instance.Play("MageAtk");
+        AudioManager.Instance.Play("Click");
         string json = JsonUtility.ToJson(PlayerProfile.Instance, true);
         Debug.Log("Saving as JSON" + json);
         File.WriteAllText(SavePath, json);

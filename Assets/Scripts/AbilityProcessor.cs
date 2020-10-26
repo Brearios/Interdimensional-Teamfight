@@ -7,9 +7,10 @@ public class AbilityProcessor
     public float cooldownCount;
     public Actor currentTarget;
     // public string abilitySlot;
-    public ScriptableAbility abilityData;    
+    public ScriptableAbility abilityData;
+    public Sound abilitySound;
 
-    public AbilityProcessor(ScriptableAbility ability)
+    public AbilityProcessor(ScriptableAbility ability, Sound abilitySound)
     {
         // abilitySlot = ability.ToString();
         abilityData = ability;

@@ -6,7 +6,7 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance;
 
-    // public AudioMixerGroup mixerGroup;
+    public AudioMixerGroup mixerGroup;
 
     //public List <ScriptableSoundData> scriptableSounds;
     //public int simultaneousSounds;
@@ -15,14 +15,14 @@ public class AudioManager : MonoBehaviour
 
     void Awake()
     {
-        if (Instance != null)
+        if (Instance == null)
         {
-            Destroy(gameObject);
+            Instance = this;
+            DontDestroyOnLoad(this);
         }
         else
         {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
+            Destroy(gameObject);
         }
 
         foreach (Sound s in sounds)
@@ -34,7 +34,7 @@ public class AudioManager : MonoBehaviour
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
 
-            // s.source.outputAudioMixerGroup = mixerGroup;
+            s.source.outputAudioMixerGroup = mixerGroup;
         }
     }
 

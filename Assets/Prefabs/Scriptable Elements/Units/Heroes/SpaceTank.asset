@@ -10,24 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2d9a75471d10e234095c808943749452, type: 3}
-  m_Name: PlantUnit
+  m_Name: SpaceTank
   m_EditorClassIdentifier: 
-  unitName: Plant
-  maxHealth: 100
+  unitName: SpaceTank
+  maxHealth: 300
   attackDamage: 5
   abilityPower: 6
-  globalCooldown: 3
+  globalCooldown: 2
   xpWhenKilled: 25
   crystalsWhenKilled: 0
   goldWhenKilled: 0
-  role: RangedDPS
+  role: Tank
   team: 
   atkRange: 3
   moveSpeed: 1
   targetCheckFrequency: 2
-  abilityAnimationType: Cast
-  dmgVariance: 0.25
-  autoAtkSound:
+  abilityAnimationType: Slash
+  dmgVariance: 0.2
+  autoAtk:
     name: 
     clip: {fileID: 0}
     volume: 0.75
@@ -36,7 +36,7 @@ MonoBehaviour:
     pitchVariance: 0.1
     loop: 0
     source: {fileID: 0}
-  ability1Sound:
+  baseAbility:
     name: 
     clip: {fileID: 0}
     volume: 0.75
@@ -45,7 +45,7 @@ MonoBehaviour:
     pitchVariance: 0.1
     loop: 0
     source: {fileID: 0}
-  Ability2Sound:
+  unlockedAbility1:
     name: 
     clip: {fileID: 0}
     volume: 0.75
@@ -54,7 +54,7 @@ MonoBehaviour:
     pitchVariance: 0.1
     loop: 0
     source: {fileID: 0}
-  Ability3Sound:
+  unlockedAbility2:
     name: 
     clip: {fileID: 0}
     volume: 0.75
@@ -63,7 +63,7 @@ MonoBehaviour:
     pitchVariance: 0.1
     loop: 0
     source: {fileID: 0}
-  potionAbilitySound:
+  potionAbility:
     name: 
     clip: {fileID: 0}
     volume: 0.75

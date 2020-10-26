@@ -21,4 +21,9 @@ public class ScriptableUnit : ScriptableObject
     public float targetCheckFrequency;
     public string abilityAnimationType;
     public float dmgVariance;
+    public Sound autoAtkSound;
+    public Sound ability1Sound;
+    public Sound Ability2Sound;
+    public Sound Ability3Sound;
+    public Sound potionAbilitySound;
 }

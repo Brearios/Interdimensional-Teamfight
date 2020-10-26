@@ -763,6 +763,7 @@ MonoBehaviour:
     healthListLevel: 0
     atkListLevel: 0
     abilityListLevel: 0
+    isTank: 0
     health: 0
     attackPower: 0
     abilityPower: 0
@@ -2186,12 +2187,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d117944be7b1b60498ebb8b5809d7b16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mixerGroup: {fileID: 24300002, guid: 38b2a617d6f06f54592321bb2be2c73c, type: 2}
   sounds:
   - name: Click
     clip: {fileID: 8300000, guid: 6388f08d8622ad248a62dfd3486ed367, type: 3}
     volume: 1
     volumeVariance: 0.1
-    pitch: 0
+    pitch: 1
     pitchVariance: 0.1
     loop: 0
     source: {fileID: 0}
@@ -2199,7 +2201,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 3f6692f38c746454ea301ffb085be645, type: 3}
     volume: 1
     volumeVariance: 0.1
-    pitch: 0
+    pitch: 1
     pitchVariance: 0.1
     loop: 0
     source: {fileID: 0}
@@ -2207,7 +2209,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 1a559e24fd4cf3b48a8cdd72d648a387, type: 3}
     volume: 1
     volumeVariance: 0.1
-    pitch: 0
+    pitch: 1
     pitchVariance: 0.1
     loop: 0
     source: {fileID: 0}
@@ -2215,7 +2217,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 62ec7b960d807664facdc730d7dfc356, type: 3}
     volume: 1
     volumeVariance: 0.1
-    pitch: 0
+    pitch: 1
     pitchVariance: 0.1
     loop: 0
     source: {fileID: 0}
@@ -2223,7 +2225,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: aee9bb0cb6cf81940ac88b7c5026d94c, type: 3}
     volume: 1
     volumeVariance: 0.1
-    pitch: 0
+    pitch: 1
     pitchVariance: 0.1
     loop: 0
     source: {fileID: 0}
@@ -2231,16 +2233,16 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 454354ecc998c8d40b78e2fd82a94fe6, type: 3}
     volume: 1
     volumeVariance: 0.1
-    pitch: 0
+    pitch: 1
     pitchVariance: 0.1
     loop: 0
     source: {fileID: 0}
   - name: TempTheme
     clip: {fileID: 8300000, guid: 43efb438812afbe4ba8ee154acf9baf9, type: 3}
-    volume: 0.2
-    volumeVariance: 0.1
-    pitch: 0
-    pitchVariance: 0.1
+    volume: 0.4
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
     loop: 1
     source: {fileID: 0}
 --- !u!1 &1548506529
@@ -3241,6 +3243,61 @@ PrefabInstance:
         type: 3}
       propertyPath: spaceSoldier.abilityPower
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: spaceTank.health
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: spaceTank.attackPower
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: spaceTank.abilityPower
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: spaceTank.autoAtk
+      value: 
+      objectReference: {fileID: 11400000, guid: 2bebe808ca503864c9cc1f842b32a7d1,
+        type: 2}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: spaceTank.ability1
+      value: 
+      objectReference: {fileID: 11400000, guid: eed78b34608a1014da24262aa2df7b67,
+        type: 2}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: spaceTank.ability2
+      value: 
+      objectReference: {fileID: 11400000, guid: e0e64450ef3e11b4ea011125f457e545,
+        type: 2}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: spaceTank.ability3
+      value: 
+      objectReference: {fileID: 11400000, guid: 9606f02bbe713c94489e085fb5cf05c9,
+        type: 2}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: spaceTank.potion
+      value: 
+      objectReference: {fileID: 11400000, guid: 3325535cecac7e8459de80fb98690e19,
+        type: 2}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: spaceTank.isTank
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: steamHero.isTank
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 611108803042512250, guid: db534adf8c82c12469f782d9128fd3f1,
         type: 3}

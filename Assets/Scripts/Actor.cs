@@ -105,55 +105,85 @@ public class Actor : MonoBehaviour
             // New implementation based on length
             if ((autoAtk) && ((currentProfile.autoAtkUnlock == true)))
             {
-                AbilityProcessor autoAtkProcessor = new AbilityProcessor(autoAtk);
+                AbilityProcessor autoAtkProcessor = new AbilityProcessor(autoAtk, unit.autoAtkSound);
                 AbilityProcessors.Add(autoAtkProcessor);
             }
             if ((ability1) && ((currentProfile.ability1Unlock == true)))
             {
-                AbilityProcessor ability1Processor = new AbilityProcessor(ability1);
+                AbilityProcessor ability1Processor = new AbilityProcessor(ability1, unit.ability1Sound);
                 AbilityProcessors.Add(ability1Processor);
             }
             if ((ability2) && ((currentProfile.ability2Unlock == true)))
             {
-                AbilityProcessor ability2Processor = new AbilityProcessor(ability2);
+                AbilityProcessor ability2Processor = new AbilityProcessor(ability2, unit.Ability2Sound);
                 AbilityProcessors.Add(ability2Processor);
             }
             if ((ability3) && ((currentProfile.ability3Unlock == true)))
             {
-                AbilityProcessor ability3Processor = new AbilityProcessor(ability3);
+                AbilityProcessor ability3Processor = new AbilityProcessor(ability3, unit.Ability3Sound);
                 AbilityProcessors.Add(ability3Processor);
             }
             if ((potion) && ((currentProfile.potionUnlock == true)))
             {
-                AbilityProcessor potionProcessor = new AbilityProcessor(potion);
+                AbilityProcessor potionProcessor = new AbilityProcessor(potion, unit.potionAbilitySound);
                 AbilityProcessors.Add(potionProcessor);
             }
         }
     else
         {
+            // How do I if statement these for being null
+            // How do I if statement these for being null
+            // How do I if statement these for being null
+            // How do I if statement these for being null
+            // How do I if statement these for being null
+            // How do I if statement these for being null
+            // How do I if statement these for being null
+            // How do I if statement these for being null
+            // How do I if statement these for being null
+            // How do I if statement these for being null
+            // How do I if statement these for being null
+            // How do I if statement these for being null
+            // How do I if statement these for being null
+            // How do I if statement these for being null
+            // How do I if statement these for being null
+            // How do I if statement these for being null
+            // How do I if statement these for being null
+            // How do I if statement these for being null
+            // How do I if statement these for being null
+            // How do I if statement these for being null
+            // How do I if statement these for being null
+            // How do I if statement these for being null
+            // How do I if statement these for being null
+            // How do I if statement these for being null
+
+
+
+
+
+
             if (autoAtk)
             {
-                AbilityProcessor autoAtkProcessor = new AbilityProcessor(autoAtk);
+                AbilityProcessor autoAtkProcessor = new AbilityProcessor(autoAtk, unit.autoAtkSound);
                 AbilityProcessors.Add(autoAtkProcessor);
             }
             if (ability1)
             {
-                AbilityProcessor ability1Processor = new AbilityProcessor(ability1);
+                AbilityProcessor ability1Processor = new AbilityProcessor(ability1, unit.ability1Sound);
                 AbilityProcessors.Add(ability1Processor);
             }
             if (ability2)
             {
-                AbilityProcessor ability2Processor = new AbilityProcessor(ability2);
+                AbilityProcessor ability2Processor = new AbilityProcessor(ability2, unit.Ability2Sound);
                 AbilityProcessors.Add(ability2Processor);
             }
             if (ability3)
             {
-                AbilityProcessor ability3Processor = new AbilityProcessor(ability3);
+                AbilityProcessor ability3Processor = new AbilityProcessor(ability3, unit.Ability3Sound);
                 AbilityProcessors.Add(ability3Processor);
             }
             if (potion)
             {
-                AbilityProcessor potionProcessor = new AbilityProcessor(potion);
+                AbilityProcessor potionProcessor = new AbilityProcessor(potion, unit.potionAbilitySound);
                 AbilityProcessors.Add(potionProcessor);
             }
         }
@@ -461,7 +491,7 @@ public class Actor : MonoBehaviour
         else if ((abilityProcessor.abilityData.targetType == ScriptableAbility.TargetType.Heal) || (abilityProcessor.abilityData.targetType == ScriptableAbility.TargetType.Hot))
         {
             abilityProcessor.currentTarget = this;
-            float lowestHealthPercent = 0.1f;
+            float lowestHealthPercent = 100;
 
             foreach (Actor currentActor in allActors)
             {

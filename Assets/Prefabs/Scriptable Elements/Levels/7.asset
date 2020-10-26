@@ -23,7 +23,7 @@ MonoBehaviour:
     DefaultUnitData: 0
     team: 1
     size: 3
-    numberOfInstances: 2
+    numberOfInstances: 1
     spawn: 4
   - characterPrefab: {fileID: 1767414096115935, guid: 9f1a129c51a40dd4692cb9024944990b,
       type: 3}
@@ -37,12 +37,12 @@ MonoBehaviour:
     DefaultUnitData: 0
     team: 1
     size: 0
-    numberOfInstances: 6
+    numberOfInstances: 12
     spawn: 6
   - characterPrefab: {fileID: 2111358518787767468, guid: 0d161b1c5f3d84f46862d4e1712408eb,
       type: 3}
     DefaultUnitData: 0
     team: 1
     size: 0
-    numberOfInstances: 2
+    numberOfInstances: 4
     spawn: 5

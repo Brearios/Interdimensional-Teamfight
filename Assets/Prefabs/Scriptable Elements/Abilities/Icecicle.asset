@@ -20,7 +20,11 @@ MonoBehaviour:
   cooldown: 5
   startsOnCooldown: 0
   isAutoAtk: 0
+  isPotion: 0
   description: Direct damage with a shard of ice.
   effect: {fileID: 0}
-  abilityCharges: 0
+  storesCharges: 0
+  currentAbilityCharges: 0
+  maxAbilityCharges: 0
   unlockCost: 0
+  potionAbilityPower: 0
