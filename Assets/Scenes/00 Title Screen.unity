@@ -364,8 +364,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 258506120}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: LoadPlayerProfile
+        m_TargetAssemblyTypeName: SaveLoad, Assembly-CSharp
+        m_MethodName: LoadData
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1631,8 +1631,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1034136597}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: SavePlayerProfile
+        m_TargetAssemblyTypeName: SaveLoad, Assembly-CSharp
+        m_MethodName: SaveData
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
