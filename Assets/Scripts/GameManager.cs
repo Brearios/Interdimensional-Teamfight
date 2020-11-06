@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
     public float heroDamageDone;
     public float heroDamageTaken;
     public float heroHealingDone;
+    public float heroOverHealingDone;
     public float enemyHealingDone;
     public bool playerVictory;
     public bool playerLoss;

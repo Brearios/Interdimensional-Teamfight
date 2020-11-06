@@ -774,11 +774,14 @@ public class Actor : MonoBehaviour
 
     void ChangeHealth(float amount, bool wantFloatingText)
     {
+        float overHeal = 0;
         // Add or Subtract Health
         currHealth += amount;
         if (currHealth > maxHealth)
         {
+            overHeal = (currHealth - maxHealth);
             currHealth = maxHealth;
+            GameManager.Instance.heroOverHealingDone += overHeal;
         }
 
         // Log Damage/Healing - Does not account for overkill/overhealing
@@ -789,7 +792,7 @@ public class Actor : MonoBehaviour
 
         if ((isPlayer) && (amount > 0))
         {
-            GameManager.Instance.heroHealingDone += amount;
+            GameManager.Instance.heroHealingDone += amount - overHeal;
         }
 
         if ((!isPlayer) && (amount < 0))
