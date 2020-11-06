@@ -118,11 +118,11 @@ public class PlayerProfile : MonoBehaviour
             case "RogueUnit":
                 return rogueHero;
 
-            case "PlantUnit":
-                return plantHero;
-
             case "SteamTankUnit":
                 return steamHero;
+
+            case "PlantUnit":
+                return plantHero;           
 
             case "SpaceSoldier":
                 return spaceSoldier;

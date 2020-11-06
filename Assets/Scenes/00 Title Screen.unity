@@ -699,7 +699,7 @@ MonoBehaviour:
   nextXpCost: 108
   nextAtkPower: 6
   nextAbilityPower: 9
-  nextHealth: 105
+  nextHealth: 104
   NextXpCostMultiplier: 1.0805
   newGamePlusEnemyHealthMultiplier:
   - 1
@@ -1514,6 +1514,7 @@ MonoBehaviour:
   heroDamageDone: 0
   heroDamageTaken: 0
   heroHealingDone: 0
+  heroOverHealingDone: 0
   enemyHealingDone: 0
   playerVictory: 0
   playerLoss: 0

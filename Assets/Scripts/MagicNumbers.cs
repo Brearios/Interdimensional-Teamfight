@@ -24,7 +24,7 @@ public class MagicNumbers : MonoBehaviour
     public int nextXpCost = 108;
     public int nextAtkPower = 6;
     public int nextAbilityPower = 9;
-    public int nextHealth = 105;
+    public int nextHealth = 104;
 
     // This rate will double the number every ten levels
     public double NextXpCostMultiplier = 1.0805;
