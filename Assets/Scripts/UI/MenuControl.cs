@@ -8,7 +8,8 @@ public class MenuControl : MonoBehaviour
     public GameObject rootMenuCanvas;
     public GameObject statUpgradeCanvas;
     public GameObject characterAbilitiesCanvas;
-    public GameObject craftedUpgradesCanvas;    
+    public GameObject craftedUpgradesCanvas;
+    public GameObject gearUpgradesCanvas;
 
     // Start is called before the first frame update
     void Start()
@@ -55,5 +56,14 @@ public class MenuControl : MonoBehaviour
         statUpgradeCanvas.SetActive(false);
         characterAbilitiesCanvas.SetActive(false);
         craftedUpgradesCanvas.SetActive(true);
+    }
+
+    public void GearUpgrades()
+    {
+        rootMenuCanvas.SetActive(false);
+        statUpgradeCanvas.SetActive(false);
+        characterAbilitiesCanvas.SetActive(false);
+        craftedUpgradesCanvas.SetActive(false);
+        gearUpgradesCanvas.SetActive(true);
     }
 }

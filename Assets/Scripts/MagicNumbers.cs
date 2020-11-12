@@ -41,6 +41,14 @@ public class MagicNumbers : MonoBehaviour
     //public float epicBattleLargeEnemy;
     //public float epicBattleBossEnemy;
 
+
+    // Rebuild to have a base variable, and a level-up ratio
+    public int[] goldUpgradeCosts = { 10, 30, 90, 270, 810, 2430, 7290, 21870, 65610, 196830, 590490, 1771470, 5314410, 15943230, 47829630, 143489070,
+        430467210, 1291401630, }; // 3874204890, 11622614670, 34867844010, 104603532030, 313810596090, 941431788270 };
+
+    public float[] gearMultiplierLevels = { 1.10f, 1.14f, 1.17f, 1.20f, 1.28f, 1.34f, 1.40f, 1.56f, 1.68f, 1.80f,
+         2.12f, 2.36f, 2.60f, 3.24f, 3.72f, 4.20f, 5.48f, 6.44f }; // 7.40f, 9.96f, 11.88f, 13.80f, 18.92f, 22.76f, };
+
     public void Awake()
         {
             if (Instance == null)

@@ -35,6 +35,18 @@ public class CharacterProfile
     public ScriptableAbility ability3;
     public ScriptableAbility potion;
 
+    public Gear armor;
+    public Gear weapon;
+    public Gear accessory;
+
+    public float armorMultiplier;
+    public float weaponMultiplier;
+    public float accessoryMultiplier;
+
+    public int nextArmorUpgradeIndex;
+    public int nextWeaponUpgradeIndex;
+    public int nextAccessoryUpgradeIndex;
+
     //public List<AbilityUnlock> AbilityUnlocks = new List<AbilityUnlock>(){ autoAtk, ability1, ability2, ability3, potion };
     public List<AbilityUnlock> AbilityUnlocks;
     // Each character should have autoAtk and their first ability unlocked by default, but will need to unlock abilities 2 & 3 and their potion.

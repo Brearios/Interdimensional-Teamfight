@@ -216,13 +216,6 @@ public class Actor : MonoBehaviour
         dmgVariance = unit.dmgVariance;
     }
 
-    private void NewGamePlusStatScaler()
-    {
-        maxHealth *= MagicNumbers.Instance.newGamePlusEnemyHealthMultiplier[PlayerProfile.Instance.newGamePlusIterator];
-        attackDamage = (int)((float)attackDamage * MagicNumbers.Instance.newGamePlusEnemyAutoAtkDamageMultiplier[PlayerProfile.Instance.newGamePlusIterator]);
-        abilityPower = (int)((float)abilityPower * MagicNumbers.Instance.newGamePlusEnemyAbilityPowerMultiplier[PlayerProfile.Instance.newGamePlusIterator]);
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -1161,5 +1154,12 @@ public class Actor : MonoBehaviour
     {
         EffectData potionEffectData = new EffectData(user, effect, ability.potionAbilityPower);
         user.CurrentEffects.Add(potionEffectData);
+    }
+
+    private void NewGamePlusStatScaler()
+    {
+        maxHealth *= MagicNumbers.Instance.newGamePlusEnemyHealthMultiplier[PlayerProfile.Instance.newGamePlusIterator];
+        attackDamage = (int)((float)attackDamage * MagicNumbers.Instance.newGamePlusEnemyAutoAtkDamageMultiplier[PlayerProfile.Instance.newGamePlusIterator]);
+        abilityPower = (int)((float)abilityPower * MagicNumbers.Instance.newGamePlusEnemyAbilityPowerMultiplier[PlayerProfile.Instance.newGamePlusIterator]);
     }
 }
