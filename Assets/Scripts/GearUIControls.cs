@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GearControls : MonoBehaviour
+public class GearUIControls : MonoBehaviour
 {
     
     // Start is called before the first frame update
