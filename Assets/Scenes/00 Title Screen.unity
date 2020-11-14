@@ -716,6 +716,26 @@ MonoBehaviour:
   - 1.5
   - 2.4
   - 3.2
+  goldUpgradeCosts: 0a0000001e0000005a0000000e0100002a0300007e0900007a1c00006e5500004a000100de0003009a020900ce071b006a1751003e46f3007ed2d9022e788d088a68a8199e39f94c
+  gearMultiplierLevels:
+  - 1.1
+  - 1.14
+  - 1.17
+  - 1.2
+  - 1.28
+  - 1.34
+  - 1.4
+  - 1.56
+  - 1.68
+  - 1.8
+  - 2.12
+  - 2.36
+  - 2.6
+  - 3.24
+  - 3.72
+  - 4.2
+  - 5.48
+  - 6.44
 --- !u!114 &422259695
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -780,6 +800,15 @@ MonoBehaviour:
     ability2: {fileID: 0}
     ability3: {fileID: 0}
     potion: {fileID: 0}
+    armor: {fileID: 0}
+    weapon: {fileID: 0}
+    accessory: {fileID: 0}
+    armorMultiplier: 0
+    weaponMultiplier: 0
+    accessoryMultiplier: 0
+    nextArmorUpgradeIndex: 0
+    nextWeaponUpgradeIndex: 0
+    nextAccessoryUpgradeIndex: 0
     AbilityUnlocks: []
 --- !u!4 &422259697
 Transform:
@@ -3299,6 +3328,11 @@ PrefabInstance:
         type: 3}
       propertyPath: steamHero.isTank
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: mageHero.armor
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 611108803042512250, guid: db534adf8c82c12469f782d9128fd3f1,
         type: 3}

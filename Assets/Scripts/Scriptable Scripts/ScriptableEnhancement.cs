@@ -4,7 +4,7 @@ using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Enhancement", menuName = "Enhancement")]
 
-public class ScriptableEnhancement : MonoBehaviour
+public class ScriptableEnhancement : ScriptableObject
 {
     public string enhancementName;
     public int enhancementLevel;
