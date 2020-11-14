@@ -35,6 +35,7 @@ public class CharacterProfile
     public ScriptableAbility ability3;
     public ScriptableAbility potion;
 
+
     public ScriptableGear armor;
     public ScriptableGear weapon;
     public ScriptableGear accessory;
@@ -47,7 +48,7 @@ public class CharacterProfile
     public int nextWeaponUpgradeIndex;
     public int nextAccessoryUpgradeIndex;
 
-    // Messy beginning work on adding gear upgrades for gold
+
     //public List<AbilityUnlock> AbilityUnlocks = new List<AbilityUnlock>(){ autoAtk, ability1, ability2, ability3, potion };
     public List<AbilityUnlock> AbilityUnlocks;
     // Each character should have autoAtk and their first ability unlocked by default, but will need to unlock abilities 2 & 3 and their potion.
