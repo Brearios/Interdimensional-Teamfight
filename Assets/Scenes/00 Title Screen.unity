@@ -703,9 +703,9 @@ MonoBehaviour:
   NextXpCostMultiplier: 1.0805
   newGamePlusEnemyHealthMultiplier:
   - 1
-  - 1.5
-  - 2.4
+  - 2
   - 3.2
+  - 4.8
   newGamePlusEnemyAutoAtkDamageMultiplier:
   - 1
   - 1.5
@@ -716,6 +716,12 @@ MonoBehaviour:
   - 1.5
   - 2.4
   - 3.2
+  qualityNames:
+  - Uncommon
+  - Rare
+  improvementNames:
+  - Improved
+  - Advanced
   goldUpgradeCosts: 0a0000001e0000005a0000000e0100002a0300007e0900007a1c00006e5500004a000100de0003009a020900ce071b006a1751003e46f3007ed2d9022e788d088a68a8199e39f94c
   gearMultiplierLevels:
   - 1.1
@@ -736,6 +742,7 @@ MonoBehaviour:
   - 4.2
   - 5.48
   - 6.44
+  enhancementSlotLevels: 000000000000000001000000010000000200000002000000030000000300000004000000
 --- !u!114 &422259695
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -800,9 +807,7 @@ MonoBehaviour:
     ability2: {fileID: 0}
     ability3: {fileID: 0}
     potion: {fileID: 0}
-    armor: {fileID: 0}
-    weapon: {fileID: 0}
-    accessory: {fileID: 0}
+    gearset: {fileID: 0}
     armorMultiplier: 0
     weaponMultiplier: 0
     accessoryMultiplier: 0
@@ -3333,7 +3338,56 @@ PrefabInstance:
         type: 3}
       propertyPath: mageHero.armor
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 11400000, guid: a35e5a7f080c11f4b9f75abb88329c1a,
+        type: 2}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: mageHero.weapon
+      value: 
+      objectReference: {fileID: 11400000, guid: b68b5dc6afe5c924bb11d7379a8a310b,
+        type: 2}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: mageHero.accessory
+      value: 
+      objectReference: {fileID: 11400000, guid: 13c1a9167069cd142941a8fe86d0c96f,
+        type: 2}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: priestHero.armor
+      value: 
+      objectReference: {fileID: 11400000, guid: a35e5a7f080c11f4b9f75abb88329c1a,
+        type: 2}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: priestHero.weapon
+      value: 
+      objectReference: {fileID: 11400000, guid: b68b5dc6afe5c924bb11d7379a8a310b,
+        type: 2}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: priestHero.accessory
+      value: 
+      objectReference: {fileID: 11400000, guid: 13c1a9167069cd142941a8fe86d0c96f,
+        type: 2}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: spaceTank.armor
+      value: 
+      objectReference: {fileID: 11400000, guid: a35e5a7f080c11f4b9f75abb88329c1a,
+        type: 2}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: spaceTank.weapon
+      value: 
+      objectReference: {fileID: 11400000, guid: b68b5dc6afe5c924bb11d7379a8a310b,
+        type: 2}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: spaceTank.accessory
+      value: 
+      objectReference: {fileID: 11400000, guid: 13c1a9167069cd142941a8fe86d0c96f,
+        type: 2}
     - target: {fileID: 611108803042512250, guid: db534adf8c82c12469f782d9128fd3f1,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -9,11 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 651527865ccf0df4bbd14d6faab91179, type: 3}
-  m_Name: Default Gear
+  m_Script: {fileID: 11500000, guid: 11a5d66f1cf60644588c41cdd25950ac, type: 3}
+  m_Name: Default Armor Rank 3
   m_EditorClassIdentifier: 
-  currentLevel: 0
-  itemName: 
-  rankNames: []
+  gearType: 0
+  statMultiplier: 0
+  statAddition: 0
   enhancementSlots: 0
-  currentEnhancements: []
+  goldNextUpgradeCost: 0
+  currentEnhancement: []

@@ -36,9 +36,7 @@ public class CharacterProfile
     public ScriptableAbility potion;
 
 
-    public ScriptableGear armor;
-    public ScriptableGear weapon;
-    public ScriptableGear accessory;
+    public ScriptableGearSet gearset;
 
     public float armorMultiplier;
     public float weaponMultiplier;

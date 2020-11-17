@@ -8,12 +8,21 @@ public class MenuControl : MonoBehaviour
     public GameObject rootMenuCanvas;
     public GameObject statUpgradeCanvas;
     public GameObject characterAbilitiesCanvas;
-    public GameObject craftedUpgradesCanvas;    
+    public GameObject craftedUpgradesCanvas;
+    public GameObject gearUpgradesCanvas;
+
+    public List<GameObject> menuCanvii = new List<GameObject>();
+
+    
 
     // Start is called before the first frame update
     void Start()
     {
-    
+        menuCanvii.Add(rootMenuCanvas);
+        menuCanvii.Add(statUpgradeCanvas);
+        menuCanvii.Add(characterAbilitiesCanvas);
+        menuCanvii.Add(craftedUpgradesCanvas);
+        menuCanvii.Add(gearUpgradesCanvas);
     }
 
 
@@ -39,6 +48,7 @@ public class MenuControl : MonoBehaviour
         statUpgradeCanvas.SetActive(true);
         characterAbilitiesCanvas.SetActive(false);
         craftedUpgradesCanvas.SetActive(false);
+        gearUpgradesCanvas.SetActive(false);
     }
 
     public void CharacterAbilities()
@@ -47,6 +57,7 @@ public class MenuControl : MonoBehaviour
         statUpgradeCanvas.SetActive(false);
         characterAbilitiesCanvas.SetActive(true);
         craftedUpgradesCanvas.SetActive(false);
+        gearUpgradesCanvas.SetActive(false);
     }
 
     public void CraftedUpgrades()
@@ -55,5 +66,24 @@ public class MenuControl : MonoBehaviour
         statUpgradeCanvas.SetActive(false);
         characterAbilitiesCanvas.SetActive(false);
         craftedUpgradesCanvas.SetActive(true);
+        gearUpgradesCanvas.SetActive(false);
+    }
+
+    public void GearUpgrades()
+    {
+        rootMenuCanvas.SetActive(false);
+        statUpgradeCanvas.SetActive(false);
+        characterAbilitiesCanvas.SetActive(false);
+        craftedUpgradesCanvas.SetActive(false);
+        gearUpgradesCanvas.SetActive(true);
+    }
+
+    public void MenuSwap(GameObject clickedMenu)
+    {
+        foreach (GameObject menuCanvas in menuCanvii)
+            {
+                menuCanvas.SetActive(false);
+            }
+        clickedMenu.SetActive(true);
     }
 }

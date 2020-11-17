@@ -127,9 +127,19 @@ public class XpController : MonoBehaviour
         SceneCharacter.characterAvailableXP = 0;
     }
 
+    public void ResetGold()
+    {
+        PlayerProfile.Instance.currentGold = 0;
+    }
+
     public void AddXP()
     {
         SceneCharacter.characterAvailableXP += 500;
+    }
+
+    public void AddGold()
+    {
+        PlayerProfile.Instance.currentGold += 500;
     }
 
     public void IncrementLevel()
