@@ -24,33 +24,34 @@ public class GearDetailText : MonoBehaviour
     void Update()
     {
         CurrentDetailItem = PlayerProfile.Instance.currentDetailItem;
+        SceneCharacter = PlayerProfile.Instance.CurrentEditingCharacter;
 
         if (CurrentDetailItem.itemType == ScriptableGearItem.ItemType.armor)
         {
             text.text = $"Item Name: {CurrentDetailItem.itemName}{Environment.NewLine} " +
-            $"Enhancement Slots: {MagicNumbers.Instance.enhancementSlotLevels[SceneCharacter.armorUpgradeLevel]}{Environment.NewLine}" +
             $"Upgrade Level: {SceneCharacter.armorUpgradeLevel} {Environment.NewLine} " +
             $"Stat Added: {CurrentDetailItem.statAdded} {Environment.NewLine} " +
             $"Stat Points Added: {SceneCharacter.armorUpgradeLevel} {Environment.NewLine} " +
-            $"Stat Multiplier Added: {MagicNumbers.Instance.statMultiplierLevels[SceneCharacter.armorUpgradeLevel]}";
+            $"Stat Multiplier Added: {MagicNumbers.Instance.statMultiplierLevels[SceneCharacter.armorUpgradeLevel]} {Environment.NewLine} " +
+            $"Enhancement Slots: {MagicNumbers.Instance.enhancementSlotLevels[SceneCharacter.armorUpgradeLevel]}";
         }
         else if (CurrentDetailItem.itemType == ScriptableGearItem.ItemType.weapon)
         {
             text.text = $"Item Name: {CurrentDetailItem.itemName}{Environment.NewLine} " +
-            $"Enhancement Slots: {MagicNumbers.Instance.enhancementSlotLevels[SceneCharacter.weaponUpgradeLevel]}{Environment.NewLine}" +
             $"Upgrade Level: {SceneCharacter.weaponUpgradeLevel} {Environment.NewLine} " +
             $"Stat Added: {CurrentDetailItem.statAdded} {Environment.NewLine} " +
             $"Stat Points Added: {SceneCharacter.weaponUpgradeLevel} {Environment.NewLine} " +
-            $"Stat Multiplier Added: {MagicNumbers.Instance.statMultiplierLevels[SceneCharacter.weaponUpgradeLevel]}";
+            $"Stat Multiplier Added: {MagicNumbers.Instance.statMultiplierLevels[SceneCharacter.weaponUpgradeLevel]} {Environment.NewLine} " +
+            $"Enhancement Slots: {MagicNumbers.Instance.enhancementSlotLevels[SceneCharacter.weaponUpgradeLevel]}";
         }
         else if (CurrentDetailItem.itemType == ScriptableGearItem.ItemType.accessory)
         {
             text.text = $"Item Name: {CurrentDetailItem.itemName}{Environment.NewLine} " +
-            $"Enhancement Slots: {MagicNumbers.Instance.enhancementSlotLevels[SceneCharacter.accessoryUpgradeLevel]}{Environment.NewLine}" +
             $"Upgrade Level: {SceneCharacter.accessoryUpgradeLevel} {Environment.NewLine} " +
             $"Stat Added: {CurrentDetailItem.statAdded} {Environment.NewLine} " +
             $"Stat Points Added: {SceneCharacter.accessoryUpgradeLevel} {Environment.NewLine} " +
-            $"Stat Multiplier Added: {MagicNumbers.Instance.statMultiplierLevels[SceneCharacter.accessoryUpgradeLevel]}";
+            $"Stat Multiplier Added: {MagicNumbers.Instance.statMultiplierLevels[SceneCharacter.accessoryUpgradeLevel]} {Environment.NewLine} " +
+            $"Enhancement Slots: {MagicNumbers.Instance.enhancementSlotLevels[SceneCharacter.accessoryUpgradeLevel]}";
         }
     }
 }
