@@ -723,7 +723,7 @@ MonoBehaviour:
   - Improved
   - Advanced
   goldUpgradeCosts: 0a0000001e0000005a0000000e0100002a0300007e0900007a1c00006e5500004a000100de0003009a020900ce071b006a1751003e46f3007ed2d9022e788d088a68a8199e39f94c
-  gearMultiplierLevels:
+  statMultiplierLevels:
   - 1.1
   - 1.14
   - 1.17
@@ -3387,6 +3387,48 @@ PrefabInstance:
       propertyPath: spaceTank.accessory
       value: 
       objectReference: {fileID: 11400000, guid: 13c1a9167069cd142941a8fe86d0c96f,
+        type: 2}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: mageHero.gearset
+      value: 
+      objectReference: {fileID: 11400000, guid: 13c1a9167069cd142941a8fe86d0c96f,
+        type: 2}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: priestHero.gearset
+      value: 
+      objectReference: {fileID: 11400000, guid: a35e5a7f080c11f4b9f75abb88329c1a,
+        type: 2}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: spaceTank.gearset
+      value: 
+      objectReference: {fileID: 11400000, guid: b68b5dc6afe5c924bb11d7379a8a310b,
+        type: 2}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: rogueHero.gearset
+      value: 
+      objectReference: {fileID: 11400000, guid: 140e1ac043e9ad7409faee32cc0bcf7e,
+        type: 2}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: plantHero.gearset
+      value: 
+      objectReference: {fileID: 11400000, guid: b8379a3d1fd3d0c4c82f162967b7e038,
+        type: 2}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: steamHero.gearset
+      value: 
+      objectReference: {fileID: 11400000, guid: 5a27c52807b1ba74b996e1ab09c4b5ba,
+        type: 2}
+    - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
+        type: 3}
+      propertyPath: spaceSoldier.gearset
+      value: 
+      objectReference: {fileID: 11400000, guid: 4bc0b6875f239a24d839db93eac46243,
         type: 2}
     - target: {fileID: 611108803042512250, guid: db534adf8c82c12469f782d9128fd3f1,
         type: 3}

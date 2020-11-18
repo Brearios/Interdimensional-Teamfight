@@ -2577,7 +2577,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 268553590}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 481a22409fff06a4fb9049ce7e506779, type: 3}
+  m_Script: {fileID: 11500000, guid: 518c8d93f9825ba41bcdd5b74b5cdb7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   SceneCharacter:
@@ -2613,7 +2613,6 @@ MonoBehaviour:
     nextWeaponUpgradeIndex: 0
     nextAccessoryUpgradeIndex: 0
     AbilityUnlocks: []
-  CurrentDetailItem: {fileID: 0}
 --- !u!114 &268553593
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2657,9 +2656,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: AdvanceScene
+      - m_Target: {fileID: 268553592}
+        m_TargetAssemblyTypeName: GearUIControls, Assembly-CSharp
+        m_MethodName: ShowWeaponUpgradeDetails
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5542,6 +5541,7 @@ GameObject:
   - component: {fileID: 514414294}
   - component: {fileID: 514414293}
   - component: {fileID: 514414292}
+  - component: {fileID: 514414295}
   m_Layer: 5
   m_Name: UpgradeText
   m_TagString: Untagged
@@ -5629,6 +5629,52 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &514414295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 514414290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 481a22409fff06a4fb9049ce7e506779, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SceneCharacter:
+    heroName: 
+    characterTotalXP: 0
+    characterAvailableXP: 0
+    nextXpCost: 0
+    healthListLevel: 0
+    atkListLevel: 0
+    abilityListLevel: 0
+    isTank: 0
+    health: 0
+    attackPower: 0
+    abilityPower: 0
+    charUnlock: 0
+    autoAtkUnlock: 0
+    ability1Unlock: 0
+    ability2Unlock: 0
+    ability3Unlock: 0
+    potionUnlock: 0
+    selectedPotionType: 0
+    totalLevel: 0
+    autoAtk: {fileID: 0}
+    ability1: {fileID: 0}
+    ability2: {fileID: 0}
+    ability3: {fileID: 0}
+    potion: {fileID: 0}
+    gearset: {fileID: 0}
+    armorMultiplier: 0
+    weaponMultiplier: 0
+    accessoryMultiplier: 0
+    nextArmorUpgradeIndex: 0
+    nextWeaponUpgradeIndex: 0
+    nextAccessoryUpgradeIndex: 0
+    AbilityUnlocks: []
+  CurrentDetailItem: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -10667,6 +10713,7 @@ GameObject:
   - component: {fileID: 1213988395}
   - component: {fileID: 1213988394}
   - component: {fileID: 1213988393}
+  - component: {fileID: 1213988392}
   m_Layer: 5
   m_Name: AccessoryDetails
   m_TagString: Untagged
@@ -10696,6 +10743,51 @@ RectTransform:
   m_AnchoredPosition: {x: 240, y: -150}
   m_SizeDelta: {x: 110, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1213988392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1213988390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 518c8d93f9825ba41bcdd5b74b5cdb7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SceneCharacter:
+    heroName: 
+    characterTotalXP: 0
+    characterAvailableXP: 0
+    nextXpCost: 0
+    healthListLevel: 0
+    atkListLevel: 0
+    abilityListLevel: 0
+    isTank: 0
+    health: 0
+    attackPower: 0
+    abilityPower: 0
+    charUnlock: 0
+    autoAtkUnlock: 0
+    ability1Unlock: 0
+    ability2Unlock: 0
+    ability3Unlock: 0
+    potionUnlock: 0
+    selectedPotionType: 0
+    totalLevel: 0
+    autoAtk: {fileID: 0}
+    ability1: {fileID: 0}
+    ability2: {fileID: 0}
+    ability3: {fileID: 0}
+    potion: {fileID: 0}
+    gearset: {fileID: 0}
+    armorMultiplier: 0
+    weaponMultiplier: 0
+    accessoryMultiplier: 0
+    nextArmorUpgradeIndex: 0
+    nextWeaponUpgradeIndex: 0
+    nextAccessoryUpgradeIndex: 0
+    AbilityUnlocks: []
 --- !u!114 &1213988393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10739,9 +10831,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: AdvanceScene
+      - m_Target: {fileID: 1213988392}
+        m_TargetAssemblyTypeName: GearUIControls, Assembly-CSharp
+        m_MethodName: ShowAccessoryUpgradeDetails
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10840,7 +10932,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1266531117}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 481a22409fff06a4fb9049ce7e506779, type: 3}
+  m_Script: {fileID: 11500000, guid: 518c8d93f9825ba41bcdd5b74b5cdb7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   SceneCharacter:
@@ -10876,7 +10968,6 @@ MonoBehaviour:
     nextWeaponUpgradeIndex: 0
     nextAccessoryUpgradeIndex: 0
     AbilityUnlocks: []
-  CurrentDetailItem: {fileID: 0}
 --- !u!114 &1266531120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10920,9 +11011,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: AdvanceScene
+      - m_Target: {fileID: 1266531119}
+        m_TargetAssemblyTypeName: GearUIControls, Assembly-CSharp
+        m_MethodName: ShowArmorUpgradeDetails
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
