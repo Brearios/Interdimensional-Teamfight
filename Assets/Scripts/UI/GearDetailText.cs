@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -15,7 +16,7 @@ public class GearDetailText : MonoBehaviour
         text = GetComponent<Text>();
         // currentlyEditingProfile = PlayerProfile.Instance.CurrentEditingCharacter;
         // text.text = "Click an ability's name for details on that ability.     Click + to unlock that ability.";
-        CurrentDetailItem = MenuVariables.Instance.SceneCharacter.gearset.armor;
+        CurrentDetailItem = PlayerProfile.Instance.currentDetailItem;
         //buttonAbility currentAbility = buttonAbility.Two;
     }
 
@@ -23,9 +24,13 @@ public class GearDetailText : MonoBehaviour
     void Update()
     {
         SceneCharacter = PlayerProfile.Instance.CurrentEditingCharacter;
-        currentDetailAbility = PlayerProfile.Instance.currentDetailAbility;
+        CurrentDetailItem = PlayerProfile.Instance.currentDetailItem;
 
-        text.text = $"Ability: {currentDetailAbility.abilityName} \n Description: {currentDetailAbility.description} \n XP Cost: {currentDetailAbility.unlockCost}";
-        //text.text = "This is text test to see where the issue is.";
+        text.text = $"Item Name: {CurrentDetailItem.itemName}{Environment.NewLine} " +
+        $"Enhancement Slots: {CurrentDetailItem.enhancementSlots}{Environment.NewLine}" +
+        $"Upgrade Level: {CurrentDetailItem.upgradeLevel} {Environment.NewLine} " +
+        $"Stat Added: {CurrentDetailItem.statAdded} {Environment.NewLine} " +
+        $"Stat Points Added: {CurrentDetailItem.statPoints} {Environment.NewLine} " +
+        $"Stat Multiplier Added: {CurrentDetailItem.statMultiplier}";
     }
 }

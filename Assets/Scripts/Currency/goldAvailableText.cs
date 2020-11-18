@@ -21,8 +21,8 @@ public class goldAvailableText : MonoBehaviour
     {
         text.text = $"Current Gold: {PlayerProfile.Instance.currentGold}{Environment.NewLine} " +
         $"Upgrade Cost by Item: {Environment.NewLine}" +
-        $"Armor: {MagicNumbers.Instance.goldUpgradeCosts[SceneCharacter.gearset.currentArmorLevel]} {Environment.NewLine} " +
-        $"Weapon: {MagicNumbers.Instance.goldUpgradeCosts[SceneCharacter.gearset.currentWeaponLevel]} {Environment.NewLine} " +
-        $"Accessory: {MagicNumbers.Instance.goldUpgradeCosts[SceneCharacter.gearset.currentAccessoryLevel]}";
+        $"Armor: {MagicNumbers.Instance.goldUpgradeCosts[SceneCharacter.gearset.armor.upgradeLevel]} {Environment.NewLine} " +
+        $"Weapon: {MagicNumbers.Instance.goldUpgradeCosts[SceneCharacter.gearset.weapon.upgradeLevel]} {Environment.NewLine} " +
+        $"Accessory: {MagicNumbers.Instance.goldUpgradeCosts[SceneCharacter.gearset.accessory.upgradeLevel]}";
     }
 }

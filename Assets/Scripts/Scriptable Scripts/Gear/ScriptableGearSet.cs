@@ -6,17 +6,17 @@ using UnityEngine;
 
 public class ScriptableGearSet : ScriptableObject
 {
-    public int currentArmorLevel;
-    public int currentWeaponLevel;
-    public int currentAccessoryLevel;
+    //public int currentArmorLevel;
+    //public int currentWeaponLevel;
+    //public int currentAccessoryLevel;
 
     public ScriptableGearItem armor;
     public ScriptableGearItem weapon;
     public ScriptableGearItem accessory;
 
-    public int armorEnhancementSlots;
-    public int weaponEnhancementSlots;
-    public int accessoryEnhancementSlots;
+    //public int armorEnhancementSlots;
+    //public int weaponEnhancementSlots;
+    //public int accessoryEnhancementSlots;
 
     public ScriptableEnhancement[] currentArmorEnhancements;
     public ScriptableEnhancement[] currentWeaponEnhancements;

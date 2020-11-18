@@ -12,15 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 651527865ccf0df4bbd14d6faab91179, type: 3}
   m_Name: MageSet
   m_EditorClassIdentifier: 
-  currentArmorLevel: 0
-  currentWeaponLevel: 0
-  currentAccessoryLevel: 0
-  armorName: Frost Robes
-  weaponName: Ice Staff
-  accessoryName: Cassandra's Locket
-  armorEnhancementSlots: 0
-  weaponEnhancementSlots: 0
-  accessoryEnhancementSlots: 0
+  armor: {fileID: 11400000, guid: 0533da84f74161b4ab26a008d3474010, type: 2}
+  weapon: {fileID: 11400000, guid: 6e1fa79813063ea4bba1930957651aa4, type: 2}
+  accessory: {fileID: 11400000, guid: 6a0ab2a184d9ca94d854b33dfb091e40, type: 2}
   currentArmorEnhancements: []
   currentWeaponEnhancements: []
   currentAccessoryEnhancements: []

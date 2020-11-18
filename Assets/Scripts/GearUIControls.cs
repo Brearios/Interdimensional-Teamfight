@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class GearUIControls : MonoBehaviour
 {
-
-    public ScriptableGearItem gearUpgradeItem;
     public CharacterProfile SceneCharacter;
     
     // Start is called before the first frame update
@@ -22,40 +20,52 @@ public class GearUIControls : MonoBehaviour
 
     public void ShowArmorUpgradeDetails()
     {
-        MenuVariables.Instance.gearType = MenuVariables.GearTypeToDisplay.Armor;
+        PlayerProfile.Instance.currentDetailItem = SceneCharacter.gearset.armor;
     }
 
     public void ShowWeaponUpgradeDetails()
     {
-        MenuVariables.Instance.gearType = MenuVariables.GearTypeToDisplay.Weapon;
+        PlayerProfile.Instance.currentDetailItem = SceneCharacter.gearset.weapon;
     }
 
     public void ShowAccessoryUpgradeDetails()
     {
-        MenuVariables.Instance.gearType = MenuVariables.GearTypeToDisplay.Accessory;
+        PlayerProfile.Instance.currentDetailItem = SceneCharacter.gearset.accessory;
     }
 
     public void UpgradeArmor()
     {
-        if (PlayerProfile.Instance.currentGold >= MagicNumbers.Instance.goldUpgradeCosts[SceneCharacter.gearset.currentArmorLevel])
+        if (PlayerProfile.Instance.currentGold >= MagicNumbers.Instance.goldUpgradeCosts[SceneCharacter.gearset.armor.upgradeLevel])
         {
-            PlayerProfile.Instance.currentGold -= MagicNumbers.Instance.goldUpgradeCosts[SceneCharacter.gearset.currentArmorLevel];
+            PlayerProfile.Instance.currentGold -= MagicNumbers.Instance.goldUpgradeCosts[SceneCharacter.gearset.armor.upgradeLevel];
+            SceneCharacter.gearset.armor.upgradeLevel += 1;
+            SceneCharacter.gearset.armor.enhancementSlots = MagicNumbers.Instance.enhancementSlotLevels[SceneCharacter.gearset.weapon.upgradeLevel];
+            SceneCharacter.gearset.armor.statPoints = SceneCharacter.gearset.weapon.upgradeLevel;
+            SceneCharacter.gearset.armor.statMultiplier = MagicNumbers.Instance.statMultiplierLevels[SceneCharacter.gearset.weapon.upgradeLevel];
         }
     }
 
     public void UpgradeWeapon()
     {
-        if (PlayerProfile.Instance.currentGold >= MagicNumbers.Instance.goldUpgradeCosts[SceneCharacter.gearset.currentWeaponLevel])
+        if (PlayerProfile.Instance.currentGold >= MagicNumbers.Instance.goldUpgradeCosts[SceneCharacter.gearset.weapon.upgradeLevel])
         {
-            PlayerProfile.Instance.currentGold -= MagicNumbers.Instance.goldUpgradeCosts[SceneCharacter.gearset.currentWeaponLevel];
+            PlayerProfile.Instance.currentGold -= MagicNumbers.Instance.goldUpgradeCosts[SceneCharacter.gearset.weapon.upgradeLevel];
+            SceneCharacter.gearset.weapon.upgradeLevel += 1;
+            SceneCharacter.gearset.weapon.enhancementSlots = MagicNumbers.Instance.enhancementSlotLevels[SceneCharacter.gearset.weapon.upgradeLevel];
+            SceneCharacter.gearset.weapon.statPoints = SceneCharacter.gearset.weapon.upgradeLevel;
+            SceneCharacter.gearset.weapon.statMultiplier = MagicNumbers.Instance.statMultiplierLevels[SceneCharacter.gearset.weapon.upgradeLevel];
         }
     }
 
     public void UpgradeAccessory()
     {
-        if (PlayerProfile.Instance.currentGold >= MagicNumbers.Instance.goldUpgradeCosts[SceneCharacter.gearset.currentAccessoryLevel])
+        if (PlayerProfile.Instance.currentGold >= MagicNumbers.Instance.goldUpgradeCosts[SceneCharacter.gearset.accessory.upgradeLevel])
         {
-            PlayerProfile.Instance.currentGold -= MagicNumbers.Instance.goldUpgradeCosts[SceneCharacter.gearset.currentAccessoryLevel];
+            PlayerProfile.Instance.currentGold -= MagicNumbers.Instance.goldUpgradeCosts[SceneCharacter.gearset.accessory.upgradeLevel];
+            SceneCharacter.gearset.accessory.upgradeLevel += 1;
+            SceneCharacter.gearset.accessory.enhancementSlots = MagicNumbers.Instance.enhancementSlotLevels[SceneCharacter.gearset.weapon.upgradeLevel];
+            SceneCharacter.gearset.accessory.statPoints = SceneCharacter.gearset.weapon.upgradeLevel;
+            SceneCharacter.gearset.accessory.statMultiplier = MagicNumbers.Instance.statMultiplierLevels[SceneCharacter.gearset.weapon.upgradeLevel];
         }
     }
 

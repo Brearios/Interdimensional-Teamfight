@@ -12,13 +12,10 @@ public class ScriptableGearItem : ScriptableObject
     public string itemName;
     public int upgradeLevel;
     public int enhancementSlots;
-    public enum GearType { Armor, Weapon, Accessory };
-    public GearType gearType;
-    //public int statMultiplier;
-    //public int statAddition;
-    //// public string itemName;
-    //public int enhancementSlots;
+    public string statAdded;
+    public int statPoints;
+    public float statMultiplier;
     //public int goldNextUpgradeCost;
 
-    //public ScriptableEnhancement[] currentEnhancement;
+    public ScriptableEnhancement[] currentEnhancements;
 }
