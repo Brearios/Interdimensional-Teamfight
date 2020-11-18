@@ -6,16 +6,17 @@ using UnityEngine;
 
 public class ScriptableGearItem : ScriptableObject
 {
-    // I likely don't need this script at all, but keeping it in case we go with individual items.
+    // Moved dynamic stats to CharacterProfile
     // Moved arrays to MagicNumbers and other details to GearSet
-
+    public enum ItemType { armor, weapon, accessory };
+    public ItemType itemType;
     public string itemName;
-    public int upgradeLevel;
-    public int enhancementSlots;
+    // public int upgradeLevel;
+    // public int enhancementSlots;
     public string statAdded;
-    public int statPoints;
-    public float statMultiplier;
-    //public int goldNextUpgradeCost;
+    // public int statPoints;
+    // public float statMultiplier;
+    // public int goldNextUpgradeCost;
 
-    public ScriptableEnhancement[] currentEnhancements;
+    // public ScriptableEnhancement[] currentEnhancements;
 }

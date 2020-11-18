@@ -5,6 +5,24 @@ using UnityEngine;
 [System.Serializable]
 public class CharacterProfile 
 {
+    public int armorUpgradeLevel;
+    public int armorEnhancementSlots;
+    public List<ScriptableEnhancement> armorEnhancements;
+    public int armorStatPoints;
+    public float armorStatMultiplier;
+
+    public int weaponUpgradeLevel;
+    public int weaponEnhancementSlots;
+    public List<ScriptableEnhancement> weaponEnhancements;
+    public int weaponStatPoints;
+    public float weaponStatMultiplier;
+
+    public int accessoryUpgradeLevel;
+    public int accessoryEnhancementSlots;
+    public List<ScriptableEnhancement> accessoryEnhancements;
+    public int accessoryStatPoints;
+    public float accessoryStatMultiplier;
+
     // public static CharacterProfile Instance;
     public string heroName;
     public int characterTotalXP;

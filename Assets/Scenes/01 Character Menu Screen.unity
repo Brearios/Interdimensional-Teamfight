@@ -5541,7 +5541,6 @@ GameObject:
   - component: {fileID: 514414294}
   - component: {fileID: 514414293}
   - component: {fileID: 514414292}
-  - component: {fileID: 514414295}
   m_Layer: 5
   m_Name: UpgradeText
   m_TagString: Untagged
@@ -5629,52 +5628,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!114 &514414295
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 514414290}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 481a22409fff06a4fb9049ce7e506779, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SceneCharacter:
-    heroName: 
-    characterTotalXP: 0
-    characterAvailableXP: 0
-    nextXpCost: 0
-    healthListLevel: 0
-    atkListLevel: 0
-    abilityListLevel: 0
-    isTank: 0
-    health: 0
-    attackPower: 0
-    abilityPower: 0
-    charUnlock: 0
-    autoAtkUnlock: 0
-    ability1Unlock: 0
-    ability2Unlock: 0
-    ability3Unlock: 0
-    potionUnlock: 0
-    selectedPotionType: 0
-    totalLevel: 0
-    autoAtk: {fileID: 0}
-    ability1: {fileID: 0}
-    ability2: {fileID: 0}
-    ability3: {fileID: 0}
-    potion: {fileID: 0}
-    gearset: {fileID: 0}
-    armorMultiplier: 0
-    weaponMultiplier: 0
-    accessoryMultiplier: 0
-    nextArmorUpgradeIndex: 0
-    nextWeaponUpgradeIndex: 0
-    nextAccessoryUpgradeIndex: 0
-    AbilityUnlocks: []
-  CurrentDetailItem: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -10633,6 +10586,7 @@ GameObject:
   - component: {fileID: 1210759318}
   - component: {fileID: 1210759320}
   - component: {fileID: 1210759319}
+  - component: {fileID: 1210759321}
   m_Layer: 5
   m_Name: UpgradeText
   m_TagString: Untagged
@@ -10656,8 +10610,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -6, y: -38}
-  m_SizeDelta: {x: 227.5, y: 158.3}
+  m_AnchoredPosition: {x: -6, y: -24}
+  m_SizeDelta: {x: 240, y: 158.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1210759319
 MonoBehaviour:
@@ -10701,6 +10655,52 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1210759317}
   m_CullTransparentMesh: 0
+--- !u!114 &1210759321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1210759317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 481a22409fff06a4fb9049ce7e506779, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SceneCharacter:
+    heroName: 
+    characterTotalXP: 0
+    characterAvailableXP: 0
+    nextXpCost: 0
+    healthListLevel: 0
+    atkListLevel: 0
+    abilityListLevel: 0
+    isTank: 0
+    health: 0
+    attackPower: 0
+    abilityPower: 0
+    charUnlock: 0
+    autoAtkUnlock: 0
+    ability1Unlock: 0
+    ability2Unlock: 0
+    ability3Unlock: 0
+    potionUnlock: 0
+    selectedPotionType: 0
+    totalLevel: 0
+    autoAtk: {fileID: 0}
+    ability1: {fileID: 0}
+    ability2: {fileID: 0}
+    ability3: {fileID: 0}
+    potion: {fileID: 0}
+    gearset: {fileID: 0}
+    armorMultiplier: 0
+    weaponMultiplier: 0
+    accessoryMultiplier: 0
+    nextArmorUpgradeIndex: 0
+    nextWeaponUpgradeIndex: 0
+    nextAccessoryUpgradeIndex: 0
+    AbilityUnlocks: []
+  CurrentDetailItem: {fileID: 0}
 --- !u!1 &1213988390
 GameObject:
   m_ObjectHideFlags: 0

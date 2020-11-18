@@ -67,6 +67,7 @@ public class PlayerProfile : MonoBehaviour
         // Sets the current editing character to the first one at the start of the script
         CurrentEditingCharacter = characterProfiles[currentEditingInteger];
         currentDetailAbility = CurrentEditingCharacter.ability2;
+        currentDetailItem = CurrentEditingCharacter.gearset.armor;
 
         //foreach (CharacterProfile characterStartupProfile in characterProfiles)
         //{
