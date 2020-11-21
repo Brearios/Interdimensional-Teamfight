@@ -21,16 +21,19 @@ public class GearUIControls : MonoBehaviour
     public void ShowArmorUpgradeDetails()
     {
         PlayerProfile.Instance.currentDetailItem = SceneCharacter.gearset.armor;
+        Debug.Log("Attempting to show armor details.");
     }
 
     public void ShowWeaponUpgradeDetails()
     {
         PlayerProfile.Instance.currentDetailItem = SceneCharacter.gearset.weapon;
+        Debug.Log("Attempting to show weapon details.");
     }
 
     public void ShowAccessoryUpgradeDetails()
     {
         PlayerProfile.Instance.currentDetailItem = SceneCharacter.gearset.accessory;
+        Debug.Log("Attempting to show accessory details.");
     }
 
     public void UpgradeArmor()

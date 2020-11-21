@@ -12,10 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11a5d66f1cf60644588c41cdd25950ac, type: 3}
   m_Name: Mage Accessory
   m_EditorClassIdentifier: 
+  itemType: 2
   itemName: Cass's Locket
-  upgradeLevel: 0
-  enhancementSlots: 0
   statAdded: Ability Power
-  statPoints: 0
-  statMultiplier: 0
-  currentEnhancements: []

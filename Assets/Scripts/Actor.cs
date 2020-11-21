@@ -31,7 +31,7 @@ public class Actor : MonoBehaviour
     public float maxHealth;
     public float currHealth;
     public float healthPercent;
-    public int attackDamage; // Later make this a random amount within a range
+    public int atkDamage; // Later make this a random amount within a range
     public int abilityPower;
     public int xpWhenKilled;
     public int crystalsWhenKilled;
@@ -39,6 +39,7 @@ public class Actor : MonoBehaviour
     public string role;
     public float atkRange;
     public float moveSpeed;
+    public CharacterProfile currentProfile;
 
     public Actor highThreatTarget;
     public Actor ability1Target;
@@ -85,7 +86,7 @@ public class Actor : MonoBehaviour
     {
         unitName = unit.unitName;
         maxHealth = unit.maxHealth;
-        attackDamage = unit.attackDamage;
+        atkDamage = unit.attackDamage;
         abilityPower = unit.abilityPower;
         // MageStats = GameObject.FindObjectOfType<CharacterProfile>();
 
@@ -96,9 +97,10 @@ public class Actor : MonoBehaviour
             NewGamePlusStatScaler();
         }
 
+        ModifyStatsFromGear();
 
         // Check that abilities exist/are defined and that they're unlocked before running them
-    if (isPlayer)
+        if (isPlayer)
         {
             // Old implementation
             //if ((autoAtk) && (currentProfile.AbilityUnlocks.Contains(autoAtkUnlock)))
@@ -129,38 +131,8 @@ public class Actor : MonoBehaviour
                 AbilityProcessors.Add(potionProcessor);
             }
         }
-    else
+        else
         {
-            // How do I if statement these for being null
-            // How do I if statement these for being null
-            // How do I if statement these for being null
-            // How do I if statement these for being null
-            // How do I if statement these for being null
-            // How do I if statement these for being null
-            // How do I if statement these for being null
-            // How do I if statement these for being null
-            // How do I if statement these for being null
-            // How do I if statement these for being null
-            // How do I if statement these for being null
-            // How do I if statement these for being null
-            // How do I if statement these for being null
-            // How do I if statement these for being null
-            // How do I if statement these for being null
-            // How do I if statement these for being null
-            // How do I if statement these for being null
-            // How do I if statement these for being null
-            // How do I if statement these for being null
-            // How do I if statement these for being null
-            // How do I if statement these for being null
-            // How do I if statement these for being null
-            // How do I if statement these for being null
-            // How do I if statement these for being null
-
-
-
-
-
-
             if (autoAtk)
             {
                 AbilityProcessor autoAtkProcessor = new AbilityProcessor(autoAtk, unit.autoAtkSound);
@@ -219,7 +191,7 @@ public class Actor : MonoBehaviour
     private void NewGamePlusStatScaler()
     {
         maxHealth *= MagicNumbers.Instance.newGamePlusEnemyHealthMultiplier[PlayerProfile.Instance.newGamePlusIterator];
-        attackDamage = (int)((float)attackDamage * MagicNumbers.Instance.newGamePlusEnemyAutoAtkDamageMultiplier[PlayerProfile.Instance.newGamePlusIterator]);
+        atkDamage = (int)((float)atkDamage * MagicNumbers.Instance.newGamePlusEnemyAutoAtkDamageMultiplier[PlayerProfile.Instance.newGamePlusIterator]);
         abilityPower = (int)((float)abilityPower * MagicNumbers.Instance.newGamePlusEnemyAbilityPowerMultiplier[PlayerProfile.Instance.newGamePlusIterator]);
     }
 
@@ -479,7 +451,7 @@ public class Actor : MonoBehaviour
                 }
                 else
                 {
-                    float damageEvaluationActor = (currentActor.attackDamage + currentActor.abilityPower);
+                    float damageEvaluationActor = (currentActor.atkDamage + currentActor.abilityPower);
                     if (damageEvaluationActor > highestDamageEnemy)
                     {
                         highestDamageEnemy = damageEvaluationActor;
@@ -532,7 +504,7 @@ public class Actor : MonoBehaviour
                 }
                 else
                 {
-                    float damageEvaluationActor = (currentActor.attackDamage + currentActor.abilityPower);
+                    float damageEvaluationActor = (currentActor.atkDamage + currentActor.abilityPower);
                     if (damageEvaluationActor > highestDamageAlly)
                     {
                         highestDamageAlly = damageEvaluationActor;
@@ -632,7 +604,7 @@ public class Actor : MonoBehaviour
             }
 
             // Random Damage based on dmgVariance stat
-            int hpChangeVaried = ApplyRandomness(attackDamage);
+            int hpChangeVaried = ApplyRandomness(atkDamage);
 
             GetComponent<Character>().Animator.SetBool("Slash", true);
             highThreatTarget.ChangeHealth(-hpChangeVaried, false);
@@ -670,7 +642,7 @@ public class Actor : MonoBehaviour
             if ((ability.abilityData.targetType == ScriptableAbility.TargetType.Damage) && (ability.abilityData.isAutoAtk))
             {
                 GetComponent<Character>().Animator.SetBool("Slash", true);
-                int hpChangeVaried = ApplyRandomness(attackDamage * -1);
+                int hpChangeVaried = ApplyRandomness(atkDamage * -1);
                 ability.currentTarget.ChangeHealth(hpChangeVaried, true);
                 Debug.Log($"{unitName} used {ability.abilityData.abilityName} on {ability.currentTarget} for {hpChangeVaried}");
             }
@@ -879,13 +851,13 @@ public class Actor : MonoBehaviour
             if (unit.role == "Tank")
             {
                 // 1 * 11 - 20
-                ThreatScore = (((maxHealth / currHealth) * (attackDamage + abilityPower)) - (currHealth / 15));
+                ThreatScore = (((maxHealth / currHealth) * (atkDamage + abilityPower)) - (currHealth / 15));
                 // Mathf.Abs keeps the number positive no matter the value of ThreatScore
                 ThreatScore += Mathf.Abs((ThreatScore * totalCurrentTankThreatMultiplier));
             }
             else
             {
-                ThreatScore = (((maxHealth / currHealth) * (attackDamage + abilityPower)) - (currHealth / 5));
+                ThreatScore = (((maxHealth / currHealth) * (atkDamage + abilityPower)) - (currHealth / 5));
             }
         }
     }
@@ -896,7 +868,7 @@ public class Actor : MonoBehaviour
         CharacterProfile currentProfile = PlayerProfile.Instance.GetCharacterProfileForUnit(unit);
         if (currentProfile.atkListLevel > 0)
         {
-            attackDamage = currentProfile.attackPower;
+            atkDamage = currentProfile.attackPower;
         }
         if (currentProfile.abilityListLevel > 0)
         {
@@ -942,23 +914,36 @@ public class Actor : MonoBehaviour
 
 
 
-    /*
-    void ApplyMageStats()
+    void ModifyStatsFromGear()
     {
-        if (unitName == "Mage" && MageStats.atk > 0)
+        if (isPlayer)
         {
-            attackDamage = MageStats.atk;
-        }
-        if (unitName == "Mage" && MageStats.health > 0)
-        {
-            maxHealth = MageStats.health;
-        }
-        if (unitName == "Mage" && MageStats.abilityPower > 0)
-        {
-            abilityPower = MageStats.abilityPower;
+            if (currentProfile.armorUpgradeLevel > 0)
+            {
+                maxHealth *= currentProfile.armorStatMultiplier;
+                Debug.Log($"Attempting to multiply Maximum Health for {unit} by {currentProfile.armorStatMultiplier}");
+                maxHealth += currentProfile.armorStatPoints;
+                Debug.Log($"Attempting to add {currentProfile.armorStatPoints} to {unit} Maximum Health.");
+                currHealth = maxHealth;
+            }
+            if (currentProfile.weaponUpgradeLevel > 0)
+            {
+                // Plus .5f because casting to int truncates after the decimal
+                atkDamage = (int)(atkDamage * currentProfile.weaponStatMultiplier + .5f);
+                Debug.Log($"Attempting to multiply Attack Damage for {unit} by {currentProfile.weaponStatMultiplier}, rounded up.");
+                atkDamage += currentProfile.weaponStatPoints;
+                Debug.Log($"Attempting to add {currentProfile.weaponStatPoints} to {unit} Attack Damage.");
+            }
+            if (currentProfile.accessoryUpgradeLevel > 0)
+            {
+                // Plus .5f because casting to int truncates after the decimal
+                abilityPower = (int)(abilityPower * currentProfile.accessoryStatMultiplier + .5f);
+                Debug.Log($"Attempting to multiply Ability Power for {unit} by {currentProfile.accessoryStatMultiplier}");
+                abilityPower += currentProfile.accessoryStatPoints;
+                Debug.Log($"Attempting to add {currentProfile.accessoryStatPoints} to {unit} Ability Power.");
+            }
         }
     }
-    */
 
     // Unnecessary due to ability change
 
