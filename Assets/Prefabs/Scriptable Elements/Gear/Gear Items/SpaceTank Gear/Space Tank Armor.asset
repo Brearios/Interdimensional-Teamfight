@@ -10,12 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 11a5d66f1cf60644588c41cdd25950ac, type: 3}
-  m_Name: Mage Armor
+  m_Name: Space Tank Armor
   m_EditorClassIdentifier: 
-  itemName: Chillfrost Armor
-  upgradeLevel: 0
-  enhancementSlots: 0
+  itemType: 0
+  itemName: Powered Armor
   statAdded: Health
-  statPoints: 0
-  statMultiplier: 0
-  currentEnhancements: []

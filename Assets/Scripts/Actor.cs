@@ -97,7 +97,10 @@ public class Actor : MonoBehaviour
             NewGamePlusStatScaler();
         }
 
-        ModifyStatsFromGear();
+        if (isPlayer)
+        {
+            ModifyStatsFromGear();
+        }
 
         // Check that abilities exist/are defined and that they're unlocked before running them
         if (isPlayer)
@@ -916,32 +919,31 @@ public class Actor : MonoBehaviour
 
     void ModifyStatsFromGear()
     {
-        if (isPlayer)
+        CharacterProfile gearStatProfile = PlayerProfile.Instance.GetCharacterProfileForUnit(unit);
+        Debug.Log($"Attempting stat modifications from gear for {unitName} from profile {gearStatProfile}.");
+        if (gearStatProfile.armorUpgradeLevel > 0)
         {
-            if (currentProfile.armorUpgradeLevel > 0)
-            {
-                maxHealth *= currentProfile.armorStatMultiplier;
-                Debug.Log($"Attempting to multiply Maximum Health for {unit} by {currentProfile.armorStatMultiplier}");
-                maxHealth += currentProfile.armorStatPoints;
-                Debug.Log($"Attempting to add {currentProfile.armorStatPoints} to {unit} Maximum Health.");
-                currHealth = maxHealth;
-            }
-            if (currentProfile.weaponUpgradeLevel > 0)
-            {
-                // Plus .5f because casting to int truncates after the decimal
-                atkDamage = (int)(atkDamage * currentProfile.weaponStatMultiplier + .5f);
-                Debug.Log($"Attempting to multiply Attack Damage for {unit} by {currentProfile.weaponStatMultiplier}, rounded up.");
-                atkDamage += currentProfile.weaponStatPoints;
-                Debug.Log($"Attempting to add {currentProfile.weaponStatPoints} to {unit} Attack Damage.");
-            }
-            if (currentProfile.accessoryUpgradeLevel > 0)
-            {
-                // Plus .5f because casting to int truncates after the decimal
-                abilityPower = (int)(abilityPower * currentProfile.accessoryStatMultiplier + .5f);
-                Debug.Log($"Attempting to multiply Ability Power for {unit} by {currentProfile.accessoryStatMultiplier}");
-                abilityPower += currentProfile.accessoryStatPoints;
-                Debug.Log($"Attempting to add {currentProfile.accessoryStatPoints} to {unit} Ability Power.");
-            }
+            maxHealth *= gearStatProfile.armorStatMultiplier;
+            Debug.Log($"Attempting to multiply Maximum Health for {unit} by {gearStatProfile.armorStatMultiplier}");
+            maxHealth += gearStatProfile.armorStatPoints;
+            Debug.Log($"Attempting to add {gearStatProfile.armorStatPoints} to {unit} Maximum Health.");
+            currHealth = maxHealth;
+        }
+        if (gearStatProfile.weaponUpgradeLevel > 0)
+        {
+            // Plus .5f because casting to int truncates after the decimal
+            atkDamage = (int)(atkDamage * gearStatProfile.weaponStatMultiplier + .5f);
+            Debug.Log($"Attempting to multiply Attack Damage for {unit} by {gearStatProfile.weaponStatMultiplier}, rounded up.");
+            atkDamage += gearStatProfile.weaponStatPoints;
+            Debug.Log($"Attempting to add {gearStatProfile.weaponStatPoints} to {unit} Attack Damage.");
+        }
+        if (gearStatProfile.accessoryUpgradeLevel > 0)
+        {
+            // Plus .5f because casting to int truncates after the decimal
+            abilityPower = (int)(abilityPower * gearStatProfile.accessoryStatMultiplier + .5f);
+            Debug.Log($"Attempting to multiply Ability Power for {unit} by {gearStatProfile.accessoryStatMultiplier}");
+            abilityPower += gearStatProfile.accessoryStatPoints;
+            Debug.Log($"Attempting to add {gearStatProfile.accessoryStatPoints} to {unit} Ability Power.");
         }
     }
 

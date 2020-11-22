@@ -12,15 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 651527865ccf0df4bbd14d6faab91179, type: 3}
   m_Name: SpaceSoldierSet
   m_EditorClassIdentifier: 
-  currentArmorLevel: 0
-  currentWeaponLevel: 0
-  currentAccessoryLevel: 0
-  armorRankNames: []
-  weaponRankNames: []
-  accessoryRankNames: []
-  armorEnhancementSlots: 0
-  weaponEnhancementSlots: 0
-  accessoryEnhancementSlots: 0
+  armor: {fileID: 11400000, guid: 584fefc5991b383468fc4510bfc1b5f7, type: 2}
+  weapon: {fileID: 11400000, guid: e1c9a146905dac44c873c0deb511ba7d, type: 2}
+  accessory: {fileID: 11400000, guid: 5851d61f53feedb4abc8ed551b4b99c2, type: 2}
   currentArmorEnhancements: []
   currentWeaponEnhancements: []
   currentAccessoryEnhancements: []

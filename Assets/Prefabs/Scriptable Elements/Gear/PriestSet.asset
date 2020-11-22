@@ -12,15 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 651527865ccf0df4bbd14d6faab91179, type: 3}
   m_Name: PriestSet
   m_EditorClassIdentifier: 
-  currentArmorLevel: 0
-  currentWeaponLevel: 0
-  currentAccessoryLevel: 0
-  armorName: 
-  weaponName: 
-  accessoryName: Thantasia's Locket
-  armorEnhancementSlots: 0
-  weaponEnhancementSlots: 0
-  accessoryEnhancementSlots: 0
+  armor: {fileID: 11400000, guid: 892a26efbefbdd14a9a9f3ef43950137, type: 2}
+  weapon: {fileID: 11400000, guid: 7cef7c1bcb334404e81e1dcb0dc7b9d6, type: 2}
+  accessory: {fileID: 11400000, guid: 322743a20c2220846a7131a509200637, type: 2}
   currentArmorEnhancements: []
   currentWeaponEnhancements: []
   currentAccessoryEnhancements: []
