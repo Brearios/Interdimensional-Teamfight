@@ -718,6 +718,21 @@ MonoBehaviour:
   startingAbilityIncrease: 0
   startingHealthIncrease: 0
   SceneCharacter:
+    armorUpgradeLevel: 0
+    armorEnhancementSlots: 0
+    armorEnhancements: []
+    armorStatPoints: 0
+    armorStatMultiplier: 0
+    weaponUpgradeLevel: 0
+    weaponEnhancementSlots: 0
+    weaponEnhancements: []
+    weaponStatPoints: 0
+    weaponStatMultiplier: 0
+    accessoryUpgradeLevel: 0
+    accessoryEnhancementSlots: 0
+    accessoryEnhancements: []
+    accessoryStatPoints: 0
+    accessoryStatMultiplier: 0
     heroName: 
     characterTotalXP: 0
     characterAvailableXP: 0
@@ -993,6 +1008,21 @@ MonoBehaviour:
   startingAbilityIncrease: 0
   startingHealthIncrease: 0
   SceneCharacter:
+    armorUpgradeLevel: 0
+    armorEnhancementSlots: 0
+    armorEnhancements: []
+    armorStatPoints: 0
+    armorStatMultiplier: 0
+    weaponUpgradeLevel: 0
+    weaponEnhancementSlots: 0
+    weaponEnhancements: []
+    weaponStatPoints: 0
+    weaponStatMultiplier: 0
+    accessoryUpgradeLevel: 0
+    accessoryEnhancementSlots: 0
+    accessoryEnhancements: []
+    accessoryStatPoints: 0
+    accessoryStatMultiplier: 0
     heroName: 
     characterTotalXP: 0
     characterAvailableXP: 0
@@ -1385,6 +1415,21 @@ MonoBehaviour:
   startingAbilityIncrease: 0
   startingHealthIncrease: 0
   SceneCharacter:
+    armorUpgradeLevel: 0
+    armorEnhancementSlots: 0
+    armorEnhancements: []
+    armorStatPoints: 0
+    armorStatMultiplier: 0
+    weaponUpgradeLevel: 0
+    weaponEnhancementSlots: 0
+    weaponEnhancements: []
+    weaponStatPoints: 0
+    weaponStatMultiplier: 0
+    accessoryUpgradeLevel: 0
+    accessoryEnhancementSlots: 0
+    accessoryEnhancements: []
+    accessoryStatPoints: 0
+    accessoryStatMultiplier: 0
     heroName: 
     characterTotalXP: 0
     characterAvailableXP: 0
@@ -1849,6 +1894,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SceneCharacter:
+    armorUpgradeLevel: 0
+    armorEnhancementSlots: 0
+    armorEnhancements: []
+    armorStatPoints: 0
+    armorStatMultiplier: 0
+    weaponUpgradeLevel: 0
+    weaponEnhancementSlots: 0
+    weaponEnhancements: []
+    weaponStatPoints: 0
+    weaponStatMultiplier: 0
+    accessoryUpgradeLevel: 0
+    accessoryEnhancementSlots: 0
+    accessoryEnhancements: []
+    accessoryStatPoints: 0
+    accessoryStatMultiplier: 0
     heroName: 
     characterTotalXP: 0
     characterAvailableXP: 0
@@ -2073,6 +2133,21 @@ MonoBehaviour:
   startingAbilityIncrease: 0
   startingHealthIncrease: 0
   SceneCharacter:
+    armorUpgradeLevel: 0
+    armorEnhancementSlots: 0
+    armorEnhancements: []
+    armorStatPoints: 0
+    armorStatMultiplier: 0
+    weaponUpgradeLevel: 0
+    weaponEnhancementSlots: 0
+    weaponEnhancements: []
+    weaponStatPoints: 0
+    weaponStatMultiplier: 0
+    accessoryUpgradeLevel: 0
+    accessoryEnhancementSlots: 0
+    accessoryEnhancements: []
+    accessoryStatPoints: 0
+    accessoryStatMultiplier: 0
     heroName: 
     characterTotalXP: 0
     characterAvailableXP: 0
@@ -2243,6 +2318,21 @@ MonoBehaviour:
   startingAbilityIncrease: 0
   startingHealthIncrease: 0
   SceneCharacter:
+    armorUpgradeLevel: 0
+    armorEnhancementSlots: 0
+    armorEnhancements: []
+    armorStatPoints: 0
+    armorStatMultiplier: 0
+    weaponUpgradeLevel: 0
+    weaponEnhancementSlots: 0
+    weaponEnhancements: []
+    weaponStatPoints: 0
+    weaponStatMultiplier: 0
+    accessoryUpgradeLevel: 0
+    accessoryEnhancementSlots: 0
+    accessoryEnhancements: []
+    accessoryStatPoints: 0
+    accessoryStatMultiplier: 0
     heroName: 
     characterTotalXP: 0
     characterAvailableXP: 0
@@ -2581,6 +2671,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SceneCharacter:
+    armorUpgradeLevel: 0
+    armorEnhancementSlots: 0
+    armorEnhancements: []
+    armorStatPoints: 0
+    armorStatMultiplier: 0
+    weaponUpgradeLevel: 0
+    weaponEnhancementSlots: 0
+    weaponEnhancements: []
+    weaponStatPoints: 0
+    weaponStatMultiplier: 0
+    accessoryUpgradeLevel: 0
+    accessoryEnhancementSlots: 0
+    accessoryEnhancements: []
+    accessoryStatPoints: 0
+    accessoryStatMultiplier: 0
     heroName: 
     characterTotalXP: 0
     characterAvailableXP: 0
@@ -3376,6 +3481,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SceneCharacter:
+    armorUpgradeLevel: 0
+    armorEnhancementSlots: 0
+    armorEnhancements: []
+    armorStatPoints: 0
+    armorStatMultiplier: 0
+    weaponUpgradeLevel: 0
+    weaponEnhancementSlots: 0
+    weaponEnhancements: []
+    weaponStatPoints: 0
+    weaponStatMultiplier: 0
+    accessoryUpgradeLevel: 0
+    accessoryEnhancementSlots: 0
+    accessoryEnhancements: []
+    accessoryStatPoints: 0
+    accessoryStatMultiplier: 0
     heroName: 
     characterTotalXP: 0
     characterAvailableXP: 0
@@ -3558,6 +3678,21 @@ MonoBehaviour:
   startingAbilityIncrease: 0
   startingHealthIncrease: 0
   SceneCharacter:
+    armorUpgradeLevel: 0
+    armorEnhancementSlots: 0
+    armorEnhancements: []
+    armorStatPoints: 0
+    armorStatMultiplier: 0
+    weaponUpgradeLevel: 0
+    weaponEnhancementSlots: 0
+    weaponEnhancements: []
+    weaponStatPoints: 0
+    weaponStatMultiplier: 0
+    accessoryUpgradeLevel: 0
+    accessoryEnhancementSlots: 0
+    accessoryEnhancements: []
+    accessoryStatPoints: 0
+    accessoryStatMultiplier: 0
     heroName: 
     characterTotalXP: 0
     characterAvailableXP: 0
@@ -4135,6 +4270,21 @@ MonoBehaviour:
   startingAbilityIncrease: 0
   startingHealthIncrease: 0
   SceneCharacter:
+    armorUpgradeLevel: 0
+    armorEnhancementSlots: 0
+    armorEnhancements: []
+    armorStatPoints: 0
+    armorStatMultiplier: 0
+    weaponUpgradeLevel: 0
+    weaponEnhancementSlots: 0
+    weaponEnhancements: []
+    weaponStatPoints: 0
+    weaponStatMultiplier: 0
+    accessoryUpgradeLevel: 0
+    accessoryEnhancementSlots: 0
+    accessoryEnhancements: []
+    accessoryStatPoints: 0
+    accessoryStatMultiplier: 0
     heroName: 
     characterTotalXP: 0
     characterAvailableXP: 0
@@ -4701,6 +4851,21 @@ MonoBehaviour:
   startingAbilityIncrease: 0
   startingHealthIncrease: 0
   SceneCharacter:
+    armorUpgradeLevel: 0
+    armorEnhancementSlots: 0
+    armorEnhancements: []
+    armorStatPoints: 0
+    armorStatMultiplier: 0
+    weaponUpgradeLevel: 0
+    weaponEnhancementSlots: 0
+    weaponEnhancements: []
+    weaponStatPoints: 0
+    weaponStatMultiplier: 0
+    accessoryUpgradeLevel: 0
+    accessoryEnhancementSlots: 0
+    accessoryEnhancements: []
+    accessoryStatPoints: 0
+    accessoryStatMultiplier: 0
     heroName: 
     characterTotalXP: 0
     characterAvailableXP: 0
@@ -5847,6 +6012,21 @@ MonoBehaviour:
   startingAbilityIncrease: 0
   startingHealthIncrease: 0
   SceneCharacter:
+    armorUpgradeLevel: 0
+    armorEnhancementSlots: 0
+    armorEnhancements: []
+    armorStatPoints: 0
+    armorStatMultiplier: 0
+    weaponUpgradeLevel: 0
+    weaponEnhancementSlots: 0
+    weaponEnhancements: []
+    weaponStatPoints: 0
+    weaponStatMultiplier: 0
+    accessoryUpgradeLevel: 0
+    accessoryEnhancementSlots: 0
+    accessoryEnhancements: []
+    accessoryStatPoints: 0
+    accessoryStatMultiplier: 0
     heroName: 
     characterTotalXP: 0
     characterAvailableXP: 0
@@ -7176,6 +7356,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SceneCharacter:
+    armorUpgradeLevel: 0
+    armorEnhancementSlots: 0
+    armorEnhancements: []
+    armorStatPoints: 0
+    armorStatMultiplier: 0
+    weaponUpgradeLevel: 0
+    weaponEnhancementSlots: 0
+    weaponEnhancements: []
+    weaponStatPoints: 0
+    weaponStatMultiplier: 0
+    accessoryUpgradeLevel: 0
+    accessoryEnhancementSlots: 0
+    accessoryEnhancements: []
+    accessoryStatPoints: 0
+    accessoryStatMultiplier: 0
     heroName: 
     characterTotalXP: 0
     characterAvailableXP: 0
@@ -8047,6 +8242,21 @@ MonoBehaviour:
   startingAbilityIncrease: 0
   startingHealthIncrease: 0
   SceneCharacter:
+    armorUpgradeLevel: 0
+    armorEnhancementSlots: 0
+    armorEnhancements: []
+    armorStatPoints: 0
+    armorStatMultiplier: 0
+    weaponUpgradeLevel: 0
+    weaponEnhancementSlots: 0
+    weaponEnhancements: []
+    weaponStatPoints: 0
+    weaponStatMultiplier: 0
+    accessoryUpgradeLevel: 0
+    accessoryEnhancementSlots: 0
+    accessoryEnhancements: []
+    accessoryStatPoints: 0
+    accessoryStatMultiplier: 0
     heroName: 
     characterTotalXP: 0
     characterAvailableXP: 0
@@ -8302,6 +8512,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SceneCharacter:
+    armorUpgradeLevel: 0
+    armorEnhancementSlots: 0
+    armorEnhancements: []
+    armorStatPoints: 0
+    armorStatMultiplier: 0
+    weaponUpgradeLevel: 0
+    weaponEnhancementSlots: 0
+    weaponEnhancements: []
+    weaponStatPoints: 0
+    weaponStatMultiplier: 0
+    accessoryUpgradeLevel: 0
+    accessoryEnhancementSlots: 0
+    accessoryEnhancements: []
+    accessoryStatPoints: 0
+    accessoryStatMultiplier: 0
     heroName: 
     characterTotalXP: 0
     characterAvailableXP: 0
@@ -9293,6 +9518,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SceneCharacter:
+    armorUpgradeLevel: 0
+    armorEnhancementSlots: 0
+    armorEnhancements: []
+    armorStatPoints: 0
+    armorStatMultiplier: 0
+    weaponUpgradeLevel: 0
+    weaponEnhancementSlots: 0
+    weaponEnhancements: []
+    weaponStatPoints: 0
+    weaponStatMultiplier: 0
+    accessoryUpgradeLevel: 0
+    accessoryEnhancementSlots: 0
+    accessoryEnhancements: []
+    accessoryStatPoints: 0
+    accessoryStatMultiplier: 0
     heroName: 
     characterTotalXP: 0
     characterAvailableXP: 0
@@ -9666,6 +9906,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SceneCharacter:
+    armorUpgradeLevel: 0
+    armorEnhancementSlots: 0
+    armorEnhancements: []
+    armorStatPoints: 0
+    armorStatMultiplier: 0
+    weaponUpgradeLevel: 0
+    weaponEnhancementSlots: 0
+    weaponEnhancements: []
+    weaponStatPoints: 0
+    weaponStatMultiplier: 0
+    accessoryUpgradeLevel: 0
+    accessoryEnhancementSlots: 0
+    accessoryEnhancements: []
+    accessoryStatPoints: 0
+    accessoryStatMultiplier: 0
     heroName: 
     characterTotalXP: 0
     characterAvailableXP: 0
@@ -9793,6 +10048,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SceneCharacter:
+    armorUpgradeLevel: 0
+    armorEnhancementSlots: 0
+    armorEnhancements: []
+    armorStatPoints: 0
+    armorStatMultiplier: 0
+    weaponUpgradeLevel: 0
+    weaponEnhancementSlots: 0
+    weaponEnhancements: []
+    weaponStatPoints: 0
+    weaponStatMultiplier: 0
+    accessoryUpgradeLevel: 0
+    accessoryEnhancementSlots: 0
+    accessoryEnhancements: []
+    accessoryStatPoints: 0
+    accessoryStatMultiplier: 0
     heroName: 
     characterTotalXP: 0
     characterAvailableXP: 0
@@ -10371,6 +10641,21 @@ MonoBehaviour:
   startingAbilityIncrease: 0
   startingHealthIncrease: 0
   SceneCharacter:
+    armorUpgradeLevel: 0
+    armorEnhancementSlots: 0
+    armorEnhancements: []
+    armorStatPoints: 0
+    armorStatMultiplier: 0
+    weaponUpgradeLevel: 0
+    weaponEnhancementSlots: 0
+    weaponEnhancements: []
+    weaponStatPoints: 0
+    weaponStatMultiplier: 0
+    accessoryUpgradeLevel: 0
+    accessoryEnhancementSlots: 0
+    accessoryEnhancements: []
+    accessoryStatPoints: 0
+    accessoryStatMultiplier: 0
     heroName: 
     characterTotalXP: 0
     characterAvailableXP: 0
@@ -10668,6 +10953,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SceneCharacter:
+    armorUpgradeLevel: 0
+    armorEnhancementSlots: 0
+    armorEnhancements: []
+    armorStatPoints: 0
+    armorStatMultiplier: 0
+    weaponUpgradeLevel: 0
+    weaponEnhancementSlots: 0
+    weaponEnhancements: []
+    weaponStatPoints: 0
+    weaponStatMultiplier: 0
+    accessoryUpgradeLevel: 0
+    accessoryEnhancementSlots: 0
+    accessoryEnhancements: []
+    accessoryStatPoints: 0
+    accessoryStatMultiplier: 0
     heroName: 
     characterTotalXP: 0
     characterAvailableXP: 0
@@ -10756,6 +11056,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SceneCharacter:
+    armorUpgradeLevel: 0
+    armorEnhancementSlots: 0
+    armorEnhancements: []
+    armorStatPoints: 0
+    armorStatMultiplier: 0
+    weaponUpgradeLevel: 0
+    weaponEnhancementSlots: 0
+    weaponEnhancements: []
+    weaponStatPoints: 0
+    weaponStatMultiplier: 0
+    accessoryUpgradeLevel: 0
+    accessoryEnhancementSlots: 0
+    accessoryEnhancements: []
+    accessoryStatPoints: 0
+    accessoryStatMultiplier: 0
     heroName: 
     characterTotalXP: 0
     characterAvailableXP: 0
@@ -10936,6 +11251,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SceneCharacter:
+    armorUpgradeLevel: 0
+    armorEnhancementSlots: 0
+    armorEnhancements: []
+    armorStatPoints: 0
+    armorStatMultiplier: 0
+    weaponUpgradeLevel: 0
+    weaponEnhancementSlots: 0
+    weaponEnhancements: []
+    weaponStatPoints: 0
+    weaponStatMultiplier: 0
+    accessoryUpgradeLevel: 0
+    accessoryEnhancementSlots: 0
+    accessoryEnhancements: []
+    accessoryStatPoints: 0
+    accessoryStatMultiplier: 0
     heroName: 
     characterTotalXP: 0
     characterAvailableXP: 0
@@ -11189,6 +11519,21 @@ MonoBehaviour:
   startingAbilityIncrease: 0
   startingHealthIncrease: 0
   SceneCharacter:
+    armorUpgradeLevel: 0
+    armorEnhancementSlots: 0
+    armorEnhancements: []
+    armorStatPoints: 0
+    armorStatMultiplier: 0
+    weaponUpgradeLevel: 0
+    weaponEnhancementSlots: 0
+    weaponEnhancements: []
+    weaponStatPoints: 0
+    weaponStatMultiplier: 0
+    accessoryUpgradeLevel: 0
+    accessoryEnhancementSlots: 0
+    accessoryEnhancements: []
+    accessoryStatPoints: 0
+    accessoryStatMultiplier: 0
     heroName: 
     characterTotalXP: 0
     characterAvailableXP: 0
@@ -12338,6 +12683,21 @@ MonoBehaviour:
   startingAbilityIncrease: 0
   startingHealthIncrease: 0
   SceneCharacter:
+    armorUpgradeLevel: 0
+    armorEnhancementSlots: 0
+    armorEnhancements: []
+    armorStatPoints: 0
+    armorStatMultiplier: 0
+    weaponUpgradeLevel: 0
+    weaponEnhancementSlots: 0
+    weaponEnhancements: []
+    weaponStatPoints: 0
+    weaponStatMultiplier: 0
+    accessoryUpgradeLevel: 0
+    accessoryEnhancementSlots: 0
+    accessoryEnhancements: []
+    accessoryStatPoints: 0
+    accessoryStatMultiplier: 0
     heroName: 
     characterTotalXP: 0
     characterAvailableXP: 0
@@ -12673,6 +13033,21 @@ MonoBehaviour:
   startingAbilityIncrease: 0
   startingHealthIncrease: 0
   SceneCharacter:
+    armorUpgradeLevel: 0
+    armorEnhancementSlots: 0
+    armorEnhancements: []
+    armorStatPoints: 0
+    armorStatMultiplier: 0
+    weaponUpgradeLevel: 0
+    weaponEnhancementSlots: 0
+    weaponEnhancements: []
+    weaponStatPoints: 0
+    weaponStatMultiplier: 0
+    accessoryUpgradeLevel: 0
+    accessoryEnhancementSlots: 0
+    accessoryEnhancements: []
+    accessoryStatPoints: 0
+    accessoryStatMultiplier: 0
     heroName: 
     characterTotalXP: 0
     characterAvailableXP: 0
@@ -12976,6 +13351,21 @@ MonoBehaviour:
   startingAbilityIncrease: 0
   startingHealthIncrease: 0
   SceneCharacter:
+    armorUpgradeLevel: 0
+    armorEnhancementSlots: 0
+    armorEnhancements: []
+    armorStatPoints: 0
+    armorStatMultiplier: 0
+    weaponUpgradeLevel: 0
+    weaponEnhancementSlots: 0
+    weaponEnhancements: []
+    weaponStatPoints: 0
+    weaponStatMultiplier: 0
+    accessoryUpgradeLevel: 0
+    accessoryEnhancementSlots: 0
+    accessoryEnhancements: []
+    accessoryStatPoints: 0
+    accessoryStatMultiplier: 0
     heroName: 
     characterTotalXP: 0
     characterAvailableXP: 0
@@ -13740,6 +14130,21 @@ MonoBehaviour:
   startingAbilityIncrease: 0
   startingHealthIncrease: 0
   SceneCharacter:
+    armorUpgradeLevel: 0
+    armorEnhancementSlots: 0
+    armorEnhancements: []
+    armorStatPoints: 0
+    armorStatMultiplier: 0
+    weaponUpgradeLevel: 0
+    weaponEnhancementSlots: 0
+    weaponEnhancements: []
+    weaponStatPoints: 0
+    weaponStatMultiplier: 0
+    accessoryUpgradeLevel: 0
+    accessoryEnhancementSlots: 0
+    accessoryEnhancements: []
+    accessoryStatPoints: 0
+    accessoryStatMultiplier: 0
     heroName: 
     characterTotalXP: 0
     characterAvailableXP: 0
@@ -14716,6 +15121,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SceneCharacter:
+    armorUpgradeLevel: 0
+    armorEnhancementSlots: 0
+    armorEnhancements: []
+    armorStatPoints: 0
+    armorStatMultiplier: 0
+    weaponUpgradeLevel: 0
+    weaponEnhancementSlots: 0
+    weaponEnhancements: []
+    weaponStatPoints: 0
+    weaponStatMultiplier: 0
+    accessoryUpgradeLevel: 0
+    accessoryEnhancementSlots: 0
+    accessoryEnhancements: []
+    accessoryStatPoints: 0
+    accessoryStatMultiplier: 0
     heroName: 
     characterTotalXP: 0
     characterAvailableXP: 0
@@ -15286,6 +15706,21 @@ MonoBehaviour:
   startingAbilityIncrease: 0
   startingHealthIncrease: 0
   SceneCharacter:
+    armorUpgradeLevel: 0
+    armorEnhancementSlots: 0
+    armorEnhancements: []
+    armorStatPoints: 0
+    armorStatMultiplier: 0
+    weaponUpgradeLevel: 0
+    weaponEnhancementSlots: 0
+    weaponEnhancements: []
+    weaponStatPoints: 0
+    weaponStatMultiplier: 0
+    accessoryUpgradeLevel: 0
+    accessoryEnhancementSlots: 0
+    accessoryEnhancements: []
+    accessoryStatPoints: 0
+    accessoryStatMultiplier: 0
     heroName: 
     characterTotalXP: 0
     characterAvailableXP: 0
@@ -15721,6 +16156,21 @@ MonoBehaviour:
   startingAbilityIncrease: 0
   startingHealthIncrease: 0
   SceneCharacter:
+    armorUpgradeLevel: 0
+    armorEnhancementSlots: 0
+    armorEnhancements: []
+    armorStatPoints: 0
+    armorStatMultiplier: 0
+    weaponUpgradeLevel: 0
+    weaponEnhancementSlots: 0
+    weaponEnhancements: []
+    weaponStatPoints: 0
+    weaponStatMultiplier: 0
+    accessoryUpgradeLevel: 0
+    accessoryEnhancementSlots: 0
+    accessoryEnhancements: []
+    accessoryStatPoints: 0
+    accessoryStatMultiplier: 0
     heroName: 
     characterTotalXP: 0
     characterAvailableXP: 0
@@ -16055,6 +16505,21 @@ MonoBehaviour:
   startingAbilityIncrease: 0
   startingHealthIncrease: 0
   SceneCharacter:
+    armorUpgradeLevel: 0
+    armorEnhancementSlots: 0
+    armorEnhancements: []
+    armorStatPoints: 0
+    armorStatMultiplier: 0
+    weaponUpgradeLevel: 0
+    weaponEnhancementSlots: 0
+    weaponEnhancements: []
+    weaponStatPoints: 0
+    weaponStatMultiplier: 0
+    accessoryUpgradeLevel: 0
+    accessoryEnhancementSlots: 0
+    accessoryEnhancements: []
+    accessoryStatPoints: 0
+    accessoryStatMultiplier: 0
     heroName: 
     characterTotalXP: 0
     characterAvailableXP: 0
@@ -16329,7 +16794,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Crafting is not implemented yet.
+  m_Text: Crafting is not implemented yet, but click the top right button to upgrade
+    your gear.
 --- !u!222 &1893298803
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -16488,6 +16954,21 @@ MonoBehaviour:
   startingAbilityIncrease: 0
   startingHealthIncrease: 0
   SceneCharacter:
+    armorUpgradeLevel: 0
+    armorEnhancementSlots: 0
+    armorEnhancements: []
+    armorStatPoints: 0
+    armorStatMultiplier: 0
+    weaponUpgradeLevel: 0
+    weaponEnhancementSlots: 0
+    weaponEnhancements: []
+    weaponStatPoints: 0
+    weaponStatMultiplier: 0
+    accessoryUpgradeLevel: 0
+    accessoryEnhancementSlots: 0
+    accessoryEnhancements: []
+    accessoryStatPoints: 0
+    accessoryStatMultiplier: 0
     heroName: 
     characterTotalXP: 0
     characterAvailableXP: 0
@@ -16577,6 +17058,21 @@ MonoBehaviour:
   startingAbilityIncrease: 0
   startingHealthIncrease: 0
   SceneCharacter:
+    armorUpgradeLevel: 0
+    armorEnhancementSlots: 0
+    armorEnhancements: []
+    armorStatPoints: 0
+    armorStatMultiplier: 0
+    weaponUpgradeLevel: 0
+    weaponEnhancementSlots: 0
+    weaponEnhancements: []
+    weaponStatPoints: 0
+    weaponStatMultiplier: 0
+    accessoryUpgradeLevel: 0
+    accessoryEnhancementSlots: 0
+    accessoryEnhancements: []
+    accessoryStatPoints: 0
+    accessoryStatMultiplier: 0
     heroName: 
     characterTotalXP: 0
     characterAvailableXP: 0
