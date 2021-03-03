@@ -8,14 +8,17 @@ public class PlayerProfile : MonoBehaviour
     public static PlayerProfile Instance;
     public CharacterProfile mageHero;
     public CharacterProfile priestHero;
-    public CharacterProfile warriorHero;
+    public CharacterProfile spaceTank;
     public CharacterProfile rogueHero;
     public CharacterProfile plantHero;
     public CharacterProfile steamHero;
     public CharacterProfile spaceSoldier;
     public int currentEditingInteger;
     public ScriptableAbility currentDetailAbility;
+    public ScriptableGearItem currentDetailItem;
     public int nextBattleScene;
+    public int newGamePlusIterator;
+    // public bool newGamePlusActive; - Unnecessary due to setting 0 index for multiplier to 1
     public int earnedCrystals;
     public int currentCrystals;
     public int totalGold;
@@ -48,12 +51,13 @@ public class PlayerProfile : MonoBehaviour
         }
 
         nextBattleScene = 0;
+        newGamePlusIterator = 0;
 
         UnlockedHeroes.Add(startingHero);
 
         characterProfiles.Add(mageHero);
         characterProfiles.Add(priestHero);
-        characterProfiles.Add(warriorHero);
+        characterProfiles.Add(spaceTank);
         characterProfiles.Add(rogueHero);
         characterProfiles.Add(steamHero);
         characterProfiles.Add(plantHero);
@@ -63,6 +67,7 @@ public class PlayerProfile : MonoBehaviour
         // Sets the current editing character to the first one at the start of the script
         CurrentEditingCharacter = characterProfiles[currentEditingInteger];
         currentDetailAbility = CurrentEditingCharacter.ability2;
+        currentDetailItem = CurrentEditingCharacter.gearset.armor;
 
         //foreach (CharacterProfile characterStartupProfile in characterProfiles)
         //{
@@ -109,17 +114,17 @@ public class PlayerProfile : MonoBehaviour
             case "PriestUnit":
                 return priestHero;
 
-            case "WarriorUnit":
-                return warriorHero;
+            case "SpaceTank":
+                return spaceTank;
 
             case "RogueUnit":
                 return rogueHero;
 
-            case "PlantUnit":
-                return plantHero;
-
             case "SteamTankUnit":
                 return steamHero;
+
+            case "PlantUnit":
+                return plantHero;           
 
             case "SpaceSoldier":
                 return spaceSoldier;

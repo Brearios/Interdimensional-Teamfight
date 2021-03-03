@@ -43,7 +43,7 @@ RenderSettings:
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 11
+  serializedVersion: 12
   m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
@@ -96,8 +96,10 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
+    m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_LightingSettings: {fileID: 4890085278179872738, guid: 73b0db1b1de64724c8d9c6d2e0a130f3,
+    type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -117,6 +119,8 @@ NavMeshSettings:
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
+    maxJobWorkers: 0
+    preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
@@ -204,6 +208,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 89342000}
+        m_TargetAssemblyTypeName: 
         m_MethodName: ExitGame
         m_Mode: 1
         m_Arguments:
@@ -229,6 +234,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -314,6 +321,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -341,6 +350,78 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 331601801}
   m_CullTransparentMesh: 0
+--- !u!1 &420668009
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 420668011}
+  - component: {fileID: 420668010}
+  m_Layer: 0
+  m_Name: MagicNumbers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &420668010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 420668009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 917a9253135f64e48a13523869a26fa5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skirmishScalingParticipantThreshold: 5
+  brawlScalingParticipantThreshold: 20
+  raidScalingParticipantThreshold: 30
+  epicBattleMaxScalingParticipantThreshold: 50
+  tankBonusThreatIterator: 0.25
+  tankHealthMultiplier: 3
+  targetCheckRandomRangeLowerBound: 0
+  startingXpCost: 100
+  startingAtkPower: 5
+  startingAbilityPower: 8
+  startingHealth: 100
+  statScalingFactor: 1.0461
+  nextXpCost: 108
+  nextAtkPower: 6
+  nextAbilityPower: 9
+  nextHealth: 110
+  NextXpCostMultiplier: 1.0805
+  newGamePlusEnemyHealthMultiplier:
+  - 1.8
+  - 2.6
+  - 4.2
+  newGamePlusEnemyAutoAtkDamageMultiplier:
+  - 2
+  - 3.5
+  - 4.5
+  newGamePlusEnemyAbilityPowerMultiplier:
+  - 2
+  - 3.5
+  - 4.5
+--- !u!4 &420668011
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 420668009}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 9.428802, y: -1.5656731, z: -1781.5018}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &421265383
 GameObject:
   m_ObjectHideFlags: 0
@@ -468,6 +549,7 @@ MonoBehaviour:
   m_ChildControlHeight: 0
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
 --- !u!1 &450642974
 GameObject:
   m_ObjectHideFlags: 0
@@ -501,12 +583,12 @@ MonoBehaviour:
     heroName: 
     characterTotalXP: 0
     characterAvailableXP: 0
-    healthArrayLevel: 0
-    atkArrayLevel: 0
-    abilityArrayLevel: 0
-    nextXPCost: 0
+    nextXpCost: 0
+    healthListLevel: 0
+    atkListLevel: 0
+    abilityListLevel: 0
     health: 0
-    atk: 0
+    attackPower: 0
     abilityPower: 0
     charUnlock: 0
     autoAtkUnlock: 0
@@ -514,30 +596,7 @@ MonoBehaviour:
     ability2Unlock: 0
     ability3Unlock: 0
     potionUnlock: 0
-    totalLevel: 0
-    autoAtk: {fileID: 0}
-    ability1: {fileID: 0}
-    ability2: {fileID: 0}
-    ability3: {fileID: 0}
-    potion: {fileID: 0}
-    AbilityUnlocks: []
-  warriorHero:
-    heroName: 
-    characterTotalXP: 0
-    characterAvailableXP: 0
-    healthArrayLevel: 0
-    atkArrayLevel: 0
-    abilityArrayLevel: 0
-    nextXPCost: 0
-    health: 0
-    atk: 0
-    abilityPower: 0
-    charUnlock: 0
-    autoAtkUnlock: 0
-    ability1Unlock: 0
-    ability2Unlock: 0
-    ability3Unlock: 0
-    potionUnlock: 0
+    selectedPotionType: 0
     totalLevel: 0
     autoAtk: {fileID: 0}
     ability1: {fileID: 0}
@@ -549,12 +608,12 @@ MonoBehaviour:
     heroName: 
     characterTotalXP: 0
     characterAvailableXP: 0
-    healthArrayLevel: 0
-    atkArrayLevel: 0
-    abilityArrayLevel: 0
-    nextXPCost: 0
+    nextXpCost: 0
+    healthListLevel: 0
+    atkListLevel: 0
+    abilityListLevel: 0
     health: 0
-    atk: 0
+    attackPower: 0
     abilityPower: 0
     charUnlock: 0
     autoAtkUnlock: 0
@@ -562,6 +621,32 @@ MonoBehaviour:
     ability2Unlock: 0
     ability3Unlock: 0
     potionUnlock: 0
+    selectedPotionType: 0
+    totalLevel: 0
+    autoAtk: {fileID: 0}
+    ability1: {fileID: 0}
+    ability2: {fileID: 0}
+    ability3: {fileID: 0}
+    potion: {fileID: 0}
+    AbilityUnlocks: []
+  warriorHero:
+    heroName: 
+    characterTotalXP: 0
+    characterAvailableXP: 0
+    nextXpCost: 0
+    healthListLevel: 0
+    atkListLevel: 0
+    abilityListLevel: 0
+    health: 0
+    attackPower: 0
+    abilityPower: 0
+    charUnlock: 0
+    autoAtkUnlock: 0
+    ability1Unlock: 0
+    ability2Unlock: 0
+    ability3Unlock: 0
+    potionUnlock: 0
+    selectedPotionType: 0
     totalLevel: 0
     autoAtk: {fileID: 0}
     ability1: {fileID: 0}
@@ -573,12 +658,12 @@ MonoBehaviour:
     heroName: 
     characterTotalXP: 0
     characterAvailableXP: 0
-    healthArrayLevel: 0
-    atkArrayLevel: 0
-    abilityArrayLevel: 0
-    nextXPCost: 0
+    nextXpCost: 0
+    healthListLevel: 0
+    atkListLevel: 0
+    abilityListLevel: 0
     health: 0
-    atk: 0
+    attackPower: 0
     abilityPower: 0
     charUnlock: 0
     autoAtkUnlock: 0
@@ -586,6 +671,82 @@ MonoBehaviour:
     ability2Unlock: 0
     ability3Unlock: 0
     potionUnlock: 0
+    selectedPotionType: 0
+    totalLevel: 0
+    autoAtk: {fileID: 0}
+    ability1: {fileID: 0}
+    ability2: {fileID: 0}
+    ability3: {fileID: 0}
+    potion: {fileID: 0}
+    AbilityUnlocks: []
+  plantHero:
+    heroName: 
+    characterTotalXP: 0
+    characterAvailableXP: 0
+    nextXpCost: 0
+    healthListLevel: 0
+    atkListLevel: 0
+    abilityListLevel: 0
+    health: 0
+    attackPower: 0
+    abilityPower: 0
+    charUnlock: 0
+    autoAtkUnlock: 0
+    ability1Unlock: 0
+    ability2Unlock: 0
+    ability3Unlock: 0
+    potionUnlock: 0
+    selectedPotionType: 0
+    totalLevel: 0
+    autoAtk: {fileID: 0}
+    ability1: {fileID: 0}
+    ability2: {fileID: 0}
+    ability3: {fileID: 0}
+    potion: {fileID: 0}
+    AbilityUnlocks: []
+  steamHero:
+    heroName: 
+    characterTotalXP: 0
+    characterAvailableXP: 0
+    nextXpCost: 0
+    healthListLevel: 0
+    atkListLevel: 0
+    abilityListLevel: 0
+    health: 0
+    attackPower: 0
+    abilityPower: 0
+    charUnlock: 0
+    autoAtkUnlock: 0
+    ability1Unlock: 0
+    ability2Unlock: 0
+    ability3Unlock: 0
+    potionUnlock: 0
+    selectedPotionType: 0
+    totalLevel: 0
+    autoAtk: {fileID: 0}
+    ability1: {fileID: 0}
+    ability2: {fileID: 0}
+    ability3: {fileID: 0}
+    potion: {fileID: 0}
+    AbilityUnlocks: []
+  spaceSoldier:
+    heroName: 
+    characterTotalXP: 0
+    characterAvailableXP: 0
+    nextXpCost: 0
+    healthListLevel: 0
+    atkListLevel: 0
+    abilityListLevel: 0
+    health: 0
+    attackPower: 0
+    abilityPower: 0
+    charUnlock: 0
+    autoAtkUnlock: 0
+    ability1Unlock: 0
+    ability2Unlock: 0
+    ability3Unlock: 0
+    potionUnlock: 0
+    selectedPotionType: 0
     totalLevel: 0
     autoAtk: {fileID: 0}
     ability1: {fileID: 0}
@@ -596,21 +757,30 @@ MonoBehaviour:
   currentEditingInteger: 0
   currentDetailAbility: {fileID: 0}
   nextBattleScene: 0
+  newGamePlusIterator: 0
+  newGamePlusActive: 0
   earnedCrystals: 0
   currentCrystals: 0
   totalGold: 0
   currentGold: 0
+  startingHero:
+    characterPrefab: {fileID: 0}
+    name: 
+    team: 0
+    spawn: 0
+  UnlockedHeroes: []
+  heroes: []
   characterProfiles: []
   CurrentEditingCharacter:
     heroName: 
     characterTotalXP: 0
     characterAvailableXP: 0
-    healthArrayLevel: 0
-    atkArrayLevel: 0
-    abilityArrayLevel: 0
-    nextXPCost: 0
+    nextXpCost: 0
+    healthListLevel: 0
+    atkListLevel: 0
+    abilityListLevel: 0
     health: 0
-    atk: 0
+    attackPower: 0
     abilityPower: 0
     charUnlock: 0
     autoAtkUnlock: 0
@@ -618,6 +788,7 @@ MonoBehaviour:
     ability2Unlock: 0
     ability3Unlock: 0
     potionUnlock: 0
+    selectedPotionType: 0
     totalLevel: 0
     autoAtk: {fileID: 0}
     ability1: {fileID: 0}
@@ -983,6 +1154,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 764461385}
+        m_TargetAssemblyTypeName: 
         m_MethodName: MenuScene
         m_Mode: 1
         m_Arguments:
@@ -1008,6 +1180,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1068,11 +1242,14 @@ MonoBehaviour:
   gameSpeed: 0
   deltaTime: 0
   timeIncrement: 0.5
+  startingCharactersSpawned: 0
+  ActorDiedTestIfBattleIsOver: 0
   BattleOver: 0
+  BattleGainsCalculated: 0
   winningTeam: {fileID: 0}
+  winCheckTeam: {fileID: 0}
   winningTeamColor: {r: 0, g: 0, b: 0, a: 0}
   xpPerCharacter: 0
-  xpCounted: 0
   xpDistributed: 0
   totalHeroes: 0
   totalEnemies: 0
@@ -1200,6 +1377,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1309136038}
+        m_TargetAssemblyTypeName: 
         m_MethodName: NewGamePlus
         m_Mode: 1
         m_Arguments:
@@ -1225,6 +1403,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1311,6 +1491,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.089711644, g: 0.9056604, b: 0.14663832, a: 1}
   m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1327,10 +1509,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'If you''ve beaten each fight to here, that''s the end. Let me know what
-    you think!
-
-    There''s probably a lot that''s broken or needs refining, and I welcome the feedback!'
+  m_Text: If you've gotten here, that's the end so far. You can take your heroes
+    against upgraded enemies in NewGame+, or you've unlocked the Exit button. Let
+    me know if you have feedback!
 --- !u!222 &1319499798
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1370,6 +1551,8 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1471,6 +1654,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1544,6 +1729,8 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1568,6 +1755,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1836512368
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1642,6 +1830,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []

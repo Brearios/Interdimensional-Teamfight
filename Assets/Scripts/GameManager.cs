@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     public int earnedBattleGold;
     public float gameSpeed;
     public float deltaTime;
-    public float timeIncrement = .2f;
+    public float timeIncrement;
     public bool startingCharactersSpawned;
     public bool ActorDiedTestIfBattleIsOver;
     public bool BattleOver;
@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
     public float heroDamageDone;
     public float heroDamageTaken;
     public float heroHealingDone;
+    public float heroOverHealingDone;
     public float enemyHealingDone;
     public bool playerVictory;
     public bool playerLoss;
@@ -54,6 +55,7 @@ public class GameManager : MonoBehaviour
         else
         {
             Destroy(gameObject);
+            return;
         }
     }
 

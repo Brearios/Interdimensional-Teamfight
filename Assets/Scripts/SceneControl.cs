@@ -73,7 +73,7 @@ public class SceneControl : MonoBehaviour
         }
         else
         {
-            PlayerProfile.Instance.currentEditingInteger = (PlayerProfile.Instance.characterProfiles.Count - 1);
+            PlayerProfile.Instance.currentEditingInteger = (PlayerProfile.Instance.UnlockedHeroes.Count - 1);
             SceneManager.LoadScene(1);
         }
 
@@ -81,8 +81,8 @@ public class SceneControl : MonoBehaviour
 
     public void NextMenuCharacter()
     {
-        int charListLength = (PlayerProfile.Instance.characterProfiles.Count - 1);
-        if (PlayerProfile.Instance.currentEditingInteger < charListLength)
+        // int charListLength = (PlayerProfile.Instance.UnlockedHeroes.Count - 1);
+        if (PlayerProfile.Instance.currentEditingInteger < PlayerProfile.Instance.UnlockedHeroes.Count - 1)
         {
             PlayerProfile.Instance.currentEditingInteger++;
             SceneManager.LoadScene(1);
@@ -97,6 +97,10 @@ public class SceneControl : MonoBehaviour
     public void NewGamePlus()
     {
         PlayerProfile.Instance.nextBattleScene = 0;
+        //PlayerProfile.Instance.newGamePlusActive = true;
+        //Debug.Log($"New Game Plus Active = {PlayerProfile.Instance.newGamePlusActive}");
+        PlayerProfile.Instance.newGamePlusIterator += 1;
+        Debug.Log($"New Game Plus level = {PlayerProfile.Instance.newGamePlusIterator}");
         SceneManager.LoadScene(2);
     }
 

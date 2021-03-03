@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 651527865ccf0df4bbd14d6faab91179, type: 3}
+  m_Name: PostApocRogueSet
+  m_EditorClassIdentifier: 
+  armor: {fileID: 11400000, guid: d805bc66f9e8dc943aea734d3435ed14, type: 2}
+  weapon: {fileID: 11400000, guid: 3bae3c041166c014bb95d556531c77f7, type: 2}
+  accessory: {fileID: 11400000, guid: 23e11c57421b99b47ad967d6feb4cd21, type: 2}
+  currentArmorEnhancements: []
+  currentWeaponEnhancements: []
+  currentAccessoryEnhancements: []

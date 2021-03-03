@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Assets.HeroEditor.Common.CharacterScripts;
+using System;
 
 public class Actor : MonoBehaviour
 {
@@ -30,7 +31,7 @@ public class Actor : MonoBehaviour
     public float maxHealth;
     public float currHealth;
     public float healthPercent;
-    public int attackDamage; // Later make this a random amount within a range
+    public int atkDamage; // Later make this a random amount within a range
     public int abilityPower;
     public int xpWhenKilled;
     public int crystalsWhenKilled;
@@ -38,6 +39,7 @@ public class Actor : MonoBehaviour
     public string role;
     public float atkRange;
     public float moveSpeed;
+    public CharacterProfile currentProfile;
 
     public Actor highThreatTarget;
     public Actor ability1Target;
@@ -84,69 +86,79 @@ public class Actor : MonoBehaviour
     {
         unitName = unit.unitName;
         maxHealth = unit.maxHealth;
-        attackDamage = unit.attackDamage;
+        atkDamage = unit.attackDamage;
         abilityPower = unit.abilityPower;
         // MageStats = GameObject.FindObjectOfType<CharacterProfile>();
 
         CharacterProfile currentProfile = PlayerProfile.Instance.GetCharacterProfileForUnit(unit);
 
+        if (!isPlayer)
+        {
+            NewGamePlusStatScaler();
+        }
+
+        if (isPlayer)
+        {
+            ModifyStatsFromGear();
+        }
+
         // Check that abilities exist/are defined and that they're unlocked before running them
-    if (isPlayer)
+        if (isPlayer)
         {
             // Old implementation
             //if ((autoAtk) && (currentProfile.AbilityUnlocks.Contains(autoAtkUnlock)))
             // New implementation based on length
             if ((autoAtk) && ((currentProfile.autoAtkUnlock == true)))
             {
-                AbilityProcessor autoAtkProcessor = new AbilityProcessor(autoAtk);
+                AbilityProcessor autoAtkProcessor = new AbilityProcessor(autoAtk, unit.autoAtkSound);
                 AbilityProcessors.Add(autoAtkProcessor);
             }
             if ((ability1) && ((currentProfile.ability1Unlock == true)))
             {
-                AbilityProcessor ability1Processor = new AbilityProcessor(ability1);
+                AbilityProcessor ability1Processor = new AbilityProcessor(ability1, unit.ability1Sound);
                 AbilityProcessors.Add(ability1Processor);
             }
             if ((ability2) && ((currentProfile.ability2Unlock == true)))
             {
-                AbilityProcessor ability2Processor = new AbilityProcessor(ability2);
+                AbilityProcessor ability2Processor = new AbilityProcessor(ability2, unit.Ability2Sound);
                 AbilityProcessors.Add(ability2Processor);
             }
             if ((ability3) && ((currentProfile.ability3Unlock == true)))
             {
-                AbilityProcessor ability3Processor = new AbilityProcessor(ability3);
+                AbilityProcessor ability3Processor = new AbilityProcessor(ability3, unit.Ability3Sound);
                 AbilityProcessors.Add(ability3Processor);
             }
             if ((potion) && ((currentProfile.potionUnlock == true)))
             {
-                AbilityProcessor potionProcessor = new AbilityProcessor(potion);
+                AbilityProcessor potionProcessor = new AbilityProcessor(potion, unit.potionAbilitySound);
                 AbilityProcessors.Add(potionProcessor);
             }
         }
-    else
+        else
         {
             if (autoAtk)
             {
-                AbilityProcessor autoAtkProcessor = new AbilityProcessor(autoAtk);
+                AbilityProcessor autoAtkProcessor = new AbilityProcessor(autoAtk, unit.autoAtkSound);
                 AbilityProcessors.Add(autoAtkProcessor);
             }
             if (ability1)
             {
-                AbilityProcessor ability1Processor = new AbilityProcessor(ability1);
+                AbilityProcessor ability1Processor = new AbilityProcessor(ability1, unit.ability1Sound);
                 AbilityProcessors.Add(ability1Processor);
             }
             if (ability2)
             {
-                AbilityProcessor ability2Processor = new AbilityProcessor(ability2);
+                AbilityProcessor ability2Processor = new AbilityProcessor(ability2, unit.Ability2Sound);
                 AbilityProcessors.Add(ability2Processor);
             }
             if (ability3)
             {
-                AbilityProcessor ability3Processor = new AbilityProcessor(ability3);
+                AbilityProcessor ability3Processor = new AbilityProcessor(ability3, unit.Ability3Sound);
                 AbilityProcessors.Add(ability3Processor);
             }
             if (potion)
             {
-                AbilityProcessor potionProcessor = new AbilityProcessor(potion);
+                AbilityProcessor potionProcessor = new AbilityProcessor(potion, unit.potionAbilitySound);
                 AbilityProcessors.Add(potionProcessor);
             }
         }
@@ -165,7 +177,7 @@ public class Actor : MonoBehaviour
         crystalsWhenKilled = unit.crystalsWhenKilled;
         goldWhenKilled = unit.goldWhenKilled;
         targetCheckFrequency = unit.targetCheckFrequency;
-        targetCheckCount = Random.Range(.4f, unit.targetCheckFrequency);
+        targetCheckCount = UnityEngine.Random.Range(MagicNumbers.Instance.targetCheckRandomRangeLowerBound, unit.targetCheckFrequency);
         // PlayerCheck();
         if (isPlayer)
         {
@@ -177,6 +189,13 @@ public class Actor : MonoBehaviour
         beginAtkAnim = false;
         xpAdded = false;
         dmgVariance = unit.dmgVariance;
+    }
+
+    private void NewGamePlusStatScaler()
+    {
+        maxHealth *= MagicNumbers.Instance.newGamePlusEnemyHealthMultiplier[PlayerProfile.Instance.newGamePlusIterator];
+        atkDamage = (int)((float)atkDamage * MagicNumbers.Instance.newGamePlusEnemyAutoAtkDamageMultiplier[PlayerProfile.Instance.newGamePlusIterator]);
+        abilityPower = (int)((float)abilityPower * MagicNumbers.Instance.newGamePlusEnemyAbilityPowerMultiplier[PlayerProfile.Instance.newGamePlusIterator]);
     }
 
     // Update is called once per frame
@@ -411,11 +430,14 @@ public class Actor : MonoBehaviour
     {
         Actor[] allActors = GameObject.FindObjectsOfType<Actor>();
 
+        // In a perfect world, DoT would be 1) highest health enemy that 2) didn't have this DoT.
         if ((abilityProcessor.abilityData.targetType == ScriptableAbility.TargetType.Damage) || (abilityProcessor.abilityData.targetType == ScriptableAbility.TargetType.Dot))
         {
             // Target is determined in FindPriorityEnemy to set who we move toward if out of range
             abilityProcessor.currentTarget = highThreatTarget;
         }
+
+        // Debuff the enemy with the highest output
         else if (abilityProcessor.abilityData.targetType == ScriptableAbility.TargetType.Debuff)
         {
             float highestDamageEnemy = Mathf.NegativeInfinity;
@@ -432,7 +454,7 @@ public class Actor : MonoBehaviour
                 }
                 else
                 {
-                    float damageEvaluationActor = (currentActor.attackDamage + currentActor.abilityPower);
+                    float damageEvaluationActor = (currentActor.atkDamage + currentActor.abilityPower);
                     if (damageEvaluationActor > highestDamageEnemy)
                     {
                         highestDamageEnemy = damageEvaluationActor;
@@ -444,7 +466,7 @@ public class Actor : MonoBehaviour
         else if ((abilityProcessor.abilityData.targetType == ScriptableAbility.TargetType.Heal) || (abilityProcessor.abilityData.targetType == ScriptableAbility.TargetType.Hot))
         {
             abilityProcessor.currentTarget = this;
-            float lowestHealthPercent = 1;
+            float lowestHealthPercent = 100;
 
             foreach (Actor currentActor in allActors)
             {
@@ -467,6 +489,8 @@ public class Actor : MonoBehaviour
                 }
             }
         }
+
+        // Ally with highest output
         else if (abilityProcessor.abilityData.targetType == ScriptableAbility.TargetType.Buff)
         {
             float highestDamageAlly = Mathf.NegativeInfinity;
@@ -483,7 +507,7 @@ public class Actor : MonoBehaviour
                 }
                 else
                 {
-                    float damageEvaluationActor = (currentActor.attackDamage + currentActor.abilityPower);
+                    float damageEvaluationActor = (currentActor.atkDamage + currentActor.abilityPower);
                     if (damageEvaluationActor > highestDamageAlly)
                     {
                         highestDamageAlly = damageEvaluationActor;
@@ -583,7 +607,7 @@ public class Actor : MonoBehaviour
             }
 
             // Random Damage based on dmgVariance stat
-            int hpChangeVaried = ApplyRandomness(attackDamage);
+            int hpChangeVaried = ApplyRandomness(atkDamage);
 
             GetComponent<Character>().Animator.SetBool("Slash", true);
             highThreatTarget.ChangeHealth(-hpChangeVaried, false);
@@ -608,13 +632,20 @@ public class Actor : MonoBehaviour
         //{
         //    FindAbilityTarget();
         //}
-        Debug.Log($"{unitName} is attempting {ability.abilityData.abilityName} on {ability.currentTarget}");
+        if (ability.currentTarget)
+        {
+            Debug.Log($"{unitName} is attempting {ability.abilityData.abilityName} on {ability.currentTarget}");
+        }
+        else
+        {
+            Debug.Log($"{unitName} is attempting {ability.abilityData.abilityName} on {unitName}");
+        }
         {
             // Auto Attack
             if ((ability.abilityData.targetType == ScriptableAbility.TargetType.Damage) && (ability.abilityData.isAutoAtk))
             {
                 GetComponent<Character>().Animator.SetBool("Slash", true);
-                int hpChangeVaried = ApplyRandomness(attackDamage * -1);
+                int hpChangeVaried = ApplyRandomness(atkDamage * -1);
                 ability.currentTarget.ChangeHealth(hpChangeVaried, true);
                 Debug.Log($"{unitName} used {ability.abilityData.abilityName} on {ability.currentTarget} for {hpChangeVaried}");
             }
@@ -689,7 +720,7 @@ public class Actor : MonoBehaviour
                 {
                     if (AoePotentialTarget.team != team)
                     {
-                        int roll = Random.Range(1, 100);
+                        int roll = UnityEngine.Random.Range(1, 100);
                         // The ability should hit "Chance to Hit" percent of the time, so if the roll is less than that percent, it should hit.
                         if (roll < ability.abilityData.aoeChancetoHit)
                         {
@@ -718,11 +749,14 @@ public class Actor : MonoBehaviour
 
     void ChangeHealth(float amount, bool wantFloatingText)
     {
+        float overHeal = 0;
         // Add or Subtract Health
         currHealth += amount;
         if (currHealth > maxHealth)
         {
+            overHeal = (currHealth - maxHealth);
             currHealth = maxHealth;
+            GameManager.Instance.heroOverHealingDone += overHeal;
         }
 
         // Log Damage/Healing - Does not account for overkill/overhealing
@@ -733,7 +767,7 @@ public class Actor : MonoBehaviour
 
         if ((isPlayer) && (amount > 0))
         {
-            GameManager.Instance.heroHealingDone += amount;
+            GameManager.Instance.heroHealingDone += amount - overHeal;
         }
 
         if ((!isPlayer) && (amount < 0))
@@ -786,6 +820,11 @@ public class Actor : MonoBehaviour
 
     void UpdateThreatScore()
     {
+        if (isDead)
+        {
+            ThreatScore = Mathf.NegativeInfinity;
+        }
+
         // MaxHealth over CurrHealth (so as health decreases, priority increases)
         // multiplied by sum of atk & ability power
         // over maxHealth, so that 
@@ -811,19 +850,17 @@ public class Actor : MonoBehaviour
         }
         else
         {
-            if (isDead)
+            
+            if (unit.role == "Tank")
             {
-                ThreatScore = Mathf.NegativeInfinity;
-            }
-            else if (unit.role == "Tank")
-            {
-                ThreatScore = (((maxHealth / currHealth) * (attackDamage + abilityPower)) - (currHealth / 15));
+                // 1 * 11 - 20
+                ThreatScore = (((maxHealth / currHealth) * (atkDamage + abilityPower)) - (currHealth / 15));
                 // Mathf.Abs keeps the number positive no matter the value of ThreatScore
                 ThreatScore += Mathf.Abs((ThreatScore * totalCurrentTankThreatMultiplier));
             }
             else
             {
-                ThreatScore = (((maxHealth / currHealth) * (attackDamage + abilityPower)) - (currHealth / 5));
+                ThreatScore = (((maxHealth / currHealth) * (atkDamage + abilityPower)) - (currHealth / 5));
             }
         }
     }
@@ -832,15 +869,15 @@ public class Actor : MonoBehaviour
     {
         // Identify whether player character
         CharacterProfile currentProfile = PlayerProfile.Instance.GetCharacterProfileForUnit(unit);
-        if (currentProfile.atkArrayLevel > 0)
+        if (currentProfile.atkListLevel > 0)
         {
-            attackDamage = currentProfile.attackPower;
+            atkDamage = currentProfile.attackPower;
         }
-        if (currentProfile.abilityArrayLevel > 0)
+        if (currentProfile.abilityListLevel > 0)
         {
             abilityPower = currentProfile.abilityPower;
         }
-        if (currentProfile.healthArrayLevel > 0)
+        if (currentProfile.healthListLevel > 0)
         {
             if (unit.role == "Tank")
             {
@@ -880,23 +917,35 @@ public class Actor : MonoBehaviour
 
 
 
-    /*
-    void ApplyMageStats()
+    void ModifyStatsFromGear()
     {
-        if (unitName == "Mage" && MageStats.atk > 0)
+        CharacterProfile gearStatProfile = PlayerProfile.Instance.GetCharacterProfileForUnit(unit);
+        Debug.Log($"Attempting stat modifications from gear for {unitName} from profile {gearStatProfile}.");
+        if (gearStatProfile.armorUpgradeLevel > 0)
         {
-            attackDamage = MageStats.atk;
+            maxHealth *= gearStatProfile.armorStatMultiplier;
+            Debug.Log($"Attempting to multiply Maximum Health for {unit} by {gearStatProfile.armorStatMultiplier}");
+            maxHealth += gearStatProfile.armorStatPoints;
+            Debug.Log($"Attempting to add {gearStatProfile.armorStatPoints} to {unit} Maximum Health.");
+            currHealth = maxHealth;
         }
-        if (unitName == "Mage" && MageStats.health > 0)
+        if (gearStatProfile.weaponUpgradeLevel > 0)
         {
-            maxHealth = MageStats.health;
+            // Plus .5f because casting to int truncates after the decimal
+            atkDamage = (int)(atkDamage * gearStatProfile.weaponStatMultiplier + .5f);
+            Debug.Log($"Attempting to multiply Attack Damage for {unit} by {gearStatProfile.weaponStatMultiplier}, rounded up.");
+            atkDamage += gearStatProfile.weaponStatPoints;
+            Debug.Log($"Attempting to add {gearStatProfile.weaponStatPoints} to {unit} Attack Damage.");
         }
-        if (unitName == "Mage" && MageStats.abilityPower > 0)
+        if (gearStatProfile.accessoryUpgradeLevel > 0)
         {
-            abilityPower = MageStats.abilityPower;
+            // Plus .5f because casting to int truncates after the decimal
+            abilityPower = (int)(abilityPower * gearStatProfile.accessoryStatMultiplier + .5f);
+            Debug.Log($"Attempting to multiply Ability Power for {unit} by {gearStatProfile.accessoryStatMultiplier}");
+            abilityPower += gearStatProfile.accessoryStatPoints;
+            Debug.Log($"Attempting to add {gearStatProfile.accessoryStatPoints} to {unit} Ability Power.");
         }
     }
-    */
 
     // Unnecessary due to ability change
 
@@ -932,7 +981,7 @@ public class Actor : MonoBehaviour
             Debug.LogWarning($"{unitName}'s Damage Variance is set to 0.");
         }
         // Random chane from 0 to unit.DmgVariance
-        float randomChange = Random.Range(0, (hpToVary * dmgVariance));
+        float randomChange = UnityEngine.Random.Range(0, (hpToVary * dmgVariance));
         Debug.Log($"{unitName}'s attack or ability will vary by {randomChange}.");
 
         // randomChange to int, rounded to the Nearest Whole Number
@@ -940,7 +989,7 @@ public class Actor : MonoBehaviour
         Debug.Log($"Rounding, {unitName}'s attack or ability will vary by {randomIntChange}.");
 
         // Randomly negative or positive
-        int posOrNeg = Random.Range(1, 2);
+        int posOrNeg = UnityEngine.Random.Range(1, 2);
         if (posOrNeg == 1) // negative if 1
         {
             randomIntChange *= -1;
@@ -1071,11 +1120,11 @@ public class Actor : MonoBehaviour
         }
         if (AbilityProcessors.Count >= 3)
         {
-            ability1Target = AbilityProcessors[2].currentTarget;
+            ability2Target = AbilityProcessors[2].currentTarget;
         }
         if (AbilityProcessors.Count >= 4)
         {
-            ability1Target = AbilityProcessors[3].currentTarget;
+            ability3Target = AbilityProcessors[3].currentTarget;
         }
     }
 

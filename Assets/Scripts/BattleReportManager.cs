@@ -116,7 +116,7 @@ public class BattleReportManager : MonoBehaviour
 
     void DetailsStringBuilder()
     {
-        details = $"Damage Dealt: {GameManager.Instance.heroDamageDone} \n Damage Taken: {GameManager.Instance.heroDamageTaken} \n Healing Received: {GameManager.Instance.heroHealingDone}";
+        details = $"Damage Dealt: {GameManager.Instance.heroDamageDone} \n Damage Taken: {GameManager.Instance.heroDamageTaken} \n Healing Received: {GameManager.Instance.heroHealingDone} \n Overhealing Done: {GameManager.Instance.heroOverHealingDone}";
         detailsText.text = details;
     }
 
