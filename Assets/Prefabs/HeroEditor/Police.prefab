@@ -10653,6 +10653,7 @@ GameObject:
   - component: {fileID: 114189776605576749}
   - component: {fileID: 114776505362207523}
   - component: {fileID: 7837457147840869695}
+  - component: {fileID: -4259466850442442540}
   m_Layer: 0
   m_Name: Police
   m_TagString: Untagged
@@ -10974,6 +10975,114 @@ MonoBehaviour:
   - {fileID: 4402168064450263}
   - {fileID: 4402168064450263}
   Firearm: {fileID: 4068303448953861}
+--- !u!114 &-4259466850442442540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1168890840688405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b0ce10ba1de5194cb07dc56bd422a12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unit: {fileID: 0}
+  team: {fileID: 0}
+  autoAtk: {fileID: 0}
+  ability1: {fileID: 0}
+  ability2: {fileID: 0}
+  ability3: {fileID: 0}
+  potion: {fileID: 0}
+  unitName: 
+  maxHealth: 0
+  currHealth: 0
+  healthPercent: 0
+  atkDamage: 0
+  abilityPower: 0
+  xpWhenKilled: 0
+  crystalsWhenKilled: 0
+  goldWhenKilled: 0
+  role: 
+  atkRange: 0
+  moveSpeed: 0
+  currentProfile:
+    armorUpgradeLevel: 0
+    armorEnhancementSlots: 0
+    armorEnhancements: []
+    armorStatPoints: 0
+    armorStatMultiplier: 0
+    weaponUpgradeLevel: 0
+    weaponEnhancementSlots: 0
+    weaponEnhancements: []
+    weaponStatPoints: 0
+    weaponStatMultiplier: 0
+    accessoryUpgradeLevel: 0
+    accessoryEnhancementSlots: 0
+    accessoryEnhancements: []
+    accessoryStatPoints: 0
+    accessoryStatMultiplier: 0
+    heroName: 
+    characterTotalXP: 0
+    characterAvailableXP: 0
+    nextXpCost: 0
+    healthListLevel: 0
+    atkListLevel: 0
+    abilityListLevel: 0
+    isTank: 0
+    health: 0
+    attackPower: 0
+    abilityPower: 0
+    charUnlock: 0
+    autoAtkUnlock: 0
+    ability1Unlock: 0
+    ability2Unlock: 0
+    ability3Unlock: 0
+    potionUnlock: 0
+    selectedPotionType: 0
+    totalLevel: 0
+    autoAtk: {fileID: 0}
+    ability1: {fileID: 0}
+    ability2: {fileID: 0}
+    ability3: {fileID: 0}
+    potion: {fileID: 0}
+    gearset: {fileID: 0}
+    armorMultiplier: 0
+    weaponMultiplier: 0
+    accessoryMultiplier: 0
+    nextArmorUpgradeIndex: 0
+    nextWeaponUpgradeIndex: 0
+    nextAccessoryUpgradeIndex: 0
+    AbilityUnlocks: []
+  highThreatTarget: {fileID: 0}
+  ability1Target: {fileID: 0}
+  ability2Target: {fileID: 0}
+  ability3Target: {fileID: 0}
+  currentState: 0
+  body: {fileID: 0}
+  healthBar: {fileID: 0}
+  healthBG: {fileID: 0}
+  CurrentEffectsRemovalIds: []
+  isDead: 0
+  ThreatScore: 0
+  totalCurrentTankThreatMultiplier: 0
+  targetCheckCount: 0
+  targetCheckFrequency: 0
+  hasTaunted: 0
+  isTaunted: 0
+  isStunned: 0
+  threatResetClock: 0
+  isPlayer: 0
+  beginAtkAnim: 0
+  isStealthed: 0
+  xpAdded: 0
+  abilityAnimationType: 
+  dmgVariance: 0
+  debuggingID: 0
+  debugShowTargetLines: 0
+  distanceToHighThreatTarget: 0
+  highThreatTargetPlusDistance: 0
+  FloatingTextPrefab: {fileID: 0}
 --- !u!1 &1179323503465415
 GameObject:
   m_ObjectHideFlags: 0
