@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ba75e9d14853a8479e5aef08600430e, type: 3}
+  m_Name: 6
+  m_EditorClassIdentifier: 
+  levelNumber: 6
+  maxFriendlyCharacters: 0
+  levelUnlocksCharacter: 1
+  heroUnlockedOnVictoryIndex: 6
+  GameObject: 
+  nPCSpawnData:
+  - characterPrefab: {fileID: 6738371103545747026, guid: ccb0182f380f2574cbac818c78381a9d,
+      type: 3}
+    DefaultUnitData: 0
+    team: 1
+    size: 3
+    numberOfInstances: 1
+    spawn: 4
+  - characterPrefab: {fileID: 1767414096115935, guid: 9f1a129c51a40dd4692cb9024944990b,
+      type: 3}
+    DefaultUnitData: 0
+    team: 1
+    size: 0
+    numberOfInstances: 1
+    spawn: 4
+  - characterPrefab: {fileID: 8887474151139866053, guid: d976bd0383c6f25428c1855b09688f56,
+      type: 3}
+    DefaultUnitData: 0
+    team: 1
+    size: 0
+    numberOfInstances: 6
+    spawn: 6
+  - characterPrefab: {fileID: 2111358518787767468, guid: 0d161b1c5f3d84f46862d4e1712408eb,
+      type: 3}
+    DefaultUnitData: 0
+    team: 1
+    size: 0
+    numberOfInstances: 2
+    spawn: 5

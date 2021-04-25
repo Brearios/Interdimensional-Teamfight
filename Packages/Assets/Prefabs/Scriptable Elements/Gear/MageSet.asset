@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 651527865ccf0df4bbd14d6faab91179, type: 3}
+  m_Name: MageSet
+  m_EditorClassIdentifier: 
+  armor: {fileID: 11400000, guid: 0533da84f74161b4ab26a008d3474010, type: 2}
+  weapon: {fileID: 11400000, guid: 6e1fa79813063ea4bba1930957651aa4, type: 2}
+  accessory: {fileID: 11400000, guid: 6a0ab2a184d9ca94d854b33dfb091e40, type: 2}
+  currentArmorEnhancements: []
+  currentWeaponEnhancements: []
+  currentAccessoryEnhancements: []

@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb4150d779a2b1143b0ae420b32688ed, type: 3}
+  m_Name: Frostbite
+  m_EditorClassIdentifier: 
+  targetType: 1
+  abilityName: Frostbite
+  hpDelta: 0
+  abilityRange: 5
+  aoeChancetoHit: 0
+  cooldown: 5
+  startsOnCooldown: 0
+  isAutoAtk: 0
+  description: Chills enemies, damaging them over time.
+  effect: {fileID: 11400000, guid: ebc4f922dcc1bc84ba1a2b092556cb96, type: 2}
+  abilityCharges: 0
+  unlockCost: 300
