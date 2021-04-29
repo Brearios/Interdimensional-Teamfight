@@ -92,6 +92,8 @@ public class Actor : MonoBehaviour
 
         CharacterProfile currentProfile = PlayerProfile.Instance.GetCharacterProfileForUnit(unit);
 
+        //PlayerCheck();
+
         if (!isPlayer)
         {
             NewGamePlusStatScaler();
@@ -256,7 +258,7 @@ public class Actor : MonoBehaviour
 
         if (currentState == State.Idle)
         {
-            GetComponent<Character>().Animator.SetBool("Ready", true);
+            GetComponentInChildren<Character>().Animator.SetBool("Ready", true);
             FindPriorityEnemy();
         }
 
@@ -531,11 +533,11 @@ public class Actor : MonoBehaviour
     void MoveTowardsTarget()
     {
         // It's OK if we set this every frame even if we're already moving.
-        GetComponent<Character>().Animator.SetBool("Ready", false);
+        GetComponentInChildren<Character>().Animator.SetBool("Ready", false);
         currentState = State.Moving;
         NotifyListeners();
-        GetComponent<Character>().Animator.SetBool("Walk", true);
-        // GetComponent<Character>().Animator.Play("Walk"); Definitely not doing what I want
+        GetComponentInChildren<Character>().Animator.SetBool("Walk", true);
+        // GetComponentInChildren<Character>().Animator.Play("Walk"); Definitely not doing what I want
 
         transform.position = Vector2.MoveTowards(transform.position, highThreatTarget.transform.position, moveSpeed * GameManager.Instance.deltaTime);
     }
@@ -548,8 +550,8 @@ public class Actor : MonoBehaviour
     {
         currentState = State.Attacking;
         NotifyListeners();
-        GetComponent<Character>().Animator.SetBool("Walk", false);
-        GetComponent<Character>().Animator.SetBool("Ready", true);
+        GetComponentInChildren<Character>().Animator.SetBool("Walk", false);
+        GetComponentInChildren<Character>().Animator.SetBool("Ready", true);
         // globalCooldownCount = 0f; Unecessary due to conversion of autoAtk to ability
     }
 
@@ -609,7 +611,7 @@ public class Actor : MonoBehaviour
             // Random Damage based on dmgVariance stat
             int hpChangeVaried = ApplyRandomness(atkDamage);
 
-            GetComponent<Character>().Animator.SetBool("Slash", true);
+            GetComponentInChildren<Character>().Animator.SetBool("Slash", true);
             highThreatTarget.ChangeHealth(-hpChangeVaried, false);
             Debug.Log($"{unitName} attacked {highThreatTarget} for {hpChangeVaried}.");
 
@@ -644,7 +646,7 @@ public class Actor : MonoBehaviour
             // Auto Attack
             if ((ability.abilityData.targetType == ScriptableAbility.TargetType.Damage) && (ability.abilityData.isAutoAtk))
             {
-                GetComponent<Character>().Animator.SetBool("Slash", true);
+                GetComponentInChildren<Character>().Animator.SetBool("Slash", true);
                 int hpChangeVaried = ApplyRandomness(atkDamage * -1);
                 ability.currentTarget.ChangeHealth(hpChangeVaried, true);
                 Debug.Log($"{unitName} used {ability.abilityData.abilityName} on {ability.currentTarget} for {hpChangeVaried}");
@@ -652,7 +654,7 @@ public class Actor : MonoBehaviour
             // Direct Damage Ability
             else if (ability.abilityData.targetType == ScriptableAbility.TargetType.Damage)
             {
-                GetComponent<Character>().Animator.SetBool("Slash", true);
+                GetComponentInChildren<Character>().Animator.SetBool("Slash", true);
                 int hpChangeVaried = ApplyRandomness(abilityPower * ability.abilityData.hpDelta);
                 ability.currentTarget.ChangeHealth(hpChangeVaried, true);
                 Debug.Log($"{unitName} used {ability.abilityData.abilityName} on {ability.currentTarget} for {hpChangeVaried}");
@@ -690,8 +692,8 @@ public class Actor : MonoBehaviour
             }
             // Heal
             else if (ability.abilityData.targetType == ScriptableAbility.TargetType.Heal)
-            {               
-                GetComponent<Character>().Animator.SetBool("Slash", true);
+            {
+                GetComponentInChildren<Character>().Animator.SetBool("Slash", true);
                 int hpChangeVaried = ApplyRandomness(abilityPower * ability.abilityData.hpDelta);
                 ability.currentTarget.ChangeHealth(hpChangeVaried, true);
                 Debug.Log($"{unitName} used {ability.abilityData.abilityName} on {ability.currentTarget} for {hpChangeVaried}");
@@ -735,7 +737,7 @@ public class Actor : MonoBehaviour
             // Other
             else
             {
-                GetComponent<Character>().Animator.SetBool("Slash", true);
+                GetComponentInChildren<Character>().Animator.SetBool("Slash", true);
                 int hpChangeVaried = ApplyRandomness(abilityPower * ability.abilityData.hpDelta);
                 ability.currentTarget.ChangeHealth(hpChangeVaried, true);
                 Debug.Log($"{unitName} used {ability.abilityData.abilityName} on {ability.currentTarget} for {hpChangeVaried}");
@@ -962,17 +964,17 @@ public class Actor : MonoBehaviour
             targetCheckCount = 0;
         }
     }
-    void PlayerCheck()
-    {
-        //if (Actor.Team == Team.Blue)
-        //{
-        //    isPlayer = true;
-        //}
-        //else
-        //{
-        //    isPlayer = false;
-        //}
-    }
+    //void PlayerCheck()
+    //{
+    //    if (team == Team.Blue)
+    //    {
+    //        isPlayer = true;
+    //    }
+    //    else
+    //    {
+    //        isPlayer = false;
+    //    }
+    //}
 
     public int ApplyRandomness(int hpToVary)
     {
@@ -1021,7 +1023,7 @@ public class Actor : MonoBehaviour
         healthBar.canvasRenderer.SetAlpha(0);
         healthBG.canvasRenderer.SetAlpha(0);
         {
-            GetComponent<Character>().Animator.SetTrigger(Time.frameCount % 2 == 0 ? "DieBack" : "DieFront"); // Play animation randomly
+            GetComponentInChildren<Character>().Animator.SetTrigger(Time.frameCount % 2 == 0 ? "DieBack" : "DieFront"); // Play animation randomly
         }
         //currentState = State.Dead;
         //NotifyListeners();

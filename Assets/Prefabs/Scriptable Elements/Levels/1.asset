@@ -18,7 +18,7 @@ MonoBehaviour:
   heroUnlockedOnVictoryIndex: 1
   GameObject: 
   nPCSpawnData:
-  - characterPrefab: {fileID: 8887474151139866053, guid: d976bd0383c6f25428c1855b09688f56,
+  - characterPrefab: {fileID: 7076108960563365753, guid: f4d72d5cd86c9a047b044544463ef203,
       type: 3}
     DefaultUnitData: 1
     team: 1
