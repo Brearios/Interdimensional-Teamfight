@@ -201,10 +201,10 @@ public class Actor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameManager.Instance.activeScene > 1)
-        {
-            HealthBarManagement();
-        }
+        //if (GameManager.Instance.activeScene > 1)
+        //{
+        //    HealthBarManagement();
+        //}
         // beginAtkAnim = false;
 
         if (GameManager.Instance.IsRunning == false)
@@ -559,6 +559,10 @@ public class Actor : MonoBehaviour
 
         foreach (AbilityProcessor Processor in AbilityProcessors)
         {
+            if (Processor.abilityData.abilityName == "Filler")
+            {
+                return;
+            }
             Processor.cooldownCount += GameManager.Instance.deltaTime;
             if (Processor.cooldownCount >= Processor.abilityData.cooldown)
             {
