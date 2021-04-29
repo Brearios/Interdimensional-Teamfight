@@ -1,0 +1,284 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7076108960563365753
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4123048618580877178}
+  - component: {fileID: 6303665774795433542}
+  - component: {fileID: 4625167456950510716}
+  - component: {fileID: 989399122228891813}
+  m_Layer: 0
+  m_Name: Skeleton Mob
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4123048618580877178
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7076108960563365753}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.6642443, y: 0.33783036, z: -50.3421}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 3105165592239470781}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6303665774795433542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7076108960563365753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 373b52eb9bf8c40f785bb6947a1aee66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  drawGizmos: 1
+  detailedGizmos: 0
+  startEndModifier:
+    addPoints: 0
+    exactStartPoint: 3
+    exactEndPoint: 3
+    useRaycasting: 0
+    mask:
+      serializedVersion: 2
+      m_Bits: 4294967295
+    useGraphRaycasting: 0
+  traversableTags: -1
+  tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  graphMask:
+    value: -1
+--- !u!114 &4625167456950510716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7076108960563365753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bff54c1859dca894cbcc512849544503, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &989399122228891813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7076108960563365753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b0ce10ba1de5194cb07dc56bd422a12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unit: {fileID: 11400000, guid: a5e21eeb882327549a6a878df20d441b, type: 2}
+  team: {fileID: 11400000, guid: 5448075b66749f347a9d240d37ee5609, type: 2}
+  autoAtk: {fileID: 11400000, guid: 2bebe808ca503864c9cc1f842b32a7d1, type: 2}
+  ability1: {fileID: 11400000, guid: ce80ff9f4cf65b14e82502bfb80dcb0b, type: 2}
+  ability2: {fileID: 0}
+  ability3: {fileID: 0}
+  potion: {fileID: 0}
+  unitName: 
+  maxHealth: 0
+  currHealth: 0
+  healthPercent: 0
+  atkDamage: 0
+  abilityPower: 0
+  xpWhenKilled: 0
+  crystalsWhenKilled: 0
+  goldWhenKilled: 0
+  role: 
+  atkRange: 0
+  moveSpeed: 0
+  currentProfile:
+    armorUpgradeLevel: 0
+    armorEnhancementSlots: 0
+    armorEnhancements: []
+    armorStatPoints: 0
+    armorStatMultiplier: 0
+    weaponUpgradeLevel: 0
+    weaponEnhancementSlots: 0
+    weaponEnhancements: []
+    weaponStatPoints: 0
+    weaponStatMultiplier: 0
+    accessoryUpgradeLevel: 0
+    accessoryEnhancementSlots: 0
+    accessoryEnhancements: []
+    accessoryStatPoints: 0
+    accessoryStatMultiplier: 0
+    heroName: 
+    characterTotalXP: 0
+    characterAvailableXP: 0
+    nextXpCost: 0
+    healthListLevel: 0
+    atkListLevel: 0
+    abilityListLevel: 0
+    isTank: 0
+    health: 0
+    attackPower: 0
+    abilityPower: 0
+    charUnlock: 0
+    autoAtkUnlock: 0
+    ability1Unlock: 0
+    ability2Unlock: 0
+    ability3Unlock: 0
+    potionUnlock: 0
+    selectedPotionType: 0
+    totalLevel: 0
+    autoAtk: {fileID: 0}
+    ability1: {fileID: 0}
+    ability2: {fileID: 0}
+    ability3: {fileID: 0}
+    potion: {fileID: 0}
+    gearset: {fileID: 0}
+    armorMultiplier: 0
+    weaponMultiplier: 0
+    accessoryMultiplier: 0
+    nextArmorUpgradeIndex: 0
+    nextWeaponUpgradeIndex: 0
+    nextAccessoryUpgradeIndex: 0
+    AbilityUnlocks: []
+  highThreatTarget: {fileID: 0}
+  ability1Target: {fileID: 0}
+  ability2Target: {fileID: 0}
+  ability3Target: {fileID: 0}
+  currentState: 0
+  body: {fileID: 0}
+  healthBar: {fileID: 2047716352258265656}
+  healthBG: {fileID: 3519985430299056859}
+  CurrentEffectsRemovalIds: []
+  isDead: 0
+  ThreatScore: 0
+  totalCurrentTankThreatMultiplier: 0
+  targetCheckCount: 0
+  targetCheckFrequency: 0
+  hasTaunted: 0
+  isTaunted: 0
+  isStunned: 0
+  threatResetClock: 0
+  isPlayer: 0
+  beginAtkAnim: 0
+  isStealthed: 0
+  xpAdded: 0
+  abilityAnimationType: 
+  dmgVariance: 0
+  debuggingID: 0
+  debugShowTargetLines: 0
+  distanceToHighThreatTarget: 0
+  highThreatTargetPlusDistance: 0
+  FloatingTextPrefab: {fileID: 0}
+--- !u!1001 &5788932564265916426
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 4123048618580877178}
+    m_Modifications:
+    - target: {fileID: 8881565587964174519, guid: d976bd0383c6f25428c1855b09688f56,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -7.580807
+      objectReference: {fileID: 0}
+    - target: {fileID: 8881565587964174519, guid: d976bd0383c6f25428c1855b09688f56,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -9.351811
+      objectReference: {fileID: 0}
+    - target: {fileID: 8881565587964174519, guid: d976bd0383c6f25428c1855b09688f56,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 50.3421
+      objectReference: {fileID: 0}
+    - target: {fileID: 8881565587964174519, guid: d976bd0383c6f25428c1855b09688f56,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8881565587964174519, guid: d976bd0383c6f25428c1855b09688f56,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8881565587964174519, guid: d976bd0383c6f25428c1855b09688f56,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8881565587964174519, guid: d976bd0383c6f25428c1855b09688f56,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8881565587964174519, guid: d976bd0383c6f25428c1855b09688f56,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8881565587964174519, guid: d976bd0383c6f25428c1855b09688f56,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8881565587964174519, guid: d976bd0383c6f25428c1855b09688f56,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8881565587964174519, guid: d976bd0383c6f25428c1855b09688f56,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8887474151139866053, guid: d976bd0383c6f25428c1855b09688f56,
+        type: 3}
+      propertyPath: m_Name
+      value: Skeleton Mob
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: -736874305231798825, guid: d976bd0383c6f25428c1855b09688f56, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: d976bd0383c6f25428c1855b09688f56, type: 3}
+--- !u!4 &3105165592239470781 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8881565587964174519, guid: d976bd0383c6f25428c1855b09688f56,
+    type: 3}
+  m_PrefabInstance: {fileID: 5788932564265916426}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3519985430299056859 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6958038774278537937, guid: d976bd0383c6f25428c1855b09688f56,
+    type: 3}
+  m_PrefabInstance: {fileID: 5788932564265916426}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2047716352258265656 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5493433129091598898, guid: d976bd0383c6f25428c1855b09688f56,
+    type: 3}
+  m_PrefabInstance: {fileID: 5788932564265916426}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
