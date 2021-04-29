@@ -3005,7 +3005,7 @@ PrefabInstance:
         type: 3}
       propertyPath: heroes.Array.data[0].characterPrefab
       value: 
-      objectReference: {fileID: 8102634624511559635, guid: 594caef060026ff498458d790d7df964,
+      objectReference: {fileID: 2484958977829160153, guid: def5e934f64214e469ca258819c6f691,
         type: 3}
     - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
         type: 3}
@@ -3016,7 +3016,7 @@ PrefabInstance:
         type: 3}
       propertyPath: heroes.Array.data[1].characterPrefab
       value: 
-      objectReference: {fileID: 5960741867934732086, guid: 2405017ca93a2a34d84bb34826e42042,
+      objectReference: {fileID: 748980837002844661, guid: bc50da297e6d2d24484ea36de43e8e79,
         type: 3}
     - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
         type: 3}
@@ -3027,7 +3027,7 @@ PrefabInstance:
         type: 3}
       propertyPath: heroes.Array.data[2].characterPrefab
       value: 
-      objectReference: {fileID: 1527356296647036081, guid: 385654249dfbbb244a30ec4537010837,
+      objectReference: {fileID: 4668187189267189864, guid: fb974696c640433459c116dc1e3a6dad,
         type: 3}
     - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
         type: 3}
@@ -3038,7 +3038,7 @@ PrefabInstance:
         type: 3}
       propertyPath: heroes.Array.data[3].characterPrefab
       value: 
-      objectReference: {fileID: 6573559670356672983, guid: 8ed0d27a91e46274fbc4d185dd169e9c,
+      objectReference: {fileID: 6702100756178987244, guid: fd0b49ca51cec8048abffd24a01b5fd3,
         type: 3}
     - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
         type: 3}
@@ -3049,7 +3049,7 @@ PrefabInstance:
         type: 3}
       propertyPath: heroes.Array.data[4].characterPrefab
       value: 
-      objectReference: {fileID: 1338283891893459, guid: 2344f0cbcab414a458a3c12215cef4c1,
+      objectReference: {fileID: 7085522648754587587, guid: 4358c9c6e49858d4eb6f1e1f63dc8d76,
         type: 3}
     - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
         type: 3}
@@ -3060,7 +3060,7 @@ PrefabInstance:
         type: 3}
       propertyPath: heroes.Array.data[5].characterPrefab
       value: 
-      objectReference: {fileID: 1109987028385428, guid: 7c6d30d9e314a284f9e2fc4203efd99a,
+      objectReference: {fileID: 8051571014415187852, guid: 4ef892ee1fca8ef4b94b692ab011b4ee,
         type: 3}
     - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
         type: 3}
@@ -3101,7 +3101,7 @@ PrefabInstance:
         type: 3}
       propertyPath: startingHero.characterPrefab
       value: 
-      objectReference: {fileID: 8102634624511559635, guid: 594caef060026ff498458d790d7df964,
+      objectReference: {fileID: 2484958977829160153, guid: def5e934f64214e469ca258819c6f691,
         type: 3}
     - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
         type: 3}
@@ -3207,7 +3207,7 @@ PrefabInstance:
         type: 3}
       propertyPath: heroes.Array.data[6].characterPrefab
       value: 
-      objectReference: {fileID: 6672321985025395352, guid: 91a83eef7c7d9a440a1beff7180e7ef5,
+      objectReference: {fileID: 1921427812877950212, guid: c824b8f7c3ef9ab428421e00d355b686,
         type: 3}
     - target: {fileID: 611108803042512197, guid: db534adf8c82c12469f782d9128fd3f1,
         type: 3}

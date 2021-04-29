@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2484958977829160153}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.6642443, y: 0.33783036, z: -50.3421}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 773698598526353654}
@@ -171,7 +171,7 @@ MonoBehaviour:
   isTaunted: 0
   isStunned: 0
   threatResetClock: 0
-  isPlayer: 0
+  isPlayer: 1
   beginAtkAnim: 0
   isStealthed: 0
   xpAdded: 0
@@ -197,17 +197,17 @@ PrefabInstance:
     - target: {fileID: 8106177775817642437, guid: 594caef060026ff498458d790d7df964,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.666636
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8106177775817642437, guid: 594caef060026ff498458d790d7df964,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.54872566
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8106177775817642437, guid: 594caef060026ff498458d790d7df964,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 50.3421
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8106177775817642437, guid: 594caef060026ff498458d790d7df964,
         type: 3}
